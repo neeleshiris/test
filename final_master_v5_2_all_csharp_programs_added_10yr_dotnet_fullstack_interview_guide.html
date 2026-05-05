@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="hi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Final Master V5.2 - V3 Topics + Complete Interview Coding Programs - 10 Years .NET Full Stack Guide</title><style>
+:root{--blue:#1d4ed8;--dark:#0f172a;--green:#16a34a;--orange:#f97316;--purple:#7c3aed;--bg:#f5f7fb;--text:#1f2937;--muted:#64748b;}
+*{box-sizing:border-box} body{font-family:Arial,Helvetica,sans-serif;margin:0;background:var(--bg);color:var(--text);line-height:1.72}
+header{background:linear-gradient(135deg,#0f172a,#1d4ed8,#7c3aed);color:white;padding:42px 30px} header h1{margin:0;font-size:34px} header p{margin:8px 0 0;color:#e0e7ff;font-size:16px}
+.container{max-width:1260px;margin:auto;padding:24px}.card{background:white;border:1px solid #e5e7eb;border-radius:16px;padding:26px;margin:20px 0;box-shadow:0 8px 24px rgba(15,23,42,.08)}
+h2{margin-top:0;color:var(--dark);border-left:6px solid var(--blue);padding-left:12px} h3{color:#1e40af;margin-top:26px} h4{margin-bottom:8px;color:#111827}
+.q{background:#eff6ff;border-left:4px solid var(--blue);padding:12px 14px;border-radius:10px;font-weight:700;margin:10px 0}.summary{background:#f8fafc;border-left:4px solid #64748b;padding:12px 14px;border-radius:10px;margin:10px 0}.ans{background:#f8fafc;border-left:4px solid var(--green);padding:12px 14px;border-radius:10px;margin:10px 0}.speak{background:#ecfdf5;border-left:4px solid #10b981;padding:12px 14px;border-radius:10px;margin:10px 0}.warn{background:#fff7ed;border-left:4px solid var(--orange);padding:12px 14px;border-radius:10px;margin:10px 0}.pro{background:#f5f3ff;border-left:4px solid var(--purple);padding:12px 14px;border-radius:10px;margin:10px 0}.tip{background:#fefce8;border-left:4px solid #eab308;padding:12px 14px;border-radius:10px;margin:10px 0}
+table{width:100%;border-collapse:collapse;margin:14px 0;background:white} th,td{border:1px solid #cbd5e1;padding:10px;vertical-align:top;text-align:left} th{background:#dbeafe;color:#1e3a8a}
+pre{background:#0f172a;color:#e5e7eb;border-radius:12px;padding:15px;overflow-x:auto;white-space:pre-wrap} code{font-family:Consolas,Monaco,monospace} p code, li code, td code{background:#e2e8f0;color:#0f172a;padding:2px 5px;border-radius:5px}
+.tag{display:inline-block;background:#dbeafe;color:#1e40af;padding:5px 11px;border-radius:999px;margin:4px;font-size:13px}.toc a{display:block;color:#1d4ed8;text-decoration:none;padding:5px 0;border-bottom:1px dashed #e5e7eb}.toc a:hover{text-decoration:underline}.print{position:fixed;right:18px;bottom:18px;background:#2563eb;color:white;border:0;border-radius:999px;padding:12px 18px;cursor:pointer;box-shadow:0 8px 20px rgba(37,99,235,.35);z-index:10}
+@media print{.print{display:none}.card{box-shadow:none;break-inside:avoid}body{background:white}header{background:#0f172a}}
+
+.rule{background:#eef2ff;border-left:4px solid #6366f1;padding:12px 14px;border-radius:10px;margin:10px 0}.meta{font-size:13px;color:#dbeafe;margin-top:10px}
+.program-card{background:#ffffff;border:1px solid #dbeafe;border-radius:14px;padding:20px;margin:18px 0}.complexity{background:#f0fdf4;border-left:4px solid #22c55e;padding:10px 12px;border-radius:8px;margin:10px 0}.interview-line{background:#fff7ed;border-left:4px solid #f97316;padding:10px 12px;border-radius:8px;margin:10px 0}
+</style></head><body><header><h1>Final Master V5.2 - V3 Topics + Complete Interview Coding Programs</h1><p>V5 super-long guide updated with all V3 details plus complete easy-to-write C# interview programs.</p><div class="meta">Merged: V5 + V3 + attached arrays program file + requested coding list. Nothing omitted.</div></header><button class="print" onclick="window.print()">Print / Save PDF</button><div class="container"><div class="card toc"><h2>Index</h2><a href="#formula">0. Interview Formula + How to Speak Like 10-Year Expert</a>
+<a href="#intro">1. Self Introduction + Role Explanation</a>
+<a href="#angular-architecture">2. Angular Architecture - Detailed Expert Answer</a>
+<a href="#angular-spa-bindings">3. Angular SPA + Bindings + Directives</a>
+<a href="#component-lifecycle-di">4. Component Communication + Lifecycle Hooks + Angular DI</a>
+<a href="#rxjs-advanced">5. RxJS + Observable vs Promise + Operators</a>
+<a href="#angular-advanced">6. Angular Forms + Guards + Interceptors + Performance</a>
+<a href="#backend-architecture">7. .NET Core Backend Architecture + Clean Architecture</a>
+<a href="#rest-middleware">8. Middleware + Filters + REST + PUT POST PATCH</a>
+<a href="#di-oops-solid">9. .NET Dependency Injection + OOPS + SOLID</a>
+<a href="#async-deep">10. Async/Await + Task + I/O-bound + CPU-bound Deep</a>
+<a href="#gc-linq-csharp">11. Garbage Collection + LINQ + C# Advanced</a>
+<a href="#sql-database">12. SQL Server + Query Optimization + Deadlocks</a>
+<a href="#security-cache-background">13. Security + JWT + Caching + BackgroundService</a>
+<a href="#microservices-rabbitmq">14. Microservices + RabbitMQ + Saga + Outbox</a>
+<a href="#devops-testing">15. CI/CD + Docker + Testing + Logging</a>
+<a href="#coding-output">16. Coding Questions + Output Walkthrough</a>
+<a href="#project-stories">17. Real Project Examples + STAR Stories</a>
+<a href="#speak-more">18. Speak More Lines + Final Closing</a>
+<a href="#quick-qa">19. Additional Quick Q&amp;A Bank</a><a href="#v3-complete-coverage-merged">22. V3 Complete Coverage Merged - All Detailed Topics Preserved</a><a href="#v3-intro">V3 Detail: 0. How to Use This Final Guide + Interview Formula</a><a href="#v3-self-introduction">V3 Detail: 1. Self Introduction - 10 Years Full Stack</a><a href="#v3-angular-architecture">V3 Detail: 2. Angular Architecture - Detailed Definition + Expert Answer</a><a href="#v3-angular-spa">V3 Detail: 3. Angular as Single Page Application - Complete Answer</a><a href="#v3-angular-bindings">V3 Detail: 4. Angular Bindings - Definitions + Examples</a><a href="#v3-component-communication">V3 Detail: 5. Component Communication - Full Detail</a><a href="#v3-lifecycle-hooks">V3 Detail: 6. Angular Lifecycle Hooks - Definitions + Use Cases</a><a href="#v3-angular-di-service-scope">V3 Detail: 7. Angular Dependency Injection + Service Scope</a><a href="#v3-rxjs-observable">V3 Detail: 8. RxJS, Observable, Promise, Subjects, Operators</a><a href="#v3-angular-performance-forms">V3 Detail: 9. Angular Forms, Guards, Interceptors, Change Detection, Performance</a><a href="#v3-dotnet-backend-architecture">V3 Detail: 10. .NET Core Backend Architecture - Complete</a><a href="#v3-middleware-rest">V3 Detail: 11. Middleware, Filters, REST, Status Codes, PUT/POST/PATCH</a><a href="#v3-dependency-injection-dotnet">V3 Detail: 12. Dependency Injection in .NET Core - Detailed</a><a href="#v3-oops-solid">V3 Detail: 13. OOPS + SOLID + Interface vs Abstract</a><a href="#v3-async-await-deep">V3 Detail: 14. Async/Await, Task, I/O-bound, CPU-bound - Complete Deep Answer</a><a href="#v3-garbage-collection">V3 Detail: 15. Garbage Collection, IDisposable, Memory Leaks</a><a href="#v3-linq-ef-core">V3 Detail: 16. LINQ, EF Core, IEnumerable vs IQueryable, Performance</a><a href="#v3-csharp-advanced">V3 Detail: 17. C# Advanced Common Questions</a><a href="#v3-sql-database">V3 Detail: 18. SQL Server + Database Topics</a><a href="#v3-security-jwt">V3 Detail: 19. Authentication, Authorization, JWT, Refresh Token, Security</a><a href="#v3-caching-background-health">V3 Detail: 20. Caching, Redis, BackgroundService, Health Checks, Options Pattern</a><a href="#v3-microservices-advanced">V3 Detail: 21. Microservices Architecture - Advanced Detailed Answer</a><a href="#v3-rabbitmq-advanced">V3 Detail: 22. RabbitMQ - Advanced Detailed Answer</a><a href="#v3-devops-deployment">V3 Detail: 23. CI/CD, Docker, Deployment, Cloud Basics</a><a href="#v3-testing-quality">V3 Detail: 24. Unit Testing, Code Quality, Logging</a><a href="#v3-coding-bank">V3 Detail: 25. Coding Questions Bank + Move Zeroes</a><a href="#v3-output-walkthrough">V3 Detail: 26. Output Questions - How to Walk Through Code</a><a href="#v3-project-specific">V3 Detail: 27. Project Specific Questions + Rejection/Challenge Answer</a><a href="#v3-scenario-questions">V3 Detail: 28. Senior Scenario Questions</a><a href="#v3-final-checklist">V3 Detail: 29. Final Revision Checklist + Closing</a><a href="#complete-csharp-coding-programs">24. Complete C# Coding Programs - Easy to Write in Interview</a><a href="#program-1">Program 1: Reverse String</a><a href="#program-2">Program 2: Palindrome String</a><a href="#program-3">Program 3: Two Sum</a><a href="#program-4">Program 4: Find Duplicate Number</a><a href="#program-5">Program 5: First Non-Repeating Character</a><a href="#program-6">Program 6: Second Highest Number</a><a href="#program-7">Program 7: Count Character Frequency</a><a href="#program-8">Program 8: Merge Two Sorted Arrays</a><a href="#program-9">Program 9: Valid Parentheses</a><a href="#program-10">Program 10: Missing Number</a><a href="#program-11">Program 11: Remove Duplicates from Sorted Array</a><a href="#program-12">Program 12: Remove Duplicates from Unsorted Array</a><a href="#program-13">Program 13: Move Zeroes to End</a><a href="#program-14">Program 14: Sort Array using Bubble Sort</a><a href="#program-15">Program 15: Anagram String</a><a href="#program-16">Program 16: Reverse Words in Sentence</a><a href="#program-17">Program 17: LINQ Coding Questions - Common Interview Set</a><a href="#program-merge-verification">25. Program Merge Verification Checklist</a></div><section class="card" id="formula">
+<h2>0. Interview Formula + How to Speak Like 10-Year Expert</h2>
+<div class="q">Goal: Interviewer ko first 5 minutes me ye feel hona chahiye ki aap sirf developer nahi, end-to-end owner hain.</div>
+<div class="summary"><b>Core formula:</b> Har topic ko sirf definition se mat close kariye. 10-year role ke liye answer me definition, purpose, project usage, example, trade-off, performance/security impact, and production learning hona chahiye.</div>
+<h3>Universal Answer Framework</h3>
+<ol>
+<li><b>Definition:</b> Concept kya hai?</li>
+<li><b>Why:</b> Kyun use karte hain?</li>
+<li><b>Project Usage:</b> Aapne project me kaise use kiya?</li>
+<li><b>Code/Architecture Example:</b> Short example.</li>
+<li><b>Senior Point:</b> Performance, security, scalability, failure handling.</li>
+<li><b>Trade-off:</b> Kab use karna hai, kab avoid karna hai.</li>
+</ol>
+<div class="speak"><b>Power opening:</b><br/>I usually start by understanding the business flow and then design APIs, Angular components, database changes, and integration points keeping scalability, security, performance, maintainability, and production support in mind.</div>
+<div class="pro"><b>Use this when stuck:</b> “The implementation depends on use case. In real projects, I also consider maintainability, performance, failure handling, and observability before finalizing the approach.”</div>
+</section>
+<section class="card" id="intro">
+<h2>1. Self Introduction + Role Explanation</h2>
+<div class="q">Question: Tell me about yourself.</div>
+<div class="summary"><b>Purpose:</b> This answer should show experience, technology depth, architecture exposure, ownership, and production maturity.</div>
+<div class="speak"><b>Best speaking answer:</b><br/>I have around 10 years of experience as a .NET Full Stack Developer. My core expertise is in C#, ASP.NET Core Web API, Entity Framework Core, SQL Server, Angular, REST APIs, authentication/authorization, microservices, RabbitMQ, and enterprise web application development.<br/><br/>On frontend, I work with Angular components, services, routing, guards, interceptors, RxJS, reactive forms, lazy loading, and performance optimization. On backend, I work with Web APIs, layered/clean architecture, dependency injection, middleware, EF Core, SQL optimization, logging, exception handling, caching, and production support.<br/><br/>In recent projects, I have worked on microservices-based systems where services communicate using REST APIs and asynchronous messaging through RabbitMQ. Apart from coding, I am involved in requirement analysis, technical design, API contract finalization, database design, code reviews, unit testing, deployment support, production issue debugging, and mentoring junior developers.</div>
+<div class="pro"><b>Strong ending:</b> My strength is end-to-end ownership across frontend, backend, database, integrations, and production support.</div>
+<h3>Follow-up: What is your role in project?</h3>
+<div class="speak">My role includes requirement understanding, impact analysis, technical design, API development, Angular implementation, database changes, code review, bug fixing, performance optimization, deployment support, and production issue resolution. I also guide junior developers and ensure code quality and best practices.</div>
+</section>
+<section class="card" id="angular-architecture">
+<h2>2. Angular Architecture - Detailed Expert Answer</h2>
+<div class="q">Question: Explain Angular Architecture.</div>
+<div class="summary"><b>Definition:</b> Angular is a TypeScript-based component-driven framework used to build scalable Single Page Applications. Its architecture is based on components, templates, services, dependency injection, routing, RxJS, modules/standalone components, guards, interceptors, and build optimization.</div>
+<h3>What exactly to explain</h3>
+<ul>
+<li><b>Component:</b> UI building block with TypeScript class, HTML template, CSS/SCSS.</li>
+<li><b>Template:</b> View connected with component data using bindings.</li>
+<li><b>Service:</b> Reusable business logic and API communication.</li>
+<li><b>Dependency Injection:</b> Angular injects services instead of manual object creation.</li>
+<li><b>Routing:</b> Client-side navigation.</li>
+<li><b>Guards:</b> Route protection and navigation control.</li>
+<li><b>Interceptors:</b> Common HTTP handling like JWT, loader, logging, errors.</li>
+<li><b>RxJS:</b> Async stream handling.</li>
+<li><b>Lazy Loading:</b> Load feature only when required.</li>
+</ul>
+<div class="speak"><b>Speaking answer:</b><br/>Angular follows component-based architecture. The UI is divided into reusable components. Each component has a TypeScript class for logic, an HTML template for view, and CSS/SCSS for styling. Common logic and API calls are kept in services. Angular uses dependency injection to provide services to components and other services.<br/><br/>Routing is used for navigation between views without full page reload. Guards protect routes based on authentication or authorization. Interceptors handle cross-cutting concerns such as adding JWT token, showing loader, logging requests, and global error handling. HttpClient communicates with backend APIs and returns Observables, which are handled using RxJS.<br/><br/>For enterprise applications, I prefer feature-based architecture with core folder for singleton services, shared folder for reusable UI components/pipes/directives, and feature folders for business modules. I use lazy loading, OnPush change detection, trackBy, and async pipe where suitable for performance.</div>
+<h3>Folder Structure Example</h3>
+<pre><code>src/app
+  core/
+    services/
+    guards/
+    interceptors/
+  shared/
+    components/
+    pipes/
+    directives/
+  features/
+    users/
+    orders/
+    dashboard/
+    reports/</code></pre>
+<h3>Real project example</h3>
+<div class="speak">In one enterprise application, we used feature-based Angular structure. Core folder had AuthService, LoggerService, guards, and interceptors. Shared folder had reusable dropdowns, date pickers, pipes, and confirmation dialog components. Business features like Users, Orders, Dashboard, and Reports were separated. Reports module was lazy loaded because it was heavy and not required during initial application load.</div>
+<div class="pro"><b>Senior point:</b> This structure reduces coupling, improves reusability, improves initial load time, and makes onboarding easier for new developers.</div>
+</section>
+<section class="card" id="angular-spa-bindings">
+<h2>3. Angular SPA + Bindings + Directives</h2>
+<h3>Angular SPA</h3>
+<div class="q">Question: What does Angular is SPA mean?</div>
+<div class="summary"><b>Definition:</b> SPA means browser loads one main HTML page initially and then views are updated dynamically on client side without full page reload.</div>
+<div class="speak">Angular is called Single Page Application because initially browser loads index.html. After that, Angular Router changes views on client side. When user navigates from dashboard to users page, browser does not reload full page; Angular renders corresponding component and fetches required data from backend APIs.</div>
+<div class="pro"><b>Senior point:</b> SPA improves UX, but backend authorization is still mandatory because frontend guards can be bypassed.</div>
+<h3>Angular Bindings</h3>
+<div class="summary"><b>Definition:</b> Binding connects component class and template. It supports data flow from component to view, view to component, or both.</div>
+<table><tr><th>Binding</th><th>Syntax</th><th>Use</th></tr><tr><td>Interpolation</td><td>{{ title }}</td><td>Display data</td></tr><tr><td>Property Binding</td><td>[disabled]="isSaving"</td><td>Bind DOM property</td></tr><tr><td>Event Binding</td><td>(click)="save()"</td><td>Handle user event</td></tr><tr><td>Two-way Binding</td><td>[(ngModel)]="name"</td><td>Sync UI and model</td></tr><tr><td>Class Binding</td><td>[class.error]="hasError"</td><td>Conditional class</td></tr><tr><td>Style Binding</td><td>[style.color]="color"</td><td>Dynamic style</td></tr></table>
+<pre><code>&lt;h2&gt;{{ title }}&lt;/h2&gt;
+&lt;button [disabled]="isSaving" (click)="save()"&gt;Save&lt;/button&gt;
+&lt;input [(ngModel)]="userName" /&gt;
+&lt;div [class.error]="form.invalid"&gt;Validation Error&lt;/div&gt;</code></pre>
+<h3>Directive vs Component</h3>
+<div class="ans">Component is a directive with a template. Directive adds behavior to existing DOM. Structural directives change DOM structure like *ngIf, *ngFor. Attribute directives change appearance or behavior like ngClass, ngStyle.</div>
+<h3>Real project example</h3>
+<div class="speak">In a form screen, we used interpolation to show logged-in user name, property binding to disable Save button during API call, event binding for submit action, and class binding to highlight validation errors dynamically. In list screen, *ngFor displayed data and *ngIf handled empty result message.</div>
+</section>
+<section class="card" id="component-lifecycle-di">
+<h2>4. Component Communication + Lifecycle Hooks + Angular DI</h2>
+<h3>Component Communication</h3>
+<div class="summary"><b>Definition:</b> Component communication means passing data/events between Angular components based on their relationship.</div>
+<table><tr><th>Scenario</th><th>Technique</th><th>Use</th></tr><tr><td>Parent to Child</td><td>@Input</td><td>Pass data</td></tr><tr><td>Child to Parent</td><td>@Output + EventEmitter</td><td>Notify parent</td></tr><tr><td>Unrelated Components</td><td>Shared service with Subject/BehaviorSubject</td><td>Shared state/events</td></tr><tr><td>Route</td><td>Route params/query params</td><td>Pass id/filter</td></tr><tr><td>Complex App</td><td>NgRx/store</td><td>Global state</td></tr></table>
+<pre><code>@Input() userName: string = '';
+@Output() selected = new EventEmitter&lt;number&gt;();
+selectUser(id: number) { this.selected.emit(id); }</code></pre>
+<h3>Lifecycle Hooks</h3>
+<div class="summary"><b>Definition:</b> Lifecycle hooks are methods called by Angular at different stages of component lifecycle.</div>
+<table><tr><th>Hook</th><th>Use</th></tr><tr><td>ngOnChanges</td><td>React to @Input changes</td></tr><tr><td>ngOnInit</td><td>Initial data load</td></tr><tr><td>ngAfterViewInit</td><td>ViewChild access</td></tr><tr><td>ngOnDestroy</td><td>Cleanup subscriptions/timers</td></tr></table>
+<pre><code>private destroy$ = new Subject&lt;void&gt;();
+ngOnInit() {
+  this.userService.getUsers()
+    .pipe(takeUntil(this.destroy$))
+    .subscribe(users =&gt; this.users = users);
+}
+ngOnDestroy() {
+  this.destroy$.next();
+  this.destroy$.complete();
+}</code></pre>
+<h3>Angular DI and Service Scope</h3>
+<div class="ans">Angular DI provides dependencies instead of manual object creation. providedIn:'root' creates singleton service. Component-level provider creates a separate instance for that component tree. Lazy-loaded module can have separate service instance depending on provider configuration.</div>
+<h3>Real project example</h3>
+<div class="speak">In a user management screen, parent component loaded user list and passed selected user to child form using @Input. Child emitted update/delete event using @Output. For global notification count shown in header and sidebar, we used BehaviorSubject in shared service. Dashboard used ngOnInit for initial data load, filter component used ngOnChanges when date range changed, and ngOnDestroy cleaned subscriptions.</div>
+<div class="pro"><b>Senior point:</b> Use simplest communication pattern. Do not use global state for everything.</div>
+</section>
+<section class="card" id="rxjs-advanced">
+<h2>5. RxJS + Observable vs Promise + Operators</h2>
+<div class="summary"><b>Definition:</b> RxJS is a reactive programming library used by Angular to handle asynchronous streams like HTTP requests, user input, DOM events, and shared state.</div>
+<h3>Observable vs Promise</h3>
+<table><tr><th>Observable</th><th>Promise</th></tr><tr><td>Can emit multiple values</td><td>Single value</td></tr><tr><td>Lazy; starts on subscribe</td><td>Eager; starts immediately</td></tr><tr><td>Cancellable via unsubscribe</td><td>Not directly cancellable</td></tr><tr><td>Supports operators</td><td>Limited chaining</td></tr></table>
+<h3>Subject vs BehaviorSubject vs ReplaySubject</h3>
+<table><tr><th>Type</th><th>Use</th></tr><tr><td>Subject</td><td>Event broadcasting without initial value</td></tr><tr><td>BehaviorSubject</td><td>Latest value/current state</td></tr><tr><td>ReplaySubject</td><td>Replay previous values to new subscribers</td></tr></table>
+<h3>switchMap vs mergeMap vs concatMap vs exhaustMap</h3>
+<table><tr><th>Operator</th><th>Use</th></tr><tr><td>switchMap</td><td>Cancel previous request and use latest</td></tr><tr><td>mergeMap</td><td>Run inner operations in parallel</td></tr><tr><td>concatMap</td><td>Run operations sequentially</td></tr><tr><td>exhaustMap</td><td>Ignore new request while current is running</td></tr></table>
+<pre><code>this.searchControl.valueChanges.pipe(
+  debounceTime(300),
+  distinctUntilChanged(),
+  switchMap(text =&gt; this.customerService.search(text)),
+  catchError(error =&gt; of([]))
+).subscribe(customers =&gt; this.customers = customers);</code></pre>
+<h3>Real project example</h3>
+<div class="speak">In a customer search screen, every keystroke was initially calling API. We improved it using debounceTime, distinctUntilChanged, and switchMap. debounceTime waited for user pause, distinctUntilChanged avoided duplicate values, and switchMap cancelled old API request when new input came. This reduced API load and improved UX.</div>
+<div class="pro"><b>Senior point:</b> Prefer async pipe where possible because it automatically unsubscribes and reduces memory leak risk.</div>
+</section>
+<section class="card" id="angular-advanced">
+<h2>6. Angular Forms + Guards + Interceptors + Performance</h2>
+<h3>Reactive Forms vs Template-driven Forms</h3>
+<table><tr><th>Reactive Forms</th><th>Template-driven Forms</th></tr><tr><td>Model-driven</td><td>Template-driven</td></tr><tr><td>Best for complex forms</td><td>Good for simple forms</td></tr><tr><td>Easy testing</td><td>Less explicit</td></tr><tr><td>Validation in component class</td><td>Validation mostly in template</td></tr></table>
+<pre><code>form = new FormGroup({
+  name: new FormControl('', Validators.required),
+  email: new FormControl('', [Validators.required, Validators.email])
+});</code></pre>
+<h3>Guards</h3><ul><li>CanActivate: route access control</li><li>CanDeactivate: unsaved changes protection</li><li>CanLoad/CanMatch: lazy route control</li></ul>
+<h3>Interceptors</h3><ul><li>Add JWT token</li><li>Global error handling</li><li>Loader show/hide</li><li>Logging</li><li>Retry transient errors</li></ul>
+<h3>Change Detection: Default vs OnPush</h3>
+<div class="ans">Default strategy checks component tree frequently. OnPush checks component mainly when input reference changes, event occurs, async pipe emits, or change detection is manually triggered. It improves performance for large UIs.</div>
+<h3>Performance Optimization</h3>
+<ul><li>Lazy loading</li><li>OnPush change detection</li><li>trackBy in ngFor</li><li>Async pipe</li><li>Pagination/virtual scroll</li><li>Avoid functions in template</li><li>Unsubscribe subscriptions</li><li>Bundle optimization</li></ul>
+<h3>Real project example</h3>
+<div class="speak">In a large grid screen, UI was slow because thousands of records were rendered and change detection was frequent. We added server-side pagination, trackBy, OnPush change detection, and avoided template functions. This improved rendering performance and user experience.</div>
+</section>
+<section class="card" id="backend-architecture">
+<h2>7. .NET Core Backend Architecture + Clean Architecture</h2>
+<div class="summary"><b>Definition:</b> Backend architecture defines how API layer, business layer, data access layer, database, validation, authentication, logging, caching, and integrations are organized.</div>
+<div class="speak"><b>Speaking answer:</b><br/>In backend, I follow layered or clean architecture. Controller layer handles HTTP requests and responses. Service layer contains business logic, validation, and workflow decisions. Repository/data layer communicates with database using EF Core. DTOs define request/response contracts and avoid exposing database entities directly. Dependency Injection provides dependencies and improves testability.</div>
+<pre><code>Angular UI -&gt; API Controller -&gt; Service Layer -&gt; Repository/EF Core -&gt; SQL Server</code></pre>
+<pre><code>[HttpGet("{id}")]
+public async Task&lt;ActionResult&lt;UserDto&gt;&gt; GetUser(int id)
+{
+    var user = await _userService.GetUserAsync(id);
+    return user == null ? NotFound() : Ok(user);
+}</code></pre>
+<h3>Senior points</h3>
+<ul><li>Controller should be thin</li><li>Business logic belongs to service layer</li><li>Use DTOs</li><li>Use validation</li><li>Use global exception middleware</li><li>Use structured logging with correlation ID</li><li>Use health checks and monitoring</li></ul>
+<h3>Real project example</h3>
+<div class="speak">In one backend project, controller only handled request and response. Service layer handled business validation like whether user can perform action. Repository handled EF Core queries. We used DTOs and AutoMapper/manual mapping. This made code testable, maintainable, and easier to review.</div>
+</section>
+<section class="card" id="rest-middleware">
+<h2>8. Middleware + Filters + REST + PUT POST PATCH</h2>
+<h3>Middleware</h3>
+<div class="summary"><b>Definition:</b> Middleware is a component in ASP.NET Core request pipeline. It can process request before passing to next middleware and process response on return path.</div>
+<pre><code>app.UseExceptionHandler();
+app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
+app.MapControllers();</code></pre>
+<h3>Filters</h3><ul><li>Authorization filter</li><li>Action filter</li><li>Exception filter</li><li>Result filter</li></ul>
+<h3>PUT vs POST vs PATCH</h3>
+<table><tr><th>Method</th><th>Purpose</th><th>Idempotent</th></tr><tr><td>POST</td><td>Create resource</td><td>No</td></tr><tr><td>PUT</td><td>Replace complete resource</td><td>Yes</td></tr><tr><td>PATCH</td><td>Partial update</td><td>Usually yes depending implementation</td></tr></table>
+<h3>Status Codes</h3><p><span class="tag">200 OK</span><span class="tag">201 Created</span><span class="tag">204 No Content</span><span class="tag">400 Bad Request</span><span class="tag">401 Unauthorized</span><span class="tag">403 Forbidden</span><span class="tag">404 Not Found</span><span class="tag">409 Conflict</span><span class="tag">500 Error</span></p>
+<h3>Real project example</h3>
+<div class="speak">We used global exception middleware to return consistent error response and log exceptions with correlation ID. Authentication middleware validated JWT and authorization middleware checked roles/claims. This avoided duplicate error handling in every controller.</div>
+</section>
+<section class="card" id="di-oops-solid">
+<h2>9. .NET Dependency Injection + OOPS + SOLID</h2>
+<h3>Dependency Injection</h3>
+<div class="summary"><b>Definition:</b> Dependency Injection is a design pattern where dependencies are provided from outside instead of being created directly inside class.</div>
+<pre><code>builder.Services.AddScoped&lt;IUserService, UserService&gt;();
+builder.Services.AddSingleton&lt;ICacheService, CacheService&gt;();
+builder.Services.AddTransient&lt;IEmailService, EmailService&gt;();</code></pre>
+<table><tr><th>Lifetime</th><th>Meaning</th><th>Example</th></tr><tr><td>Singleton</td><td>One instance for app lifetime</td><td>Cache/config</td></tr><tr><td>Scoped</td><td>One per HTTP request</td><td>DbContext/services</td></tr><tr><td>Transient</td><td>New every time</td><td>Lightweight stateless</td></tr></table>
+<h3>OOPS</h3>
+<table><tr><th>Concept</th><th>Meaning</th></tr><tr><td>Encapsulation</td><td>Wrap data and methods, control access</td></tr><tr><td>Abstraction</td><td>Hide implementation details</td></tr><tr><td>Inheritance</td><td>Reuse base behavior</td></tr><tr><td>Polymorphism</td><td>Same contract, multiple implementations</td></tr></table>
+<h3>SOLID</h3><table><tr><th>Principle</th><th>Meaning</th></tr><tr><td>SRP</td><td>One responsibility</td></tr><tr><td>OCP</td><td>Open for extension, closed for modification</td></tr><tr><td>LSP</td><td>Child should substitute parent</td></tr><tr><td>ISP</td><td>Small focused interfaces</td></tr><tr><td>DIP</td><td>Depend on abstraction</td></tr></table>
+<h3>Interface vs Abstract Class</h3>
+<table><tr><th>Interface</th><th>Abstract Class</th></tr><tr><td>Contract</td><td>Contract + common implementation/state</td></tr><tr><td>Multiple implementation possible</td><td>Single inheritance</td></tr><tr><td>Best for DI</td><td>Best for shared base behavior</td></tr></table>
+<h3>Real project example</h3>
+<div class="speak">In our user module, controller depended on IUserService instead of UserService. During unit testing, we mocked IUserService. This made controller testable and avoided tight coupling. We used scoped lifetime for services using DbContext because DbContext should be request-scoped.</div>
+</section>
+<section class="card" id="async-deep">
+<h2>10. Async/Await + Task + I/O-bound + CPU-bound Deep</h2>
+<div class="summary"><b>Definition:</b> Asynchronous programming allows long-running operations to complete without blocking current thread. In C#, async/await works with Task and Task&lt;T&gt;.</div>
+<div class="speak"><b>Core answer:</b><br/>Async/await is mainly useful for I/O-bound work like database calls, API calls, file operations, and message queue operations. In ASP.NET Core, async improves scalability because while request waits for I/O, thread is released back to thread pool and can serve other requests.</div>
+<h3>I/O-bound vs CPU-bound</h3>
+<table><tr><th>I/O-bound</th><th>CPU-bound</th></tr><tr><td>Waiting for external resource</td><td>Heavy CPU computation</td></tr><tr><td>DB, API, file, RabbitMQ</td><td>Image processing, encryption, large report calculation</td></tr><tr><td>Use async/await naturally</td><td>Use Task.Run/Parallel/background worker carefully</td></tr></table>
+<pre><code>// I/O-bound
+public async Task&lt;User?&gt; GetUserAsync(int id)
+{
+    return await _db.Users.FirstOrDefaultAsync(x =&gt; x.Id == id);
+}</code></pre>
+<pre><code>// CPU-bound - use carefully
+var result = await Task.Run(() =&gt; HeavyCalculation());</code></pre>
+<div class="warn"><b>Important:</b> Do not wrap normal DB/API calls inside Task.Run in ASP.NET Core. EF Core async methods and HttpClient async methods are already I/O async.</div>
+<h3>Task vs Thread vs ThreadPool</h3>
+<table><tr><th>Task</th><th>Thread</th><th>ThreadPool</th></tr><tr><td>High-level abstraction</td><td>Low-level execution unit</td><td>Reusable worker threads</td></tr><tr><td>Preferred modern approach</td><td>Manual management</td><td>Used internally by tasks</td></tr></table>
+<h3>Task.WhenAll vs Task.WaitAll</h3>
+<table><tr><th>Task.WhenAll</th><th>Task.WaitAll</th></tr><tr><td>Non-blocking async wait</td><td>Blocks current thread</td></tr><tr><td>Recommended with await</td><td>Avoid in ASP.NET async code</td></tr></table>
+<pre><code>var userTask = _userService.GetSummaryAsync(id);
+var orderTask = _orderService.GetSummaryAsync(id);
+await Task.WhenAll(userTask, orderTask);</code></pre>
+<h3>Other advanced topics</h3>
+<ul><li><b>async void:</b> Avoid except event handlers.</li><li><b>Fire-and-forget:</b> Risky because exceptions may be unobserved.</li><li><b>CancellationToken:</b> Cancels long-running operation.</li><li><b>ConfigureAwait(false):</b> Useful in libraries.</li><li><b>ValueTask:</b> Can reduce allocation in specific high-performance scenarios.</li><li><b>Parallel.ForEach:</b> CPU-bound parallel work, not normal async I/O.</li></ul>
+<h3>Real project examples</h3>
+<div class="speak"><b>I/O-bound:</b> In APIs calling database and external APIs, we used async EF Core and HttpClient methods so request thread was not blocked during I/O wait.</div>
+<div class="speak"><b>Task.WhenAll:</b> In dashboard API, user summary, order summary, and notification summary were independent. We started all tasks and awaited Task.WhenAll to reduce total response time.</div>
+<div class="speak"><b>CPU-bound:</b> For long report calculation or file processing, I prefer background worker or queue-based processing rather than blocking API request.</div>
+</section>
+<section class="card" id="gc-linq-csharp">
+<h2>11. Garbage Collection + LINQ + C# Advanced</h2>
+<h3>Garbage Collection</h3>
+<div class="summary"><b>Definition:</b> GC is automatic memory management in .NET. It finds managed objects no longer reachable and releases memory.</div>
+<div class="ans">GC uses Gen 0 for short-lived objects, Gen 1 intermediate, and Gen 2 long-lived objects. GC.Collect() can force GC but should normally be avoided because runtime GC is optimized and forced GC can pause application.</div>
+<pre><code>GC.Collect();
+GC.WaitForPendingFinalizers();</code></pre>
+<h3>IDisposable</h3><div class="ans">Unmanaged resources like DB connections, streams, file handles should be disposed using IDisposable/using.</div>
+<h3>Memory leak reasons</h3><ul><li>Events not unsubscribed</li><li>Static collections</li><li>Timers not disposed</li><li>Cache without eviction</li><li>IDisposable not disposed</li></ul>
+<h3>LINQ</h3>
+<div class="summary"><b>Definition:</b> LINQ is Language Integrated Query. It queries collections, databases, XML, and other sources using C# syntax.</div>
+<pre><code>var users = await _db.Users
+    .AsNoTracking()
+    .Where(x =&gt; x.IsActive)
+    .Select(x =&gt; new UserDto { Id = x.Id, Name = x.Name })
+    .ToListAsync();</code></pre>
+<table><tr><th>IEnumerable</th><th>IQueryable</th></tr><tr><td>In-memory</td><td>Database/provider level</td></tr><tr><td>LINQ to Objects</td><td>LINQ to SQL/EF</td></tr></table>
+<h3>C# Advanced</h3><p><span class="tag">Array vs ArrayList vs List</span><span class="tag">String vs StringBuilder</span><span class="tag">Extension Methods</span><span class="tag">ref vs out</span><span class="tag">Value Type vs Reference Type</span><span class="tag">Boxing/Unboxing</span><span class="tag">Record vs Class</span><span class="tag">Delegates/Events</span></p>
+<h3>Real project examples</h3>
+<div class="speak"><b>GC:</b> In one issue, memory was increasing due to cache without expiration and event handlers not unsubscribed. We fixed root cause instead of forcing GC.</div>
+<div class="speak"><b>LINQ:</b> One API was slow due to unnecessary Include and full entity loading. We used projection, AsNoTracking, pagination, and checked generated SQL.</div>
+</section>
+<section class="card" id="sql-database">
+<h2>12. SQL Server + Query Optimization + Deadlocks</h2>
+<div class="summary"><b>Senior expectation:</b> 10-year full stack developer should understand indexes, joins, transactions, query optimization, execution plan, deadlocks, and EF-generated SQL impact.</div>
+<h3>Clustered vs Non-clustered Index</h3><table><tr><th>Clustered</th><th>Non-clustered</th></tr><tr><td>Defines physical order of data</td><td>Separate structure pointing to data</td></tr><tr><td>One per table</td><td>Multiple possible</td></tr></table>
+<h3>Slow Query Optimization Answer</h3>
+<div class="speak">I check execution plan, missing indexes, table scans, joins, WHERE conditions, selected columns, N+1 queries, pagination, blocking, deadlocks, and statistics. I avoid SELECT *, return only required columns, add indexes based on query pattern, and avoid unnecessary joins.</div>
+<h3>Joins</h3><ul><li>INNER JOIN: matching records</li><li>LEFT JOIN: all left + matching right</li><li>RIGHT JOIN: all right + matching left</li><li>FULL JOIN: all records from both</li></ul>
+<h3>Isolation Levels</h3><p><span class="tag">Read Uncommitted</span><span class="tag">Read Committed</span><span class="tag">Repeatable Read</span><span class="tag">Serializable</span><span class="tag">Snapshot</span></p>
+<h3>Deadlock</h3><div class="ans">Deadlock happens when two transactions hold resources and wait for each other. Fix by keeping transactions short, consistent table access order, proper indexes, avoiding unnecessary locks, and retry for transient failures.</div>
+<h3>CTE vs Temp Table vs Table Variable</h3><table><tr><th>CTE</th><th>Temp Table</th><th>Table Variable</th></tr><tr><td>Readable temporary result</td><td>Good for larger intermediate data</td><td>Good for smaller data</td></tr></table>
+<h3>Real project example</h3>
+<div class="speak">A report API was slow because it filtered on date and status without proper index. We checked execution plan and found table scan. After adding suitable non-clustered index and selecting only required columns, response time improved. We also added pagination to avoid returning thousands of rows.</div>
+<div class="pro"><b>Senior point:</b> Do not add indexes blindly. Indexes improve reads but can slow writes, so check query pattern and execution plan.</div>
+</section>
+<section class="card" id="security-cache-background">
+<h2>13. Security + JWT + Caching + BackgroundService</h2>
+<h3>Authentication vs Authorization</h3>
+<div class="ans">Authentication verifies who the user is. Authorization verifies what the user can access.</div>
+<h3>JWT</h3>
+<div class="summary"><b>Definition:</b> JWT is token-based authentication. Client sends token in Authorization header; backend validates signature, expiry, issuer, audience, roles, and claims.</div>
+<pre><code>Authorization: Bearer eyJhbGciOi...</code></pre>
+<h3>Refresh Token</h3><div class="ans">Access token should be short-lived. Refresh token generates new access token and should be stored securely with rotation/revoke strategy.</div>
+<h3>Security Best Practices</h3><ul><li>HTTPS</li><li>Input validation</li><li>Role/claim authorization</li><li>CORS carefully</li><li>Do not expose internal errors</li><li>Do not log sensitive data</li><li>Parameterized queries/EF</li><li>Rate limiting</li></ul>
+<h3>Caching</h3><table><tr><th>Cache Type</th><th>Use</th></tr><tr><td>In-memory</td><td>Single server</td></tr><tr><td>Redis/distributed</td><td>Multiple servers</td></tr><tr><td>Response cache</td><td>Cache HTTP response when suitable</td></tr></table>
+<h3>BackgroundService</h3><div class="ans">Used for queue processing, scheduled jobs, email processing, cleanup, report generation.</div>
+<h3>Health Checks + Options Pattern</h3><div class="ans">Health checks verify app and dependencies. Options pattern binds config to strongly typed class.</div>
+<h3>Real project examples</h3>
+<div class="speak"><b>JWT:</b> Angular sent JWT in Authorization header. API validated token and checked roles/claims. Frontend guard improved UX, but backend authorization enforced real security.</div>
+<div class="speak"><b>Caching:</b> Master data like countries, states, categories was cached because it changed rarely and was read frequently. In multi-server environment, Redis is better than in-memory cache.</div>
+</section>
+<section class="card" id="microservices-rabbitmq">
+<h2>14. Microservices + RabbitMQ + Saga + Outbox</h2>
+<h3>Microservices</h3>
+<div class="summary"><b>Definition:</b> Microservices architecture breaks a large application into small independently deployable services. Each service owns a business capability and can be scaled/deployed independently.</div>
+<div class="speak">Microservices divide application into services like User Service, Order Service, Payment Service, Inventory Service, and Notification Service. Services communicate synchronously using REST/gRPC or asynchronously using message brokers like RabbitMQ. Benefits are independent deployment, scalability, and fault isolation. Challenges are distributed transactions, data consistency, monitoring, logging, and debugging.</div>
+<h3>Monolith vs Modular Monolith vs Microservices</h3><table><tr><th>Monolith</th><th>Modular Monolith</th><th>Microservices</th></tr><tr><td>Single deployable</td><td>Single deployment with clean modules</td><td>Multiple deployable services</td></tr></table>
+<h3>Patterns</h3><table><tr><th>Pattern</th><th>Use</th></tr><tr><td>API Gateway</td><td>Single entry point</td></tr><tr><td>Saga</td><td>Distributed workflow</td></tr><tr><td>Outbox</td><td>Reliable event publishing</td></tr><tr><td>Circuit Breaker</td><td>Prevent cascading failures</td></tr><tr><td>Retry with backoff</td><td>Transient failure handling</td></tr><tr><td>Bulkhead</td><td>Failure isolation</td></tr></table>
+<h3>RabbitMQ</h3>
+<div class="summary"><b>Definition:</b> RabbitMQ is a message broker for asynchronous communication. Producer sends message to exchange, exchange routes to queue, and consumer processes message.</div>
+<table><tr><th>Exchange</th><th>Use</th></tr><tr><td>Direct</td><td>Exact routing key</td></tr><tr><td>Fanout</td><td>Broadcast</td></tr><tr><td>Topic</td><td>Pattern-based routing</td></tr><tr><td>Headers</td><td>Header-based routing</td></tr></table>
+<h3>RabbitMQ Advanced</h3><p><span class="tag">Ack/Nack</span><span class="tag">DLQ</span><span class="tag">Durable Queue</span><span class="tag">Persistent Message</span><span class="tag">Prefetch Count</span><span class="tag">Poison Message</span><span class="tag">Idempotent Consumer</span></p>
+<h3>Real project examples</h3>
+<div class="speak"><b>Microservices:</b> Order Service created order and published events. Payment, Inventory, and Notification services processed their responsibilities independently. This improved decoupling and independent scaling.</div>
+<div class="speak"><b>Saga/Outbox:</b> For order placement, a single DB transaction across services was not possible. Saga handled workflow and compensating actions. Outbox stored event in same DB transaction and background worker published it reliably.</div>
+<div class="speak"><b>RabbitMQ:</b> OrderCreated event was published to RabbitMQ. Notification Service consumed it for email/SMS. Failed messages were retried and then moved to DLQ. Consumers were idempotent to handle duplicate messages.</div>
+</section>
+<section class="card" id="devops-testing">
+<h2>15. CI/CD + Docker + Testing + Logging</h2>
+<h3>CI/CD</h3><div class="ans">CI/CD automates build, test, static analysis, artifact creation, deployment, and approval gates. It reduces manual errors and improves release quality.</div>
+<ul><li>Build pipeline</li><li>Run unit tests</li><li>Static code analysis/SonarQube</li><li>Create artifact or Docker image</li><li>Deploy to environment</li><li>Approval gates</li></ul>
+<h3>Docker</h3><div class="ans">Docker packages application and dependencies into container image for consistent deployment across environments.</div>
+<h3>Testing</h3><p><span class="tag">Unit Test</span><span class="tag">Integration Test</span><span class="tag">API Test</span><span class="tag">E2E Test</span><span class="tag">Performance Test</span></p>
+<pre><code>[Fact]
+public async Task GetUser_ShouldReturnUser_WhenUserExists()
+{
+    var result = await service.GetUserAsync(1);
+    Assert.NotNull(result);
+}</code></pre>
+<h3>Logging</h3><div class="ans">Use structured logs, correlation ID, useful context, centralized logging, and avoid sensitive data logging.</div>
+<h3>Real project example</h3>
+<div class="speak">In our project, CI pipeline built code, ran unit tests, and created deployment artifact. For production troubleshooting, correlation ID helped trace request across API and message consumer logs.</div>
+</section>
+<section class="card" id="coding-output">
+<h2>16. Coding Questions + Output Walkthrough</h2>
+<h3>Move Zeroes to End</h3>
+<div class="summary"><b>Problem:</b> Move all zeroes to end while maintaining order of non-zero elements. Do it in-place.</div>
+<pre><code>public static void MoveZeroes(int[] nums)
+{
+    int nonZeroIndex = 0;
+    for (int i = 0; i &lt; nums.Length; i++)
+    {
+        if (nums[i] != 0)
+        {
+            nums[nonZeroIndex++] = nums[i];
+        }
+    }
+    while (nonZeroIndex &lt; nums.Length)
+    {
+        nums[nonZeroIndex++] = 0;
+    }
+}</code></pre>
+<div class="ans"><b>Dry run:</b> Input [0,1,0,3,12]. Move non-zero values: [1,3,12,3,12]. Fill remaining with zero: [1,3,12,0,0]. Time O(n), Space O(1).</div>
+<h3>Other likely coding questions</h3><p><span class="tag">Reverse string</span><span class="tag">Palindrome</span><span class="tag">Two Sum</span><span class="tag">Find duplicate</span><span class="tag">First non-repeating char</span><span class="tag">Second highest</span><span class="tag">Valid parentheses</span><span class="tag">Missing number</span><span class="tag">Remove duplicates</span><span class="tag">LINQ coding</span></p>
+<h3>Output walkthrough framework</h3><ol><li>Identify initial values</li><li>Trace line by line</li><li>Track loop iteration</li><li>Note variable changes</li><li>Give final output</li><li>Explain reason</li></ol>
+<div class="speak">I will walk through the code line by line, track variable values after each step, and then conclude the final output.</div>
+</section>
+<section class="card" id="project-stories">
+<h2>17. Real Project Examples + STAR Stories</h2>
+<h3>Project Architecture Example</h3>
+<div class="speak">My project is an enterprise web application built using Angular frontend and ASP.NET Core Web API backend. Frontend uses components, services, routing, guards, interceptors, reactive forms, RxJS, and lazy loading. Backend follows layered/clean architecture with controllers, services, repositories, DTOs, validation, EF Core, and SQL Server. We use JWT authentication, role-based authorization, global exception handling, structured logging, and RabbitMQ for asynchronous processing.</div>
+<h3>Project Rejection / Design Feedback Answer</h3>
+<div class="speak">In one project, the initial design was not accepted because some non-functional requirements were not fully covered, especially audit logging, scalability, monitoring, and failure handling. We treated it as feedback, revisited architecture, added audit logs, improved validation, defined retry/failure handling strategy, and updated API contracts. The learning was that senior developers must clarify NFRs early, not only functional requirements.</div>
+<h3>STAR 1: API Performance Optimization</h3>
+<div class="speak"><b>Situation:</b> Critical API was slow during peak usage.<br/><b>Task:</b> Improve response time without changing business behavior.<br/><b>Action:</b> Checked logs, LINQ, generated SQL, execution plan, removed unnecessary Include, used projection, AsNoTracking, pagination, and index suggestion.<br/><b>Result:</b> Response time improved and DB load reduced.</div>
+<h3>STAR 2: Angular Performance</h3>
+<div class="speak"><b>Situation:</b> Angular page was slow due to large data and frequent rendering.<br/><b>Task:</b> Improve UI responsiveness.<br/><b>Action:</b> Added pagination, trackBy, OnPush, avoided functions in template, optimized API calls.<br/><b>Result:</b> UI became faster and smoother.</div>
+<h3>STAR 3: RabbitMQ Failure Handling</h3>
+<div class="speak"><b>Situation:</b> Messages were failing repeatedly.<br/><b>Task:</b> Prevent message loss and improve traceability.<br/><b>Action:</b> Added manual ack, retry, DLQ, correlation ID logging, idempotent consumer.<br/><b>Result:</b> Failed messages became traceable and safe to reprocess.</div>
+<h3>STAR 4: Production Issue Ownership</h3>
+<div class="speak"><b>Situation:</b> Users faced intermittent errors.<br/><b>Task:</b> Identify root cause quickly.<br/><b>Action:</b> Checked logs, correlation ID, DB queries, recent deployments, external API timeout.<br/><b>Result:</b> Added timeout handling, retry with backoff, and better monitoring.</div>
+</section>
+<section class="card" id="speak-more">
+<h2>18. Speak More Lines + Final Closing</h2>
+<h3>Powerful lines to extend any answer</h3>
+<ul><li>In real projects, I also consider performance, security, and maintainability while using this concept.</li><li>The choice depends on use case; I avoid over-engineering when simple solution is enough.</li><li>From production point of view, logging, monitoring, and failure handling are important.</li><li>I prefer keeping controllers thin and moving business logic to service layer.</li><li>For database queries, I always think about generated SQL, indexes, and amount of data returned.</li><li>For Angular components, I keep UI logic in component and reusable logic in services.</li><li>For async code, I avoid blocking calls like .Result and .Wait because they hurt scalability.</li><li>For microservices, I focus on loose coupling, idempotency, eventual consistency, and observability.</li><li>For RabbitMQ consumers, duplicate message handling is important, so idempotency is required.</li><li>Frontend checks are not enough; backend authorization must enforce access.</li></ul>
+<h3>Final closing statement</h3>
+<div class="speak">I believe my strength is that I can work across frontend, backend, database, and architecture. I focus not only on writing code but also on scalability, maintainability, performance, security, and production readiness. I am comfortable taking ownership of features end-to-end and supporting them after deployment.</div>
+<h3>Questions to ask interviewer</h3>
+<ul><li>What architecture pattern is currently followed: monolith, modular monolith, or microservices?</li><li>What are the major technical challenges the team is solving?</li><li>How does the team maintain code quality: code reviews, unit tests, SonarQube, CI/CD?</li><li>What would be the expectation from this role in first 3 months?</li></ul>
+</section>
+<section class="card" id="quick-qa">
+<h2>19. Additional Quick Q&amp;A Bank</h2>
+<div class="summary">Use this section for follow-up questions. Each answer has definition + project speak line.</div><h3>Angular lazy loading</h3><div class="ans"><b>Definition:</b> Lazy loading loads feature module only when user navigates to that route. It reduces initial bundle size and improves first load performance.</div><div class="speak"><b>Project line:</b> In our project, Reports module was heavy, so we lazy loaded it. Dashboard loaded quickly and Reports JS bundle loaded only when user opened reports.</div><h3>Angular resolver</h3><div class="ans"><b>Definition:</b> Resolver pre-fetches data before route activation. It is useful when page should load with required data ready.</div><div class="speak"><b>Project line:</b> For details page, resolver can load entity by id before component renders, avoiding empty initial screen.</div><h3>Angular memory leak</h3><div class="ans"><b>Definition:</b> Memory leak happens when subscriptions, timers, or event handlers remain active after component destroy.</div><div class="speak"><b>Project line:</b> We used takeUntil and async pipe to clean subscriptions in components with long-lived streams.</div><h3>NgRx</h3><div class="ans"><b>Definition:</b> NgRx is state management library based on Redux pattern. It is useful for complex global state.</div><div class="speak"><b>Project line:</b> I use BehaviorSubject for simple state and NgRx only when state becomes complex across multiple features.</div><h3>Custom middleware</h3><div class="ans"><b>Definition:</b> Custom middleware handles cross-cutting concern in request pipeline.</div><div class="speak"><b>Project line:</b> We used middleware to log correlation ID and return consistent error response.</div><h3>Global exception handling</h3><div class="ans"><b>Definition:</b> Global exception handling catches unhandled exceptions centrally and returns consistent response.</div><div class="speak"><b>Project line:</b> It avoids try/catch duplication in every controller and logs error with correlation ID.</div><h3>FluentValidation</h3><div class="ans"><b>Definition:</b> FluentValidation defines validation rules in separate validator classes.</div><div class="speak"><b>Project line:</b> It keeps validation clean and reusable instead of putting all validations in controller.</div><h3>Repository pattern</h3><div class="ans"><b>Definition:</b> Repository abstracts data access logic.</div><div class="speak"><b>Project line:</b> I use it when it adds value, but EF Core already provides repository/unit-of-work concepts, so I avoid unnecessary abstraction.</div><h3>Unit of Work</h3><div class="ans"><b>Definition:</b> Unit of Work coordinates changes and commits transaction as a single unit.</div><div class="speak"><b>Project line:</b> DbContext behaves like Unit of Work in EF Core.</div><h3>Minimal API</h3><div class="ans"><b>Definition:</b> Minimal API allows lightweight endpoint definition with less ceremony.</div><div class="speak"><b>Project line:</b> Good for small services, but for large enterprise APIs controllers may be more organized.</div><h3>API versioning</h3><div class="ans"><b>Definition:</b> API versioning supports backward compatibility when API contract changes.</div><div class="speak"><b>Project line:</b> For external clients, versioning avoids breaking existing consumers.</div><h3>Rate limiting</h3><div class="ans"><b>Definition:</b> Rate limiting restricts number of requests to protect APIs.</div><div class="speak"><b>Project line:</b> It helps prevent abuse and protects backend resources.</div><h3>CQRS</h3><div class="ans"><b>Definition:</b> CQRS separates read and write models.</div><div class="speak"><b>Project line:</b> Useful when read and write workloads differ significantly, but avoid if simple CRUD is enough.</div><h3>Eventual consistency</h3><div class="ans"><b>Definition:</b> Eventual consistency means data becomes consistent over time across services.</div><div class="speak"><b>Project line:</b> In microservices, order and notification may not update in same transaction but eventually align via events.</div><h3>Idempotency</h3><div class="ans"><b>Definition:</b> Idempotency means repeated same operation does not create duplicate side effects.</div><div class="speak"><b>Project line:</b> RabbitMQ consumers should be idempotent because duplicate messages can happen.</div><h3>Outbox pattern</h3><div class="ans"><b>Definition:</b> Outbox stores event in database with business transaction and publishes later.</div><div class="speak"><b>Project line:</b> It prevents losing event after DB save and before message publish.</div><h3>Circuit breaker</h3><div class="ans"><b>Definition:</b> Circuit breaker stops calling failing dependency temporarily to prevent cascading failure.</div><div class="speak"><b>Project line:</b> If payment service is down, circuit breaker prevents exhausting threads with repeated calls.</div><h3>Retry with backoff</h3><div class="ans"><b>Definition:</b> Retry with backoff retries transient failures with increasing delay.</div><div class="speak"><b>Project line:</b> Useful for temporary network or dependency failures.</div><h3>Health checks</h3><div class="ans"><b>Definition:</b> Health checks expose status of app and dependencies.</div><div class="speak"><b>Project line:</b> Used by monitoring and orchestration to detect unhealthy instance.</div><h3>Correlation ID</h3><div class="ans"><b>Definition:</b> Correlation ID tracks request across services and logs.</div><div class="speak"><b>Project line:</b> It helped us trace one request from API to RabbitMQ consumer.</div><h3>SQL deadlock</h3><div class="ans"><b>Definition:</b> Deadlock occurs when transactions wait on each other's locks.</div><div class="speak"><b>Project line:</b> Fix by shorter transactions, consistent access order, indexes, and retry.</div><h3>N+1 problem</h3><div class="ans"><b>Definition:</b> N+1 means one query for parent and additional query per child.</div><div class="speak"><b>Project line:</b> Avoid using proper Include/projection or optimized query.</div><h3>AsNoTracking</h3><div class="ans"><b>Definition:</b> AsNoTracking disables EF tracking for read-only queries.</div><div class="speak"><b>Project line:</b> It improves performance for read-only list APIs.</div><h3>Projection</h3><div class="ans"><b>Definition:</b> Projection selects only required columns into DTO.</div><div class="speak"><b>Project line:</b> It reduces data transfer and avoids loading full entities.</div><h3>StringBuilder</h3><div class="ans"><b>Definition:</b> StringBuilder is mutable and efficient for repeated string concatenation.</div><div class="speak"><b>Project line:</b> Use inside loops for building large strings or CSV content.</div><h3>Boxing</h3><div class="ans"><b>Definition:</b> Boxing converts value type to object and causes allocation.</div><div class="speak"><b>Project line:</b> Avoid unnecessary ArrayList/object collections; prefer generic List<t>.</t></div>
+</section>
+<section class="card" id="extended-real-life-bank">
+<h2>20. Extended Real-Life Project Example Bank - Speak 2 to 3 Minutes Per Topic</h2>
+<div class="summary"><b>Purpose:</b> Ye section specially isliye add kiya gaya hai ki aap har question par sirf definition nahi, balki real project flow, challenge, solution, and result explain kar sakein.</div>
+<h3>Angular Architecture in Enterprise App</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>In a large enterprise portal, we divided application into feature areas like User Management, Dashboard, Reports, Orders, and Admin. Core folder had AuthService, TokenService, ErrorHandlerService, HTTP interceptors, and route guards. Shared folder had common UI controls, pipes, directives, and reusable validation messages. Feature folders had their own components and services. This helped us avoid one large app module and improved maintainability. Reports was lazy loaded because it was heavy and not required for every user. This improved initial load time and made deployment testing easier.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Angular Component Communication</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>In a user management screen, parent component loaded user list and child component displayed selected user details. Parent passed user object using @Input. Child emitted save and cancel events using @Output. For header notification count and logged-in user profile, we used BehaviorSubject in shared service because header, sidebar, and dashboard were unrelated components. This avoided unnecessary parent-child chaining and kept communication clean.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Angular Lifecycle Hooks</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>In dashboard, ngOnInit loaded summary data. In filter component, ngOnChanges reloaded list when date range changed. In chart component, ngAfterViewInit was used when chart needed access to DOM container. In components with manual subscription, ngOnDestroy cleaned subscriptions using takeUntil. This prevented memory leaks in SPA where components are created and destroyed frequently.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Angular Reactive Forms</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>In a complex onboarding form, we used Reactive Forms because form had many fields, dynamic validators, conditional sections, and custom validation. Template-driven forms would have become hard to maintain. Reactive forms allowed us to keep validation rules in TypeScript, write unit tests, and dynamically enable/disable controls based on user role.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Angular Interceptor</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>We implemented HTTP interceptor to attach JWT token to every API request. It also handled 401 globally by redirecting to login and showed common error message for server errors. This avoided repeating token logic in every service method and centralized error handling.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Angular Performance</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>One page had a large table and multiple dropdowns. It was slow due to rendering too many rows and repeated change detection. We added server-side pagination, trackBy, OnPush change detection, and avoided calling methods directly in template. This reduced UI lag and improved perceived performance.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>RxJS Search Optimization</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>A customer search box was calling API on every keystroke. We improved it using debounceTime, distinctUntilChanged, and switchMap. This reduced unnecessary API calls and cancelled stale requests. It also improved backend performance because API was not hit for every typed character.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Backend Layered Architecture</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>In backend, controller accepted request and returned response. Service layer handled business validation and workflow. Repository used EF Core for database access. DTOs were used for request and response to avoid exposing EF entities directly. This separation made code testable and easier to maintain.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Thin Controller Principle</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>Initially some controllers had business logic, validation, and database calls. We refactored by moving business logic to service layer and database logic to repository/query service. Controller became thin and easier to read. Unit testing also became easier because service could be tested independently.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Dependency Injection</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>We registered IUserService with UserService and injected interface into controller. This helped unit testing because we could mock IUserService. We used scoped lifetime for services using DbContext because DbContext should be created per request.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Global Exception Middleware</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>Instead of writing try/catch in every controller, we created global exception middleware. It logged exceptions with correlation ID and returned consistent error response. This improved maintainability and made production troubleshooting easier.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Logging with Correlation ID</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>In production, one user reported intermittent error. We used correlation ID from UI request to API logs and RabbitMQ consumer logs. This helped trace complete flow and find that external API timeout was causing issue.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Async I/O-bound</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>For APIs calling database and external systems, we used async EF Core and HttpClient methods. This improved scalability because request thread was released while waiting for I/O. We avoided blocking calls like .Result and .Wait.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Task.WhenAll</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>Dashboard API needed user summary, order summary, and notification summary. These calls were independent, so we started them together and awaited Task.WhenAll. This reduced total response time compared to sequential await.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>CPU-bound Work</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>For large report generation, we did not keep user waiting in API request. We moved processing to background worker and notified user when report was ready. This avoided blocking request thread and improved system stability.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Garbage Collection</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>In one memory issue, memory was increasing slowly. We analyzed cache and event subscriptions. Some cache entries had no expiry and some events were not unsubscribed. We fixed cache eviction and cleanup. We did not use GC.Collect as solution because root cause fixing is better.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>IDisposable</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>In file processing and stream usage, we used using statement to dispose resources. GC manages managed memory, but unmanaged resources like file handles, streams, database connections should be disposed explicitly.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>LINQ Performance</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>One API used Include for multiple related entities and returned full data. It was slow. We changed it to projection using Select, added AsNoTracking, and returned only required fields. This reduced query time and payload size.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>IEnumerable vs IQueryable</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>In EF Core queries, we kept query as IQueryable until filters and pagination were applied. Calling ToList early would load data in memory and then filter, which is inefficient for large data.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>SQL Index Optimization</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>A report query filtered by date and status. Execution plan showed table scan. We added non-clustered index on date/status columns and selected only required columns. Response time improved significantly.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>SQL Deadlock</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>We faced intermittent deadlock in update flow. We checked deadlock graph and found inconsistent table access order. We reduced transaction duration, accessed tables in consistent order, and added retry for transient deadlock errors.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Microservices Boundary</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>We separated Order, Payment, Inventory, and Notification responsibilities. Each service had clear boundary and owned its data. This reduced coupling and allowed independent scaling of high-traffic services.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Saga Pattern</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>Order placement involved payment and inventory. Since distributed transaction across services is not ideal, Saga pattern was used. If payment succeeded but inventory failed, compensating action could refund or mark order failed.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Outbox Pattern</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>To avoid losing events after database save, we stored event in outbox table in same transaction. Background worker later published event to RabbitMQ. This improved reliability.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>RabbitMQ DLQ</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>When consumer failed repeatedly due to invalid data, message was moved to Dead Letter Queue. Support team could inspect payload, fix data, and reprocess. This avoided message loss.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Idempotent Consumer</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>RabbitMQ can deliver duplicate messages in some cases. We designed consumer to check message ID/order ID before processing so duplicate email or duplicate inventory update did not happen.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>JWT Security</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>Angular sent JWT token in Authorization header. API validated token and checked claims. Route guard improved UX, but backend authorization was mandatory because frontend can be bypassed.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Refresh Token</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>Access token was short-lived. Refresh token was used to generate new access token. Refresh token revoke strategy was important for logout and compromised token scenarios.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Caching</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>Country, state, category, and config values were cached because they were read frequently and changed rarely. We used expiration and invalidation strategy to avoid stale data.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Redis</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>In multi-server deployment, in-memory cache was not enough because each instance had separate cache. Redis provided shared distributed cache across instances.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>BackgroundService</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>Email sending and report generation were moved to background processing. API accepted request and queued work, while background worker processed it asynchronously.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Health Checks</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>Health checks were added for API, database, Redis, and RabbitMQ. Monitoring system used health endpoint to detect unhealthy instance.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>CI/CD</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>CI pipeline built code, ran unit tests, performed static analysis, and created artifact. Release pipeline deployed to environments with approval gates. This reduced manual deployment errors.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Docker</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>Containerizing API helped make deployment consistent across environments. Same image could run in dev, test, and production with environment-specific configuration.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Unit Testing</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>We wrote unit tests for service layer by mocking repositories. This allowed testing business logic without hitting database. It improved confidence during refactoring.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+<h3>Production Issue</h3>
+<div class="speak"><b>Real project speaking example:</b><br/>For production issue, I check logs, correlation ID, request payload, recent deployments, DB performance, external dependencies, and monitoring metrics. After fix, I add prevention through validation, alert, or test.</div>
+<div class="pro"><b>How to extend:</b> After this example, mention result/impact such as improved performance, reduced coupling, better maintainability, or safer production behavior.</div>
+</section>
+<section class="card" id="deep-cross-questions">
+<h2>21. Deep Cross-Questions Interviewer Can Ask + Ready Answers</h2>
+<div class="summary">Ye section interviewer ke follow-up questions ke liye hai. Isse aap answer ko aur confidently extend kar sakte ho.</div>
+<h3>Q: Why not put business logic in controller?</h3><div class="speak"><b>Answer:</b> Controller should handle HTTP concerns only. Business logic in controller makes code hard to test and maintain. Service layer keeps business rules reusable and testable.</div><h3>Q: When will you use repository pattern with EF Core?</h3><div class="speak"><b>Answer:</b> EF Core already provides repository/unit-of-work like behavior. I use repository or query service when I need abstraction, complex query isolation, or testability, but I avoid unnecessary generic repository if it adds no value.</div><h3>Q: Why DTO instead of entity?</h3><div class="speak"><b>Answer:</b> DTO prevents exposing database schema directly, controls response shape, avoids over-posting, improves security, and reduces payload.</div><h3>Q: What is N+1 problem?</h3><div class="speak"><b>Answer:</b> N+1 occurs when one query loads parent records and then separate query runs for each child. It causes performance issues. Fix using projection, Include carefully, or optimized query.</div><h3>Q: When use AsNoTracking?</h3><div class="speak"><b>Answer:</b> Use AsNoTracking for read-only queries because EF does not track changes and performance improves.</div><h3>Q: When use Task.Run in ASP.NET Core?</h3><div class="speak"><b>Answer:</b> Avoid Task.Run for normal I/O operations. Use it carefully for short CPU-bound work, but for long work prefer background worker or queue.</div><h3>Q: Can async improve CPU-bound performance?</h3><div class="speak"><b>Answer:</b> Async does not make CPU work faster. It improves scalability for I/O-bound operations. CPU-bound work needs parallel processing or background processing.</div><h3>Q: What happens if RabbitMQ consumer crashes before ack?</h3><div class="speak"><b>Answer:</b> If manual ack is used and consumer crashes before ack, message can be requeued depending on configuration. Repeated failures should go to retry/DLQ.</div><h3>Q: Why idempotency in consumers?</h3><div class="speak"><b>Answer:</b> Messages can be delivered more than once. Idempotent consumer prevents duplicate side effects like duplicate email or duplicate payment update.</div><h3>Q: Why use Outbox?</h3><div class="speak"><b>Answer:</b> Outbox prevents event loss between DB commit and message publish by storing event in same transaction and publishing later.</div><h3>Q: How to handle distributed transaction?</h3><div class="speak"><b>Answer:</b> Avoid distributed DB transaction where possible. Use Saga, eventual consistency, compensating actions, and reliable messaging.</div><h3>Q: How to secure APIs?</h3><div class="speak"><b>Answer:</b> Use HTTPS, JWT validation, role/claim authorization, input validation, CORS policy, rate limiting, secure secrets, and avoid exposing internal errors.</div><h3>Q: What is difference between authentication and authorization?</h3><div class="speak"><b>Answer:</b> Authentication verifies identity. Authorization verifies permission to access resource.</div><h3>Q: What is OnPush?</h3><div class="speak"><b>Answer:</b> OnPush change detection checks component mainly when input reference changes, event occurs, async pipe emits, or manual change detection happens. It improves performance.</div><h3>Q: Observable vs Promise?</h3><div class="speak"><b>Answer:</b> Promise returns single value and starts immediately. Observable can emit multiple values, is lazy, cancellable, and supports operators.</div><h3>Q: switchMap vs mergeMap?</h3><div class="speak"><b>Answer:</b> switchMap cancels previous inner observable and uses latest. mergeMap runs multiple inner observables in parallel.</div><h3>Q: When use Redis?</h3><div class="speak"><b>Answer:</b> Use Redis for distributed cache when multiple app instances need shared cache or when cache should survive beyond single process.</div><h3>Q: How to debug slow API?</h3><div class="speak"><b>Answer:</b> Check logs, response time, DB query time, external dependencies, CPU/memory, thread pool, recent deployment, and tracing.</div><h3>Q: How to debug Angular slowness?</h3><div class="speak"><b>Answer:</b> Check bundle size, API calls, rendering count, change detection, large DOM, images, and repeated subscriptions.</div><h3>Q: How to handle production issue?</h3><div class="speak"><b>Answer:</b> Use correlation ID, logs, metrics, recent deployment, dependency status, DB performance, reproduce, fix root cause, add monitoring/prevention.</div></section><section class="card" id="v3-complete-coverage-merged"><h2>22. V3 Complete Coverage Merged - All Detailed Topics Preserved</h2><div class="summary"><b>Why this section exists:</b> V5 had some topics summarized/combined compared to V3. To make sure <b>kuch bhi missing na ho</b>, every detailed V3 topic, table, code snippet, speaking answer, senior point, scenario and checklist is preserved here.</div><section class="card" id="v3-intro"><h2>V3 Detail - 0. How to Use This Final Guide + Interview Formula</h2>
+<div class="q">Goal: 10 years .NET Full Stack interview में expert-level confidence दिखाना.</div>
+<div class="summary"><b>Summary:</b> Senior interview में सिर्फ definition बोलना enough नहीं होता. Interviewer देखता है कि candidate concept को project में कैसे use करता है, trade-off समझता है या नहीं, production issue handle कर सकता है या नहीं, और architecture-level सोच रखता है या नहीं.</div>
+<h4>Best Answer Formula</h4>
+<ol>
+<li><b>Definition:</b> Concept क्या है?</li>
+<li><b>Why:</b> क्यों use करते हैं?</li>
+<li><b>How:</b> Project में कैसे use किया?</li>
+<li><b>Example:</b> छोटा code/design example.</li>
+<li><b>Senior Point:</b> Performance, security, scalability, maintainability, failure handling.</li>
+</ol>
+<div class="speak"><b>Opening statement:</b><br/>
+I have around 10 years of experience as a .NET Full Stack Developer. My core skills are C#, ASP.NET Core Web API, Entity Framework Core, SQL Server, Angular, REST APIs, authentication/authorization, microservices, RabbitMQ, and production support. I focus on clean architecture, scalable APIs, reusable Angular components, performance optimization, secure coding, and end-to-end ownership.
+</div>
+<div class="pro"><b>First impression line:</b> “I usually start by understanding the business flow, then design APIs, database changes, Angular components, and integration points keeping scalability, security, performance, and maintainability in mind.”</div>
+</section><section class="card" id="v3-self-introduction"><h2>V3 Detail - 1. Self Introduction - 10 Years Full Stack</h2>
+<div class="q">Question: Tell me about yourself.</div>
+<div class="summary"><b>Definition/Summary:</b> Self-introduction should not be a resume reading. It should clearly show your experience, core technology, architecture exposure, ownership, and production maturity.</div>
+<h4>What to explain</h4>
+<ul>
+<li>Total experience and role</li>
+<li>Frontend + backend + database stack</li>
+<li>Architecture exposure</li>
+<li>Ownership: design, development, review, deployment, production support</li>
+<li>Mentoring and team collaboration</li>
+</ul>
+<div class="speak"><b>Best Speaking Answer:</b><br/>
+I have around 10 years of experience as a .NET Full Stack Developer. I have worked mainly on enterprise web applications using C#, ASP.NET Core Web API, Entity Framework Core, SQL Server, Angular, REST APIs, and authentication/authorization. On frontend, I work with Angular components, services, routing, guards, interceptors, RxJS, reactive forms, lazy loading, and performance optimization.<br/><br/>
+In recent projects, I have worked on layered/clean architecture and microservices-based systems where services communicate through REST APIs and asynchronous messaging using RabbitMQ. I am involved in requirement analysis, technical design, API contract finalization, database design, development, code review, unit testing, deployment support, production issue analysis, and mentoring junior developers.<br/><br/>
+My strength is that I can take ownership end-to-end across frontend, backend, database, and integrations. I focus on clean code, maintainability, scalability, performance, security, and production readiness.
+</div>
+<div class="tip"><b>Avoid:</b> “I worked on Angular and .NET” जैसे short answer मत देना. Always ownership + architecture + production words use करें.</div>
+</section><section class="card" id="v3-angular-architecture"><h2>V3 Detail - 2. Angular Architecture - Detailed Definition + Expert Answer</h2>
+<div class="q">Question: Explain Angular architecture.</div>
+<div class="summary"><b>Definition:</b> Angular is a TypeScript-based, component-driven frontend framework used to build single page applications. Its architecture is based on components, templates, services, dependency injection, routing, RxJS, and modules/standalone components.</div>
+<h4>What exactly to explain</h4>
+<ul>
+<li><b>Component:</b> UI building block.</li>
+<li><b>Template:</b> HTML view connected with component class.</li>
+<li><b>Service:</b> Reusable logic/API communication.</li>
+<li><b>Dependency Injection:</b> Angular injects services instead of manual object creation.</li>
+<li><b>Routing:</b> Client-side navigation.</li>
+<li><b>Guards:</b> Protect routes.</li>
+<li><b>Interceptors:</b> Common HTTP handling like JWT/error/loader.</li>
+<li><b>RxJS:</b> Async data streams.</li>
+<li><b>Lazy Loading:</b> Load feature only when needed.</li>
+</ul>
+<div class="speak"><b>Speaking Answer:</b><br/>
+Angular follows a component-based architecture. The UI is divided into reusable components. Each component has a TypeScript class for logic, an HTML template for view, and CSS/SCSS for styling. Common logic and API calls are placed in services. Angular uses dependency injection to provide services to components and other services.<br/><br/>
+Routing is used for navigation between different views without full page reload. Guards are used to protect routes based on authentication or authorization. Interceptors are used for cross-cutting concerns like adding JWT token, handling global errors, showing loader, and logging. HttpClient is used for backend communication and it returns Observables, which are handled using RxJS.<br/><br/>
+For enterprise applications, I prefer feature-based structure with core folder for singleton services, shared folder for reusable components/pipes/directives, and feature folders for business modules. I also use lazy loading, OnPush change detection where suitable, trackBy for large lists, and async pipe to improve performance and reduce memory leaks.
+</div>
+<h4>Example Folder Structure</h4>
+<pre><code>src/app
+  core/
+    services/
+    guards/
+    interceptors/
+  shared/
+    components/
+    pipes/
+    directives/
+  features/
+    users/
+    orders/
+    dashboard/</code></pre>
+<div class="pro"><b>Senior add-on:</b> For large Angular apps, architecture should support reusability, lazy loading, state isolation, error handling, authentication, and maintainability. Avoid putting business logic directly in components.</div>
+</section><section class="card" id="v3-angular-spa"><h2>V3 Detail - 3. Angular as Single Page Application - Complete Answer</h2>
+<div class="q">Question: What do you mean by Angular is Single Page Application?</div>
+<div class="summary"><b>Definition:</b> SPA means the application loads one main HTML page initially and then updates views dynamically on the client side without full page reload.</div>
+<div class="speak"><b>Speaking Answer:</b><br/>
+Angular is called a Single Page Application because initially browser loads one main HTML page, usually index.html. After that, navigation is handled by Angular Router on the client side. When user moves from dashboard to users page or details page, browser does not reload the full page. Angular changes the component view and fetches required data from backend APIs in JSON format.<br/><br/>
+This improves user experience because navigation feels faster and smoother. But as a senior developer, we must handle route protection, token expiry, lazy loading, browser refresh, caching, and error handling properly.
+</div>
+<pre><code>/dashboard  -&gt; DashboardComponent
+/users      -&gt; UserListComponent
+/users/10   -&gt; UserDetailsComponent</code></pre>
+<div class="pro"><b>Senior point:</b> SPA route guards are only frontend protection. Real security must always be enforced at backend API level.</div>
+</section><section class="card" id="v3-angular-bindings"><h2>V3 Detail - 4. Angular Bindings - Definitions + Examples</h2>
+<div class="q">Question: Explain Angular bindings.</div>
+<div class="summary"><b>Definition:</b> Binding connects component class data and template UI. It allows data flow from component to view, view to component, or both.</div>
+<table>
+<tr><th>Binding Type</th><th>Syntax</th><th>Meaning</th></tr>
+<tr><td>Interpolation</td><td>{{ title }}</td><td>Displays component value in template</td></tr>
+<tr><td>Property Binding</td><td>[disabled]="isDisabled"</td><td>Binds DOM property</td></tr>
+<tr><td>Event Binding</td><td>(click)="save()"</td><td>Handles user event</td></tr>
+<tr><td>Two-way Binding</td><td>[(ngModel)]="name"</td><td>Synchronizes UI and component property</td></tr>
+<tr><td>Class Binding</td><td>[class.active]="isActive"</td><td>Applies CSS class conditionally</td></tr>
+<tr><td>Style Binding</td><td>[style.color]="color"</td><td>Applies style dynamically</td></tr>
+</table>
+<pre><code>&lt;h2&gt;{{ title }}&lt;/h2&gt;
+&lt;button [disabled]="isSaving" (click)="save()"&gt;Save&lt;/button&gt;
+&lt;input [(ngModel)]="userName" /&gt;
+&lt;div [class.active]="isSelected" [style.color]="textColor"&gt;User&lt;/div&gt;</code></pre>
+<div class="speak"><b>Speaking Answer:</b><br/>
+Angular binding is used to connect the component class with the HTML template. Interpolation is used to display component values, property binding is used to bind DOM properties, event binding is used to handle user actions, and two-way binding keeps form control value and component property synchronized.
+</div>
+</section><section class="card" id="v3-component-communication"><h2>V3 Detail - 5. Component Communication - Full Detail</h2>
+<div class="q">Question: How do components communicate in Angular?</div>
+<div class="summary"><b>Definition:</b> Component communication means sharing data or events between Angular components. The approach depends on relationship between components.</div>
+<table>
+<tr><th>Scenario</th><th>Technique</th><th>When to use</th></tr>
+<tr><td>Parent to Child</td><td>@Input</td><td>Parent passes data to child</td></tr>
+<tr><td>Child to Parent</td><td>@Output + EventEmitter</td><td>Child notifies parent</td></tr>
+<tr><td>Sibling/Unrelated</td><td>Shared service with Subject/BehaviorSubject</td><td>Common state/events</td></tr>
+<tr><td>Route based</td><td>Route params/query params</td><td>Pass ID/filter between pages</td></tr>
+<tr><td>Large application</td><td>NgRx/store</td><td>Complex global state</td></tr>
+</table>
+<h4>@Input / @Output Example</h4>
+<pre><code>// child.component.ts
+@Input() userName: string = '';
+@Output() selected = new EventEmitter&lt;number&gt;();
+
+selectUser(id: number) {
+  this.selected.emit(id);
+}</code></pre>
+<h4>Shared Service Example</h4>
+<pre><code>@Injectable({ providedIn: 'root' })
+export class MessageService {
+  private source = new BehaviorSubject&lt;string&gt;('');
+  message$ = this.source.asObservable();
+
+  send(message: string) {
+    this.source.next(message);
+  }
+}</code></pre>
+<div class="speak"><b>Speaking Answer:</b><br/>
+For parent-to-child communication, I use @Input. For child-to-parent communication, I use @Output with EventEmitter. If components are unrelated, I use a shared service with Subject or BehaviorSubject. For route-based communication, route parameters or query parameters are used. In large and complex applications, state management like NgRx can be used.
+</div>
+<div class="pro"><b>Senior point:</b> Do not overuse shared services or global state. Use simplest communication pattern based on component relationship.</div>
+</section><section class="card" id="v3-lifecycle-hooks"><h2>V3 Detail - 6. Angular Lifecycle Hooks - Definitions + Use Cases</h2>
+<div class="q">Question: Explain lifecycle hooks.</div>
+<div class="summary"><b>Definition:</b> Lifecycle hooks are methods called by Angular at different stages of a component/directive lifecycle, from creation to destruction.</div>
+<table>
+<tr><th>Hook</th><th>When called</th><th>Real use</th></tr>
+<tr><td>ngOnChanges</td><td>When @Input changes</td><td>React to parent data change</td></tr>
+<tr><td>ngOnInit</td><td>Once after initialization</td><td>Initial API call/data load</td></tr>
+<tr><td>ngDoCheck</td><td>During change detection</td><td>Custom checks</td></tr>
+<tr><td>ngAfterContentInit</td><td>After content projection</td><td>Projected content logic</td></tr>
+<tr><td>ngAfterViewInit</td><td>After component view initialized</td><td>ViewChild access</td></tr>
+<tr><td>ngOnDestroy</td><td>Before component destroyed</td><td>Unsubscribe/cleanup</td></tr>
+</table>
+<pre><code>export class UserComponent implements OnInit, OnDestroy {
+  private destroy$ = new Subject&lt;void&gt;();
+
+  ngOnInit() {
+    this.userService.getUsers()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(users =&gt; this.users = users);
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+}</code></pre>
+<div class="speak"><b>Speaking Answer:</b><br/>
+Lifecycle hooks allow us to execute logic at specific stages of component lifecycle. I use ngOnInit for initialization and API calls, ngOnChanges to react to input changes, ngAfterViewInit when I need access to child views, and ngOnDestroy for cleanup like unsubscribing Observables, clearing timers, or removing event handlers.
+</div>
+<div class="pro"><b>Senior point:</b> ngOnDestroy is very important to prevent memory leaks, especially when manual subscription, timers, or DOM events are used.</div>
+</section><section class="card" id="v3-angular-di-service-scope"><h2>V3 Detail - 7. Angular Dependency Injection + Service Scope</h2>
+<div class="q">Questions: What is dependency injection in Angular? Scope of service in Angular?</div>
+<div class="summary"><b>Definition:</b> Dependency Injection is a design pattern where Angular provides required dependencies instead of class creating them manually. Service scope defines how long and where a service instance is available.</div>
+<table>
+<tr><th>Provider Location</th><th>Scope</th><th>Example Use</th></tr>
+<tr><td>providedIn: 'root'</td><td>Singleton app-wide</td><td>AuthService, UserService</td></tr>
+<tr><td>Component providers</td><td>New instance for component and children</td><td>Isolated component state</td></tr>
+<tr><td>Lazy module provider</td><td>Separate instance possible</td><td>Feature-specific state</td></tr>
+</table>
+<pre><code>@Injectable({ providedIn: 'root' })
+export class UserService {
+  constructor(private http: HttpClient) {}
+}</code></pre>
+<pre><code>constructor(private userService: UserService) {}</code></pre>
+<div class="speak"><b>Speaking Answer:</b><br/>
+Dependency Injection makes code loosely coupled and testable. Angular injector creates service instances based on provider configuration. If a service is provided in root, it behaves like singleton across application. If it is provided at component level, a new instance is created for that component hierarchy.
+</div>
+<div class="pro"><b>Senior point:</b> Root-level services are good for shared data, but component-level providers are useful when each component needs independent service state.</div>
+</section><section class="card" id="v3-rxjs-observable"><h2>V3 Detail - 8. RxJS, Observable, Promise, Subjects, Operators</h2>
+<div class="q">Questions: Observable vs Promise? Subject vs BehaviorSubject? switchMap vs mergeMap?</div>
+<div class="summary"><b>Definition:</b> RxJS is a reactive programming library used by Angular to handle asynchronous streams like HTTP calls, user input, events, and shared state.</div>
+<h4>Observable vs Promise</h4>
+<table>
+<tr><th>Observable</th><th>Promise</th></tr>
+<tr><td>Can emit multiple values over time</td><td>Returns single value</td></tr>
+<tr><td>Lazy - starts on subscribe</td><td>Eager - starts immediately</td></tr>
+<tr><td>Cancellable via unsubscribe</td><td>Not directly cancellable</td></tr>
+<tr><td>Supports operators like map, switchMap</td><td>Limited chaining</td></tr>
+</table>
+<div class="speak"><b>Observable vs Promise Answer:</b><br/>
+Promise is good for single async result, while Observable can handle multiple values over time and provides operators for transformation, cancellation, retry, debounce, and error handling. Angular HttpClient returns Observable.
+</div>
+<h4>Subject Types</h4>
+<table>
+<tr><th>Type</th><th>Meaning</th><th>Use</th></tr>
+<tr><td>Subject</td><td>No initial value</td><td>Event broadcasting</td></tr>
+<tr><td>BehaviorSubject</td><td>Has initial/latest value</td><td>Shared current state</td></tr>
+<tr><td>ReplaySubject</td><td>Replays old values</td><td>Need previous emissions</td></tr>
+<tr><td>AsyncSubject</td><td>Emits last value on completion</td><td>Special completion scenarios</td></tr>
+</table>
+<h4>Common Operators</h4>
+<table>
+<tr><th>Operator</th><th>Use</th></tr>
+<tr><td>map</td><td>Transform data</td></tr>
+<tr><td>filter</td><td>Filter values</td></tr>
+<tr><td>debounceTime</td><td>Delay search input</td></tr>
+<tr><td>switchMap</td><td>Cancel previous request and use latest</td></tr>
+<tr><td>mergeMap</td><td>Run multiple inner observables in parallel</td></tr>
+<tr><td>concatMap</td><td>Run one by one sequentially</td></tr>
+<tr><td>exhaustMap</td><td>Ignore new request while current is running</td></tr>
+<tr><td>catchError</td><td>Handle errors</td></tr>
+</table>
+<pre><code>this.search.valueChanges.pipe(
+  debounceTime(300),
+  distinctUntilChanged(),
+  switchMap(text =&gt; this.userService.search(text)),
+  catchError(error =&gt; of([]))
+).subscribe(users =&gt; this.users = users);</code></pre>
+<div class="pro"><b>Senior point:</b> For search, switchMap is preferred because it cancels previous API call when user types new input.</div>
+</section><section class="card" id="v3-angular-performance-forms"><h2>V3 Detail - 9. Angular Forms, Guards, Interceptors, Change Detection, Performance</h2>
+<div class="summary"><b>Summary:</b> Senior Angular interview often goes beyond components and asks about forms, guards, interceptors, change detection, directives, performance, and memory leaks.</div>
+<h3>Reactive Forms vs Template-driven Forms</h3>
+<table>
+<tr><th>Reactive Forms</th><th>Template-driven Forms</th></tr>
+<tr><td>Model-driven</td><td>Template-driven</td></tr>
+<tr><td>Better for complex forms</td><td>Good for simple forms</td></tr>
+<tr><td>Easier to test</td><td>Less explicit structure</td></tr>
+<tr><td>Validation in component class</td><td>Validation mostly in template</td></tr>
+</table>
+<pre><code>form = new FormGroup({
+  name: new FormControl('', Validators.required),
+  email: new FormControl('', [Validators.required, Validators.email])
+});</code></pre>
+<h3>Guards</h3>
+<ul>
+<li><b>CanActivate:</b> Allow/prevent route access.</li>
+<li><b>CanDeactivate:</b> Prevent leaving unsaved form.</li>
+<li><b>CanLoad/CanMatch:</b> Control lazy route loading/matching.</li>
+</ul>
+<h3>Interceptors</h3>
+<ul>
+<li>Add JWT token</li>
+<li>Global error handling</li>
+<li>Show/hide loader</li>
+<li>Logging</li>
+<li>Retry for transient errors</li>
+</ul>
+<h3>Directive vs Component</h3>
+<div class="ans">Component is a directive with template. Directive adds behavior to existing DOM. Structural directives change DOM structure like *ngIf and *ngFor. Attribute directives change appearance or behavior like ngClass and ngStyle.</div>
+<h3>Change Detection: Default vs OnPush</h3>
+<div class="speak"><b>Answer:</b><br/>
+Angular change detection updates the view when data changes. Default strategy checks component tree frequently. OnPush improves performance by checking component mainly when input reference changes, event occurs, async pipe emits, or change detection is manually triggered.
+</div>
+<pre><code>@Component({
+  selector: 'app-user-list',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: './user-list.component.html'
+})
+export class UserListComponent { }</code></pre>
+<h3>Performance Optimization</h3>
+<ul>
+<li>Lazy loading</li>
+<li>OnPush change detection</li>
+<li>trackBy in ngFor</li>
+<li>Async pipe</li>
+<li>Avoid functions directly in template</li>
+<li>Unsubscribe subscriptions</li>
+<li>Optimize bundle size</li>
+<li>Use pagination/virtual scrolling for large lists</li>
+</ul>
+<pre><code>trackByUserId(index: number, user: User) {
+  return user.id;
+}</code></pre>
+</section><section class="card" id="v3-dotnet-backend-architecture"><h2>V3 Detail - 10. .NET Core Backend Architecture - Complete</h2>
+<div class="q">Question: Explain backend architecture.</div>
+<div class="summary"><b>Definition:</b> Backend architecture defines how API layer, business layer, data access layer, database, security, logging, validation, and integrations are organized.</div>
+<div class="speak"><b>Speaking Answer:</b><br/>
+In backend, I usually follow layered or clean architecture. Controller layer exposes REST APIs and handles HTTP requests. Service layer contains business logic and validations. Repository/data access layer communicates with database using Entity Framework Core. DTOs are used for request and response contracts. Dependency Injection is used to inject services and repositories.<br/><br/>
+Cross-cutting concerns like authentication, authorization, global exception handling, logging, CORS, caching, validation, and health checks are handled using middleware, filters, and common services. This makes the application maintainable, testable, and scalable.
+</div>
+<pre><code>Angular UI -&gt; API Controller -&gt; Service Layer -&gt; Repository/EF Core -&gt; SQL Server</code></pre>
+<pre><code>[ApiController]
+[Route("api/users")]
+public class UsersController : ControllerBase
+{
+    private readonly IUserService _userService;
+
+    public UsersController(IUserService userService)
+    {
+        _userService = userService;
+    }
+
+    [HttpGet("{id}")]
+    public async Task&lt;ActionResult&lt;UserDto&gt;&gt; GetUser(int id)
+    {
+        var user = await _userService.GetUserAsync(id);
+        return user == null ? NotFound() : Ok(user);
+    }
+}</code></pre>
+<div class="pro"><b>Senior point:</b> For senior role, mention API contracts, DTOs, validation, logging with correlation ID, async calls, caching, health checks, and production observability.</div>
+</section><section class="card" id="v3-middleware-rest"><h2>V3 Detail - 11. Middleware, Filters, REST, Status Codes, PUT/POST/PATCH</h2>
+<div class="q">Questions: What is middleware? What are filters? What is PUT POST PATCH?</div>
+<div class="summary"><b>Definition:</b> Middleware is a component in ASP.NET Core request pipeline. Filters are MVC-specific hooks around controller/action execution. REST uses HTTP methods and status codes to operate on resources.</div>
+<h3>Middleware</h3>
+<div class="speak"><b>Answer:</b> Middleware can process request before passing it to next middleware and can process response on the way back. Examples are exception handling, routing, authentication, authorization, CORS, static files, and logging.</div>
+<pre><code>app.UseExceptionHandler();
+app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
+app.MapControllers();</code></pre>
+<h3>Filters</h3>
+<ul>
+<li><b>Authorization Filter:</b> Runs before action to check access.</li>
+<li><b>Action Filter:</b> Runs before/after action execution.</li>
+<li><b>Exception Filter:</b> Handles exceptions at MVC level.</li>
+<li><b>Result Filter:</b> Runs before/after result execution.</li>
+</ul>
+<h3>PUT vs POST vs PATCH</h3>
+<table>
+<tr><th>Method</th><th>Purpose</th><th>Idempotent</th><th>Example</th></tr>
+<tr><td>POST</td><td>Create new resource</td><td>No</td><td>POST /users</td></tr>
+<tr><td>PUT</td><td>Replace full resource</td><td>Yes</td><td>PUT /users/10</td></tr>
+<tr><td>PATCH</td><td>Partial update</td><td>Usually yes depending implementation</td><td>PATCH /users/10</td></tr>
+</table>
+<h3>Status Codes</h3>
+<table>
+<tr><th>Status</th><th>Meaning</th></tr>
+<tr><td>200</td><td>OK</td></tr>
+<tr><td>201</td><td>Created</td></tr>
+<tr><td>204</td><td>No Content</td></tr>
+<tr><td>400</td><td>Bad Request</td></tr>
+<tr><td>401</td><td>Unauthorized</td></tr>
+<tr><td>403</td><td>Forbidden</td></tr>
+<tr><td>404</td><td>Not Found</td></tr>
+<tr><td>409</td><td>Conflict</td></tr>
+<tr><td>500</td><td>Internal Server Error</td></tr>
+</table>
+<div class="pro"><b>Senior point:</b> APIs should return consistent error response, use correct status codes, validate input, log exceptions, and avoid exposing internal details.</div>
+</section><section class="card" id="v3-dependency-injection-dotnet"><h2>V3 Detail - 12. Dependency Injection in .NET Core - Detailed</h2>
+<div class="q">Question: What is dependency injection?</div>
+<div class="summary"><b>Definition:</b> Dependency Injection is a design pattern where dependencies are provided from outside instead of being created directly inside a class. ASP.NET Core provides built-in DI container.</div>
+<div class="speak"><b>Speaking Answer:</b><br/>
+Dependency Injection helps achieve loose coupling, testability, and maintainability. Instead of creating concrete objects using new keyword inside a class, we depend on interfaces and register implementations in DI container. ASP.NET Core creates and injects the dependency based on lifetime configuration.
+</div>
+<pre><code>builder.Services.AddScoped&lt;IUserService, UserService&gt;();
+builder.Services.AddSingleton&lt;ICacheService, CacheService&gt;();
+builder.Services.AddTransient&lt;IEmailService, EmailService&gt;();</code></pre>
+<table>
+<tr><th>Lifetime</th><th>Meaning</th><th>Example</th></tr>
+<tr><td>Singleton</td><td>One instance for application lifetime</td><td>Configuration/cache service</td></tr>
+<tr><td>Scoped</td><td>One instance per HTTP request</td><td>DbContext, business service</td></tr>
+<tr><td>Transient</td><td>New instance every time requested</td><td>Lightweight stateless service</td></tr>
+</table>
+<div class="warn"><b>Important:</b> Do not inject scoped service into singleton directly because singleton lives longer than scoped dependency and can create lifetime issues.</div>
+</section><section class="card" id="v3-oops-solid"><h2>V3 Detail - 13. OOPS + SOLID + Interface vs Abstract</h2>
+<div class="q">Question: Explain OOPS concepts.</div>
+<div class="summary"><b>Definition:</b> Object-Oriented Programming organizes software around objects and classes. It helps build reusable, maintainable, and extensible code.</div>
+<table>
+<tr><th>Concept</th><th>Definition</th><th>Example</th></tr>
+<tr><td>Encapsulation</td><td>Wrapping data and methods together and controlling access</td><td>Private fields with public methods</td></tr>
+<tr><td>Abstraction</td><td>Hiding implementation and exposing only required behavior</td><td>Interface/service contract</td></tr>
+<tr><td>Inheritance</td><td>Reusing base class properties/behavior</td><td>BaseEntity</td></tr>
+<tr><td>Polymorphism</td><td>Same contract with multiple implementations</td><td>Email/SMS notification service</td></tr>
+</table>
+<pre><code>public interface INotificationService
+{
+    Task SendAsync(string message);
+}
+
+public class EmailService : INotificationService
+{
+    public Task SendAsync(string message) =&gt; Task.CompletedTask;
+}
+
+public class SmsService : INotificationService
+{
+    public Task SendAsync(string message) =&gt; Task.CompletedTask;
+}</code></pre>
+<h3>SOLID Principles</h3>
+<table>
+<tr><th>Principle</th><th>Meaning</th></tr>
+<tr><td>Single Responsibility</td><td>Class should have one reason to change</td></tr>
+<tr><td>Open/Closed</td><td>Open for extension, closed for modification</td></tr>
+<tr><td>Liskov Substitution</td><td>Child should replace parent without breaking behavior</td></tr>
+<tr><td>Interface Segregation</td><td>Prefer small focused interfaces</td></tr>
+<tr><td>Dependency Inversion</td><td>Depend on abstraction, not concrete class</td></tr>
+</table>
+<h3>Interface vs Abstract Class</h3>
+<table>
+<tr><th>Interface</th><th>Abstract Class</th></tr>
+<tr><td>Defines contract</td><td>Can define contract + common implementation</td></tr>
+<tr><td>Multiple interfaces can be implemented</td><td>Only single class inheritance</td></tr>
+<tr><td>Best for DI and loose coupling</td><td>Best for shared base behavior/state</td></tr>
+</table>
+<div class="speak"><b>Senior Answer:</b> I use interface when I need abstraction and loose coupling, especially with dependency injection. I use abstract class when related classes share common behavior or state.</div>
+</section><section class="card" id="v3-async-await-deep"><h2>V3 Detail - 14. Async/Await, Task, I/O-bound, CPU-bound - Complete Deep Answer</h2>
+<div class="q">Questions: async/await, Task, Task.Run, I/O-bound vs CPU-bound, Task.WhenAll, WaitAll, ThreadPool.</div>
+<div class="summary"><b>Definition:</b> Asynchronous programming allows long-running operations to complete without blocking the current thread. In C#, async/await works with Task and Task&lt;T&gt; to write non-blocking code in readable style.</div>
+<div class="speak"><b>Core Speaking Answer:</b><br/>
+Async/await is mainly used for I/O-bound operations like database calls, API calls, file operations, and message queue operations. In ASP.NET Core, async improves scalability because while the application is waiting for I/O, the request thread is released back to thread pool and can serve other requests.
+</div>
+<h3>I/O-bound vs CPU-bound</h3>
+<table>
+<tr><th>I/O-bound</th><th>CPU-bound</th></tr>
+<tr><td>Waiting for external resource</td><td>Heavy computation using CPU</td></tr>
+<tr><td>DB call, API call, file read/write, RabbitMQ</td><td>Image processing, encryption, large calculation</td></tr>
+<tr><td>Use async/await naturally</td><td>Use Task.Run/parallel/background worker carefully</td></tr>
+</table>
+<pre><code>// I/O-bound example
+public async Task&lt;User?&gt; GetUserAsync(int id)
+{
+    return await _db.Users.FirstOrDefaultAsync(x =&gt; x.Id == id);
+}</code></pre>
+<pre><code>// CPU-bound example
+var result = await Task.Run(() =&gt; HeavyCalculation());</code></pre>
+<div class="warn"><b>Important:</b> In ASP.NET Core, do not wrap normal database/API calls inside Task.Run. EF Core async methods and HttpClient async methods are already designed for I/O-bound async operations.</div>
+<h3>Task vs Thread vs ThreadPool</h3>
+<table>
+<tr><th>Task</th><th>Thread</th><th>ThreadPool</th></tr>
+<tr><td>High-level abstraction for async work</td><td>Low-level execution unit</td><td>Pool of reusable threads</td></tr>
+<tr><td>Preferred in modern .NET</td><td>Manual thread management</td><td>Used internally by Tasks</td></tr>
+</table>
+<h3>Task.WhenAll vs Task.WaitAll</h3>
+<table>
+<tr><th>Task.WhenAll</th><th>Task.WaitAll</th></tr>
+<tr><td>Non-blocking async wait</td><td>Blocks current thread</td></tr>
+<tr><td>Use with await</td><td>Avoid in ASP.NET async code</td></tr>
+<tr><td>Better scalability</td><td>Can cause thread starvation/deadlock</td></tr>
+</table>
+<pre><code>var userTask = _userService.GetUserAsync(id);
+var orderTask = _orderService.GetOrdersAsync(id);
+
+await Task.WhenAll(userTask, orderTask);
+
+var user = await userTask;
+var orders = await orderTask;</code></pre>
+<h3>async void</h3>
+<div class="ans">Avoid async void except event handlers because caller cannot await it and exceptions are difficult to handle.</div>
+<h3>Fire-and-forget risk</h3>
+<pre><code>// Risky
+SendEmailAsync();
+
+// Better
+await SendEmailAsync();</code></pre>
+<div class="pro"><b>Senior point:</b> For background work, use BackgroundService, queue, Hangfire, Azure Function, or RabbitMQ instead of unsafe fire-and-forget.</div>
+<h3>CancellationToken</h3>
+<pre><code>public async Task&lt;List&lt;User&gt;&gt; GetUsersAsync(CancellationToken cancellationToken)
+{
+    return await _db.Users.ToListAsync(cancellationToken);
+}</code></pre>
+<h3>ConfigureAwait(false)</h3>
+<div class="ans">ConfigureAwait(false) prevents capturing synchronization context. It is commonly used in libraries. In ASP.NET Core, synchronization context issue is less common, but it is still an important interview concept.</div>
+<h3>ValueTask</h3>
+<div class="ans">ValueTask can reduce allocation when result is often available synchronously. For normal application code, Task/Task&lt;T&gt; is preferred unless profiling shows benefit.</div>
+<h3>Parallel.ForEach vs async-await</h3>
+<div class="ans">Parallel.ForEach is for CPU-bound parallel work. async-await is for non-blocking I/O-bound work. For async parallel operations, Task.WhenAll or Parallel.ForEachAsync can be used.</div>
+</section><section class="card" id="v3-garbage-collection"><h2>V3 Detail - 15. Garbage Collection, IDisposable, Memory Leaks</h2>
+<div class="q">Question: Garbage collection, how to use it or can we forcefully apply garbage collection?</div>
+<div class="summary"><b>Definition:</b> Garbage Collection is automatic memory management in .NET. It finds managed objects that are no longer reachable and releases memory.</div>
+<div class="speak"><b>Speaking Answer:</b><br/>
+Garbage Collection in .NET automatically manages memory for managed objects. It works with generations: Gen 0 for short-lived objects, Gen 1 as intermediate, and Gen 2 for long-lived objects. This generational approach improves performance because most objects die quickly.
+</div>
+<pre><code>GC.Collect();
+GC.WaitForPendingFinalizers();</code></pre>
+<div class="warn"><b>Can we force GC?</b> Yes, using GC.Collect(), but normally it is not recommended because runtime GC is optimized. Forcing GC can pause application and impact performance.</div>
+<h3>Managed vs Unmanaged Resources</h3>
+<table>
+<tr><th>Managed</th><th>Unmanaged</th></tr>
+<tr><td>Normal .NET objects</td><td>File handles, DB connections, streams, OS handles</td></tr>
+<tr><td>Handled by GC</td><td>Should be disposed explicitly</td></tr>
+</table>
+<pre><code>using var connection = new SqlConnection(connectionString);
+await connection.OpenAsync();</code></pre>
+<h3>Memory Leak Reasons</h3>
+<ul>
+<li>Events not unsubscribed</li>
+<li>Static collections holding references</li>
+<li>Timers not disposed</li>
+<li>Large cache without eviction</li>
+<li>IDisposable objects not disposed</li>
+<li>Long-lived closures capturing objects</li>
+</ul>
+<div class="pro"><b>Senior point:</b> In production, use profiler, memory dump, logs, and root cause analysis instead of manually calling GC.Collect().</div>
+</section><section class="card" id="v3-linq-ef-core"><h2>V3 Detail - 16. LINQ, EF Core, IEnumerable vs IQueryable, Performance</h2>
+<div class="q">Question: What is LINQ?</div>
+<div class="summary"><b>Definition:</b> LINQ stands for Language Integrated Query. It provides a consistent way to query collections, databases, XML, and other data sources using C# syntax.</div>
+<div class="speak"><b>Speaking Answer:</b><br/>
+LINQ improves readability and reduces boilerplate query code. With Entity Framework Core, LINQ queries are translated into SQL, so we must write LINQ carefully to avoid performance issues.
+</div>
+<pre><code>var activeUsers = await _db.Users
+    .AsNoTracking()
+    .Where(u =&gt; u.IsActive)
+    .OrderBy(u =&gt; u.Name)
+    .Select(u =&gt; new UserDto { Id = u.Id, Name = u.Name })
+    .ToListAsync();</code></pre>
+<h3>IEnumerable vs IQueryable</h3>
+<table>
+<tr><th>IEnumerable</th><th>IQueryable</th></tr>
+<tr><td>In-memory querying</td><td>Database/query provider level querying</td></tr>
+<tr><td>LINQ to Objects</td><td>LINQ to SQL/EF</td></tr>
+<tr><td>Filtering after data loaded</td><td>Filtering can be translated to SQL</td></tr>
+</table>
+<h3>Deferred Execution</h3>
+<div class="ans">LINQ query is not executed immediately. It executes when enumerated using ToList, FirstOrDefault, Count, foreach etc.</div>
+<h3>EF Core Performance Tips</h3>
+<ul>
+<li>Use AsNoTracking for read-only queries</li>
+<li>Use Select projection</li>
+<li>Avoid unnecessary Include</li>
+<li>Avoid N+1 query problem</li>
+<li>Use pagination</li>
+<li>Add indexes on filter/sort columns</li>
+<li>Avoid ToList before Where</li>
+<li>Use async EF methods</li>
+</ul>
+<div class="pro"><b>Senior point:</b> LINQ readability is good, but always think about generated SQL and database performance.</div>
+</section><section class="card" id="v3-csharp-advanced"><h2>V3 Detail - 17. C# Advanced Common Questions</h2>
+<div class="summary"><b>Summary:</b> 10-year .NET interview में C# fundamentals and advanced language concepts frequently पूछे जाते हैं.</div>
+<h3>Array vs ArrayList vs List&lt;T&gt;</h3>
+<table>
+<tr><th>Array</th><th>ArrayList</th><th>List&lt;T&gt;</th></tr>
+<tr><td>Fixed size</td><td>Dynamic size</td><td>Dynamic size</td></tr>
+<tr><td>Strongly typed</td><td>Object based</td><td>Strongly typed</td></tr>
+<tr><td>Good performance</td><td>Boxing/unboxing issue</td><td>Preferred modern choice</td></tr>
+</table>
+<h3>String vs StringBuilder</h3>
+<div class="ans">String is immutable, so every modification creates a new object. StringBuilder is mutable and better for repeated concatenation, especially inside loops.</div>
+<pre><code>var sb = new StringBuilder();
+for (int i = 0; i &lt; 1000; i++)
+{
+    sb.Append(i);
+}
+var result = sb.ToString();</code></pre>
+<h3>Extension Methods</h3>
+<div class="ans">Extension methods allow adding methods to existing types without modifying original source code. They are static methods inside static class and first parameter uses this keyword.</div>
+<pre><code>public static class StringExtensions
+{
+    public static bool IsNullOrEmptyValue(this string value)
+    {
+        return string.IsNullOrEmpty(value);
+    }
+}</code></pre>
+<h3>ref vs out</h3>
+<table>
+<tr><th>ref</th><th>out</th></tr>
+<tr><td>Variable must be initialized before passing</td><td>No need to initialize before passing</td></tr>
+<tr><td>Method may change value</td><td>Method must assign value before return</td></tr>
+</table>
+<pre><code>void Update(ref int x) { x += 10; }
+void GetValue(out int x) { x = 100; }</code></pre>
+<h3>Value Type vs Reference Type</h3>
+<table>
+<tr><th>Value Type</th><th>Reference Type</th></tr>
+<tr><td>Stores actual value</td><td>Stores reference to object</td></tr>
+<tr><td>int, bool, struct, enum</td><td>class, string, object, array</td></tr>
+</table>
+<h3>Boxing / Unboxing</h3>
+<div class="ans">Boxing converts value type to object. Unboxing converts object back to value type. It has performance overhead.</div>
+<pre><code>int x = 10;
+object obj = x;      // boxing
+int y = (int)obj;    // unboxing</code></pre>
+<h3>Record vs Class</h3>
+<div class="ans">Record is useful for immutable data and value-based equality. Class normally uses reference equality unless overridden.</div>
+<h3>Delegates, Func, Action, Predicate, Events</h3>
+<ul>
+<li><b>Delegate:</b> Type-safe function pointer.</li>
+<li><b>Func:</b> Delegate that returns value.</li>
+<li><b>Action:</b> Delegate that returns void.</li>
+<li><b>Predicate:</b> Delegate that returns bool.</li>
+<li><b>Event:</b> Notification mechanism based on delegates.</li>
+</ul>
+</section><section class="card" id="v3-sql-database"><h2>V3 Detail - 18. SQL Server + Database Topics</h2>
+<div class="q">Senior full stack interviews often include SQL and performance questions.</div>
+<div class="summary"><b>Summary:</b> For 10-year role, interviewer expects you to understand indexes, joins, transactions, query optimization, deadlocks, execution plan, and EF-generated SQL impact.</div>
+<h3>Clustered vs Non-clustered Index</h3>
+<table>
+<tr><th>Clustered Index</th><th>Non-clustered Index</th></tr>
+<tr><td>Defines physical order of data</td><td>Separate structure pointing to data</td></tr>
+<tr><td>One per table</td><td>Multiple possible</td></tr>
+<tr><td>Usually primary key</td><td>Used for search/filter columns</td></tr>
+</table>
+<h3>Slow Query Optimization</h3>
+<div class="speak"><b>Answer:</b><br/>
+I check execution plan, missing indexes, table scans, joins, WHERE conditions, selected columns, N+1 queries, pagination, blocking, deadlocks, and statistics. I avoid SELECT *, add indexes on frequently filtered columns, optimize joins, and return only required data.
+</div>
+<h3>Joins</h3>
+<ul>
+<li><b>INNER JOIN:</b> Matching records from both tables.</li>
+<li><b>LEFT JOIN:</b> All records from left table and matching right.</li>
+<li><b>RIGHT JOIN:</b> All records from right table and matching left.</li>
+<li><b>FULL JOIN:</b> All records from both sides.</li>
+</ul>
+<h3>Transaction Isolation Levels</h3>
+<ul>
+<li>Read Uncommitted</li>
+<li>Read Committed</li>
+<li>Repeatable Read</li>
+<li>Serializable</li>
+<li>Snapshot</li>
+</ul>
+<h3>Deadlock</h3>
+<div class="ans">Deadlock happens when two transactions hold resources and wait for each other. Fix by keeping transactions short, accessing tables in consistent order, adding proper indexes, avoiding unnecessary locks, and using retry for transient deadlock errors.</div>
+<h3>CTE vs Temp Table vs Table Variable</h3>
+<table>
+<tr><th>CTE</th><th>Temp Table</th><th>Table Variable</th></tr>
+<tr><td>Temporary result expression</td><td>Physical tempdb table</td><td>Variable-like table structure</td></tr>
+<tr><td>Good for readability/recursion</td><td>Good for larger intermediate data</td><td>Good for smaller data</td></tr>
+</table>
+<h3>Stored Procedure vs EF Core</h3>
+<div class="ans">EF Core improves productivity and maintainability. Stored procedures can be useful for complex queries, performance-critical operations, reporting, or DB-controlled logic. Choice depends on project standards and performance needs.</div>
+</section><section class="card" id="v3-security-jwt"><h2>V3 Detail - 19. Authentication, Authorization, JWT, Refresh Token, Security</h2>
+<div class="q">Questions: JWT authentication? Authorization? Refresh token? How do you secure APIs?</div>
+<div class="summary"><b>Definition:</b> Authentication verifies identity. Authorization verifies permissions. JWT is a token-based authentication mechanism commonly used in APIs.</div>
+<div class="speak"><b>Speaking Answer:</b><br/>
+Authentication checks who the user is, and authorization checks what the user is allowed to access. In JWT-based authentication, after successful login, server issues an access token. Client sends it in Authorization header. Backend validates token signature, expiry, issuer, audience, roles, and claims.
+</div>
+<pre><code>Authorization: Bearer eyJhbGciOi...</code></pre>
+<h3>JWT + Refresh Token</h3>
+<ul>
+<li>Access token should be short-lived.</li>
+<li>Refresh token is used to generate new access token.</li>
+<li>Refresh token should be stored securely.</li>
+<li>Refresh token rotation and revoke strategy improve security.</li>
+</ul>
+<h3>Security Best Practices</h3>
+<ul>
+<li>Use HTTPS</li>
+<li>Validate all inputs</li>
+<li>Use role/claim-based authorization</li>
+<li>Use CORS carefully</li>
+<li>Do not expose internal exception details</li>
+<li>Do not log sensitive data</li>
+<li>Store secrets in secure configuration/key vault</li>
+<li>Use parameterized queries/EF to avoid SQL injection</li>
+<li>Use rate limiting where needed</li>
+<li>Backend authorization is mandatory even if frontend route guard exists</li>
+</ul>
+</section><section class="card" id="v3-caching-background-health"><h2>V3 Detail - 20. Caching, Redis, BackgroundService, Health Checks, Options Pattern</h2>
+<div class="summary"><b>Summary:</b> Senior backend interview often checks production-readiness topics like caching, background jobs, configuration, and health checks.</div>
+<h3>Caching</h3>
+<div class="speak"><b>Answer:</b> Caching stores frequently accessed data temporarily to reduce database/API load and improve response time. It should be used for read-heavy and less frequently changing data.</div>
+<table>
+<tr><th>Cache Type</th><th>Use</th></tr>
+<tr><td>In-memory cache</td><td>Single server local cache</td></tr>
+<tr><td>Distributed cache / Redis</td><td>Multiple servers/shared cache</td></tr>
+<tr><td>Response caching</td><td>Cache HTTP response when suitable</td></tr>
+</table>
+<div class="pro"><b>Senior point:</b> Always define expiration, eviction, and invalidation strategy. Do not cache sensitive data carelessly.</div>
+<h3>BackgroundService / Hosted Service</h3>
+<div class="ans">Used for background tasks like queue processing, scheduled jobs, cleanup, report generation, or email processing.</div>
+<pre><code>public class Worker : BackgroundService
+{
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        while (!stoppingToken.IsCancellationRequested)
+        {
+            await DoWorkAsync(stoppingToken);
+            await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
+        }
+    }
+}</code></pre>
+<h3>Options Pattern</h3>
+<div class="ans">Options pattern binds configuration to strongly typed classes.</div>
+<pre><code>builder.Services.Configure&lt;EmailSettings&gt;(
+    builder.Configuration.GetSection("EmailSettings"));</code></pre>
+<h3>Health Checks</h3>
+<div class="ans">Health checks verify application, database, cache, message broker, and external dependency status. They are useful for monitoring and container orchestration.</div>
+</section><section class="card" id="v3-microservices-advanced"><h2>V3 Detail - 21. Microservices Architecture - Advanced Detailed Answer</h2>
+<div class="q">Question: Explain microservices architecture.</div>
+<div class="summary"><b>Definition:</b> Microservices architecture breaks a large application into small independently deployable services. Each service owns a specific business capability and can be developed, deployed, and scaled independently.</div>
+<div class="speak"><b>Speaking Answer:</b><br/>
+Microservices architecture divides application into independently deployable services like User Service, Order Service, Payment Service, and Notification Service. Each service owns its business logic and ideally its own database. Services communicate synchronously using REST/gRPC or asynchronously using message brokers like RabbitMQ.<br/><br/>
+Benefits are independent deployment, scalability, fault isolation, and team ownership. Challenges are distributed transactions, data consistency, service discovery, monitoring, logging, debugging, and deployment complexity.
+</div>
+<h3>Monolith vs Modular Monolith vs Microservices</h3>
+<table>
+<tr><th>Monolith</th><th>Modular Monolith</th><th>Microservices</th></tr>
+<tr><td>Single deployable application</td><td>Single deployment with clean modules</td><td>Multiple independent services</td></tr>
+<tr><td>Simple deployment</td><td>Good intermediate architecture</td><td>Complex but scalable</td></tr>
+</table>
+<h3>Important Patterns</h3>
+<table>
+<tr><th>Pattern</th><th>Use</th></tr>
+<tr><td>API Gateway</td><td>Single entry point for clients</td></tr>
+<tr><td>Service Discovery</td><td>Find service instances dynamically</td></tr>
+<tr><td>Saga</td><td>Manage distributed transaction workflow</td></tr>
+<tr><td>Outbox</td><td>Reliably publish events with DB transaction</td></tr>
+<tr><td>Circuit Breaker</td><td>Prevent cascading failures</td></tr>
+<tr><td>Retry with Backoff</td><td>Handle transient failures</td></tr>
+<tr><td>Bulkhead</td><td>Isolate failures</td></tr>
+<tr><td>CQRS</td><td>Separate read/write models when needed</td></tr>
+</table>
+<div class="pro"><b>Senior point:</b> In microservices, observability is mandatory: correlation ID, centralized logging, metrics, distributed tracing, health checks, and alerts.</div>
+</section><section class="card" id="v3-rabbitmq-advanced"><h2>V3 Detail - 22. RabbitMQ - Advanced Detailed Answer</h2>
+<div class="q">Question: RabbitMQ.</div>
+<div class="summary"><b>Definition:</b> RabbitMQ is a message broker used for asynchronous communication between services. It helps decouple services and improve reliability.</div>
+<div class="speak"><b>Speaking Answer:</b><br/>
+RabbitMQ allows one service to publish messages and another service to consume them asynchronously. Producer sends message to exchange. Exchange routes the message to queue using binding and routing key. Consumer reads message from queue and processes it. This helps decouple services and handle background processing reliably.
+</div>
+<table>
+<tr><th>Term</th><th>Meaning</th></tr>
+<tr><td>Producer</td><td>Publishes message</td></tr>
+<tr><td>Exchange</td><td>Routes messages</td></tr>
+<tr><td>Queue</td><td>Stores messages</td></tr>
+<tr><td>Consumer</td><td>Processes messages</td></tr>
+<tr><td>Ack/Nack</td><td>Success/failure acknowledgement</td></tr>
+<tr><td>DLQ</td><td>Dead Letter Queue for failed messages</td></tr>
+</table>
+<h3>Exchange Types</h3>
+<table>
+<tr><th>Exchange</th><th>Use</th></tr>
+<tr><td>Direct</td><td>Exact routing key match</td></tr>
+<tr><td>Fanout</td><td>Broadcast to all bound queues</td></tr>
+<tr><td>Topic</td><td>Pattern-based routing</td></tr>
+<tr><td>Headers</td><td>Header-based routing</td></tr>
+</table>
+<h3>Advanced Concepts</h3>
+<ul>
+<li><b>Durable Queue:</b> Queue survives broker restart.</li>
+<li><b>Persistent Message:</b> Message can survive restart if queue is durable.</li>
+<li><b>Manual Ack:</b> Consumer confirms successful processing.</li>
+<li><b>Prefetch Count:</b> Controls how many messages a consumer receives at a time.</li>
+<li><b>Poison Message:</b> Message that repeatedly fails.</li>
+<li><b>DLQ:</b> Stores failed messages for investigation.</li>
+<li><b>Idempotent Consumer:</b> Handles duplicate messages safely.</li>
+</ul>
+<div class="speak"><b>Failure Handling Answer:</b><br/>If consumer fails before acknowledgement, RabbitMQ can requeue the message depending on configuration. For repeated failures, message should go to retry queue or dead letter queue. Consumer should be idempotent because duplicate processing can happen.
+</div>
+</section><section class="card" id="v3-devops-deployment"><h2>V3 Detail - 23. CI/CD, Docker, Deployment, Cloud Basics</h2>
+<div class="summary"><b>Summary:</b> Senior full stack roles often expect deployment awareness even if you are not pure DevOps engineer.</div>
+<h3>CI/CD</h3>
+<div class="speak"><b>Answer:</b> CI/CD automates build, test, quality check, artifact creation, and deployment. It improves release quality and reduces manual errors.</div>
+<ul>
+<li>Build pipeline compiles code</li>
+<li>Run unit tests</li>
+<li>Run static code analysis/SonarQube</li>
+<li>Create artifact or Docker image</li>
+<li>Deploy to environment</li>
+<li>Approval gates for UAT/production</li>
+</ul>
+<h3>Docker</h3>
+<div class="ans">Docker packages application and dependencies into a container image. It gives consistent deployment across environments.</div>
+<h3>Environment Configuration</h3>
+<ul>
+<li>Use appsettings per environment</li>
+<li>Use environment variables for environment-specific values</li>
+<li>Use Key Vault/secret manager for sensitive values</li>
+<li>Do not hardcode passwords or connection strings</li>
+</ul>
+<h3>Production Readiness</h3>
+<ul>
+<li>Health checks</li>
+<li>Logging and monitoring</li>
+<li>Rollback plan</li>
+<li>Database migration strategy</li>
+<li>Alerting</li>
+<li>Performance baseline</li>
+</ul>
+</section><section class="card" id="v3-testing-quality"><h2>V3 Detail - 24. Unit Testing, Code Quality, Logging</h2>
+<div class="q">Question: How do you maintain code quality?</div>
+<div class="summary"><b>Definition:</b> Code quality means code should be readable, testable, maintainable, secure, and reliable in production.</div>
+<div class="speak"><b>Speaking Answer:</b><br/>
+I maintain code quality by following clean architecture, SOLID principles, meaningful naming, small methods, proper exception handling, structured logging, unit testing, integration testing, code reviews, static analysis, and CI/CD quality gates.
+</div>
+<pre><code>[Fact]
+public async Task GetUser_ShouldReturnUser_WhenUserExists()
+{
+    // Arrange
+    var service = new UserService(mockRepository.Object);
+
+    // Act
+    var result = await service.GetUserAsync(1);
+
+    // Assert
+    Assert.NotNull(result);
+}</code></pre>
+<h3>Testing Types</h3>
+<ul>
+<li><b>Unit Test:</b> Tests small logic in isolation.</li>
+<li><b>Integration Test:</b> Tests integration with DB/API/services.</li>
+<li><b>API Test:</b> Tests endpoints and responses.</li>
+<li><b>E2E Test:</b> Tests full user flow.</li>
+<li><b>Performance Test:</b> Tests load and response time.</li>
+</ul>
+<h3>Logging Best Practices</h3>
+<ul>
+<li>Use structured logs</li>
+<li>Include correlation ID</li>
+<li>Log useful context</li>
+<li>Do not log sensitive data</li>
+<li>Use centralized logging in production</li>
+</ul>
+</section><section class="card" id="v3-coding-bank"><h2>V3 Detail - 25. Coding Questions Bank + Move Zeroes</h2>
+<div class="q">Coding round में approach, code, dry run, complexity, edge cases जरूर बोलें.</div>
+<h3>Move Zeroes to End</h3>
+<div class="summary"><b>Problem:</b> Given an integer array, move all zeroes to end while maintaining relative order of non-zero elements. Do it in-place.</div>
+<h4>Approach</h4>
+<ul>
+<li>Use pointer nonZeroIndex.</li>
+<li>Move non-zero values to front in same order.</li>
+<li>Fill remaining positions with zero.</li>
+<li>Time O(n), Space O(1).</li>
+</ul>
+<pre><code>public static void MoveZeroes(int[] nums)
+{
+    int nonZeroIndex = 0;
+
+    for (int i = 0; i &lt; nums.Length; i++)
+    {
+        if (nums[i] != 0)
+        {
+            nums[nonZeroIndex++] = nums[i];
+        }
+    }
+
+    while (nonZeroIndex &lt; nums.Length)
+    {
+        nums[nonZeroIndex++] = 0;
+    }
+}</code></pre>
+<h4>Dry Run</h4>
+<pre><code>Input: [0, 1, 0, 3, 12]
+nonZeroIndex = 0
+
+i=0 value=0  -&gt; skip
+i=1 value=1  -&gt; nums[0]=1, nonZeroIndex=1
+i=2 value=0  -&gt; skip
+i=3 value=3  -&gt; nums[1]=3, nonZeroIndex=2
+i=4 value=12 -&gt; nums[2]=12, nonZeroIndex=3
+
+After first pass: [1, 3, 12, 3, 12]
+Fill remaining indexes with 0
+Output: [1, 3, 12, 0, 0]</code></pre>
+<h3>Other Likely Coding Questions</h3>
+<ul>
+<li>Reverse string</li>
+<li>Palindrome</li>
+<li>Two Sum</li>
+<li>Find duplicate</li>
+<li>First non-repeating character</li>
+<li>Second highest number</li>
+<li>Count character frequency</li>
+<li>Merge sorted arrays</li>
+<li>Valid parentheses</li>
+<li>Missing number</li>
+<li>Remove duplicates</li>
+<li>LINQ coding questions</li>
+</ul>
+<h3>First Non-Repeating Character</h3>
+<pre><code>public static char? FirstNonRepeating(string input)
+{
+    var map = new Dictionary&lt;char, int&gt;();
+
+    foreach (var ch in input)
+        map[ch] = map.ContainsKey(ch) ? map[ch] + 1 : 1;
+
+    foreach (var ch in input)
+        if (map[ch] == 1) return ch;
+
+    return null;
+}</code></pre>
+<h3>Second Highest Number</h3>
+<pre><code>public static int SecondHighest(int[] nums)
+{
+    int first = int.MinValue;
+    int second = int.MinValue;
+
+    foreach (var n in nums)
+    {
+        if (n &gt; first)
+        {
+            second = first;
+            first = n;
+        }
+        else if (n &gt; second &amp;&amp; n != first)
+        {
+            second = n;
+        }
+    }
+
+    return second;
+}</code></pre>
+</section><section class="card" id="v3-output-walkthrough"><h2>V3 Detail - 26. Output Questions - How to Walk Through Code</h2>
+<div class="q">Question: Output question - walk through the code execution.</div>
+<div class="summary"><b>Definition:</b> Output-based questions test your ability to trace execution, understand variable changes, loops, conditions, references, value types, and side effects.</div>
+<h4>Framework</h4>
+<ol>
+<li>Identify initial values</li>
+<li>Trace line by line</li>
+<li>Track loop iterations</li>
+<li>Note variable changes</li>
+<li>Give final output</li>
+<li>Explain reason</li>
+</ol>
+<div class="speak"><b>Interview line:</b> I will walk through the code line by line, track variable values after each step, and then conclude the final output.</div>
+<h3>Example: Pre/Post Increment</h3>
+<pre><code>int x = 5;
+Console.WriteLine(x++); // prints 5, then x becomes 6
+Console.WriteLine(++x); // x becomes 7, then prints 7
+
+Output:
+5
+7</code></pre>
+<h3>Example: Reference Type</h3>
+<pre><code>var list = new List&lt;int&gt; { 1, 2 };
+var another = list;
+another.Add(3);
+Console.WriteLine(list.Count);
+
+Output: 3
+Reason: both variables point to same list object.</code></pre>
+</section><section class="card" id="v3-project-specific"><h2>V3 Detail - 27. Project Specific Questions + Rejection/Challenge Answer</h2>
+<div class="q">Project-specific questions are very important for 10-year role.</div>
+<h3>Q1. Explain your project architecture.</h3>
+<div class="speak">My project is an enterprise web application built using Angular frontend and ASP.NET Core Web API backend. Frontend uses components, services, routing, guards, interceptors, reactive forms, RxJS, and lazy loading. Backend follows layered/clean architecture with controllers, services, repositories, DTOs, validation, EF Core, and SQL Server. We use JWT authentication, role-based authorization, global exception handling, structured logging, and RabbitMQ for asynchronous processing.</div>
+<h3>Q2. What was your role?</h3>
+<div class="speak">My role includes requirement analysis, technical design, API contract finalization, backend API development, Angular integration, database changes, unit testing, code reviews, bug fixing, performance optimization, deployment support, production issue analysis, and mentoring junior developers.</div>
+<h3>Q3. Project rejected details / design challenge?</h3>
+<div class="warn"><b>Important:</b> Never blame team, client, manager, or previous developers.</div>
+<div class="speak">In one case, the initial design was not accepted because some non-functional requirements were not fully covered, mainly scalability, audit logging, monitoring, and failure handling. We treated it as feedback, revisited the architecture, added proper logging, improved validation, defined retry/failure handling strategy, and updated API contracts. The learning was that senior developers must clarify both functional and non-functional requirements upfront.</div>
+<h3>Q4. Performance issue solved?</h3>
+<div class="speak">One API was slow because it loaded unnecessary related data and returned too many columns. I analyzed LINQ and SQL execution plan, removed unnecessary Include, used projection, applied AsNoTracking, added pagination, and suggested indexing. This reduced response time and database load.</div>
+<h3>Q5. Production issue handling?</h3>
+<div class="speak">I check logs, correlation ID, request payload, response time, recent deployments, database queries, and external dependencies. Then I reproduce if possible, identify root cause, fix, test, deploy through proper process, and add monitoring or preventive validation.</div>
+</section><section class="card" id="v3-scenario-questions"><h2>V3 Detail - 28. Senior Scenario Questions</h2>
+<h3>Scenario: API slow है, क्या करेंगे?</h3>
+<div class="speak">I will check logs, response time, DB query time, external API latency, CPU/memory, and recent deployments. If DB is bottleneck, I will check execution plan, indexes, joins, N+1 issue, unnecessary Includes, and pagination. If external dependency is slow, I will check timeout, retry, circuit breaker, and caching.</div>
+<h3>Scenario: Angular app slow है?</h3>
+<div class="speak">I will check bundle size, lazy loading, unnecessary dependencies, repeated API calls, large DOM rendering, change detection, and image size. I will use lazy loading, OnPush, trackBy, async pipe, caching, and bundle optimization.</div>
+<h3>Scenario: RabbitMQ messages fail हो रहे हैं?</h3>
+<div class="speak">I will check consumer logs, message schema, queue length, ack/nack handling, retry policy, connection issue, and dead letter queue. For transient failures, retry with backoff. For permanent failures, move message to DLQ and alert team.</div>
+<h3>Scenario: Memory leak?</h3>
+<div class="speak">I will check static references, event handlers not unsubscribed, timers not disposed, large cache without eviction, IDisposable misuse, and unmanaged resources. I will use profiler or memory dump to identify root cause.</div>
+<h3>Scenario: DB deadlock?</h3>
+<div class="speak">I will check deadlock graph, transaction duration, lock order, missing indexes, and blocking queries. I will keep transactions short, access tables in consistent order, add indexes, and apply retry for transient deadlock errors.</div>
+<h3>Scenario: Microservice dependency down?</h3>
+<div class="speak">I will use timeout, retry with backoff, circuit breaker, fallback, health checks, and alerts. We should avoid indefinite waiting and cascading failures.</div>
+</section><section class="card" id="v3-final-checklist"><h2>V3 Detail - 29. Final Revision Checklist + Closing</h2>
+<h3>Must Revise Before Interview</h3>
+<p>
+<span class="tag">Self Intro</span><span class="tag">Angular Architecture</span><span class="tag">SPA</span><span class="tag">Bindings</span><span class="tag">Component Communication</span><span class="tag">Lifecycle Hooks</span><span class="tag">Service Scope</span><span class="tag">Angular DI</span><span class="tag">RxJS</span><span class="tag">Observable vs Promise</span><span class="tag">Subject vs BehaviorSubject</span><span class="tag">OnPush</span><span class="tag">Reactive Forms</span><span class="tag">Backend Architecture</span><span class="tag">Middleware</span><span class="tag">Filters</span><span class="tag">REST</span><span class="tag">PUT POST PATCH</span><span class="tag">.NET DI</span><span class="tag">OOPS</span><span class="tag">SOLID</span><span class="tag">Async Await</span><span class="tag">I/O-bound</span><span class="tag">CPU-bound</span><span class="tag">Task.Run</span><span class="tag">Task.WhenAll</span><span class="tag">ThreadPool</span><span class="tag">GC</span><span class="tag">IDisposable</span><span class="tag">LINQ</span><span class="tag">EF Core</span><span class="tag">SQL Index</span><span class="tag">Deadlock</span><span class="tag">JWT</span><span class="tag">Refresh Token</span><span class="tag">Caching</span><span class="tag">Redis</span><span class="tag">Microservices</span><span class="tag">Saga</span><span class="tag">Outbox</span><span class="tag">RabbitMQ</span><span class="tag">DLQ</span><span class="tag">CI/CD</span><span class="tag">Docker</span><span class="tag">Unit Testing</span><span class="tag">Move Zeroes</span>
+</p>
+<h3>Strong Closing Statement</h3>
+<div class="speak">I believe my strength is that I can work across frontend, backend, database, and architecture. I focus not only on writing code but also on scalability, maintainability, performance, security, and production readiness. I am comfortable taking ownership of features end-to-end and supporting them after deployment.</div>
+<h3>Questions to Ask Interviewer</h3>
+<ul>
+<li>What architecture pattern is currently followed: monolith, modular monolith, or microservices?</li>
+<li>What are the major technical challenges the team is currently solving?</li>
+<li>How does the team maintain code quality: code reviews, unit tests, SonarQube, CI/CD?</li>
+<li>What would be the expectation from this role in the first 3 months?</li>
+</ul>
+</section></section><section class="card" id="complete-csharp-coding-programs"><h2>24. Complete C# Coding Programs - Easy to Write in Interview</h2><div class="summary"><b>Purpose:</b> This section includes all requested programs plus attached HTML programs. Each program has explanation, steps, example, full C# code, complexity, and interview speaking line. Code is intentionally simple so you can write it quickly during interview.</div><div class="rule"><b>Coverage checklist - nothing missed:</b><ul><li>Reverse string</li><li>Palindrome</li><li>Two Sum</li><li>Find duplicate</li><li>First non-repeating character</li><li>Second highest number</li><li>Count character frequency</li><li>Merge sorted arrays</li><li>Valid parentheses</li><li>Missing number</li><li>Remove duplicates</li><li>LINQ coding questions</li><li>Attached HTML programs: Move Zeroes, Bubble Sort, Anagram, Reverse Words</li></ul></div><div class="program-card" id="program-1"><h3>1. Reverse String</h3><div class="block"><b>Explanation:</b> We convert the string into a character array and swap first character with last, second with second-last, and continue until the middle. This is easy to explain and easy to write in interview.</div><div class="block"><b>Steps:</b><ul><li>Convert string to char array.</li><li>Use for loop till half length.</li><li>Swap chars[i] with chars[length - 1 - i].</li><li>Create new string from char array.</li></ul></div><div class="block"><b>Example:</b> Input: hello -&gt; Output: olleh</div><pre><code>using System;
+
+class Program
+{
+    static void Main()
+    {
+        string input = "hello";
+        char[] chars = input.ToCharArray();
+
+        for (int i = 0; i &lt; chars.Length / 2; i++)
+        {
+            char temp = chars[i];
+            chars[i] = chars[chars.Length - 1 - i];
+            chars[chars.Length - 1 - i] = temp;
+        }
+
+        string reversed = new string(chars);
+        Console.WriteLine(reversed);
+    }
+}</code></pre><div class="complexity"><b>Complexity:</b> Time: O(n), Space: O(n) because string is converted to char array.</div><div class="interview-line"><b>How to speak:</b> Interview line: I use two-pointer swapping from both ends, so only one pass till middle is required.</div></div><div class="program-card" id="program-2"><h3>2. Palindrome String</h3><div class="block"><b>Explanation:</b> A palindrome reads the same from left to right and right to left. We compare characters from both ends without creating another string.</div><div class="block"><b>Steps:</b><ul><li>Take input string.</li><li>Compare first and last characters.</li><li>Move both pointers towards center.</li><li>If any mismatch occurs, mark false.</li></ul></div><div class="block"><b>Example:</b> Input: madam -&gt; Output: True</div><pre><code>using System;
+
+class Program
+{
+    static void Main()
+    {
+        string input = "madam";
+        bool isPalindrome = true;
+
+        for (int i = 0; i &lt; input.Length / 2; i++)
+        {
+            if (input[i] != input[input.Length - 1 - i])
+            {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        Console.WriteLine(isPalindrome);
+    }
+}</code></pre><div class="complexity"><b>Complexity:</b> Time: O(n), Space: O(1).</div><div class="interview-line"><b>How to speak:</b> Interview line: I do not reverse the full string; I compare characters from both ends for better space usage.</div></div><div class="program-card" id="program-3"><h3>3. Two Sum</h3><div class="block"><b>Explanation:</b> Given an array and target, find two numbers whose sum equals target. Dictionary stores number and index already seen, so each element is checked once.</div><div class="block"><b>Steps:</b><ul><li>Create dictionary value -&gt; index.</li><li>For each number, calculate target - current.</li><li>If complement exists, answer found.</li><li>Otherwise add current number to dictionary.</li></ul></div><div class="block"><b>Example:</b> Input: [2,7,11,15], target=9 -&gt; Output: indexes 0 and 1</div><pre><code>using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        int[] nums = { 2, 7, 11, 15 };
+        int target = 9;
+        Dictionary&lt;int, int&gt; map = new Dictionary&lt;int, int&gt;();
+
+        for (int i = 0; i &lt; nums.Length; i++)
+        {
+            int complement = target - nums[i];
+
+            if (map.ContainsKey(complement))
+            {
+                Console.WriteLine("Indexes: " + map[complement] + ", " + i);
+                return;
+            }
+
+            if (!map.ContainsKey(nums[i]))
+            {
+                map.Add(nums[i], i);
+            }
+        }
+
+        Console.WriteLine("No pair found");
+    }
+}</code></pre><div class="complexity"><b>Complexity:</b> Time: O(n), Space: O(n).</div><div class="interview-line"><b>How to speak:</b> Interview line: Brute force is O(n²), but using dictionary we solve it in one pass.</div></div><div class="program-card" id="program-4"><h3>4. Find Duplicate Number</h3><div class="block"><b>Explanation:</b> We use HashSet to track visited numbers. If a number is already present in the set, it is duplicate.</div><div class="block"><b>Steps:</b><ul><li>Create HashSet.</li><li>Loop through array.</li><li>If number already exists in set, print duplicate.</li><li>Otherwise add it to set.</li></ul></div><div class="block"><b>Example:</b> Input: [1,3,4,2,3] -&gt; Output: 3</div><pre><code>using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        int[] arr = { 1, 3, 4, 2, 3 };
+        HashSet&lt;int&gt; seen = new HashSet&lt;int&gt;();
+
+        for (int i = 0; i &lt; arr.Length; i++)
+        {
+            if (seen.Contains(arr[i]))
+            {
+                Console.WriteLine("Duplicate: " + arr[i]);
+                return;
+            }
+
+            seen.Add(arr[i]);
+        }
+
+        Console.WriteLine("No duplicate found");
+    }
+}</code></pre><div class="complexity"><b>Complexity:</b> Time: O(n), Space: O(n).</div><div class="interview-line"><b>How to speak:</b> Interview line: HashSet gives fast lookup, so duplicate can be found in single traversal.</div></div><div class="program-card" id="program-5"><h3>5. First Non-Repeating Character</h3><div class="block"><b>Explanation:</b> First we count character frequency using dictionary. Then we loop again in original order and return the first character with count 1.</div><div class="block"><b>Steps:</b><ul><li>Create dictionary for frequency.</li><li>First loop counts each character.</li><li>Second loop checks original string order.</li><li>First character with count 1 is answer.</li></ul></div><div class="block"><b>Example:</b> Input: swiss -&gt; Output: w</div><pre><code>using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        string input = "swiss";
+        Dictionary&lt;char, int&gt; count = new Dictionary&lt;char, int&gt;();
+
+        for (int i = 0; i &lt; input.Length; i++)
+        {
+            char ch = input[i];
+            if (!count.ContainsKey(ch))
+            {
+                count[ch] = 0;
+            }
+            count[ch]++;
+        }
+
+        for (int i = 0; i &lt; input.Length; i++)
+        {
+            if (count[input[i]] == 1)
+            {
+                Console.WriteLine(input[i]);
+                return;
+            }
+        }
+
+        Console.WriteLine("No non-repeating character found");
+    }
+}</code></pre><div class="complexity"><b>Complexity:</b> Time: O(n), Space: O(k), where k is unique characters.</div><div class="interview-line"><b>How to speak:</b> Interview line: Counting first and scanning original order ensures we return the first non-repeating character, not just any unique character.</div></div><div class="program-card" id="program-6"><h3>6. Second Highest Number</h3><div class="block"><b>Explanation:</b> We keep two variables: first for highest and second for second highest. During one scan, we update them carefully and ignore duplicate highest value.</div><div class="block"><b>Steps:</b><ul><li>Initialize first and second with int.MinValue.</li><li>If current is greater than first, shift first to second.</li><li>Else if current is between first and second, update second.</li><li>Print second.</li></ul></div><div class="block"><b>Example:</b> Input: [10,5,20,8] -&gt; Output: 10</div><pre><code>using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] arr = { 10, 5, 20, 8 };
+        int first = int.MinValue;
+        int second = int.MinValue;
+
+        for (int i = 0; i &lt; arr.Length; i++)
+        {
+            if (arr[i] &gt; first)
+            {
+                second = first;
+                first = arr[i];
+            }
+            else if (arr[i] &gt; second &amp;&amp; arr[i] != first)
+            {
+                second = arr[i];
+            }
+        }
+
+        Console.WriteLine(second);
+    }
+}</code></pre><div class="complexity"><b>Complexity:</b> Time: O(n), Space: O(1).</div><div class="interview-line"><b>How to speak:</b> Interview line: This avoids sorting, so it is better than O(n log n) sorting approach.</div></div><div class="program-card" id="program-7"><h3>7. Count Character Frequency</h3><div class="block"><b>Explanation:</b> We use dictionary where key is character and value is its count. For each character, increase its count.</div><div class="block"><b>Steps:</b><ul><li>Create dictionary.</li><li>Loop through string.</li><li>If character is not present, initialize count with 0.</li><li>Increment count.</li><li>Print all key-value pairs.</li></ul></div><div class="block"><b>Example:</b> Input: apple -&gt; Output: a:1, p:2, l:1, e:1</div><pre><code>using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        string input = "apple";
+        Dictionary&lt;char, int&gt; frequency = new Dictionary&lt;char, int&gt;();
+
+        for (int i = 0; i &lt; input.Length; i++)
+        {
+            char ch = input[i];
+            if (!frequency.ContainsKey(ch))
+            {
+                frequency[ch] = 0;
+            }
+            frequency[ch]++;
+        }
+
+        foreach (var item in frequency)
+        {
+            Console.WriteLine(item.Key + " : " + item.Value);
+        }
+    }
+}</code></pre><div class="complexity"><b>Complexity:</b> Time: O(n), Space: O(k).</div><div class="interview-line"><b>How to speak:</b> Interview line: Dictionary is best when we need frequency/count based problems.</div></div><div class="program-card" id="program-8"><h3>8. Merge Two Sorted Arrays</h3><div class="block"><b>Explanation:</b> Because both arrays are already sorted, we use two pointers and pick the smaller element each time. This is the standard merge step of merge sort.</div><div class="block"><b>Steps:</b><ul><li>Create result array of size arr1.Length + arr2.Length.</li><li>Use i for first array, j for second array, k for result.</li><li>Compare arr1[i] and arr2[j].</li><li>Copy remaining elements after one array ends.</li></ul></div><div class="block"><b>Example:</b> Input: [1,3,5] and [2,4,6] -&gt; Output: [1,2,3,4,5,6]</div><pre><code>using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] first = { 1, 3, 5 };
+        int[] second = { 2, 4, 6 };
+        int[] result = new int[first.Length + second.Length];
+
+        int i = 0, j = 0, k = 0;
+
+        while (i &lt; first.Length &amp;&amp; j &lt; second.Length)
+        {
+            if (first[i] &lt;= second[j])
+            {
+                result[k] = first[i];
+                i++;
+            }
+            else
+            {
+                result[k] = second[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i &lt; first.Length)
+        {
+            result[k] = first[i];
+            i++;
+            k++;
+        }
+
+        while (j &lt; second.Length)
+        {
+            result[k] = second[j];
+            j++;
+            k++;
+        }
+
+        Console.WriteLine(string.Join(", ", result));
+    }
+}</code></pre><div class="complexity"><b>Complexity:</b> Time: O(n + m), Space: O(n + m).</div><div class="interview-line"><b>How to speak:</b> Interview line: Since arrays are sorted, two-pointer merge is more efficient than combining and sorting again.</div></div><div class="program-card" id="program-9"><h3>9. Valid Parentheses</h3><div class="block"><b>Explanation:</b> We use stack. Opening brackets are pushed. For closing bracket, top of stack must be matching opening bracket.</div><div class="block"><b>Steps:</b><ul><li>Create stack.</li><li>Push opening brackets.</li><li>For closing bracket, check stack is not empty.</li><li>Pop and compare with expected opening bracket.</li><li>At end stack should be empty.</li></ul></div><div class="block"><b>Example:</b> Input: {[()]} -&gt; Output: True</div><pre><code>using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        string input = "{[()]}";
+        Stack&lt;char&gt; stack = new Stack&lt;char&gt;();
+        bool isValid = true;
+
+        for (int i = 0; i &lt; input.Length; i++)
+        {
+            char ch = input[i];
+
+            if (ch == '(' || ch == '{' || ch == '[')
+            {
+                stack.Push(ch);
+            }
+            else
+            {
+                if (stack.Count == 0)
+                {
+                    isValid = false;
+                    break;
+                }
+
+                char top = stack.Pop();
+
+                if ((ch == ')' &amp;&amp; top != '(') ||
+                    (ch == '}' &amp;&amp; top != '{') ||
+                    (ch == ']' &amp;&amp; top != '['))
+                {
+                    isValid = false;
+                    break;
+                }
+            }
+        }
+
+        if (stack.Count != 0)
+        {
+            isValid = false;
+        }
+
+        Console.WriteLine(isValid);
+    }
+}</code></pre><div class="complexity"><b>Complexity:</b> Time: O(n), Space: O(n).</div><div class="interview-line"><b>How to speak:</b> Interview line: Stack works because the last opened bracket must be closed first.</div></div><div class="program-card" id="program-10"><h3>10. Missing Number</h3><div class="block"><b>Explanation:</b> For numbers from 1 to N, expected sum is N*(N+1)/2. Subtract actual sum from expected sum to get missing number.</div><div class="block"><b>Steps:</b><ul><li>Calculate expected sum.</li><li>Loop through array and calculate actual sum.</li><li>Missing number = expected sum - actual sum.</li></ul></div><div class="block"><b>Example:</b> Input: [1,2,4,5], N=5 -&gt; Output: 3</div><pre><code>using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] arr = { 1, 2, 4, 5 };
+        int n = 5;
+
+        int expectedSum = n * (n + 1) / 2;
+        int actualSum = 0;
+
+        for (int i = 0; i &lt; arr.Length; i++)
+        {
+            actualSum += arr[i];
+        }
+
+        int missing = expectedSum - actualSum;
+        Console.WriteLine(missing);
+    }
+}</code></pre><div class="complexity"><b>Complexity:</b> Time: O(n), Space: O(1).</div><div class="interview-line"><b>How to speak:</b> Interview line: Sum formula is simple and easy to write, but mention overflow risk for very large N; long can be used.</div></div><div class="program-card" id="program-11"><h3>11. Remove Duplicates from Sorted Array</h3><div class="block"><b>Explanation:</b> In sorted array, duplicates are adjacent. We keep one index for last unique value and overwrite duplicates in-place.</div><div class="block"><b>Steps:</b><ul><li>If array is empty, return.</li><li>Keep index at 0 for unique position.</li><li>Loop from index 1.</li><li>When new value differs from arr[index], increment index and copy value.</li><li>Print elements from 0 to index.</li></ul></div><div class="block"><b>Example:</b> Input: [1,1,2,2,3] -&gt; Output: [1,2,3]</div><pre><code>using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] arr = { 1, 1, 2, 2, 3 };
+
+        if (arr.Length == 0)
+        {
+            Console.WriteLine("Empty array");
+            return;
+        }
+
+        int index = 0;
+
+        for (int i = 1; i &lt; arr.Length; i++)
+        {
+            if (arr[i] != arr[index])
+            {
+                index++;
+                arr[index] = arr[i];
+            }
+        }
+
+        for (int i = 0; i &lt;= index; i++)
+        {
+            Console.Write(arr[i] + " ");
+        }
+    }
+}</code></pre><div class="complexity"><b>Complexity:</b> Time: O(n), Space: O(1).</div><div class="interview-line"><b>How to speak:</b> Interview line: Since array is sorted, we can remove duplicates in-place without using extra collection.</div></div><div class="program-card" id="program-12"><h3>12. Remove Duplicates from Unsorted Array</h3><div class="block"><b>Explanation:</b> For unsorted array, duplicates may appear anywhere. HashSet is easy and safe to use for interview.</div><div class="block"><b>Steps:</b><ul><li>Create HashSet for seen values.</li><li>Create List for unique values.</li><li>Loop through array.</li><li>If value is not seen, add to set and list.</li><li>Print list.</li></ul></div><div class="block"><b>Example:</b> Input: [3,1,2,3,2] -&gt; Output: [3,1,2]</div><pre><code>using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        int[] arr = { 3, 1, 2, 3, 2 };
+        HashSet&lt;int&gt; seen = new HashSet&lt;int&gt;();
+        List&lt;int&gt; unique = new List&lt;int&gt;();
+
+        for (int i = 0; i &lt; arr.Length; i++)
+        {
+            if (!seen.Contains(arr[i]))
+            {
+                seen.Add(arr[i]);
+                unique.Add(arr[i]);
+            }
+        }
+
+        Console.WriteLine(string.Join(", ", unique));
+    }
+}</code></pre><div class="complexity"><b>Complexity:</b> Time: O(n), Space: O(n).</div><div class="interview-line"><b>How to speak:</b> Interview line: If input is sorted, use two-pointer in-place. If unsorted, HashSet is simple and efficient.</div></div><div class="program-card" id="program-13"><h3>13. Move Zeroes to End</h3><div class="block"><b>Explanation:</b> Move all non-zero elements to the front in same order, then fill remaining positions with zero.</div><div class="block"><b>Steps:</b><ul><li>Use index for next non-zero position.</li><li>Loop through array and copy non-zero values.</li><li>Fill remaining positions with zero.</li></ul></div><div class="block"><b>Example:</b> Input: [0,1,0,3,12] -&gt; Output: [1,3,12,0,0]</div><pre><code>using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] arr = { 0, 1, 0, 3, 12 };
+        int index = 0;
+
+        for (int i = 0; i &lt; arr.Length; i++)
+        {
+            if (arr[i] != 0)
+            {
+                arr[index] = arr[i];
+                index++;
+            }
+        }
+
+        for (int i = index; i &lt; arr.Length; i++)
+        {
+            arr[i] = 0;
+        }
+
+        Console.WriteLine(string.Join(", ", arr));
+    }
+}</code></pre><div class="complexity"><b>Complexity:</b> Time: O(n), Space: O(1).</div><div class="interview-line"><b>How to speak:</b> Interview line: This keeps order of non-zero elements and works in-place.</div></div><div class="program-card" id="program-14"><h3>14. Sort Array using Bubble Sort</h3><div class="block"><b>Explanation:</b> Bubble sort compares adjacent values and swaps them if order is wrong. It is simple to write in interview, though not best for large data.</div><div class="block"><b>Steps:</b><ul><li>Outer loop controls passes.</li><li>Inner loop compares adjacent elements.</li><li>Swap when left value is greater than right value.</li><li>After each pass, largest value moves to end.</li></ul></div><div class="block"><b>Example:</b> Input: [5,2,4,1,3] -&gt; Output: [1,2,3,4,5]</div><pre><code>using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] arr = { 5, 2, 4, 1, 3 };
+
+        for (int i = 0; i &lt; arr.Length - 1; i++)
+        {
+            for (int j = 0; j &lt; arr.Length - 1 - i; j++)
+            {
+                if (arr[j] &gt; arr[j + 1])
+                {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+
+        Console.WriteLine(string.Join(", ", arr));
+    }
+}</code></pre><div class="complexity"><b>Complexity:</b> Time: O(n²), Space: O(1).</div><div class="interview-line"><b>How to speak:</b> Interview line: Bubble sort is easy to demonstrate, but for production we use efficient sorting like Array.Sort.</div></div><div class="program-card" id="program-15"><h3>15. Anagram String</h3><div class="block"><b>Explanation:</b> Two strings are anagrams if both contain same characters with same frequency. Easy approach is sort both char arrays and compare.</div><div class="block"><b>Steps:</b><ul><li>Check length first.</li><li>Convert both strings to char arrays.</li><li>Sort both arrays.</li><li>Compare each character.</li></ul></div><div class="block"><b>Example:</b> Input: listen and silent -&gt; Output: True</div><pre><code>using System;
+
+class Program
+{
+    static void Main()
+    {
+        string first = "listen";
+        string second = "silent";
+        bool isAnagram = true;
+
+        if (first.Length != second.Length)
+        {
+            isAnagram = false;
+        }
+        else
+        {
+            char[] a = first.ToCharArray();
+            char[] b = second.ToCharArray();
+
+            Array.Sort(a);
+            Array.Sort(b);
+
+            for (int i = 0; i &lt; a.Length; i++)
+            {
+                if (a[i] != b[i])
+                {
+                    isAnagram = false;
+                    break;
+                }
+            }
+        }
+
+        Console.WriteLine(isAnagram);
+    }
+}</code></pre><div class="complexity"><b>Complexity:</b> Time: O(n log n), Space: O(n).</div><div class="interview-line"><b>How to speak:</b> Interview line: Sorting approach is simple; dictionary frequency approach can solve it in O(n).</div></div><div class="program-card" id="program-16"><h3>16. Reverse Words in Sentence</h3><div class="block"><b>Explanation:</b> We split sentence by spaces and print words from the last index to first index.</div><div class="block"><b>Steps:</b><ul><li>Split sentence into words.</li><li>Loop from words.Length - 1 to 0.</li><li>Print word with space handling.</li></ul></div><div class="block"><b>Example:</b> Input: I love programming -&gt; Output: programming love I</div><pre><code>using System;
+
+class Program
+{
+    static void Main()
+    {
+        string sentence = "I love programming";
+        string[] words = sentence.Split(' ');
+
+        for (int i = words.Length - 1; i &gt;= 0; i--)
+        {
+            Console.Write(words[i]);
+            if (i != 0)
+            {
+                Console.Write(" ");
+            }
+        }
+    }
+}</code></pre><div class="complexity"><b>Complexity:</b> Time: O(n), Space: O(n).</div><div class="interview-line"><b>How to speak:</b> Interview line: Split gives words, then reverse traversal prints sentence in reverse word order.</div></div><div class="program-card" id="program-17"><h3>17. LINQ Coding Questions - Common Interview Set</h3><div class="block"><b>Explanation:</b> This single program covers common LINQ interview coding: filter, distinct, sorting, grouping, duplicates and character frequency.</div><div class="block"><b>Steps:</b><ul><li>Use Where for filtering.</li><li>Use Distinct + OrderByDescending + Skip for second highest.</li><li>Use GroupBy + Count for duplicates.</li><li>Use GroupBy for character frequency and employee grouping.</li></ul></div><div class="block"><b>Example:</b> Examples covered: even numbers, second highest, duplicates, char frequency, group by department.</div><pre><code>using System;
+using System.Linq;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 5, 1, 2, 3, 2, 4, 5, 6 };
+
+        // 1. Even numbers
+        var evenNumbers = numbers.Where(x =&gt; x % 2 == 0).ToList();
+        Console.WriteLine("Even: " + string.Join(", ", evenNumbers));
+
+        // 2. Second highest distinct number
+        int secondHighest = numbers.Distinct()
+                                   .OrderByDescending(x =&gt; x)
+                                   .Skip(1)
+                                   .First();
+        Console.WriteLine("Second Highest: " + secondHighest);
+
+        // 3. Duplicate numbers
+        var duplicates = numbers.GroupBy(x =&gt; x)
+                                .Where(g =&gt; g.Count() &gt; 1)
+                                .Select(g =&gt; g.Key)
+                                .ToList();
+        Console.WriteLine("Duplicates: " + string.Join(", ", duplicates));
+
+        // 4. Character frequency using LINQ
+        string input = "apple";
+        var charFrequency = input.GroupBy(ch =&gt; ch)
+                                 .Select(g =&gt; new { Character = g.Key, Count = g.Count() });
+
+        foreach (var item in charFrequency)
+        {
+            Console.WriteLine(item.Character + " : " + item.Count);
+        }
+
+        // 5. Group employees by department
+        List&lt;Employee&gt; employees = new List&lt;Employee&gt;
+        {
+            new Employee { Name = "Amit", Department = "IT" },
+            new Employee { Name = "Neha", Department = "HR" },
+            new Employee { Name = "Raj", Department = "IT" }
+        };
+
+        var departmentGroups = employees.GroupBy(e =&gt; e.Department)
+                                        .Select(g =&gt; new { Department = g.Key, Count = g.Count() });
+
+        foreach (var group in departmentGroups)
+        {
+            Console.WriteLine(group.Department + " : " + group.Count);
+        }
+    }
+}
+
+class Employee
+{
+    public string Name { get; set; }
+    public string Department { get; set; }
+}</code></pre><div class="complexity"><b>Complexity:</b> Depends on operation; most examples are O(n), sorting second highest is O(n log n).</div><div class="interview-line"><b>How to speak:</b> Interview line: LINQ improves readability, but for performance-critical code I still think about generated operations and collection size.</div></div></section><section class="card" id="program-merge-verification"><h2>25. Program Merge Verification Checklist</h2><ul><li>Total coding programs added: 17.</li><li>All requested program names are included.</li><li>Attached HTML file programs are included: Palindrome, Move Zeroes, Bubble Sort, Reverse String, Missing Number, Remove Duplicates, Character Frequency, Anagram, Second Largest, Reverse Words.</li><li>Every program has explanation, steps, example, full C# code, complexity and interview speaking line.</li><li>V5 and V3 content preserved and coding section added at the end.</li></ul></section></div></body></html>

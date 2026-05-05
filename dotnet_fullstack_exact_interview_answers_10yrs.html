@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Exact Interview Answers - .NET Full Stack 10 Years</title>
+<style>
+:root{--blue:#0f4c81;--dark:#0b1220;--light:#f5f8fc;--card:#fff;--border:#d9e8fb;--accent:#0ea5e9;--green:#0f766e;--orange:#c2410c;}
+*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:var(--light);color:#1f2937;line-height:1.62}header{background:linear-gradient(135deg,#0f4c81,#082f49);color:white;padding:34px 42px}header h1{margin:0;font-size:32px}header p{margin:8px 0 0;color:#dff4ff}.layout{display:grid;grid-template-columns:310px 1fr;gap:22px;max-width:1320px;margin:auto;padding:24px}nav{position:sticky;top:12px;align-self:start;background:white;border:1px solid var(--border);border-radius:16px;padding:18px;max-height:94vh;overflow:auto;box-shadow:0 8px 22px rgba(15,76,129,.09)}nav h3{margin:0 0 12px;color:var(--blue)}nav a{display:block;text-decoration:none;color:#075985;padding:7px 0;border-bottom:1px dashed #dbeafe;font-size:14px}.section{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:24px;margin-bottom:22px;box-shadow:0 8px 22px rgba(15,76,129,.07)}h2{margin:0 0 16px;color:var(--blue);border-bottom:2px solid #dbeafe;padding-bottom:9px}h3{margin:24px 0 8px;color:#075985}.q{font-weight:700;color:#111827;font-size:18px}.ans{background:#f0f9ff;border-left:5px solid var(--accent);padding:14px 16px;border-radius:12px;margin:10px 0}.speak{background:#ecfdf5;border-left:5px solid #10b981;padding:14px 16px;border-radius:12px;margin:10px 0}.note{background:#fff7ed;border-left:5px solid #f97316;padding:14px 16px;border-radius:12px;margin:10px 0}pre{background:#0f172a;color:#e5e7eb;padding:16px;border-radius:14px;overflow:auto;font-size:13px}code{font-family:Consolas,Monaco,monospace}table{width:100%;border-collapse:collapse;margin:12px 0}td,th{border:1px solid #cbd5e1;padding:10px;vertical-align:top}th{background:#e0f2fe;color:#075985}.tag{display:inline-block;background:#dbeafe;color:#075985;padding:3px 8px;border-radius:999px;font-size:12px;margin:2px}.small{font-size:13px;color:#64748b}.print{position:fixed;right:18px;bottom:18px;background:#0f4c81;color:white;border:0;border-radius:999px;padding:12px 18px;box-shadow:0 8px 18px rgba(0,0,0,.2);cursor:pointer}@media(max-width:900px){.layout{grid-template-columns:1fr}nav{position:static}.print{display:none}}@media print{nav,.print{display:none}.layout{display:block;padding:0}.section{box-shadow:none;page-break-inside:avoid}header{background:#0f4c81!important}}
+</style>
+</head>
+<body>
+<header>
+<h1>Exact Interview Answers: .NET Full Stack Engineer - 10 Years Experience</h1>
+<p>Direct बोलने लायक answers — concise, senior-level, project-oriented, and first-impression focused.</p>
+</header>
+<button class="print" onclick="window.print()">Print / Save PDF</button>
+<div class="layout">
+<nav>
+<h3>Navigation</h3>
+<a href="#intro">Intro & Project</a>
+<a href="#dotnet-basic">.NET Theory</a>
+<a href="#practical">Practical Debugging</a>
+<a href="#angular">Angular</a>
+<a href="#api">API Design / Health Check</a>
+<a href="#patterns">Design Principles & Patterns</a>
+<a href="#architecture">Architecture / Testing</a>
+<a href="#csharp">C# Concepts</a>
+<a href="#linqef">LINQ / EF Core</a>
+<a href="#microservices">Microservices</a>
+<a href="#monitoring">Logging / Monitoring / GCP</a>
+<a href="#sql">SQL</a>
+<a href="#coding">Coding Programs</a>
+<a href="#short">One-line Revision</a>
+</nav>
+<main>
+<section id="intro" class="section">
+<h2>1. Introduction & Current Project</h2>
+<h3 class="q">Q. Tell me about yourself.</h3>
+<div class="speak"><b>Exact Answer:</b><br>I am a .NET Full Stack Engineer with around 10 years of experience in designing, developing, and supporting enterprise applications. My primary strength is backend development using C#, ASP.NET Core Web API, Entity Framework Core, LINQ, SQL Server, dependency injection, logging, and microservices. On the frontend, I have hands-on experience with Angular, TypeScript, components, services, RxJS, forms, routing, guards, interceptors, and API integration.<br><br>In my current/recent project, I worked on a business-critical application where Angular is used for the UI and .NET Core Web APIs are used for backend services. My responsibilities include requirement analysis, API design, database design, writing business logic, query optimization, unit testing, code review, production issue analysis, and coordination with QA, DevOps, and business teams.<br><br>I also work on cross-cutting concerns like authentication, authorization, exception handling, structured logging, health checks, performance tuning, and deployment support. As a senior developer, I focus on clean code, SOLID principles, scalable design, and end-to-end ownership.</div>
+
+<h3 class="q">Q. Explain your recent project architecture and technologies used.</h3>
+<div class="speak"><b>Exact Answer:</b><br>Our project follows a layered/microservices-oriented architecture. The frontend is developed in Angular with feature-based structure, reusable components, services, interceptors, guards, and RxJS-based async communication. The backend is built using ASP.NET Core Web API. We have controllers for API endpoints, services for business logic, repositories/EF Core for data access, and SQL Server as the database.<br><br>For security, we use token-based authentication and role/policy-based authorization. For observability, we use structured logging with correlation id, health check endpoints, and centralized monitoring. For integration between services, we use REST APIs and, where asynchronous communication is required, message broker-based communication such as RabbitMQ. The main objective of the architecture is maintainability, scalability, testability, and easy troubleshooting in production.</div>
+
+<h3 class="q">Q. What challenges did you face in your recent project and how did you resolve them?</h3>
+<div class="speak"><b>Exact Answer:</b><br>One major challenge was performance degradation in some screens where large data was being loaded from the database. I analyzed API logs, checked generated SQL, reviewed the execution plan, and found unnecessary columns and missing indexes. I optimized the LINQ query using projection, filtering before materialization, pagination, AsNoTracking for read-only data, and added proper indexes. After that, API response time improved significantly.<br><br>Another challenge was troubleshooting intermittent production issues. For that, I added structured logs with correlation id so that a single request could be tracked across UI, API, database, and external services. This helped us identify the exact failing layer quickly.</div>
+
+<h3 class="q">Q. Have you worked on Connect/RXO? What issue did you face and how did you resolve it?</h3>
+<div class="speak"><b>Exact Answer:</b><br>Yes, I have worked on enterprise logistics/domain applications similar to Connect/RXO-type systems. The common issues were related to API integration, intermittent data mismatch, performance of search/listing pages, and environment-specific configuration issues. My approach was to reproduce the issue, check logs with correlation id, verify request/response payloads, validate database records, and compare behavior across environments. Based on root cause, I fixed the code/configuration, added better validation/logging, and ensured regression testing before deployment.</div>
+</section>
+
+<section id="dotnet-basic" class="section">
+<h2>2. .NET Theoretical Questions - Exact Answers</h2>
+<h3 class="q">Q1. Explain Dependency Injection.</h3>
+<div class="speak"><b>Exact Answer:</b><br>Dependency Injection is a design pattern used to achieve loose coupling between classes. Instead of a class creating its dependency using the <code>new</code> keyword, the dependency is injected from outside, mostly through constructor injection. ASP.NET Core has a built-in dependency injection container where we register services with lifetimes like Transient, Scoped, and Singleton.<br><br>In my projects, I use DI to inject services, repositories, DbContext, loggers, configuration, and HTTP clients. It makes the code testable, maintainable, and easy to change because classes depend on abstractions instead of concrete implementations.</div>
+<pre><code>builder.Services.AddScoped&lt;IPayrollService, PayrollService&gt;();
+
+public class PayrollController : ControllerBase
+{
+    private readonly IPayrollService _payrollService;
+
+    public PayrollController(IPayrollService payrollService)
+    {
+        _payrollService = payrollService;
+    }
+}</code></pre>
+
+<h3 class="q">Q2. What are SOLID principles? Explain L.</h3>
+<div class="speak"><b>Exact Answer:</b><br>SOLID is a set of five object-oriented design principles used to write maintainable, scalable, and testable code. S is Single Responsibility, O is Open/Closed, L is Liskov Substitution, I is Interface Segregation, and D is Dependency Inversion.<br><br>Liskov Substitution Principle means a child class should be replaceable with its parent class without breaking application behavior. If derived class changes expected behavior or throws unsupported exceptions for base behavior, then it violates LSP.<br><br>For example, if Bird has Fly method and Ostrich inherits Bird but cannot fly, then it is a wrong design. Better design is to separate flying behavior into an interface.</div>
+<pre><code>public interface IBird { }
+public interface IFlyingBird : IBird
+{
+    void Fly();
+}
+
+public class Sparrow : IFlyingBird
+{
+    public void Fly() { }
+}
+
+public class Ostrich : IBird
+{
+    // Ostrich is a bird but not a flying bird
+}</code></pre>
+
+<h3 class="q">Q3. Explain Garbage Collector.</h3>
+<div class="speak"><b>Exact Answer:</b><br>Garbage Collector is part of .NET CLR and it automatically manages managed memory. When an object is no longer reachable from application roots, GC marks it as eligible for collection and frees memory. GC works with generations: Gen 0 for short-lived objects, Gen 1 as a buffer, and Gen 2 for long-lived objects. Large objects are stored in Large Object Heap.<br><br>Normally we should not force garbage collection because GC is optimized. Technically we can call <code>GC.Collect()</code>, but in real production applications it should be avoided unless there is a very specific scenario. For unmanaged resources like file handles, streams, database connections, and native resources, we use <code>IDisposable</code> and <code>using</code>.</div>
+<pre><code>using var stream = new FileStream(filePath, FileMode.Open);</code></pre>
+
+<h3 class="q">Q4. How do you do logging?</h3>
+<div class="speak"><b>Exact Answer:</b><br>In .NET Core, I use the built-in <code>ILogger&lt;T&gt;</code> interface for logging. I prefer structured logging instead of plain text logs. I log important business events, request details, exception stack trace, correlation id, user id if available, and service name. In microservices, correlation id is very important because it helps trace one request across multiple services.<br><br>In production, logs are usually pushed to centralized tools like Application Insights, ELK, Splunk, Seq, Azure Monitor, or GCP Cloud Logging.</div>
+<pre><code>public class PayrollService
+{
+    private readonly ILogger&lt;PayrollService&gt; _logger;
+
+    public PayrollService(ILogger&lt;PayrollService&gt; logger)
+    {
+        _logger = logger;
+    }
+
+    public void ProcessPayroll(int employeeId)
+    {
+        try
+        {
+            _logger.LogInformation("Payroll started for EmployeeId {EmployeeId}", employeeId);
+            // business logic
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Payroll failed for EmployeeId {EmployeeId}", employeeId);
+            throw;
+        }
+    }
+}</code></pre>
+
+<h3 class="q">Q5. Explain Service Lifecycle in .NET Core: Transient, Scoped, Singleton.</h3>
+<div class="speak"><b>Exact Answer:</b><br>In ASP.NET Core DI, service lifetime defines how long an object instance will live.<br><br><b>Transient</b> creates a new instance every time it is requested. I use it for lightweight stateless services like validators, mappers, or formatters.<br><br><b>Scoped</b> creates one instance per HTTP request. I use it for DbContext, repositories, unit of work, and request-specific services.<br><br><b>Singleton</b> creates one instance for the entire application lifetime. I use it for thread-safe stateless services like cache provider, configuration reader, or common utility service.<br><br>One important rule is that we should not inject scoped services directly into singleton services because it can create captive dependency issues.</div>
+<pre><code>builder.Services.AddTransient&lt;IValidator, PayrollValidator&gt;();
+builder.Services.AddScoped&lt;IPayrollRepository, PayrollRepository&gt;();
+builder.Services.AddSingleton&lt;IAppCache, AppCache&gt;();</code></pre>
+
+<h3 class="q">Q6. What are delegates?</h3>
+<div class="speak"><b>Exact Answer:</b><br>A delegate is a type-safe function pointer in C#. It holds the reference of a method with a matching signature. Delegates are used for callbacks, events, LINQ, and passing behavior as a parameter. Built-in delegates like <code>Func</code>, <code>Action</code>, and <code>Predicate</code> are commonly used in real projects.</div>
+<pre><code>public delegate int Operation(int a, int b);
+
+int Add(int a, int b) =&gt; a + b;
+Operation op = Add;
+Console.WriteLine(op(10, 20));</code></pre>
+
+<h3 class="q">Q7. How can you make a public method in MVC controller but not treat it as action method?</h3>
+<div class="speak"><b>Exact Answer:</b><br>We can decorate that public method with the <code>[NonAction]</code> attribute. This tells MVC framework that this method is a helper method and should not be exposed as an action endpoint.</div>
+<pre><code>[NonAction]
+public string BuildMessage()
+{
+    return "Helper method only";
+}</code></pre>
+
+<h3 class="q">Q8. Explain design pattern you have worked on.</h3>
+<div class="speak"><b>Exact Answer:</b><br>I have worked with Repository, Unit of Work, Factory, Strategy, CQRS, and Saga patterns. In most projects, Repository pattern is used to separate data access logic from business logic. Service layer calls repository, and repository interacts with EF Core or database.<br><br>For example, in payroll module, controller calls PayrollService, PayrollService applies business rules, and PayrollRepository fetches/saves payroll data. This keeps code clean, testable, and maintainable. For complex salary calculation, I used Strategy pattern where different employee types can have different calculation logic without changing existing code.</div>
+
+<h3 class="q">Q9. How do you resolve multiple dependencies in .NET Core?</h3>
+<div class="speak"><b>Exact Answer:</b><br>If multiple implementations exist for the same interface, I resolve them using <code>IEnumerable&lt;T&gt;</code>, factory pattern, or keyed services depending on the .NET version and requirement. In real projects, factory pattern is very useful when implementation is selected based on runtime condition like email, SMS, or push notification.</div>
+<pre><code>public interface INotificationService
+{
+    string Type { get; }
+    void Send(string message);
+}
+
+public class NotificationFactory
+{
+    private readonly IEnumerable&lt;INotificationService&gt; _services;
+
+    public NotificationFactory(IEnumerable&lt;INotificationService&gt; services)
+    {
+        _services = services;
+    }
+
+    public INotificationService Get(string type)
+    {
+        return _services.First(x =&gt; x.Type == type);
+    }
+}</code></pre>
+
+<h3 class="q">Q10. Difference between var and dynamic.</h3>
+<div class="speak"><b>Exact Answer:</b><br><code>var</code> is compile-time type inference. The compiler decides the type at compile time and after assignment the type cannot change. <code>dynamic</code> is resolved at runtime and type checking happens at runtime. If a member does not exist, dynamic errors come at runtime, while var errors are caught at compile time.<br><br>I use <code>var</code> for readability, especially with LINQ or obvious types. I avoid <code>dynamic</code> unless required for reflection, COM, or dynamic JSON-like scenarios.</div>
+<pre><code>var x = 10;      // compile-time int
+// x = "test";  // compile error
+
+dynamic y = 10;
+y = "test";     // allowed at runtime</code></pre>
+</section>
+
+<section id="practical" class="section">
+<h2>3. .NET Practical / Debugging Questions</h2>
+<h3 class="q">Q. Session variable sometimes showing and sometimes not on UI, session not expired. How will you debug?</h3>
+<div class="speak"><b>Exact Answer:</b><br>I will debug it step by step instead of assuming session timeout. First, I will reproduce the issue and check whether the session value is set correctly and read correctly. I will log session id, correlation id, user id, server instance, and the exact point where session is set and retrieved.<br><br>If application is running on multiple servers behind load balancer, I will check whether session is in-memory. In-memory session can fail if next request goes to another server. In that case, solution is sticky session or distributed session using Redis/SQL Server.<br><br>I will also check browser cookies, SameSite/Secure settings, domain/path issues, AJAX race condition, middleware order, and whether any code path is clearing or overwriting the session. On UI side, I will check network tab to confirm API call sequence and whether UI is reading data before session set API completes.</div>
+<pre><code>app.UseRouting();
+app.UseSession();
+app.UseAuthentication();
+app.UseAuthorization();
+app.MapControllers();</code></pre>
+
+<h3 class="q">Q. For a given data query, how will you optimize it? Have you used any tool?</h3>
+<div class="speak"><b>Exact Answer:</b><br>First, I identify the slow query using application logs, APM, SQL Profiler, Extended Events, Query Store, or EF Core logging. Then I check the actual execution plan to find table scans, missing indexes, expensive joins, key lookups, blocking, or parameter sniffing issues.<br><br>From code side, I make sure filtering happens before <code>ToList</code>, only required columns are selected using projection, <code>AsNoTracking</code> is used for read-only queries, pagination is applied, and unnecessary Include or N+1 queries are removed. From database side, I verify proper indexes on WHERE, JOIN, ORDER BY columns and update statistics if required.</div>
+<pre><code>var data = await _db.Payrolls
+    .AsNoTracking()
+    .Where(x =&gt; x.EmployeeId == employeeId &amp;&amp; x.Year == year)
+    .Select(x =&gt; new PayrollDto
+    {
+        EmployeeId = x.EmployeeId,
+        NetSalary = x.NetSalary
+    })
+    .ToListAsync();</code></pre>
+
+<h3 class="q">Q. Output question: call by value and call by reference.</h3>
+<div class="speak"><b>Exact Answer:</b><br>In C#, parameters are passed by value by default. For value types, a copy of the value is passed, so changes inside method do not affect original variable. If we use <code>ref</code>, then reference to the same variable is passed, so changes inside method affect original value.</div>
+<pre><code>static void ChangeValue(int x)
+{
+    x = 20;
+}
+
+static void ChangeRef(ref int x)
+{
+    x = 20;
+}
+
+int a = 10;
+ChangeValue(a);
+Console.WriteLine(a); // 10
+
+ChangeRef(ref a);
+Console.WriteLine(a); // 20</code></pre>
+</section>
+
+<section id="angular" class="section">
+<h2>4. Angular Questions - Exact Answers</h2>
+<h3 class="q">Q. What is Pipe? Have you used custom pipe?</h3>
+<div class="speak"><b>Exact Answer:</b><br>Pipe in Angular is used to transform data in the template without changing the actual component data. Angular provides built-in pipes like date, currency, uppercase, lowercase, json, and async. I have used custom pipes for reusable formatting, for example masking account number, formatting status text, or filtering display values.</div>
+<pre><code>@Pipe({ name: 'maskAccount', standalone: true })
+export class MaskAccountPipe implements PipeTransform {
+  transform(value: string): string {
+    return value ? '****' + value.slice(-4) : '';
+  }
+}</code></pre>
+
+<h3 class="q">Q. What is NgModule? Have you created any?</h3>
+<div class="speak"><b>Exact Answer:</b><br>NgModule is used to group related components, directives, pipes, and services in Angular. Earlier Angular applications commonly used AppModule, CoreModule, SharedModule, and FeatureModules. Yes, I have created feature modules like PayrollModule or EmployeeModule to keep feature-specific components, routes, and services organized.<br><br>In newer Angular versions, standalone components reduce dependency on NgModules, but in many enterprise projects both module-based and standalone approaches can exist during migration.</div>
+
+<h3 class="q">Q. Is function overloading possible in JavaScript and TypeScript?</h3>
+<div class="speak"><b>Exact Answer:</b><br>JavaScript does not support true function overloading. If we define multiple functions with the same name, the last one overrides the previous one. We handle it using optional parameters, rest parameters, or type checks.<br><br>TypeScript supports overload signatures, but internally there is only one implementation method. So TypeScript gives compile-time overloading support, but JavaScript runtime still has a single function implementation.</div>
+<pre><code>function format(value: number): string;
+function format(value: string): string;
+function format(value: number | string): string {
+  return value.toString();
+}</code></pre>
+
+<h3 class="q">Q. Why use TypeScript?</h3>
+<div class="speak"><b>Exact Answer:</b><br>TypeScript provides static typing on top of JavaScript. It helps catch errors at compile time, provides better IntelliSense, supports interfaces, classes, generics, access modifiers, and improves maintainability in large enterprise applications. In Angular projects, TypeScript makes code more predictable, readable, and easier to refactor.</div>
+
+<h3 class="q">Q. What do you mean by Angular is Single Page Application?</h3>
+<div class="speak"><b>Exact Answer:</b><br>Angular is called a Single Page Application because the browser loads one main HTML page, and after that Angular dynamically updates views using client-side routing without full page reload. When user navigates from one screen to another, Angular changes components on the same page and calls APIs asynchronously to load data.</div>
+
+<h3 class="q">Q. Scope of service in Angular?</h3>
+<div class="speak"><b>Exact Answer:</b><br>Angular service scope depends on where the service is provided. If service is provided using <code>providedIn: 'root'</code>, it behaves like a singleton for the whole application. If service is provided in a component, a new instance is created for that component and its child components. In feature-level providers, service instance is scoped to that feature depending on routing/module configuration.</div>
+
+<h3 class="q">Q. What is Dependency Injection in Angular?</h3>
+<div class="speak"><b>Exact Answer:</b><br>Dependency Injection in Angular is a mechanism where Angular provides required service instances to components, directives, or other services instead of manually creating objects. It improves loose coupling, reusability, and testability. For example, we inject HttpClient or PayrollService in a component constructor.</div>
+<pre><code>@Injectable({ providedIn: 'root' })
+export class PayrollService {
+  constructor(private http: HttpClient) {}
+}</code></pre>
+
+<h3 class="q">Q. Explain Component Communication.</h3>
+<div class="speak"><b>Exact Answer:</b><br>In Angular, parent to child communication is done using <code>@Input</code>, child to parent communication using <code>@Output</code> and EventEmitter, and sibling or unrelated component communication using shared service with Subject, BehaviorSubject, Observable, or Signals. For route-based communication, we can use route params, query params, or shared state management.</div>
+
+<h3 class="q">Q. Explain Angular lifecycle hooks.</h3>
+<div class="speak"><b>Exact Answer:</b><br>Angular lifecycle hooks allow us to execute logic at different stages of component life. <code>ngOnInit</code> is used for initialization and API calls, <code>ngOnChanges</code> is used when input properties change, <code>ngAfterViewInit</code> is used when view and child components are initialized, and <code>ngOnDestroy</code> is used to clean up subscriptions, timers, or resources.</div>
+
+<h3 class="q">Q. Explain Angular bindings.</h3>
+<div class="speak"><b>Exact Answer:</b><br>Angular supports different types of binding. Interpolation is used to display component data, property binding is used to bind DOM properties, event binding is used to handle user events, two-way binding is used for form fields, and class/style binding is used for dynamic UI changes.</div>
+<pre><code>{{ userName }}
+&lt;button [disabled]="isDisabled"&gt;Save&lt;/button&gt;
+&lt;button (click)="save()"&gt;Save&lt;/button&gt;
+&lt;input [(ngModel)]="userName" /&gt;</code></pre>
+
+<h3 class="q">Q. Observable and how it will be cancellable?</h3>
+<div class="speak"><b>Exact Answer:</b><br>Observable represents an asynchronous data stream. In Angular, HTTP calls return Observables. We can cancel an Observable by unsubscribing. For search scenarios, I use <code>switchMap</code> because it cancels the previous pending request when a new value comes. For component cleanup, I use <code>takeUntil</code> or <code>takeUntilDestroyed</code> to avoid memory leaks.<br><br>If we cancel the observable from UI, it cancels the client-side subscription/request. Whether backend processing stops depends on whether the request already reached the server and whether backend supports cancellation token. For important operations, backend should be idempotent and transaction-safe.</div>
+<pre><code>this.searchText$.pipe(
+  debounceTime(300),
+  distinctUntilChanged(),
+  switchMap(text =&gt; this.api.search(text))
+).subscribe();</code></pre>
+
+<h3 class="q">Q. How to change Angular X version to Angular 19/latest?</h3>
+<div class="speak"><b>Exact Answer:</b><br>I upgrade Angular version step by step using Angular CLI. First I check current Angular version, Node version, TypeScript version, and package compatibility. Then I run <code>ng update @angular/core @angular/cli</code> version by version, fix breaking changes, update dependencies, run build and unit tests, and verify application functionality. I do not directly jump many major versions in enterprise applications because it increases risk.</div>
+
+<h3 class="q">Q. What are Signals in Angular?</h3>
+<div class="speak"><b>Exact Answer:</b><br>Signals are Angular's reactive state management primitive. A signal stores a value and notifies Angular when that value changes. It provides fine-grained reactivity and can improve performance because Angular knows exactly which value changed. We use <code>signal</code> for state, <code>computed</code> for derived state, and <code>effect</code> for side effects.</div>
+<pre><code>count = signal(0);
+doubleCount = computed(() =&gt; this.count() * 2);
+increment() { this.count.update(x =&gt; x + 1); }</code></pre>
+
+<h3 class="q">Q. What are Standalone Components?</h3>
+<div class="speak"><b>Exact Answer:</b><br>Standalone components are Angular components that do not need to be declared inside an NgModule. They declare their own imports directly. This reduces boilerplate, makes lazy loading easier, and improves maintainability. In modern Angular, standalone architecture is preferred for new development, while existing module-based applications can migrate gradually.</div>
+
+<h3 class="q">Q. Angular Elements / Web Components?</h3>
+<div class="speak"><b>Exact Answer:</b><br>Angular Elements allows us to package Angular components as custom elements or web components. These components can be used outside Angular applications also, for example in plain JavaScript, React, or other platforms. It is useful when we want reusable widgets or micro-frontend style integration.</div>
+
+<h3 class="q">Q. Angular project architecture?</h3>
+<div class="speak"><b>Exact Answer:</b><br>I prefer feature-based Angular architecture. Core folder contains singleton services, interceptors, guards, and global error handling. Shared folder contains reusable components, directives, and pipes. Feature folders contain domain-specific components like payroll, employee, reports, and their routes/services. Models folder contains interfaces, and environment files contain environment-specific configuration. This structure keeps the application scalable and maintainable.</div>
+</section>
+
+<section id="api" class="section">
+<h2>5. API Design, LINQ and Health Check</h2>
+<h3 class="q">Q. What is your strongest area, backend or frontend?</h3>
+<div class="speak"><b>Exact Answer:</b><br>My strongest area is backend because I have deep experience in C#, ASP.NET Core Web API, database design, LINQ, EF Core, microservices, logging, performance optimization, and production troubleshooting. At the same time, I am comfortable with Angular and can independently deliver full-stack features end to end.</div>
+
+<h3 class="q">Q. Design an API to fetch payroll information.</h3>
+<div class="speak"><b>Exact Answer:</b><br>I will design it as a secure REST API. For fetching payroll, I can expose <code>GET /api/payrolls?employeeId=101&amp;month=4&amp;year=2026</code>. The API will validate input parameters, authenticate user using JWT/OAuth, and authorize based on role. Employee should access only their own payroll, while HR/Admin can access payroll based on permission.<br><br>At service layer, I will apply business rules and call repository/EF Core. I will use projection to return only required fields, not full entity. I will add indexes on employee id, month, and year for performance. I will also log request with correlation id and return proper HTTP status codes like 200, 400, 401, 403, 404, and 500.</div>
+<pre><code>[HttpGet("payrolls")]
+[Authorize]
+public async Task&lt;ActionResult&lt;PayrollDto&gt;&gt; GetPayroll(
+    [FromQuery] PayrollQuery query,
+    CancellationToken cancellationToken)
+{
+    var result = await _payrollService.GetPayrollAsync(query, cancellationToken);
+    return result == null ? NotFound() : Ok(result);
+}</code></pre>
+
+<h3 class="q">Q. LINQ query to fetch payroll info.</h3>
+<div class="speak"><b>Exact Answer:</b><br>I will use LINQ with filtering, AsNoTracking for read-only data, and projection to DTO so that only required columns are fetched from database.</div>
+<pre><code>var payroll = await _db.Payrolls
+    .AsNoTracking()
+    .Where(p =&gt; p.EmployeeId == employeeId
+             &amp;&amp; p.Month == month
+             &amp;&amp; p.Year == year)
+    .Select(p =&gt; new PayrollDto
+    {
+        EmployeeId = p.EmployeeId,
+        EmployeeName = p.Employee.FirstName + " " + p.Employee.LastName,
+        Basic = p.Basic,
+        Allowances = p.Allowances,
+        Deductions = p.Deductions,
+        NetSalary = p.Basic + p.Allowances - p.Deductions
+    })
+    .FirstOrDefaultAsync(cancellationToken);</code></pre>
+
+<h3 class="q">Q. Have you used Health Check feature/tool for API?</h3>
+<div class="speak"><b>Exact Answer:</b><br>Yes, I have used ASP.NET Core Health Checks. Health checks expose endpoints like <code>/health</code>, <code>/health/live</code>, and <code>/health/ready</code>. Liveness tells whether application is running, and readiness tells whether application is ready to serve traffic by checking dependencies like database, cache, external API, or message broker. These endpoints are useful for load balancers, Kubernetes, monitoring tools, and production support.</div>
+<pre><code>builder.Services.AddHealthChecks()
+    .AddSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+
+app.MapHealthChecks("/health");</code></pre>
+</section>
+
+<section id="patterns" class="section">
+<h2>6. Design Principles & Patterns</h2>
+<h3 class="q">Q. What are design principles? Give real-world example.</h3>
+<div class="speak"><b>Exact Answer:</b><br>Design principles are guidelines that help us write clean, maintainable, scalable, and testable code. In my project, I applied separation of concerns by keeping controller, service, repository, validator, and DTO responsibilities separate. Controller only handles HTTP request/response, service handles business rules, repository handles data access, and validator handles input validation. This makes code easy to change and easy to unit test.</div>
+
+<h3 class="q">Q. What is Repository Pattern and drawbacks?</h3>
+<div class="speak"><b>Exact Answer:</b><br>Repository pattern abstracts data access logic from business logic. Service layer calls repository methods instead of directly writing database queries everywhere. It improves testability and keeps business logic clean.<br><br>The drawback is that with EF Core, DbContext already behaves like repository and unit of work. If we create too many generic repositories, it may become unnecessary abstraction and hide LINQ capabilities. So I use repository pattern only when it adds value, especially for complex domain data access or when we want to isolate persistence logic.</div>
+
+<h3 class="q">Q. What is Event-Driven Pattern?</h3>
+<div class="speak"><b>Exact Answer:</b><br>Event-driven pattern means services communicate by publishing and consuming events. For example, when payroll is processed, Payroll service publishes <code>PayrollProcessed</code> event. Notification service consumes it and sends email, Audit service consumes it and stores audit logs. This reduces tight coupling and improves scalability because services do not need to call each other directly for every action.</div>
+
+<h3 class="q">Q. What is CQRS pattern?</h3>
+<div class="speak"><b>Exact Answer:</b><br>CQRS means Command Query Responsibility Segregation. It separates write operations from read operations. Commands are used for create/update/delete where business validation and consistency are important. Queries are used only for reading data and can be optimized separately.<br><br>CQRS improves performance because read models can be denormalized, cached, indexed differently, or scaled independently. I use CQRS when read and write requirements are complex or when performance/scalability demands are high.</div>
+</section>
+
+<section id="architecture" class="section">
+<h2>7. Architecture, HLD, LLD, Testing</h2>
+<h3 class="q">Q. What is HLD and LLD?</h3>
+<div class="speak"><b>Exact Answer:</b><br>HLD means High Level Design. It explains overall system architecture such as modules, services, database, external integrations, security, deployment, and data flow. LLD means Low Level Design. It explains implementation-level details such as classes, interfaces, methods, API contracts, database tables, validations, sequence flow, and error handling.<br><br>In short, HLD answers how the system is structured, and LLD answers how each component will be implemented.</div>
+
+<h3 class="q">Q. What is unit testing and how have you implemented it?</h3>
+<div class="speak"><b>Exact Answer:</b><br>Unit testing is testing a small unit of code in isolation, usually a method or service. I have implemented unit tests using xUnit/NUnit/MSTest and mocking frameworks like Moq. I mostly test service layer business logic, validations, edge cases, and exception scenarios. Dependencies like repository or external API are mocked so that test focuses only on the unit being tested.</div>
+
+<h3 class="q">Q. What is mocking?</h3>
+<div class="speak"><b>Exact Answer:</b><br>Mocking means creating fake implementations of dependencies for unit testing. For example, instead of calling real database repository, we mock repository and return predefined data. This makes tests faster, isolated, predictable, and independent of external systems.</div>
+<pre><code>var repo = new Mock&lt;IPayrollRepository&gt;();
+repo.Setup(x =&gt; x.GetAsync(1)).ReturnsAsync(new Payroll());</code></pre>
+</section>
+
+<section id="csharp" class="section">
+<h2>8. C# and .NET Core Concepts</h2>
+<h3 class="q">Q. Why are you using .NET Core? Benefits over .NET Framework?</h3>
+<div class="speak"><b>Exact Answer:</b><br>.NET Core is cross-platform, high-performance, cloud-friendly, open-source, and suitable for modern applications and microservices. It has built-in dependency injection, logging, configuration, middleware pipeline, side-by-side versioning, and better support for Docker/Kubernetes. .NET Framework is mostly Windows-only and mainly used for legacy applications, while .NET Core/.NET is preferred for modern development.</div>
+
+<h3 class="q">Q. What is unmanaged code and how do you manage it?</h3>
+<div class="speak"><b>Exact Answer:</b><br>Unmanaged code is code or resources not directly managed by CLR, like file handles, database connections, sockets, COM objects, or native DLL resources. In .NET, I manage unmanaged resources using <code>IDisposable</code>, <code>using</code> statement, <code>SafeHandle</code>, and proper Dispose pattern. For normal managed objects, GC handles memory automatically.</div>
+
+<h3 class="q">Q. What are Generics?</h3>
+<div class="speak"><b>Exact Answer:</b><br>Generics allow us to write reusable and type-safe code. Instead of writing separate classes or methods for every type, we use type parameter like <code>T</code>. Generics improve compile-time safety and avoid boxing/unboxing for value types.</div>
+<pre><code>public class ApiResponse&lt;T&gt;
+{
+    public bool Success { get; set; }
+    public T Data { get; set; }
+}</code></pre>
+
+<h3 class="q">Q. What are Func&lt;&gt; and Predicate&lt;&gt;?</h3>
+<div class="speak"><b>Exact Answer:</b><br><code>Func</code> and <code>Predicate</code> are built-in delegates. <code>Func</code> takes input parameters and returns a value. <code>Predicate</code> takes one input parameter and returns boolean. Predicate is mainly used for conditions.</div>
+<pre><code>Func&lt;int, int, int&gt; add = (a, b) =&gt; a + b;
+Predicate&lt;int&gt; isEven = x =&gt; x % 2 == 0;</code></pre>
+
+<h3 class="q">Q. What is CancellationToken?</h3>
+<div class="speak"><b>Exact Answer:</b><br>CancellationToken is used to cancel long-running or asynchronous operations gracefully. In Web API, if client cancels request or timeout happens, cancellation token can be passed to database calls, HTTP calls, or background operations so unnecessary processing can stop.</div>
+
+<h3 class="q">Q. Task in .NET Core? Why use await?</h3>
+<div class="speak"><b>Exact Answer:</b><br><code>Task</code> represents an asynchronous operation. We use <code>await</code> to asynchronously wait for the task to complete without blocking the current thread. This is especially useful for I/O operations like database calls, file operations, and external API calls. In ASP.NET Core, async/await improves scalability because threads are released while waiting for I/O.</div>
+
+<h3 class="q">Q. Array vs ArrayList?</h3>
+<div class="speak"><b>Exact Answer:</b><br>Array is fixed-size and strongly typed, so it gives better type safety and performance. ArrayList is dynamic but stores elements as object, so it can cause boxing/unboxing and runtime casting issues. In modern C#, we prefer <code>List&lt;T&gt;</code> over ArrayList.</div>
+
+<h3 class="q">Q. String vs StringBuilder?</h3>
+<div class="speak"><b>Exact Answer:</b><br>String is immutable, so every modification creates a new string object. StringBuilder is mutable and is better when we need frequent string modifications, like building large dynamic text in loops. For small fixed strings, normal string is fine; for repeated concatenation, StringBuilder is preferred.</div>
+
+<h3 class="q">Q. Extension methods?</h3>
+<div class="speak"><b>Exact Answer:</b><br>Extension methods allow us to add new methods to existing types without modifying the original type. They are static methods inside static classes and use <code>this</code> keyword before the first parameter.</div>
+<pre><code>public static class StringExtensions
+{
+    public static bool IsNullOrEmptyEx(this string value)
+    {
+        return string.IsNullOrEmpty(value);
+    }
+}</code></pre>
+
+<h3 class="q">Q. What is PUT, POST, PATCH?</h3>
+<div class="speak"><b>Exact Answer:</b><br><code>POST</code> is used to create a new resource or perform non-idempotent operation. <code>PUT</code> is used to update or replace the complete resource and is idempotent. <code>PATCH</code> is used for partial update, where only selected fields are modified.</div>
+
+<h3 class="q">Q. Explain OOPS concepts.</h3>
+<div class="speak"><b>Exact Answer:</b><br>OOPS has four main concepts: Encapsulation, Abstraction, Inheritance, and Polymorphism. Encapsulation means wrapping data and behavior together and protecting internal state. Abstraction means exposing only required details. Inheritance means reusing common behavior from parent class. Polymorphism means same method/interface can have different implementations based on object type.</div>
+</section>
+
+<section id="linqef" class="section">
+<h2>9. LINQ & Entity Framework</h2>
+<h3 class="q">Q. What is LINQ?</h3>
+<div class="speak"><b>Exact Answer:</b><br>LINQ means Language Integrated Query. It allows us to query collections, databases, XML, and other data sources using strongly typed C# syntax. In EF Core, LINQ queries are translated into SQL queries and executed on the database.</div>
+
+<h3 class="q">Q. Advantages of LINQ over Entity Framework queries?</h3>
+<div class="speak"><b>Exact Answer:</b><br>LINQ gives strongly typed query syntax, compile-time checking, IntelliSense, readability, and composability. With EF Core, LINQ is used to write queries against DbSet, and EF translates those queries into SQL. Compared to raw SQL, LINQ is easier to maintain and refactor, but for very complex or performance-critical queries, raw SQL or stored procedure can also be used.</div>
+
+<h3 class="q">Q. Include keyword compared to Join?</h3>
+<div class="speak"><b>Exact Answer:</b><br><code>Include</code> is used to load related navigation properties when we need entity graph, for example Employee with Payrolls. <code>Join</code> is used when we want to combine data from multiple tables explicitly, usually for custom DTO or reporting. For performance, I prefer projection when only selected fields are required.</div>
+<pre><code>var employees = await _db.Employees
+    .Include(e =&gt; e.Payrolls)
+    .ToListAsync();
+
+var data = await (from e in _db.Employees
+                  join p in _db.Payrolls on e.Id equals p.EmployeeId
+                  select new { e.Name, p.NetSalary })
+                  .ToListAsync();</code></pre>
+
+<h3 class="q">Q. Best practices for fetching/filtering data using LINQ?</h3>
+<div class="speak"><b>Exact Answer:</b><br>I apply filters before materializing data, avoid early <code>ToList</code>, select only required columns using projection, use <code>AsNoTracking</code> for read-only queries, apply pagination for large data, avoid unnecessary Include, avoid N+1 queries, use async methods, and check generated SQL/execution plan for performance-critical queries.</div>
+</section>
+
+<section id="microservices" class="section">
+<h2>10. Microservices</h2>
+<h3 class="q">Q. Explain microservices architecture.</h3>
+<div class="speak"><b>Exact Answer:</b><br>Microservices architecture breaks a large application into small, independently deployable services. Each service owns a specific business capability and can have its own database. For example, Employee Service, Payroll Service, Notification Service, and Audit Service. The benefit is independent deployment, scalability, better fault isolation, and technology flexibility. The challenges are distributed transactions, monitoring, communication failures, and operational complexity.</div>
+
+<h3 class="q">Q. How do you communicate data between microservices?</h3>
+<div class="speak"><b>Exact Answer:</b><br>Microservices communicate synchronously using REST or gRPC when immediate response is required. They communicate asynchronously using message brokers like RabbitMQ, Kafka, or Pub/Sub when loose coupling and reliability are required. For critical business events, I prefer asynchronous event-based communication because it reduces direct dependency between services.</div>
+
+<h3 class="q">Q. How do you implement transactions in microservices?</h3>
+<div class="speak"><b>Exact Answer:</b><br>In microservices, we avoid distributed database transactions as much as possible. Instead, we use Saga pattern where each service performs its local transaction and publishes an event. If any step fails, compensating action is triggered to undo previous steps. We also use outbox pattern, retries, idempotency, and dead-letter queues for reliability.</div>
+
+<h3 class="q">Q. Have you used Saga pattern?</h3>
+<div class="speak"><b>Exact Answer:</b><br>Yes, I understand and have worked with Saga-style workflows. Saga is used to manage distributed transactions across multiple services. For example, payroll processing may involve Payroll Service, Payment Service, Notification Service, and Audit Service. If payment fails after payroll calculation, a compensating event can mark payroll as failed or reversed. Saga can be choreography-based using events or orchestration-based using a central coordinator.</div>
+
+<h3 class="q">Q. How do you authenticate and authorize a Web API?</h3>
+<div class="speak"><b>Exact Answer:</b><br>I secure Web API using JWT/OAuth/OpenID Connect. Authentication validates the token, issuer, audience, expiry, and signing key. Authorization is handled using roles, claims, or policies. For sensitive APIs, I also validate user permissions at business layer, not only at controller level.</div>
+
+<h3 class="q">Q. If a transaction fails, how do you identify which microservice failed?</h3>
+<div class="speak"><b>Exact Answer:</b><br>I use correlation id, distributed tracing, centralized logging, and message/event id. Every service logs the same correlation id, so we can trace the complete request flow. In message-based communication, I also check queue status, retry count, dead-letter queue, and event processing logs to identify exactly which service failed.</div>
+
+<h3 class="q">Q. Handling failures in microservices?</h3>
+<div class="speak"><b>Exact Answer:</b><br>For failure handling, I use retry with exponential backoff for transient failures, circuit breaker to avoid cascading failures, timeout, fallback where possible, idempotency to safely retry operations, dead-letter queue for failed messages, and proper monitoring/alerts. I also ensure logs and traces are available with correlation id.</div>
+
+<h3 class="q">Q. Experience with message brokers / RabbitMQ?</h3>
+<div class="speak"><b>Exact Answer:</b><br>Yes, I have experience with message-broker-based communication. RabbitMQ is used for asynchronous communication between services. Producer publishes message to exchange, exchange routes message to queue, and consumer reads from queue. For reliability, we use durable queues, acknowledgements, retry mechanism, and dead-letter exchange. It helps decouple services and handle load spikes.</div>
+</section>
+
+<section id="monitoring" class="section">
+<h2>11. Monitoring, Logging, Performance, GCP</h2>
+<h3 class="q">Q. How do you track error logs in microservices?</h3>
+<div class="speak"><b>Exact Answer:</b><br>I track error logs using structured centralized logging. Every service logs correlation id, request id, service name, endpoint, user/context, error message, and exception stack trace. Logs are pushed to tools like ELK, Splunk, Application Insights, Seq, or GCP Cloud Logging. With correlation id and distributed tracing, I can identify the complete flow of a failed request across services.</div>
+
+<h3 class="q">Q. In GCP, how do you identify where an error was generated?</h3>
+<div class="speak"><b>Exact Answer:</b><br>In GCP, I use Cloud Logging to filter logs by timestamp, service name, severity, trace id, correlation id, and request path. I also use Error Reporting to see grouped exceptions and Cloud Trace to identify request flow and latency across services. This helps identify which service, endpoint, or dependency generated the error.</div>
+
+<h3 class="q">Q. How do you monitor a complex GCP environment?</h3>
+<div class="speak"><b>Exact Answer:</b><br>I monitor a complex GCP environment using Cloud Monitoring dashboards, Cloud Logging, Error Reporting, Cloud Trace, uptime checks, and alerting policies. Important metrics include CPU, memory, request latency, error rate, database performance, queue backlog, and service availability. I also prefer SLO/SLA-based alerts instead of only infrastructure alerts.</div>
+
+<h3 class="q">Q. If application is slowing down and code looks fine, how troubleshoot?</h3>
+<div class="speak"><b>Exact Answer:</b><br>I troubleshoot it from end to end. First, I check recent deployments and configuration changes. Then I check API response time, logs, traces, CPU, memory, GC, thread pool, database slow queries, blocking/deadlocks, missing indexes, external API latency, network issues, and message queue backlog. If code looks fine, the issue may be infrastructure, database, dependency, load, or configuration related.</div>
+
+<h3 class="q">Q. API Gateway configuration?</h3>
+<div class="speak"><b>Exact Answer:</b><br>API Gateway acts as a single entry point for clients. I configure routing rules to forward requests to downstream services, authentication/authorization validation, rate limiting, request/response transformation, SSL termination, logging, correlation id forwarding, and sometimes caching. It helps centralize cross-cutting concerns and protects internal microservices from direct exposure.</div>
+</section>
+
+<section id="sql" class="section">
+<h2>12. SQL Questions</h2>
+<h3 class="q">Q. SQL Joins.</h3>
+<div class="speak"><b>Exact Answer:</b><br>SQL joins are used to combine rows from two or more tables based on related columns. Inner join returns matching records from both tables. Left join returns all records from left table and matching records from right table. Right join returns all records from right table and matching records from left table. Full join returns records from both sides. Cross join returns Cartesian product.</div>
+
+<h3 class="q">Q. Temp table vs table variable.</h3>
+<div class="speak"><b>Exact Answer:</b><br>Temp table is created in tempdb using <code>#temp</code> and is generally better for larger datasets because it supports indexes and statistics. Table variable is declared using <code>@table</code> and is suitable for smaller datasets. Temp tables can be altered after creation and often perform better for complex operations, while table variables are limited and should be used carefully for large data.</div>
+</section>
+
+<section id="coding" class="section">
+<h2>13. Coding Questions</h2>
+<h3 class="q">Q. Move all zeroes to end in array without changing order of non-zero elements.</h3>
+<div class="speak"><b>Exact Answer:</b><br>I will use two-pointer approach. One pointer tracks the position where next non-zero element should be placed. First, I move all non-zero elements forward while maintaining order. Then I fill remaining positions with zero. This is in-place, time complexity O(n), and space complexity O(1).</div>
+<pre><code>public static void MoveZeroes(int[] nums)
+{
+    int insertPos = 0;
+
+    for (int i = 0; i &lt; nums.Length; i++)
+    {
+        if (nums[i] != 0)
+        {
+            nums[insertPos] = nums[i];
+            insertPos++;
+        }
+    }
+
+    while (insertPos &lt; nums.Length)
+    {
+        nums[insertPos] = 0;
+        insertPos++;
+    }
+}
+
+// Input:  [0,1,0,3,12]
+// Output: [1,3,12,0,0]</code></pre>
+
+<h3 class="q">Q. Palindrome program.</h3>
+<div class="speak"><b>Exact Answer:</b><br>I will use two-pointer approach, one pointer from start and one from end. If characters do not match, it is not palindrome. If all characters match until pointers cross, it is palindrome.</div>
+<pre><code>public static bool IsPalindrome(string input)
+{
+    if (input == null) return false;
+
+    int left = 0;
+    int right = input.Length - 1;
+
+    while (left &lt; right)
+    {
+        if (char.ToLower(input[left]) != char.ToLower(input[right]))
+            return false;
+
+        left++;
+        right--;
+    }
+
+    return true;
+}</code></pre>
+
+<h3 class="q">Q. C# using keyword.</h3>
+<div class="speak"><b>Exact Answer:</b><br><code>using</code> keyword is used to automatically dispose objects that implement <code>IDisposable</code>. It is commonly used with file streams, database connections, and other unmanaged resource wrappers. It ensures Dispose is called even if exception occurs.</div>
+<pre><code>using var connection = new SqlConnection(connectionString);
+connection.Open();</code></pre>
+
+<h3 class="q">Q. Method overloading.</h3>
+<div class="speak"><b>Exact Answer:</b><br>Method overloading means having multiple methods with the same name but different parameter type, number, or order. Return type alone cannot be used for method overloading.</div>
+<pre><code>public int Add(int a, int b) =&gt; a + b;
+public decimal Add(decimal a, decimal b) =&gt; a + b;
+public int Add(int a, int b, int c) =&gt; a + b + c;</code></pre>
+</section>
+
+<section id="short" class="section">
+<h2>14. One-Line Revision for First Impression</h2>
+<ul>
+<li><b>DI:</b> Loose coupling and testability by injecting dependencies from container.</li>
+<li><b>SOLID:</b> Principles for clean, scalable, maintainable object-oriented design.</li>
+<li><b>LSP:</b> Child class should replace parent without breaking behavior.</li>
+<li><b>GC:</b> Automatically manages managed memory; IDisposable for unmanaged resources.</li>
+<li><b>Scoped:</b> One instance per HTTP request, ideal for DbContext.</li>
+<li><b>Singleton:</b> One instance for app lifetime, must be thread-safe.</li>
+<li><b>Transient:</b> New instance every time, good for lightweight stateless services.</li>
+<li><b>Logging:</b> Structured logs with correlation id for production debugging.</li>
+<li><b>EF Optimization:</b> Projection, AsNoTracking, pagination, indexes, execution plan.</li>
+<li><b>Angular SPA:</b> One HTML page; client-side routing updates views dynamically.</li>
+<li><b>Observable Cancel:</b> Unsubscribe or use switchMap/takeUntilDestroyed.</li>
+<li><b>CQRS:</b> Separate read and write models for performance and scalability.</li>
+<li><b>Saga:</b> Distributed transaction using local transactions and compensating actions.</li>
+<li><b>Health Check:</b> Liveness checks app alive; readiness checks dependencies ready.</li>
+<li><b>Microservices Failure:</b> Use correlation id, tracing, logs, retries, DLQ, circuit breaker.</li>
+</ul>
+<div class="note"><b>Interview Tip:</b> Har answer me 3 cheeze zaroor boliye: definition + real project use + benefit/problem solved. Isse answer senior-level lagta hai.</div>
+</section>
+</main>
+</div>
+</body>
+</html>
