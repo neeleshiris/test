@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head" content="width=device-width, initial-scale=1.0" /><head>
+  <title>C# Coding Interview Preparation Handbook</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      background: #f5f7fb;
+      color: #1f2937;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1d4ed8, #0f172a);
+      color: white;
+      padding: 36px 28px;
+      border-radius: 14px;
+      margin-bottom: 28px;
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    section {
+      background: white;
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 22px;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+    }
+
+    h2 {
+      color: #1d4ed8;
+      border-bottom: 2px solid #dbeafe;
+      padding-bottom: 8px;
+      margin-top: 0;
+    }
+
+    h3 {
+      color: #111827;
+      margin-top: 28px;
+    }
+
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 16px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 0.95rem;
+    }
+
+    code {
+      font-family: Consolas, Monaco, "Courier New", monospace;
+    }
+
+    .box {
+      background: #f8fafc;
+      border-left: 5px solid #2563eb;
+      padding: 14px 18px;
+      border-radius: 8px;
+      margin: 14px 0;
+    }
+
+    .logic {
+      background: #eff6ff;
+      border-left: 5px solid #1d4ed8;
+      padding: 14px 18px;
+      border-radius: 8px;
+      margin: 14px 0;
+    }
+
+    .client {
+      background: #ecfdf5;
+      border-left: 5px solid #10b981;
+      padding: 14px 18px;
+      border-radius: 8px;
+      margin: 14px 0;
+    }
+
+    .keywords span {
+      display: inline-block;
+      background: #e0f2fe;
+      color: #075985;
+      padding: 4px 9px;
+      margin: 3px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+    }
+
+    .tip {
+      background: #fff7ed;
+      border-left: 5px solid #f97316;
+      padding: 16px 18px;
+      border-radius: 8px;
+    }
+
+    ul, ol {
+      padding-left: 24px;
+    }
+
+    footer {
+      text-align: center;
+      color: #6b7280;
+      font-size: 0.9rem;
+      margin-top: 26px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <header>
+      <h1>C# Coding Interview Preparation Handbook</h1>
+      <p>
+        Basic C# coding interview preparation with solution, input/output example,
+        logic, and steps to explain the program to client/interviewer.
+      </p>
+    </header>
+
+    <section>
+      <h2>How to Explain Any Program to Client or Interviewer</h2>
+
+      <div class="client">
+        <ol>
+          <li>
+            <strong>Understand the requirement:</strong>
+            First explain what problem we are solving.
+          </li>
+          <li>
+            <strong>Explain input and output:</strong>
+            Tell what data we receive and what result we need to return.
+          </li>
+          <li>
+            <strong>Explain the logic:</strong>
+            Explain the main approach in simple words before writing code.
+          </li>
+          <li>
+            <strong>Dry run with example:</strong>
+            Take one sample input and explain step by step how output is generated.
+          </li>
+          <li>
+            <strong>Write clean code:</strong>
+            Use meaningful variable names and simple conditions/loops.
+          </li>
+          <li>
+            <strong>Discuss edge cases:</strong>
+            Explain how code behaves for empty input, null, duplicates, single item, etc.
+          </li>
+          <li>
+            <strong>Mention complexity:</strong>
+            Explain time complexity and space complexity in simple language.
+          </li>
+          <li>
+            <strong>Final summary:</strong>
+            End by saying why this solution works and why it is efficient.
+          </li>
+        </ol>
+      </div>
+
+      <p>
+        <strong>Generic explanation line:</strong>
+        “First, I will understand the input and expected output. Then I will apply
+        a simple logic, dry run it with an example, handle edge cases, and finally
+        explain the time and space complexity.”
+      </p>
+    </section>
+
+    <section>
+      <h2>Section 1: Practice Questions, Solutions, Input/Output & Logic</h2>
+
+      <h3>1. Palindrome Check String</h3>
+
+      <p><strong>Problem:</strong> Check whether a string reads the same forward and backward.</p>
+
+      <div class="box">
+        <p><strong>Input:</strong> "madam"</p>
+        <p><strong>Output:</strong> true</p>
+        <p><strong>Another Input:</strong> "hello"</p>
+        <p><strong>Output:</strong> false</p>
+      </div>
+
+      <pre><code>bool IsPalindrome(string str)
+{
+    int left = 0;
+    int right = str.Length - 1;
+
+    while (left &lt; right)
+    {
+        if (str[left] != str[right])
+            return false;
+
+        left++;
+        right--;
+    }
+
+    return true;
+}</code></pre>
+
+      <div class="logic">
+        <p><strong>Logic:</strong></p>
+        <ul>
+          <li>Take one pointer at the start of the string.</li>
+          <li>Take another pointer at the end of the string.</li>
+          <li>Compare both characters.</li>
+          <li>If characters are not equal, return false.</li>
+          <li>If all characters match, return true.</li>
+        </ul>
+      </div>
+
+      <div class="client">
+        <p><strong>How to explain to client/interviewer:</strong></p>
+        <p>
+          “Here we need to check if the string is the same from both sides.
+          I am using two pointers, one from the beginning and one from the end.
+          I compare both characters and move both pointers toward the center.
+          If any mismatch is found, the string is not palindrome. Otherwise, it is palindrome.”
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+      </div>
+
+      <p class="keywords">
+        <span>Two pointers</span>
+        <span>String traversal</span>
+        <span>Symmetry check</span>
+      </p>
+
+      <h3>2. Move Zeros to Right</h3>
+
+      <p>
+        <strong>Problem:</strong> Move all zeros to the end while maintaining the order
+        of non-zero elements.
+      </p>
+
+      <div class="box">
+        <p><strong>Input:</strong> [1, 0, 2, 0, 3]</p>
+        <p><strong>Output:</strong> [1, 2, 3, 0, 0]</p>
+      </div>
+
+      <pre><code>void MoveZeros(int[] arr)
+{
+    int index = 0;
+
+    for (int i = 0; i &lt; arr.Length; i++)
+    {
+        if (arr[i] != 0)
+        {
+            arr[index] = arr[i];
+            index++;
+        }
+    }
+
+    while (index &lt; arr.Length)
+    {
+        arr[index] = 0;
+        index++;
+    }
+}</code></pre>
+
+      <div class="logic">
+        <p><strong>Logic:</strong></p>
+        <ul>
+          <li>Create an index variable starting from 0.</li>
+          <li>Loop through the array.</li>
+          <li>Whenever a non-zero element is found, place it at index position.</li>
+          <li>Increase index after placing non-zero value.</li>
+          <li>After all non-zero values are placed, fill the remaining positions with zero.</li>
+        </ul>
+      </div>
+
+      <div class="client">
+        <p><strong>How to explain to client/interviewer:</strong></p>
+        <p>
+          “We are keeping all non-zero numbers in the same order and shifting them
+          to the left side. After that, the remaining positions are filled with zero.
+          This avoids using an extra array and modifies the same array.”
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+      </div>
+
+      <p class="keywords">
+        <span>Stable order</span>
+        <span>In-place</span>
+        <span>Array traversal</span>
+      </p>
+
+      <h3>3. Sort Array Without Extra Array</h3>
+
+      <p><strong>Problem:</strong> Sort an array in ascending order without using extra array.</p>
+
+      <div class="box">
+        <p><strong>Input:</strong> [5, 2, 8, 1]</p>
+        <p><strong>Output:</strong> [1, 2, 5, 8]</p>
+      </div>
+
+      <pre><code>void BubbleSort(int[] arr)
+{
+    for (int i = 0; i &lt; arr.Length - 1; i++)
+    {
+        for (int j = 0; j &lt; arr.Length - i - 1; j++)
+        {
+            if (arr[j] &gt; arr[j + 1])
+            {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}</code></pre>
+
+      <div class="logic">
+        <p><strong>Logic:</strong></p>
+        <ul>
+          <li>Compare two adjacent elements.</li>
+          <li>If the left element is greater than the right element, swap them.</li>
+          <li>After every pass, the largest element moves to the end.</li>
+          <li>Repeat until the array is sorted.</li>
+        </ul>
+      </div>
+
+      <div class="client">
+        <p><strong>How to explain to client/interviewer:</strong></p>
+        <p>
+          “I am using bubble sort here. In this approach, we compare adjacent values
+          and swap them if they are in the wrong order. After each pass, the largest
+          value reaches its correct position at the end.”
+        </p>
+        <p><strong>Time Complexity:</strong> O(n²)</p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+      </div>
+
+      <p class="keywords">
+        <span>Bubble sort</span>
+        <span>In-place sorting</span>
+        <span>Swapping</span>
+      </p>
+
+      <h3>4. Reverse a String Without Built-in Reverse</h3>
+
+      <p><strong>Problem:</strong> Reverse a string manually.</p>
+
+      <div class="box">
+        <p><strong>Input:</strong> "hello"</p>
+        <p><strong>Output:</strong> "olleh"</p>
+      </div>
+
+      <pre><code>string Reverse(string input)
+{
+    char[] arr = input.ToCharArray();
+
+    int left = 0;
+    int right = arr.Length - 1;
+
+    while (left &lt; right)
+    {
+        char temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
+
+        left++;
+        right--;
+    }
+
+    return new string(arr);
+}</code></pre>
+
+      <div class="logic">
+        <p><strong>Logic:</strong></p>
+        <ul>
+          <li>Convert string into character array.</li>
+          <li>Use two pointers: left and right.</li>
+          <li>Swap characters from both ends.</li>
+          <li>Move pointers toward the center.</li>
+          <li>Create a new string from the reversed character array.</li>
+        </ul>
+      </div>
+
+      <div class="client">
+        <p><strong>How to explain to client/interviewer:</strong></p>
+        <p>
+          “To reverse the string, I convert it into a character array because strings
+          are immutable. Then I swap first and last characters, second and second-last
+          characters, and continue until the middle.”
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+      </div>
+
+      <p class="keywords">
+        <span>Two pointers</span>
+        <span>Character array</span>
+        <span>Manual reverse</span>
+      </p>
+
+      <h3>5. Find Missing Number from 1 to N</h3>
+
+      <p><strong>Problem:</strong> Find the missing number from an array containing numbers from 1 to N.</p>
+
+      <div class="box">
+        <p><strong>Input:</strong> arr = [1, 2, 4, 5], n = 5</p>
+        <p><strong>Output:</strong> 3</p>
+      </div>
+
+      <pre><code>int FindMissing(int[] arr, int n)
+{
+    int expected = n * (n + 1) / 2;
+    int actual = arr.Sum();
+
+    return expected - actual;
+}</code></pre>
+
+      <div class="logic">
+        <p><strong>Logic:</strong></p>
+        <ul>
+          <li>Calculate expected sum from 1 to N using formula n * (n + 1) / 2.</li>
+          <li>Calculate actual sum of array elements.</li>
+          <li>Missing number = expected sum - actual sum.</li>
+        </ul>
+      </div>
+
+      <div class="client">
+        <p><strong>How to explain to client/interviewer:</strong></p>
+        <p>
+          “We know the sum of numbers from 1 to N using a mathematical formula.
+          I calculate the expected total and subtract the actual total of array.
+          The difference gives the missing number.”
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+      </div>
+
+      <p class="keywords">
+        <span>Math formula</span>
+        <span>Array sum</span>
+        <span>Optimization</span>
+      </p>
+
+      <h3>6. Remove Duplicates from Sorted Array</h3>
+
+      <p><strong>Problem:</strong> Remove duplicate elements from a sorted array.</p>
+
+      <div class="box">
+        <p><strong>Input:</strong> [1, 1, 2, 2, 3]</p>
+        <p><strong>Output:</strong> [1, 2, 3]</p>
+        <p><strong>Returned Length:</strong> 3</p>
+      </div>
+
+      <pre><code>int RemoveDuplicates(int[] arr)
+{
+    int index = 1;
+
+    for (int i = 1; i &lt; arr.Length; i++)
+    {
+        if (arr[i] != arr[i - 1])
+        {
+            arr[index] = arr[i];
+            index++;
+        }
+    }
+
+    return index;
+}</code></pre>
+
+      <div class="logic">
+        <p><strong>Logic:</strong></p>
+        <ul>
+          <li>Because the array is sorted, duplicate values are next to each other.</li>
+          <li>Start index from 1.</li>
+          <li>Compare current element with previous element.</li>
+          <li>If different, copy it to index position.</li>
+          <li>Return index as count of unique elements.</li>
+        </ul>
+      </div>
+
+      <div class="client">
+        <p><strong>How to explain to client/interviewer:</strong></p>
+        <p>
+          “Since the array is already sorted, duplicates will be adjacent.
+          I compare each element with the previous one. If it is different,
+          I keep it as a unique value and move it forward in the same array.”
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+      </div>
+
+      <p class="keywords">
+        <span>Sorted array</span>
+        <span>Two pointers</span>
+        <span>In-place update</span>
+      </p>
+
+      <h3>7. Count Frequency of Characters</h3>
+
+      <p><strong>Problem:</strong> Count how many times each character appears in a string.</p>
+
+      <div class="box">
+        <p><strong>Input:</strong> "apple"</p>
+        <p><strong>Output:</strong> a = 1, p = 2, l = 1, e = 1</p>
+      </div>
+
+      <pre><code>Dictionary&lt;char, int&gt; CountFrequency(string str)
+{
+    var dict = new Dictionary&lt;char, int&gt;();
+
+    foreach (char c in str)
+    {
+        if (dict.ContainsKey(c))
+            dict[c]++;
+        else
+            dict[c] = 1;
+    }
+
+    return dict;
+}</code></pre>
+
+      <div class="logic">
+        <p><strong>Logic:</strong></p>
+        <ul>
+          <li>Create a dictionary to store character and count.</li>
+          <li>Loop through every character in the string.</li>
+          <li>If character already exists in dictionary, increase count.</li>
+          <li>If character does not exist, add it with count 1.</li>
+        </ul>
+      </div>
+
+      <div class="client">
+        <p><strong>How to explain to client/interviewer:</strong></p>
+        <p>
+          “I am using a dictionary where key is the character and value is its count.
+          While reading each character, I either add it for the first time or increase
+          its existing count.”
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(k), where k is number of unique characters</p>
+      </div>
+
+      <p class="keywords">
+        <span>Dictionary</span>
+        <span>Hashing</span>
+        <span>Frequency count</span>
+      </p>
+
+      <h3>8. Check Anagram</h3>
+
+      <p><strong>Problem:</strong> Check whether two strings contain same characters with same frequency.</p>
+
+      <div class="box">
+        <p><strong>Input:</strong> s1 = "listen", s2 = "silent"</p>
+        <p><strong>Output:</strong> true</p>
+        <p><strong>Another Input:</strong> s1 = "hello", s2 = "world"</p>
+        <p><strong>Output:</strong> false</p>
+      </div>
+
+      <pre><code>bool IsAnagram(string s1, string s2)
+{
+    if (s1.Length != s2.Length)
+        return false;
+
+    int[] count = new int[256];
+
+    foreach (char c in s1)
+        count[c]++;
+
+    foreach (char c in s2)
+    {
+        count[c]--;
+
+        if (count[c] &lt; 0)
+            return false;
+    }
+
+    return true;
+}</code></pre>
+
+      <div class="logic">
+        <p><strong>Logic:</strong></p>
+        <ul>
+          <li>If lengths are different, strings cannot be anagram.</li>
+          <li>Create a count array for characters.</li>
+          <li>Increase count for characters of first string.</li>
+          <li>Decrease count for characters of second string.</li>
+          <li>If any count becomes negative, return false.</li>
+          <li>If all counts balance, return true.</li>
+        </ul>
+      </div>
+
+      <div class="client">
+        <p><strong>How to explain to client/interviewer:</strong></p>
+        <p>
+          “Two strings are anagrams when both have the same characters with the same
+          frequency. I first count characters from the first string, then reduce the
+          count using the second string. If counts are balanced, both strings are anagrams.”
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(1), because fixed size array is used</p>
+      </div>
+
+      <p class="keywords">
+        <span>Anagram</span>
+        <span>Character count</span>
+        <span>Hashing</span>
+      </p>
+
+      <h3>9. Find Second Largest Element</h3>
+
+      <p><strong>Problem:</strong> Find the second largest distinct element from an array.</p>
+
+      <div class="box">
+        <p><strong>Input:</strong> [10, 5, 20, 8]</p>
+        <p><strong>Output:</strong> 10</p>
+      </div>
+
+      <pre><code>int SecondLargest(int[] arr)
+{
+    int first = int.MinValue;
+    int second = int.MinValue;
+
+    foreach (int num in arr)
+    {
+        if (num &gt; first)
+        {
+            second = first;
+            first = num;
+        }
+        else if (num &gt; second &amp;&amp; num != first)
+        {
+            second = num;
+        }
+    }
+
+    return second;
+}</code></pre>
+
+      <div class="logic">
+        <p><strong>Logic:</strong></p>
+        <ul>
+          <li>Keep two variables: first and second.</li>
+          <li>first stores the largest number.</li>
+          <li>second stores the second largest number.</li>
+          <li>If current number is greater than first, update both first and second.</li>
+          <li>If current number is between first and second, update second.</li>
+        </ul>
+      </div>
+
+      <div class="client">
+        <p><strong>How to explain to client/interviewer:</strong></p>
+        <p>
+          “Instead of sorting the array, I scan it once and keep track of the largest
+          and second largest numbers. This gives the answer in one pass.”
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(1)</p>
+      </div>
+
+      <p class="keywords">
+        <span>Single pass</span>
+        <span>Optimization</span>
+        <span>Largest tracking</span>
+      </p>
+
+      <h3>10. Reverse Words in a Sentence</h3>
+
+      <p><strong>Problem:</strong> Reverse the order of words in a sentence.</p>
+
+      <div class="box">
+        <p><strong>Input:</strong> "I love CSharp"</p>
+        <p><strong>Output:</strong> "CSharp love I"</p>
+      </div>
+
+      <pre><code>string ReverseWords(string input)
+{
+    string[] words = input.Split(' ');
+
+    Array.Reverse(words);
+
+    return string.Join(" ", words);
+}</code></pre>
+
+      <div class="logic">
+        <p><strong>Logic:</strong></p>
+        <ul>
+          <li>Split the sentence into words using space.</li>
+          <li>Reverse the words array.</li>
+          <li>Join the reversed words again with space.</li>
+        </ul>
+      </div>
+
+      <div class="client">
+        <p><strong>How to explain to client/interviewer:</strong></p>
+        <p>
+          “Here we do not reverse each character. We reverse the order of words.
+          First I split the sentence into words, then reverse the word array,
+          and finally join them back into a sentence.”
+        </p>
+        <p><strong>Time Complexity:</strong> O(n)</p>
+        <p><strong>Space Complexity:</strong> O(n)</p>
+      </div>
+
+      <p class="keywords">
+        <span>String split</span>
+        <span>Array reverse</span>
+        <span>Join words</span>
+      </p>
+
+    </section>
+
+    <section>
+      <h2>Important Edge Cases to Mention</h2>
+
+      <ul>
+        <li><strong>Null input:</strong> What should happen if input is null?</li>
+        <li><strong>Empty input:</strong> Example empty string or empty array.</li>
+        <li><strong>Single element:</strong> Example array with only one item.</li>
+        <li><strong>Duplicate values:</strong> Important for second largest and remove duplicates.</li>
+        <li><strong>Case sensitivity:</strong> Example "Madam" and "madam" in palindrome.</li>
+        <li><strong>Special characters:</strong> Example spaces, commas, symbols in string problems.</li>
+      </ul>
+    </section>
+
+    <section class="tip">
+      <h2>Final Interview Tip</h2>
+
+      <p>
+        Do not directly start coding. First explain your understanding,
+        then explain logic, then write code, then test with input/output.
+      </p>
+
+      <p>
+        <strong>Best line to say:</strong>
+        “I will first explain the logic, then dry run with an example,
+        and after that I will write the code.”
+      </p>
+
+      <p>
+        <strong>Focus on clarity, not cleverness.</strong>
+      </p>
+    </section>
+
+    <footer>
+      C# Coding Interview Preparation Handbook with Input/Output and Client Explanation Steps
+    </footer>
+
+  </div>
+</body>
+</html>
+  <meta charset="UTF-8" />
