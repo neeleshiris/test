@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neelesh Shrivastava - Final Interview Preparation</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f7fb;
+      color: #1f2937;
+      line-height: 1.65;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f4c81, #0b7285);
+      color: white;
+      padding: 30px 24px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 30px;
+    }
+
+    header p {
+      margin: 5px 0;
+      font-size: 16px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 24px auto;
+      padding: 0 18px 60px;
+    }
+
+    section, .toc {
+      background: white;
+      border: 1px solid #dbe4ef;
+      border-radius: 14px;
+      padding: 22px;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 22px rgba(15, 76, 129, 0.08);
+    }
+
+    h2 {
+      color: #0f4c81;
+      border-bottom: 2px solid #dbe4ef;
+      padding-bottom: 8px;
+      margin-top: 0;
+    }
+
+    h3 {
+      color: #1769aa;
+      margin-bottom: 6px;
+    }
+
+    .qa {
+      border-left: 4px solid #1769aa;
+      background: #fbfdff;
+      padding: 14px 16px;
+      border-radius: 10px;
+      margin: 14px 0;
+    }
+
+    .speak {
+      background: #eef8ff;
+      border-left: 4px solid #0b7285;
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    .answer {
+      background: #ffffff;
+      border: 1px solid #e6eef7;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-top: 8px;
+    }
+
+    .note {
+      background: #fff7ed;
+      border-left: 4px solid #b45309;
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .strong {
+      background: #ecfdf5;
+      border-left: 4px solid #107c10;
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .avoid {
+      background: #fef2f2;
+      border-left: 4px solid #b91c1c;
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    ul, ol {
+      padding-left: 24px;
+    }
+
+    a {
+      color: #1769aa;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    pre {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 14px;
+      overflow-x: auto;
+    }
+
+    code {
+      font-family: Consolas, monospace;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    .mini-card {
+      background: #fbfdff;
+      border: 1px solid #e6eef7;
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    footer {
+      text-align: center;
+      color: #6b7280;
+      margin-top: 30px;
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      section, .toc {
+        box-shadow: none;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Neelesh Shrivastava - Final End-to-End Interview Preparation</h1>
+  <p>Senior .NET Full Stack Developer | .NET Core | AngularJS | Azure | Azure AD/B2C | Power BI/Tableau Reporting Hub</p>
+  <p>Speak-ready interview answers based on real project experience</p>
+</header>
+
+<main>
+
+  <div class="toc">
+    <h2>Index</h2>
+    <ol>
+      <li><a href="#intro">Tell Me About Yourself</a></li>
+      <li><a href="#project">Reporting Hub Project Explanation</a></li>
+      <li><a href="#architecture">Architecture and Flow</a></li>
+      <li><a href="#angular">AngularJS / Frontend Questions</a></li>
+      <li><a href="#dotnet">.NET Core / Web API Questions</a></li>
+      <li><a href="#auth">Authentication and Authorization</a></li>
+      <li><a href="#powerbi">Power BI, Tableau and RLS</a></li>
+      <li><a href="#azure">Azure Questions</a></li>
+      <li><a href="#appinsights">Application Insights and Monitoring</a></li>
+      <li><a href="#sql">Azure SQL and Database Questions</a></li>
+      <li><a href="#sdlc">SDLC and Agile</a></li>
+      <li><a href="#cicd">CI/CD and Azure DevOps</a></li>
+      <li><a href="#security">Security and Penetration Testing</a></li>
+      <li><a href="#performance">Performance Testing and Scalability</a></li>
+      <li><a href="#systemdesign">Scalable System Design</a></li>
+      <li><a href="#microservices">Microservices, CQRS, RabbitMQ</a></li>
+      <li><a href="#coding">Coding and Logic Questions</a></li>
+      <li><a href="#hr">HR and Managerial Questions</a></li>
+      <li><a href="#rapid">Rapid Fire Revision</a></li>
+    </ol>
+  </div>
+
+  <section id="intro">
+    <h2>1. Tell Me About Yourself</h2>
+
+    <div class="qa">
+      <h3>Q: Tell me about yourself.</h3>
+      <div class="speak">
+        My name is Neelesh Shrivastava. I am a Senior .NET Full Stack Developer with more than 10 years of experience in designing, developing, and maintaining enterprise applications.
+        <br><br>
+        My core skills are .NET Core Web API, AngularJS, Azure App Service, Azure SQL Database, Azure Active Directory, Azure B2C, MSAL authentication, Application Insights, and CI/CD using Azure DevOps.
+        <br><br>
+        In my recent project, I worked on a Reporting Hub application. This application is used to manage report access for different users in an organization. It does not create reports by itself. Instead, it integrates external reports like Power BI and Tableau using secure report URLs or embedded reports.
+        <br><br>
+        I worked on both frontend and backend, including AngularJS components, services, HTTP interceptor, auth guard, .NET Core APIs, authentication, role-based authorization, Azure deployment, monitoring, and performance improvements.
+      </div>
+
+      <div class="note">
+        Interview tip: Pehle experience bolo, phir tech stack, phir project, phir apna contribution.
+      </div>
+    </div>
+  </section>
+
+  <section id="project">
+    <h2>2. Reporting Hub Project Explanation</h2>
+
+    <div class="qa">
+      <h3>Q: Explain your project in detail.</h3>
+      <div class="speak">
+        I worked on a Reporting Hub application. It is a centralized platform used to manage and provide access to different reports for different users in an organization.
+        <br><br>
+        The important point is that Reporting Hub does not generate reports by itself. It works as a secure report access management system. Reports are created in external tools like Power BI and Tableau, and our application stores report metadata, report URLs, user mappings, role mappings, and access configuration.
+        <br><br>
+        We have two types of users in the system. Internal users are authenticated using Azure Active Directory, and external users are authenticated using Azure B2C. For authentication and token handling, we used MSAL library.
+        <br><br>
+        Admin users can create report entries in the application, configure report details, and assign reports to users or roles. When a user logs in, the system checks the user identity, role, and assigned reports, and then displays only those reports which the user is authorized to access.
+        <br><br>
+        For external users, we also integrated embedded Power BI reports with Row Level Security, so users can see only their permitted data inside the report. We also support Tableau report URLs depending on report configuration.
+        <br><br>
+        The frontend is built using AngularJS, backend APIs are built using .NET Core, database is Azure SQL Database, application is hosted on Azure App Service, and monitoring is done through Application Insights.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What was your role in the project?</h3>
+      <div class="speak">
+        My role was as a .NET Full Stack Developer. I worked on frontend, backend, authentication, authorization, API development, database interaction, Azure deployment, monitoring, and production issue fixing.
+        <br><br>
+        On the frontend side, I created AngularJS components, services, HTTP interceptors, and auth guards. On the backend side, I developed .NET Core APIs and implemented role-based access control.
+        <br><br>
+        I also worked on Azure App Service deployment, Application Insights monitoring, and CI/CD related activities like pull requests, build pipelines, and deployment to Azure App Service.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What is the business purpose of Reporting Hub?</h3>
+      <div class="answer">
+        The business purpose is to provide a single secure platform where users can access all organization reports based on their permissions.
+        <br><br>
+        Instead of sharing Power BI or Tableau links manually, admin can manage report access from one system. This improves security, user management, auditability, and maintainability.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What are the main modules?</h3>
+      <div class="answer">
+        <ul>
+          <li><strong>Authentication module:</strong> Azure AD for internal users and Azure B2C for external users.</li>
+          <li><strong>Authorization module:</strong> Role-based and user-based report access.</li>
+          <li><strong>Admin module:</strong> Admin can create report entries and assign reports.</li>
+          <li><strong>Report listing module:</strong> Users can see only assigned reports.</li>
+          <li><strong>Report viewer module:</strong> Displays Power BI or Tableau reports.</li>
+          <li><strong>Monitoring module:</strong> Application Insights for logs, exceptions, and performance tracking.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What was your biggest challenge in this project?</h3>
+      <div class="speak">
+        One major challenge was implementing role-based authorization because the access token from Azure AD and Azure B2C did not contain the role claim required by our application.
+        <br><br>
+        To solve this, after successful authentication, I fetched the user role and permissions from Azure SQL Database based on the logged-in user. Then I added that role information into the application claims and used those claims for API-level authorization and UI-level access control.
+        <br><br>
+        This solution helped us ensure that each user can access only assigned reports and authorized features.
+      </div>
+    </div>
+  </section>
+
+  <section id="architecture">
+    <h2>3. Architecture and Flow</h2>
+
+    <div class="qa">
+      <h3>Q: Explain the architecture of your application.</h3>
+      <div class="speak">
+        The application follows a layered architecture. The frontend is developed in AngularJS. It communicates with .NET Core Web APIs.
+        <br><br>
+        The backend APIs handle business logic, authentication validation, authorization, report access logic, and database operations.
+        <br><br>
+        Azure SQL Database stores report metadata, user mapping, role mapping, and configuration data. Azure App Service hosts the application, and Application Insights is used for logging and monitoring.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: Explain login to report access flow.</h3>
+      <div class="answer">
+        <ol>
+          <li>User opens Reporting Hub.</li>
+          <li>User logs in using Azure AD for internal users or Azure B2C for external users.</li>
+          <li>MSAL receives token after successful login.</li>
+          <li>Angular HTTP interceptor attaches token to API requests.</li>
+          <li>.NET Core API validates token.</li>
+          <li>API fetches role and report mapping from Azure SQL Database.</li>
+          <li>Only authorized reports are returned to UI.</li>
+          <li>User opens Power BI or Tableau report based on access.</li>
+          <li>Application Insights captures logs, exceptions, and performance data.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="angular">
+    <h2>4. AngularJS / Frontend Questions</h2>
+
+    <div class="qa">
+      <h3>Q: What work did you do in AngularJS?</h3>
+      <div class="speak">
+        I worked on AngularJS frontend development. I created components for report listing, report details, admin screens, and user access screens.
+        <br><br>
+        I created services to call backend APIs. I implemented HTTP interceptor to attach authentication token in every API request and to handle common errors globally.
+        <br><br>
+        I also implemented auth guard to protect routes and prevent unauthorized users from accessing restricted pages.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What is a component?</h3>
+      <div class="answer">
+        A component is responsible for a specific UI part of the application. It contains view, data binding, and logic for that part.
+        <br><br>
+        In my project, examples of components are report list component, report viewer component, admin report management component, and user mapping component.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What is a service in Angular?</h3>
+      <div class="answer">
+        A service is used to keep reusable logic outside components. It is commonly used for API calls, shared data, authentication logic, and utility methods.
+        <br><br>
+        In my project, I used services to call .NET Core APIs for reports, users, roles, and authentication-related operations.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What is HTTP interceptor and why did you use it?</h3>
+      <div class="speak">
+        HTTP interceptor intercepts outgoing requests and incoming responses. I used it to add bearer token in the request header for every API call.
+        <br><br>
+        This avoids writing token logic in every service method. I also used it for global error handling, like handling 401 unauthorized, 403 forbidden, and common API errors.
+      </div>
+
+      <pre><code>Authorization: Bearer &lt;access_token&gt;</code></pre>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What is Auth Guard?</h3>
+      <div class="answer">
+        Auth Guard is used to protect application routes. Before opening a route, it checks whether the user is authenticated and authorized.
+        <br><br>
+        If the user is not logged in, it redirects to login. If the user does not have permission, it redirects to unauthorized page or dashboard.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: How did you manage token in Angular?</h3>
+      <div class="answer">
+        We used MSAL library for authentication. After login, MSAL provides access token. Angular service or interceptor retrieves the token and attaches it to API requests.
+        <br><br>
+        Token expiration and refresh are handled through MSAL flow.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: How did you show only assigned reports in UI?</h3>
+      <div class="answer">
+        After login, Angular calls backend API to get the list of reports assigned to the user.
+        <br><br>
+        Backend checks user identity, roles, and report mapping from database, and returns only authorized reports. Angular displays only those reports in the report list component.
+      </div>
+    </div>
+  </section>
+
+  <section id="dotnet">
+    <h2>5. .NET Core / Web API Questions</h2>
+
+    <div class="qa">
+      <h3>Q: What work did you do in .NET Core?</h3>
+      <div class="speak">
+        I developed .NET Core Web APIs for report management, user-role mapping, report assignment, authentication support, and authorization checks.
+        <br><br>
+        I used dependency injection, service layer, repository or data access layer, middleware, configuration management, logging, and exception handling.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: Explain Dependency Injection.</h3>
+      <div class="answer">
+        Dependency Injection is a design pattern where dependencies are provided from outside instead of creating them inside the class.
+        <br><br>
+        It improves testability, loose coupling, and maintainability. In .NET Core, services are registered in the DI container and injected through constructors.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: Explain Singleton, Scoped, and Transient.</h3>
+      <div class="answer">
+        <ul>
+          <li><strong>Singleton:</strong> One instance for the entire application lifetime.</li>
+          <li><strong>Scoped:</strong> One instance per HTTP request. Commonly used for database context and request-specific services.</li>
+          <li><strong>Transient:</strong> New instance every time it is requested. Used for lightweight stateless services.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What is middleware in .NET Core?</h3>
+      <div class="answer">
+        Middleware is a component in the HTTP request pipeline.
+        <br><br>
+        Each middleware can process the request, pass it to next middleware, and process the response. Examples are authentication, authorization, exception handling, routing, CORS, and logging middleware.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: Authentication vs Authorization?</h3>
+      <div class="answer">
+        Authentication means verifying who the user is.
+        <br><br>
+        Authorization means verifying what the user is allowed to access.
+        <br><br>
+        In my project, Azure AD/B2C handles authentication, and our application role mapping handles authorization.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: IEnumerable vs IQueryable?</h3>
+      <div class="answer">
+        IEnumerable works mainly with in-memory collections.
+        <br><br>
+        IQueryable builds database queries and executes them at database level. For database filtering, IQueryable is better because it can apply filters in SQL before data comes to application memory.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: How do you handle exceptions in API?</h3>
+      <div class="answer">
+        I prefer centralized exception handling using middleware or filters.
+        <br><br>
+        It logs exceptions, returns proper HTTP status codes, and avoids exposing sensitive technical details to users. We can log exceptions into Application Insights for analysis.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: How do you improve API performance?</h3>
+      <div class="answer">
+        I improve API performance by optimizing SQL queries, using proper indexes, avoiding unnecessary data loading, using async/await for I/O operations, implementing caching where needed, using pagination for large data, and monitoring slow dependencies using Application Insights.
+      </div>
+    </div>
+  </section>
+
+  <section id="auth">
+    <h2>6. Authentication and Authorization</h2>
+
+    <div class="qa">
+      <h3>Q: How did you implement authentication?</h3>
+      <div class="speak">
+        We implemented authentication using Azure AD for internal users and Azure B2C for external users.
+        <br><br>
+        On the frontend, we used MSAL library to handle login, token acquisition, and token management. The access token is sent to backend APIs in the Authorization header.
+        <br><br>
+        Backend validates the token and then performs authorization based on application roles and report mappings.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: Why Azure AD and Azure B2C both?</h3>
+      <div class="answer">
+        Azure AD is suitable for internal organization users because they already exist in the company's tenant.
+        <br><br>
+        Azure B2C is suitable for external users because it supports customer or external identity management, sign-up/sign-in policies, and external identity providers.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What is MSAL?</h3>
+      <div class="answer">
+        MSAL means Microsoft Authentication Library. It is used to authenticate users and acquire tokens from Azure AD or Azure B2C.
+        <br><br>
+        In our application, MSAL helped with login, token acquisition, token refresh, and user session management.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What issue did you face with role claim?</h3>
+      <div class="speak">
+        The token did not contain the role claim required for our application authorization.
+        <br><br>
+        Because of that, we could authenticate the user, but we could not directly decide application permissions from token.
+        <br><br>
+        I solved it by fetching roles and permissions from database after login and adding them into application claims. Then I used those claims for route access, API authorization, and report visibility.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: How did you secure APIs?</h3>
+      <div class="answer">
+        APIs are secured by validating JWT access tokens, using HTTPS, applying authorization checks, validating inputs, avoiding sensitive data exposure, handling CORS carefully, and logging suspicious or failed requests where required.
+      </div>
+    </div>
+  </section>
+
+  <section id="powerbi">
+    <h2>7. Power BI, Tableau and RLS</h2>
+
+    <div class="qa">
+      <h3>Q: How did Reporting Hub integrate reports?</h3>
+      <div class="answer">
+        Reporting Hub stores report metadata and secure URLs or embed configuration for external reporting tools.
+        <br><br>
+        It does not generate reports. Based on user access, it displays Power BI or Tableau reports inside the application or redirects/embeds using configured URLs.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What is Row Level Security?</h3>
+      <div class="answer">
+        Row Level Security restricts data inside a report based on the user.
+        <br><br>
+        Even if multiple users open the same report, each user can see only the data allowed for them. In our project, RLS was important for external users so that they could not see data belonging to other users or organizations.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: How did you handle external users with Power BI embedded reports?</h3>
+      <div class="answer">
+        For external users, after B2C authentication, the application identifies the user and fetches their report access and security context.
+        <br><br>
+        Then the embedded report is loaded with proper access and RLS configuration, so the user can see only permitted report data.
+      </div>
+    </div>
+  </section>
+
+  <section id="azure">
+    <h2>8. Azure Questions</h2>
+
+    <div class="qa">
+      <h3>Q: Which Azure services did you use?</h3>
+      <div class="answer">
+        I used Azure App Service, Azure SQL Database, Azure Active Directory, Azure B2C, Application Insights, and Azure DevOps for CI/CD activities.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What is Azure App Service?</h3>
+      <div class="answer">
+        Azure App Service is a Platform-as-a-Service offering used to host web applications and APIs.
+        <br><br>
+        It provides managed hosting, scaling, deployment slots, SSL support, monitoring integration, and easy deployment from Azure DevOps.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: How do you create an App Service?</h3>
+      <div class="answer">
+        First, create or select a Resource Group. Then create an App Service Plan, choose runtime stack, region, pricing tier, and operating system.
+        <br><br>
+        After that, create the Web App/App Service and deploy application using Azure DevOps pipeline, Visual Studio publish, or deployment center.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: App Service vs AKS vs Azure Functions?</h3>
+      <div class="answer">
+        <ul>
+          <li><strong>App Service:</strong> Best for normal web applications and APIs where we do not want to manage infrastructure.</li>
+          <li><strong>AKS:</strong> Best for containerized microservices where we need orchestration, scaling, and more control.</li>
+          <li><strong>Azure Functions:</strong> Best for event-driven small tasks like scheduled jobs, queue triggers, file processing, or lightweight background work.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: Why would you not choose AKS?</h3>
+      <div class="answer">
+        I would not choose AKS if the application is not complex enough to justify Kubernetes operational overhead.
+        <br><br>
+        AKS needs containerization, cluster management, monitoring, networking, scaling configuration, and DevOps maturity. For a normal web application, Azure App Service is simpler, cost-effective, and easier to maintain.
+      </div>
+    </div>
+  </section>
+
+  <section id="appinsights">
+    <h2>9. Application Insights and Monitoring</h2>
+
+    <div class="qa">
+      <h3>Q: What is Application Insights?</h3>
+      <div class="answer">
+        Application Insights is an Azure monitoring service used to track application performance, exceptions, requests, dependencies, failures, and logs.
+        <br><br>
+        It helps in identifying production issues and performance bottlenecks.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: How did you use Application Insights?</h3>
+      <div class="answer">
+        We used Application Insights to monitor API failures, response time, exceptions, dependency calls, and application logs.
+        <br><br>
+        During production issues, we checked traces, exceptions, and failed requests to identify root cause.
+      </div>
+    </div>
+  </section>
+
+  <section id="sql">
+    <h2>10. Azure SQL and Database Questions</h2>
+
+    <div class="qa">
+      <h3>Q: What data did you store in Azure SQL?</h3>
+      <div class="answer">
+        We stored user information, roles, report metadata, report URLs, report assignment, user-role mapping, and configuration data in Azure SQL Database.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: How do you optimize SQL queries?</h3>
+      <div class="answer">
+        I optimize SQL queries by creating proper indexes, selecting only required columns, avoiding unnecessary joins, using pagination, checking execution plans, avoiding N+1 queries, and moving filtering to database level instead of application memory.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: Types of joins?</h3>
+      <div class="answer">
+        Inner join returns matching records from both tables.
+        <br><br>
+        Left join returns all records from left table and matching records from right table.
+        <br><br>
+        Right join returns all records from right table and matching from left.
+        <br><br>
+        Full join returns records from both sides whether matching or not.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What is index?</h3>
+      <div class="answer">
+        Index improves data retrieval performance by allowing database to find rows faster.
+        <br><br>
+        However, too many indexes can slow down insert/update/delete operations, so indexes should be created based on query patterns.
+      </div>
+    </div>
+  </section>
+
+  <section id="sdlc">
+    <h2>11. SDLC and Agile</h2>
+
+    <div class="qa">
+      <h3>Q: Explain SDLC followed in your project.</h3>
+      <div class="speak">
+        We followed Agile SDLC. Work was divided into sprints.
+        <br><br>
+        First, requirements were discussed and clarified with business or product owners. Then tasks were created and estimated. After that, development was done by developers.
+        <br><br>
+        Code was pushed through pull requests and reviewed by team members. After approval, code was merged and deployed to lower environments using CI/CD pipeline.
+        <br><br>
+        QA testing was performed, issues were fixed, and finally changes were promoted to higher environments like UAT or production after approvals.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What are the SDLC phases?</h3>
+      <div class="answer">
+        Requirement analysis, design, development, unit testing, code review, QA testing, deployment, monitoring, and maintenance.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What Agile ceremonies did you follow?</h3>
+      <div class="answer">
+        Sprint planning, daily stand-up, backlog grooming or refinement, sprint review or demo, and retrospective.
+      </div>
+    </div>
+  </section>
+
+  <section id="cicd">
+    <h2>12. CI/CD and Azure DevOps</h2>
+
+    <div class="qa">
+      <h3>Q: Explain your CI/CD experience.</h3>
+      <div class="speak">
+        I worked with Azure DevOps CI/CD process.
+        <br><br>
+        Developers create a feature branch and raise a pull request. After code review and approval, code is merged into the target branch.
+        <br><br>
+        The build pipeline runs automatically, restores packages, builds the solution, runs tests if configured, and creates build artifacts.
+        <br><br>
+        Then the release pipeline deploys the artifact to Azure App Service. Deployment can be done environment-wise like Dev, QA, UAT, and Production, with approvals where required.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What is CI?</h3>
+      <div class="answer">
+        Continuous Integration means developers frequently merge code into a shared branch, and automated build/test process validates the code quickly.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What is CD?</h3>
+      <div class="answer">
+        Continuous Delivery or Deployment means automatically deploying validated build artifacts to environments like Dev, QA, UAT, or Production with required approvals.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: How do you deploy to Azure App Service?</h3>
+      <div class="answer">
+        Build pipeline creates an artifact. Release pipeline picks the artifact and deploys it to Azure App Service using Azure service connection.
+        <br><br>
+        App settings and environment-specific configuration are managed in Azure App Service configuration or pipeline variables.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What is a Pull Request?</h3>
+      <div class="answer">
+        Pull Request is used to review code before merging into main branch.
+        <br><br>
+        It helps maintain code quality through peer review, build validation, comments, and approval process.
+      </div>
+    </div>
+  </section>
+
+  <section id="security">
+    <h2>13. Security and Penetration Testing</h2>
+
+    <div class="qa">
+      <h3>Q: You mentioned penetration testing. What issues can come and how did you fix them?</h3>
+      <div class="answer">
+        In penetration testing, common findings can be missing security headers, weak CORS configuration, sensitive information exposure, improper authorization, token handling issues, SQL injection risk, XSS risk, and insecure error messages.
+        <br><br>
+        We fixed issues by validating inputs, improving authorization checks, hiding technical error details, using HTTPS, applying secure headers, restricting CORS, and ensuring APIs return only authorized data.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: How do you prevent SQL injection?</h3>
+      <div class="answer">
+        Use parameterized queries or ORM with parameters, avoid dynamic SQL string concatenation, validate inputs, and apply least privilege access to database users.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: How do you prevent XSS?</h3>
+      <div class="answer">
+        Encode output, validate input, avoid rendering raw HTML from user input, use safe binding practices, and apply content security headers where possible.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What is broken access control?</h3>
+      <div class="answer">
+        Broken access control happens when a user can access data or functionality which they are not allowed to access.
+        <br><br>
+        In Reporting Hub, we prevent this by checking user roles and report assignments at API level, not only at UI level.
+      </div>
+    </div>
+  </section>
+
+  <section id="performance">
+    <h2>14. Performance Testing and Scalability</h2>
+
+    <div class="qa">
+      <h3>Q: What performance testing was done?</h3>
+      <div class="speak">
+        Performance testing was done to validate that the system can handle around 100 concurrent users.
+        <br><br>
+        We identified slow APIs and database queries. We optimized queries, added or reviewed indexes, reduced unnecessary data loading, improved API response time, and monitored application behavior using Application Insights.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: How will you handle 100 concurrent users?</h3>
+      <div class="answer">
+        For 100 concurrent users, we need efficient APIs, optimized database queries, proper indexing, connection management, caching where required, and Azure App Service scaling if load increases.
+        <br><br>
+        We should also monitor response time, failed requests, CPU, memory, and database DTU or vCore usage.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: How do you make application scalable?</h3>
+      <div class="answer">
+        Use horizontal scaling, caching, optimized database queries, asynchronous processing for long tasks, CDN for static content if needed, proper monitoring, and database scaling.
+        <br><br>
+        In Azure App Service, we can scale out by increasing instances and scale up by increasing pricing tier/resources.
+      </div>
+    </div>
+  </section>
+
+  <section id="systemdesign">
+    <h2>15. Scalable System Design</h2>
+
+    <div class="qa">
+      <h3>Q: How would you design a highly scalable reporting system?</h3>
+      <div class="speak">
+        I would design it with a clear separation between frontend, backend APIs, database, authentication provider, and external report providers.
+        <br><br>
+        The frontend would call backend APIs. Backend would handle authorization, report metadata, and access rules. Reports would come from Power BI or Tableau.
+        <br><br>
+        User authentication would be handled by Azure AD or B2C. Report access mapping would be stored in database.
+        <br><br>
+        For scalability, I would use Azure App Service scale-out, optimized SQL queries, caching for frequently used metadata, and Application Insights for monitoring.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: How would you handle 10,000 users or high traffic?</h3>
+      <div class="answer">
+        For 10,000 users, I would consider load balancing, horizontal scaling, distributed caching like Redis, database read replicas or scaling, API pagination, async processing for heavy tasks, CDN for static assets, queue-based background processing, rate limiting, and strong monitoring.
+        <br><br>
+        If the domain grows large, we can split modules into microservices, but I would not start with microservices unless there is a clear need.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: How do you design failure handling?</h3>
+      <div class="answer">
+        Use proper exception handling, retry for transient failures, timeout configuration, circuit breaker pattern for external dependencies, logging, alerts, graceful error messages, and fallback behavior where possible.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What if external report provider is down?</h3>
+      <div class="answer">
+        The application should show a user-friendly message, log the failure, avoid crashing the whole app, and retry only where appropriate.
+        <br><br>
+        Monitoring alerts should notify the support team. If possible, cache report metadata but not sensitive report data unless allowed.
+      </div>
+    </div>
+  </section>
+
+  <section id="microservices">
+    <h2>16. Microservices, CQRS, RabbitMQ - Basic Safe Answers</h2>
+
+    <div class="note">
+      Important: Since you did not work deeply on microservices, CQRS, and RabbitMQ, answer honestly but confidently. Do not claim deep production experience.
+    </div>
+
+    <div class="qa">
+      <h3>Q: Have you worked on microservices?</h3>
+      <div class="speak">
+        I have not worked deeply on a full microservices-based production system. My main production experience is with .NET Core APIs and Azure App Service.
+        <br><br>
+        However, I understand the basic concepts of microservices, like splitting application into small independent services, independent deployment, service-to-service communication, and scaling services independently.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What is microservices architecture?</h3>
+      <div class="answer">
+        Microservices architecture splits a large application into small independent services.
+        <br><br>
+        Each service owns a specific business capability, can be developed and deployed independently, and may have its own database.
+        <br><br>
+        It improves scalability and independent deployment but increases complexity in communication, monitoring, and data consistency.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What is CQRS?</h3>
+      <div class="answer">
+        CQRS means Command Query Responsibility Segregation.
+        <br><br>
+        It separates write operations from read operations. Commands are used to change data, and queries are used to read data.
+        <br><br>
+        It is useful when read and write workloads are different or need separate optimization.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What is RabbitMQ?</h3>
+      <div class="answer">
+        RabbitMQ is a message broker used for asynchronous communication.
+        <br><br>
+        One service publishes a message to a queue, and another service consumes it. It helps decouple services and handle background processing or event-driven workflows.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: Sync vs Async communication?</h3>
+      <div class="answer">
+        Synchronous communication means caller waits for immediate response, like REST API call.
+        <br><br>
+        Asynchronous communication means caller sends message and does not wait for immediate completion, like using queue or message broker. Async is better for long-running or decoupled processes.
+      </div>
+    </div>
+  </section>
+
+  <section id="coding">
+    <h2>17. Coding and Logic Questions</h2>
+
+    <div class="qa">
+      <h3>Q: Move zeros to right in array.</h3>
+      <pre><code>void MoveZerosToRight(int[] arr)
+{
+    int index = 0;
+
+    for (int i = 0; i &lt; arr.Length; i++)
+    {
+        if (arr[i] != 0)
+        {
+            arr[index++] = arr[i];
+        }
+    }
+
+    while (index &lt; arr.Length)
+    {
+        arr[index++] = 0;
+    }
+}</code></pre>
+    </div>
+
+    <div class="qa">
+      <h3>Q: Move zeros to left in array.</h3>
+      <pre><code>void MoveZerosToLeft(int[] arr)
+{
+    int index = arr.Length - 1;
+
+    for (int i = arr.Length - 1; i &gt;= 0; i--)
+    {
+        if (arr[i] != 0)
+        {
+            arr[index--] = arr[i];
+        }
+    }
+
+    while (index &gt;= 0)
+    {
+        arr[index--] = 0;
+    }
+}</code></pre>
+    </div>
+
+    <div class="qa">
+      <h3>Q: Bubble sort and why two loops?</h3>
+      <div class="answer">
+        Bubble sort uses two loops because the inner loop compares adjacent elements and moves the largest element to the end in each pass.
+        <br><br>
+        The outer loop repeats this process until all elements are sorted. After every outer pass, one element reaches its correct position.
+      </div>
+
+      <pre><code>void BubbleSort(int[] arr)
+{
+    for (int i = 0; i &lt; arr.Length - 1; i++)
+    {
+        for (int j = 0; j &lt; arr.Length - i - 1; j++)
+        {
+            if (arr[j] &gt; arr[j + 1])
+            {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}</code></pre>
+    </div>
+
+    <div class="qa">
+      <h3>Q: Reverse words without Array.Reverse.</h3>
+      <pre><code>using System.Text;
+
+string ReverseWords(string input)
+{
+    string[] words = input.Split(' ');
+    StringBuilder result = new StringBuilder();
+
+    for (int i = words.Length - 1; i &gt;= 0; i--)
+    {
+        result.Append(words[i]);
+
+        if (i != 0)
+        {
+            result.Append(" ");
+        }
+    }
+
+    return result.ToString();
+}</code></pre>
+    </div>
+  </section>
+
+  <section id="hr">
+    <h2>18. HR and Managerial Questions</h2>
+
+    <div class="qa">
+      <h3>Q: Why should we hire you?</h3>
+      <div class="speak">
+        You should hire me because I bring strong hands-on experience in .NET Core, AngularJS, Azure, authentication, authorization, and enterprise application development.
+        <br><br>
+        I have worked on real production systems and solved practical issues like role-based authorization, performance improvements, security findings, and Azure deployments.
+        <br><br>
+        I can contribute as a full stack developer and also support design, troubleshooting, and delivery activities.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What are your strengths?</h3>
+      <div class="answer">
+        My strengths are problem solving, backend API development, authentication and authorization implementation, Azure deployment understanding, debugging production issues, and ability to work across frontend and backend.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: What is your weakness?</h3>
+      <div class="answer">
+        I sometimes spend extra time validating edge cases to make sure the solution is stable.
+        <br><br>
+        I am improving this by prioritizing tasks better and taking early feedback from team members.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: Tell me about a production issue you solved.</h3>
+      <div class="speak">
+        One production-level issue was related to role-based authorization.
+        <br><br>
+        Users were authenticated successfully, but token did not contain role claims required by our application. Because of this, API and UI authorization could not work as expected.
+        <br><br>
+        I analyzed the token, identified missing role information, fetched roles from database, added them into application claims, and used those claims for authorization.
+        <br><br>
+        This fixed the access control issue and ensured users could access only assigned reports.
+      </div>
+    </div>
+
+    <div class="qa">
+      <h3>Q: Do you have leadership experience?</h3>
+      <div class="answer">
+        I have supported team members in understanding technical flows, reviewing code, debugging issues, and following proper development and deployment process.
+        <br><br>
+        I can take ownership of modules and coordinate with team members to deliver features.
+      </div>
+    </div>
+  </section>
+
+  <section id="rapid">
+    <h2>19. Rapid Fire Revision</h2>
+
+    <div class="grid">
+      <div class="mini-card"><strong>Authentication:</strong> Verifies user identity.</div>
+      <div class="mini-card"><strong>Authorization:</strong> Verifies user permission.</div>
+      <div class="mini-card"><strong>MSAL:</strong> Microsoft library for login and token handling.</div>
+      <div class="mini-card"><strong>Azure AD:</strong> Internal organization identity provider.</div>
+      <div class="mini-card"><strong>Azure B2C:</strong> External/customer identity provider.</div>
+      <div class="mini-card"><strong>App Service:</strong> Managed hosting for web apps and APIs.</div>
+      <div class="mini-card"><strong>Application Insights:</strong> Monitoring, logs, exceptions, performance.</div>
+      <div class="mini-card"><strong>Azure SQL:</strong> Managed relational database.</div>
+      <div class="mini-card"><strong>CI:</strong> Automated build and validation.</div>
+      <div class="mini-card"><strong>CD:</strong> Automated or controlled deployment.</div>
+      <div class="mini-card"><strong>HTTP Interceptor:</strong> Adds token and handles errors globally.</div>
+      <div class="mini-card"><strong>Auth Guard:</strong> Protects routes from unauthorized access.</div>
+      <div class="mini-card"><strong>RLS:</strong> Restricts report data based on user.</div>
+      <div class="mini-card"><strong>CQRS:</strong> Separate read and write operations.</div>
+      <div class="mini-card"><strong>RabbitMQ:</strong> Message broker for async communication.</div>
+      <div class="mini-card"><strong>Scalability:</strong> Scale out, caching, DB optimization, async processing.</div>
+    </div>
+
+    <div class="strong">
+      Final speaking strategy: Start with your project, explain your real contribution, highlight Angular + .NET + Azure, then talk about challenge solved, CI/CD, SDLC, performance, and security.
+    </div>
+
+    <div class="avoid">
+      Avoid saying: “I only used report URLs.”
+      <br><br>
+      Instead say: “Reporting Hub is a secure centralized report access management platform integrating external reports like Power BI and Tableau with role-based access control.”
+    </div>
+  </section>
+
+  <footer>
+    <p>Prepared for Neelesh Shrivastava | End-to-End Interview Speaking Document</p>
+  </footer>
+
+</main>
+
+</body>
+</html>
