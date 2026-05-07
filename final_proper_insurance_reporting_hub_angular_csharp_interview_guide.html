@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Final Interview Guide - Angular + C# - Insurance Reporting Hub</title>
+  <style>
+    :root {
+      --primary: #12355b;
+      --secondary: #1d4e89;
+      --accent: #0b7285;
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #64748b;
+      --border: #dbe4ef;
+      --code-bg: #111827;
+      --code-text: #e5e7eb;
+      --success-bg: #ecfdf5;
+      --info-bg: #eff6ff;
+      --warn-bg: #fff7ed;
+      --danger-bg: #fef2f2;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      padding: 38px 48px;
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 32px;
+    }
+
+    header p {
+      margin: 6px 0;
+      opacity: 0.96;
+    }
+
+    main {
+      max-width: 1240px;
+      margin: auto;
+      padding: 28px;
+    }
+
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 22px 0;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+    }
+
+    h2 {
+      color: var(--primary);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 8px;
+      margin-top: 0;
+    }
+
+    h3 {
+      color: var(--secondary);
+      margin-top: 26px;
+    }
+
+    h4 {
+      color: #244766;
+      margin-bottom: 8px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .toc li {
+      margin: 6px 0;
+    }
+
+    .short {
+      background: var(--info-bg);
+      border-left: 5px solid #2563eb;
+      padding: 12px 14px;
+      border-radius: 9px;
+      margin: 12px 0;
+    }
+
+    .answer {
+      background: var(--success-bg);
+      border-left: 5px solid #059669;
+      padding: 12px 14px;
+      border-radius: 9px;
+      margin: 12px 0;
+    }
+
+    .warning {
+      background: var(--warn-bg);
+      border-left: 5px solid #ea580c;
+      padding: 12px 14px;
+      border-radius: 9px;
+      margin: 12px 0;
+    }
+
+    .danger {
+      background: var(--danger-bg);
+      border-left: 5px solid #dc2626;
+      padding: 12px 14px;
+      border-radius: 9px;
+      margin: 12px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      background: #ffffff;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 10px;
+      vertical-align: top;
+    }
+
+    th {
+      background: #eaf2fb;
+      color: var(--primary);
+    }
+
+    pre {
+      background: var(--code-bg);
+      color: var(--code-text);
+      padding: 16px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    code {
+      font-family: Consolas, Monaco, "Courier New", monospace;
+    }
+
+    .flow {
+      font-family: Consolas, Monaco, "Courier New", monospace;
+      background: #f8fafc;
+      border: 1px dashed #94a3b8;
+      padding: 14px;
+      border-radius: 10px;
+      white-space: pre-wrap;
+      margin: 12px 0;
+    }
+
+    .mini {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      margin: 12px 0;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 24px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Final Angular + C# Interview Guide</h1>
+  <p><strong>Experience Level:</strong> 10+ Years / Lead Developer / Tech Lead</p>
+  <p><strong>Project Context:</strong> Insurance Reporting Hub — a system that manages insurance reports and assigns reports to users based on role, team, branch, workload, priority, SLA, and business rules.</p>
+  <p><strong>Purpose:</strong> Detailed interview-ready English answers with real-world project examples.</p>
+</header>
+
+<main>
+<section id="toc" class="toc">
+  <h2>Table of Contents</h2>
+  <ol>
+    <li><a href="#project-context">Insurance Reporting Hub Project Context</a></li>
+    <li><a href="#collections-overview">Overview of Collections</a></li>
+    <li><a href="#list-concepts">List Collection Concepts</a></li>
+    <li><a href="#generic-collections">Generic Collections</a></li>
+    <li><a href="#hashtable-vs-dictionary">Difference Between HashTable and Dictionary</a></li>
+    <li><a href="#serialization">Serialization</a></li>
+    <li><a href="#ref-vs-out">Difference Between ref and out Parameters</a></li>
+    <li><a href="#constructor">How a Constructor Works</a></li>
+    <li><a href="#project-challenge">Discussion on a Challenge Faced</a></li>
+    <li><a href="#angular-di">Angular Dependency Injection</a></li>
+    <li><a href="#same-service-instance">Two Components Using the Same Service</a></li>
+    <li><a href="#component-communication">Different Ways to Communicate Between Components</a></li>
+    <li><a href="#subject-behaviorsubject">Subject and BehaviorSubject</a></li>
+    <li><a href="#palindrome">Palindrome Series and Time Complexity</a></li>
+    <li><a href="#observable-vs-promise">Difference Between Observable and Promise</a></li>
+    <li><a href="#angular-interceptor">Angular Interceptor</a></li>
+    <li><a href="#final-script">Final Interview Script</a></li>
+  </ol>
+</section>
+
+<section id="project-context">
+  <h2>1. Insurance Reporting Hub Project Context</h2>
+  <p>
+    My project can be explained as an Insurance Reporting Hub where insurance reports are created, managed,
+    reviewed, and assigned to users. The system supports administrators, report owners, reviewers, branch users,
+    and business users. Reports can be assigned based on role, team, branch, workload, priority, SLA, and business rules.
+  </p>
+  <div class="answer">
+    <strong>Interview answer:</strong><br />
+    “I worked on an Insurance Reporting Hub where the main business requirement was to manage insurance reports
+    and assign them to users based on role, team, branch, workload, and priority. The frontend was built in Angular,
+    and the backend was built using .NET Core Web API. We used Angular services for API integration, dependency injection
+    for loose coupling, Observables and BehaviorSubject for reactive UI updates, and C# collections such as List and
+    Dictionary for optimized report assignment and lookup logic.”
+  </div>
+</section>
+
+<section id="collections-overview">
+  <h2>2. Overview of Collections</h2>
+  <p>
+    Collections are used to store, manage, search, sort, and process groups of objects. In C#, collections are heavily
+    used when we work with multiple records such as reports, users, assignments, notifications, audit logs, and configuration data.
+  </p>
+  <table>
+    <tr>
+      <th>Collection Type</th>
+      <th>Description</th>
+      <th>Example Use Case</th>
+    </tr>
+    <tr>
+      <td>Non-Generic Collections</td>
+      <td>Older collections that store data as object type.</td>
+      <td>ArrayList and Hashtable.</td>
+    </tr>
+    <tr>
+      <td>Generic Collections</td>
+      <td>Type-safe collections where the type is known at compile time.</td>
+      <td>List&lt;T&gt;, Dictionary&lt;TKey, TValue&gt;, HashSet&lt;T&gt;.</td>
+    </tr>
+    <tr>
+      <td>Concurrent Collections</td>
+      <td>Thread-safe collections used in multi-threaded scenarios.</td>
+      <td>ConcurrentDictionary for safe parallel updates.</td>
+    </tr>
+  </table>
+  <div class="answer">
+    <strong>Interview answer:</strong><br />
+    “Collections are used to manage groups of objects. In my Insurance Reporting Hub project, collections were used to store
+    reports, users, assigned reports, notification lists, and audit history. I prefer generic collections like List&lt;T&gt;
+    and Dictionary&lt;TKey, TValue&gt; because they are type-safe, readable, and better for performance compared to older
+    non-generic collections.”
+  </div>
+</section>
+
+<section id="list-concepts">
+  <h2>3. List Collection Concepts</h2>
+  <p>
+    A List&lt;T&gt; is a strongly typed, ordered collection. It is useful when I need to maintain a sequence of records and
+    iterate over them. It supports dynamic resizing, index-based access, sorting, filtering, and LINQ operations.
+  </p>
+  <ul>
+    <li>List maintains insertion order.</li>
+    <li>Index access is O(1).</li>
+    <li>Searching by condition is O(n).</li>
+    <li>List is useful for ordered data display.</li>
+    <li>List is not ideal for frequent key-based lookup.</li>
+  </ul>
+  <h3>Insurance Reporting Hub Example</h3>
+  <p>
+    In the Insurance Reporting Hub, a List is useful for displaying assigned reports on a dashboard. When a user logs in,
+    I can fetch all reports assigned to that user and display them sorted by priority or due date.
+  </p>
+  <pre><code>List&lt;ReportDto&gt; assignedReports =
+    await _reportRepository.GetAssignedReportsAsync(userId);
+
+var sortedReports = assignedReports
+    .OrderByDescending(r =&gt; r.Priority)
+    .ThenBy(r =&gt; r.DueDate)
+    .ToList();</code></pre>
+  <div class="answer">
+    <strong>Interview answer:</strong><br />
+    “I use List when I need ordered data and iteration. In my Insurance Reporting Hub project, assigned reports on the dashboard
+    were represented as a List because users expected records to be displayed in a meaningful order, such as priority-wise or
+    due-date-wise. However, if I need frequent lookup by user ID or report ID, I prefer Dictionary instead of repeatedly searching a List.”
+  </div>
+</section>
+
+<section id="generic-collections">
+  <h2>4. Generic Collections</h2>
+  <p>
+    Generic collections are type-safe collections where the data type is specified at compile time. They avoid runtime casting
+    issues and improve readability and performance.
+  </p>
+  <table>
+    <tr>
+      <th>Generic Collection</th>
+      <th>Purpose</th>
+      <th>Insurance Reporting Hub Example</th>
+    </tr>
+    <tr>
+      <td>List&lt;T&gt;</td>
+      <td>Stores ordered items.</td>
+      <td>Assigned reports list.</td>
+    </tr>
+    <tr>
+      <td>Dictionary&lt;TKey, TValue&gt;</td>
+      <td>Stores key-value pairs for fast lookup.</td>
+      <td>User workload lookup by UserId.</td>
+    </tr>
+    <tr>
+      <td>HashSet&lt;T&gt;</td>
+      <td>Stores unique values.</td>
+      <td>Unique report category IDs or unique assigned user IDs.</td>
+    </tr>
+    <tr>
+      <td>Queue&lt;T&gt;</td>
+      <td>First-in-first-out processing.</td>
+      <td>Report processing queue.</td>
+    </tr>
+    <tr>
+      <td>Stack&lt;T&gt;</td>
+      <td>Last-in-first-out processing.</td>
+      <td>Undo operations or navigation history.</td>
+    </tr>
+  </table>
+  <div class="answer">
+    <strong>Interview answer:</strong><br />
+    “Generic collections provide compile-time type safety. In my project, I used List&lt;ReportDto&gt; for report lists,
+    Dictionary&lt;int, int&gt; for user workload mapping, and HashSet&lt;int&gt; when I needed unique report category IDs.
+    Generic collections help avoid casting errors, improve readability, and make the code safer.”
+  </div>
+</section>
+
+<section id="hashtable-vs-dictionary">
+  <h2>5. Difference Between HashTable and Dictionary</h2>
+  <table>
+    <tr>
+      <th>Point</th>
+      <th>HashTable</th>
+      <th>Dictionary</th>
+    </tr>
+    <tr>
+      <td>Type Safety</td>
+      <td>Not type-safe because it stores keys and values as object.</td>
+      <td>Type-safe because key and value types are defined.</td>
+    </tr>
+    <tr>
+      <td>Namespace</td>
+      <td>System.Collections</td>
+      <td>System.Collections.Generic</td>
+    </tr>
+    <tr>
+      <td>Performance</td>
+      <td>Can involve boxing and unboxing for value types.</td>
+      <td>Better performance due to generics.</td>
+    </tr>
+    <tr>
+      <td>Compile-time Safety</td>
+      <td>Errors may appear at runtime.</td>
+      <td>Many errors are caught at compile time.</td>
+    </tr>
+    <tr>
+      <td>Modern Usage</td>
+      <td>Older style and rarely preferred in modern C#.</td>
+      <td>Preferred in modern C# applications.</td>
+    </tr>
+  </table>
+  <h3>Insurance Reporting Hub Example</h3>
+  <p>
+    In the Insurance Reporting Hub, if I need to map UserId to assigned report count, Dictionary&lt;int, int&gt; is better
+    than Hashtable because it is type-safe and readable.
+  </p>
+  <pre><code>Dictionary&lt;int, int&gt; userWorkloadMap = assignedReports
+    .GroupBy(r =&gt; r.AssignedUserId)
+    .ToDictionary(g =&gt; g.Key, g =&gt; g.Count());</code></pre>
+  <div class="answer">
+    <strong>Interview answer:</strong><br />
+    “HashTable is an older non-generic collection that stores keys and values as object, so it is not type-safe and may require
+    boxing, unboxing, and casting. Dictionary is a generic collection, so it is type-safe and preferred in modern C# applications.
+    In my Insurance Reporting Hub project, I would use Dictionary&lt;int, int&gt; to map UserId to assigned report count because it is
+    faster, cleaner, and safer than Hashtable.”
+  </div>
+</section>
+
+<section id="serialization">
+  <h2>6. Serialization</h2>
+  <p>
+    Serialization is the process of converting an object into a format that can be stored or transferred. Deserialization is the
+    reverse process where serialized data is converted back into an object.
+  </p>
+  <ul>
+    <li>JSON serialization is commonly used in REST APIs.</li>
+    <li>XML serialization can be used when systems require XML format.</li>
+    <li>Binary serialization is generally avoided in modern API communication unless there is a specific requirement.</li>
+  </ul>
+  <h3>Insurance Reporting Hub Example</h3>
+  <p>
+    In the Insurance Reporting Hub, when Angular calls the .NET Core API, the report object is usually sent as JSON.
+    The backend serializes response objects into JSON, and Angular receives that JSON and binds it to TypeScript models.
+  </p>
+  <pre><code>public class ReportDto
+{
+    public int ReportId { get; set; }
+    public string ReportName { get; set; }
+    public string Status { get; set; }
+    public int AssignedUserId { get; set; }
+}</code></pre>
+  <div class="answer">
+    <strong>Interview answer:</strong><br />
+    “Serialization is used to convert objects into a transferable format such as JSON. In my Insurance Reporting Hub project,
+    when the backend returned assigned reports to the Angular UI, the .NET Core API serialized ReportDto objects into JSON.
+    Angular consumed that JSON response and displayed it on the dashboard. Serialization is very important in API-based applications
+    because frontend and backend communicate mostly through JSON.”
+  </div>
+</section>
+
+<section id="ref-vs-out">
+  <h2>7. Difference Between ref and out Parameters</h2>
+  <table>
+    <tr>
+      <th>Point</th>
+      <th>ref</th>
+      <th>out</th>
+    </tr>
+    <tr>
+      <td>Initialization Before Passing</td>
+      <td>Variable must be initialized before passing.</td>
+      <td>Variable does not need to be initialized before passing.</td>
+    </tr>
+    <tr>
+      <td>Assignment Inside Method</td>
+      <td>Method may or may not assign a new value.</td>
+      <td>Method must assign a value before returning.</td>
+    </tr>
+    <tr>
+      <td>Purpose</td>
+      <td>Used when input value is required and may be modified.</td>
+      <td>Used when method needs to return additional values.</td>
+    </tr>
+  </table>
+  <h3>ref Example</h3>
+  <pre><code>public void IncreaseWorkload(ref int workload)
+{
+    workload = workload + 1;
+}
+
+int currentWorkload = 5;
+IncreaseWorkload(ref currentWorkload);</code></pre>
+  <h3>out Example</h3>
+  <pre><code>public bool TryGetAssignedUser(int reportId, out int assignedUserId)
+{
+    assignedUserId = 101;
+    return true;
+}
+
+int userId;
+bool found = TryGetAssignedUser(5001, out userId);</code></pre>
+  <div class="answer">
+    <strong>Interview answer:</strong><br />
+    “The ref parameter requires the variable to be initialized before passing it to the method, and the method can modify that value.
+    The out parameter does not require initialization before passing, but the method must assign a value before returning. In real projects,
+    out is commonly used in Try-pattern methods, such as TryGetAssignedUser, where the method returns a boolean status and also outputs a value.”
+  </div>
+</section>
+
+<section id="constructor">
+  <h2>8. How a Constructor Works</h2>
+  <p>
+    A constructor is a special method of a class that is automatically called when an object is created. It is mainly used to initialize
+    fields, inject dependencies, validate required values, or set default state.
+  </p>
+  <ul>
+    <li>Constructor name is the same as the class name in C#.</li>
+    <li>Constructor does not have a return type.</li>
+    <li>It is called automatically when an object is created.</li>
+    <li>It can be parameterless or parameterized.</li>
+    <li>In Angular and .NET Core, constructors are often used for dependency injection.</li>
+  </ul>
+  <h3>C# Constructor Example</h3>
+  <pre><code>public class ReportAssignmentService
+{
+    private readonly IUserRepository _userRepository;
+
+    public ReportAssignmentService(IUserRepository userRepository)
+    {
+        _userRepository = userRepository;
+    }
+}</code></pre>
+  <h3>Angular Constructor Example</h3>
+  <pre><code>export class ReportDashboardComponent {
+  constructor(private reportService: ReportService) {}
+}</code></pre>
+  <div class="answer">
+    <strong>Interview answer:</strong><br />
+    “A constructor is used to initialize an object when it is created. In my Insurance Reporting Hub project, constructors were mainly
+    used for dependency injection. For example, ReportDashboardComponent received ReportService through the constructor, and
+    ReportAssignmentService received repository dependencies through the constructor. This approach makes the code loosely coupled and easier to test.”
+  </div>
+</section>
+
+<section id="project-challenge">
+  <h2>9. Discussion on a Challenge Faced</h2>
+  <h3>Challenge: Report Assignment Performance and UI Refresh</h3>
+  <p>
+    One challenge in the Insurance Reporting Hub was assigning reports to users efficiently and keeping the UI updated after assignment.
+    The assignment logic had to consider user role, team, branch, current workload, report priority, and SLA. Initially, if we searched
+    users repeatedly for every report using a List, the performance could degrade when data increased.
+  </p>
+  <h3>Solution</h3>
+  <ul>
+    <li>Used Dictionary and grouping to quickly find eligible users by team or branch.</li>
+    <li>Used async/await in backend APIs to avoid blocking calls.</li>
+    <li>Used Angular services to keep assignment logic reusable.</li>
+    <li>Used Subject to trigger report list refresh after assignment.</li>
+    <li>Used BehaviorSubject to update dashboard count and notification badge.</li>
+    <li>Added audit trail for assignment history.</li>
+  </ul>
+  <div class="answer">
+    <strong>Interview answer:</strong><br />
+    “One challenge I faced in the Insurance Reporting Hub was optimizing report assignment and keeping the UI updated. The system had to assign
+    reports based on team, role, branch, priority, SLA, and user workload. To avoid repeated searching, I used Dictionary-based lookup and grouping
+    on the backend. On the Angular side, I used services to centralize assignment logic, Subject to refresh the report list after assignment,
+    and BehaviorSubject to update dashboard counts. This improved performance, reduced duplicate code, and made the UI reactive.”
+  </div>
+</section>
+
+<section id="angular-di">
+  <h2>10. In Angular: What is Dependency Injection?</h2>
+  <p>
+    Dependency Injection in Angular is a design pattern where Angular provides dependencies such as services to components or other services.
+    The component does not create the service manually. Instead, Angular Injector creates or reuses the service instance and injects it through
+    the constructor.
+  </p>
+  <div class="flow">Component is created
+        ↓
+Angular reads constructor dependencies
+        ↓
+Angular checks provider registration
+        ↓
+Angular creates or reuses service instance
+        ↓
+Service is injected into component
+        ↓
+Component uses service methods</div>
+  <pre><code>@Injectable({
+  providedIn: 'root'
+})
+export class ReportService {
+  constructor(private http: HttpClient) {}
+}
+
+export class ReportDashboardComponent {
+  constructor(private reportService: ReportService) {}
+}</code></pre>
+  <div class="answer">
+    <strong>Interview answer:</strong><br />
+    “Dependency Injection in Angular means Angular provides the required dependency instead of the component creating it manually. In my Insurance
+    Reporting Hub project, ReportDashboardComponent did not create ReportService using the new keyword. Angular injected ReportService through the
+    constructor. This made the component loosely coupled, easier to test, and easier to maintain.”
+  </div>
+</section>
+
+<section id="same-service-instance">
+  <h2>11. If Two Components A and B Use the Same Service, Will Private Field Update Reflect in Both?</h2>
+  <p>
+    The answer depends on how the service is registered. If the service is registered at root level using providedIn: 'root', Angular creates a
+    singleton instance. In that case, both Component A and Component B use the same service instance. If shared state inside that service is updated
+    through public methods or exposed through Observables, both components can receive the updated value.
+  </p>
+  <p>
+    However, if the service is provided separately in each component’s providers array, Angular creates separate instances for each component.
+    In that case, an update in Component A will not reflect in Component B.
+  </p>
+  <pre><code>@Injectable({
+  providedIn: 'root'
+})
+export class ReportStateService {
+  private assignedCountSubject = new BehaviorSubject&lt;number&gt;(0);
+  assignedCount$ = this.assignedCountSubject.asObservable();
+
+  updateAssignedCount(count: number): void {
+    this.assignedCountSubject.next(count);
+  }
+}</code></pre>
+  <div class="answer">
+    <strong>Interview answer:</strong><br />
+    “If Component A and Component B use the same root-level service, then they share the same service instance. If a private field is updated inside
+    that service and exposed through a public method or Observable, both components can see the updated value. In my Insurance Reporting Hub project,
+    this was useful for dashboard count and notification badge updates. However, if the service is registered separately at component level, each
+    component gets a different instance, and the updated value will not be shared.”
+  </div>
+  <div class="warning">
+    <strong>Important point:</strong><br />
+    A private field cannot be accessed directly by components. It should be exposed through a public method, getter, Observable, Subject, or BehaviorSubject.
+  </div>
+</section>
+
+<section id="component-communication">
+  <h2>12. Different Ways to Communicate Between Components</h2>
+  <table>
+    <tr>
+      <th>Scenario</th>
+      <th>Technique</th>
+      <th>Insurance Reporting Hub Example</th>
+    </tr>
+    <tr>
+      <td>Parent to Child</td>
+      <td>@Input</td>
+      <td>ReportList passes selected report to ReportDetails.</td>
+    </tr>
+    <tr>
+      <td>Child to Parent</td>
+      <td>@Output with EventEmitter</td>
+      <td>ReportCard emits assign click event to parent component.</td>
+    </tr>
+    <tr>
+      <td>Sibling Components</td>
+      <td>Shared Service with Subject or BehaviorSubject</td>
+      <td>Assignment component updates dashboard count.</td>
+    </tr>
+    <tr>
+      <td>Unrelated Components</td>
+      <td>Shared Service or State Management</td>
+      <td>Header notification badge updates after assignment.</td>
+    </tr>
+    <tr>
+      <td>Route-based Communication</td>
+      <td>Route Parameters or Query Parameters</td>
+      <td>Open report details page using report ID.</td>
+    </tr>
+  </table>
+  <div class="answer">
+    <strong>Interview answer:</strong><br />
+    “In Angular, component communication depends on the relationship between components. For parent-to-child communication, I use @Input.
+    For child-to-parent communication, I use @Output with EventEmitter. For sibling or unrelated components, I use a shared service with Subject
+    or BehaviorSubject. In my Insurance Reporting Hub project, ReportList passed selected report data to ReportDetails using @Input, ReportCard
+    emitted assign events using @Output, and dashboard counts were updated using a shared service.”
+  </div>
+</section>
+
+<section id="subject-behaviorsubject">
+  <h2>13. Subject and BehaviorSubject</h2>
+  <h3>Subject</h3>
+  <p>
+    Subject is both an Observable and an Observer. It can emit values using next(), and multiple subscribers can listen to those values.
+    Subject is useful for event-based communication when we do not need to store the latest value.
+  </p>
+  <pre><code>@Injectable({
+  providedIn: 'root'
+})
+export class ReportRefreshService {
+  private refreshSubject = new Subject&lt;void&gt;();
+  refresh$ = this.refreshSubject.asObservable();
+
+  triggerRefresh(): void {
+    this.refreshSubject.next();
+  }
+}</code></pre>
+  <div class="answer">
+    <strong>Subject interview answer:</strong><br />
+    “Subject is useful when I need event-based communication. In my Insurance Reporting Hub project, after a report is assigned from one component,
+    I can use Subject to notify the report list component to refresh. Since I only need to broadcast an event and do not need to store the latest value,
+    Subject is a good choice.”
+  </div>
+
+  <h3>BehaviorSubject</h3>
+  <p>
+    BehaviorSubject is a special type of Subject that requires an initial value and stores the latest emitted value. When a new subscriber subscribes,
+    it immediately receives the latest value. It is useful for shared state.
+  </p>
+  <pre><code>@Injectable({
+  providedIn: 'root'
+})
+export class ReportAssignmentStateService {
+  private assignedCountSubject = new BehaviorSubject&lt;number&gt;(0);
+  assignedCount$ = this.assignedCountSubject.asObservable();
+
+  updateAssignedCount(count: number): void {
+    this.assignedCountSubject.next(count);
+  }
+
+  getCurrentAssignedCount(): number {
+    return this.assignedCountSubject.value;
+  }
+}</code></pre>
+  <div class="answer">
+    <strong>BehaviorSubject interview answer:</strong><br />
+    “BehaviorSubject is useful when I need to maintain and share the latest state. In my Insurance Reporting Hub project, I can use BehaviorSubject
+    for assigned report count, notification count, selected report, or logged-in user context. The benefit is that when a new component subscribes,
+    it immediately receives the latest value.”
+  </div>
+
+  <h3>Subject vs BehaviorSubject</h3>
+  <table>
+    <tr>
+      <th>Point</th>
+      <th>Subject</th>
+      <th>BehaviorSubject</th>
+    </tr>
+    <tr>
+      <td>Initial Value</td>
+      <td>Not required.</td>
+      <td>Required.</td>
+    </tr>
+    <tr>
+      <td>Stores Latest Value</td>
+      <td>No.</td>
+      <td>Yes.</td>
+    </tr>
+    <tr>
+      <td>New Subscriber Gets Previous Value</td>
+      <td>No.</td>
+      <td>Yes, latest value.</td>
+    </tr>
+    <tr>
+      <td>Best Use</td>
+      <td>Event notification.</td>
+      <td>Shared state.</td>
+    </tr>
+    <tr>
+      <td>Project Example</td>
+      <td>Refresh report list after assignment.</td>
+      <td>Maintain dashboard count or notification count.</td>
+    </tr>
+  </table>
+</section>
+
+<section id="palindrome">
+  <h2>14. Write a Palindrome Series and Explain Time Complexity</h2>
+  <p>
+    A palindrome is a value that reads the same forward and backward, such as madam, level, radar, or 121. In interviews,
+    palindrome questions are asked to check loop logic, string handling, edge cases, and time complexity understanding.
+  </p>
+  <h3>String Palindrome Using Two Pointers</h3>
+  <pre><code>public static bool IsPalindrome(string input)
+{
+    if (string.IsNullOrWhiteSpace(input))
+        return false;
+
+    int left = 0;
+    int right = input.Length - 1;
+
+    while (left &lt; right)
+    {
+        if (char.ToLower(input[left]) != char.ToLower(input[right]))
+            return false;
+
+        left++;
+        right--;
+    }
+
+    return true;
+}</code></pre>
+  <p>
+    Time complexity is O(n) because each character is checked at most once. Space complexity is O(1) because no extra string is created.
+  </p>
+  <h3>Number Palindrome</h3>
+  <pre><code>public static bool IsNumberPalindrome(int number)
+{
+    if (number &lt; 0)
+        return false;
+
+    int original = number;
+    int reversed = 0;
+
+    while (number &gt; 0)
+    {
+        int digit = number % 10;
+        reversed = reversed * 10 + digit;
+        number = number / 10;
+    }
+
+    return original == reversed;
+}</code></pre>
+  <h3>Palindrome Series Example</h3>
+  <pre><code>public static List&lt;int&gt; GetPalindromeNumbers(int start, int end)
+{
+    List&lt;int&gt; result = new List&lt;int&gt;();
+
+    for (int i = start; i &lt;= end; i++)
+    {
+        if (IsNumberPalindrome(i))
+        {
+            result.Add(i);
+        }
+    }
+
+    return result;
+}</code></pre>
+  <p>
+    If the range has n numbers and each number has d digits, the time complexity is approximately O(n * d). If the number of digits is small and fixed,
+    it can be considered close to O(n).
+  </p>
+  <div class="answer">
+    <strong>Interview answer:</strong><br />
+    “For palindrome checking, I prefer the two-pointer approach for strings because it gives O(n) time and O(1) space. For palindrome series, I check
+    each number in the given range and apply number palindrome logic. If there are n numbers and each number has d digits, the complexity is O(n * d).
+    In real projects, similar logic can be applied in validation scenarios, although palindrome itself is usually an interview problem.”
+  </div>
+</section>
+
+<section id="observable-vs-promise">
+  <h2>15. Difference Between Observable and Promise</h2>
+  <table>
+    <tr>
+      <th>Point</th>
+      <th>Promise</th>
+      <th>Observable</th>
+    </tr>
+    <tr>
+      <td>Values</td>
+      <td>Returns a single future value.</td>
+      <td>Can emit zero, one, or multiple values over time.</td>
+    </tr>
+    <tr>
+      <td>Execution</td>
+      <td>Eager; starts immediately.</td>
+      <td>Lazy; starts when subscribed.</td>
+    </tr>
+    <tr>
+      <td>Cancellation</td>
+      <td>Not easily cancellable.</td>
+      <td>Can be cancelled using unsubscribe.</td>
+    </tr>
+    <tr>
+      <td>Operators</td>
+      <td>Limited to then, catch, finally.</td>
+      <td>Supports RxJS operators like map, switchMap, debounceTime, retry, catchError.</td>
+    </tr>
+    <tr>
+      <td>Angular Usage</td>
+      <td>Can be used for one-time async result.</td>
+      <td>Default return type of Angular HttpClient.</td>
+    </tr>
+  </table>
+  <h3>Insurance Reporting Hub Example</h3>
+  <p>
+    In the Insurance Reporting Hub, report search is a good Observable use case. When the user types in the search box, Observable operators like
+    debounceTime and switchMap help reduce unnecessary API calls and cancel previous requests.
+  </p>
+  <pre><code>reports$ = this.searchControl.valueChanges.pipe(
+  debounceTime(300),
+  distinctUntilChanged(),
+  switchMap(searchText =&gt;
+    this.reportService.searchReports(searchText || '')
+  )
+);</code></pre>
+  <div class="answer">
+    <strong>Interview answer:</strong><br />
+    “A Promise represents a single future value, whereas an Observable represents a stream of values over time. Angular HttpClient returns Observable
+    by default because Observables support cancellation, multiple emissions, and RxJS operators. In my Insurance Reporting Hub project, I used
+    Observables for report search, dashboard count updates, and component communication. Promise is useful for simple one-time async operations,
+    but Observable is more powerful for Angular applications.”
+  </div>
+</section>
+
+<section id="angular-interceptor">
+  <h2>16. What is an Interceptor in Angular?</h2>
+  <p>
+    An Angular Interceptor is a service that intercepts HTTP requests and responses. It is commonly used to add authentication tokens,
+    handle errors globally, log requests, show or hide loaders, modify headers, or handle unauthorized responses.
+  </p>
+  <ul>
+    <li>Add JWT token to every outgoing API request.</li>
+    <li>Handle 401 Unauthorized responses globally.</li>
+    <li>Show and hide global loader.</li>
+    <li>Log request and response details.</li>
+    <li>Handle common API errors at one place.</li>
+  </ul>
+  <h3>Insurance Reporting Hub Example</h3>
+  <p>
+    In the Insurance Reporting Hub, most APIs require authentication. Instead of manually adding the token in every service method,
+    an interceptor can attach the JWT token to every request.
+  </p>
+  <pre><code>@Injectable()
+export class AuthInterceptor implements HttpInterceptor {
+  constructor(private authService: AuthService) {}
+
+  intercept(
+    request: HttpRequest&lt;any&gt;,
+    next: HttpHandler
+  ): Observable&lt;HttpEvent&lt;any&gt;&gt; {
+
+    const token = this.authService.getToken();
+
+    if (token) {
+      request = request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+    }
+
+    return next.handle(request);
+  }
+}</code></pre>
+  <h3>Registering Interceptor</h3>
+  <pre><code>providers: [
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }
+]</code></pre>
+  <div class="answer">
+    <strong>Interview answer:</strong><br />
+    “An Angular Interceptor is used to intercept HTTP requests and responses. In my Insurance Reporting Hub project, I would use an interceptor to
+    attach the JWT token to every API request, handle unauthorized errors globally, and optionally manage a global loader. This avoids repeating token
+    logic in every service method and keeps API services clean.”
+  </div>
+  <div class="warning">
+    <strong>Senior point:</strong><br />
+    Interceptors should not contain business logic. They should handle cross-cutting concerns such as authentication, logging, error handling,
+    and loader management.
+  </div>
+</section>
+
+<section id="final-script">
+  <h2>17. Final Interview Script</h2>
+  <div class="answer">
+    “In my Insurance Reporting Hub project, I worked on managing and assigning insurance reports to users based on role, team, branch, workload,
+    priority, SLA, and business rules. On the Angular side, I used services and dependency injection to keep components clean, reusable, and testable.
+    I used Observables for API calls and reactive UI scenarios, Subject for event-based communication such as refreshing report lists, and BehaviorSubject
+    for shared state such as dashboard count and notification count. I also used Angular Interceptors to attach authentication tokens and handle common
+    HTTP concerns globally.
+    <br /><br />
+    On the backend side, I used C# collections based on the requirement. I used List when ordered report data was needed for dashboard display,
+    Dictionary when fast lookup was required for user workload and team mapping, and generic collections for type safety. I used async/await for
+    non-blocking database and API operations. One important challenge was optimizing report assignment logic and keeping the UI updated after assignment.
+    I solved it by using Dictionary-based lookup on the backend and reactive state updates on the frontend. This helped make the application scalable,
+    maintainable, and production-ready.”
+  </div>
+</section>
+</main>
+
+<div class="footer">
+  Final Angular + C# Interview Guide - Insurance Reporting Hub
+</div>
+</body>
+</html>
