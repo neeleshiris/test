@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Final Client Interview Questions and Answers</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f6f8fb;
+      color: #1f2937;
+      line-height: 1.65;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a, #1d4ed8);
+      color: white;
+      padding: 32px 44px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      color: #dbeafe;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 24px auto;
+      padding: 0 20px 50px;
+    }
+
+    section {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+    }
+
+    h2 {
+      color: #0f172a;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 8px;
+      margin-top: 0;
+    }
+
+    h3 {
+      color: #1d4ed8;
+      margin-top: 22px;
+    }
+
+    .question {
+      font-weight: bold;
+      color: #111827;
+      margin-top: 18px;
+    }
+
+    .answer {
+      background: #eff6ff;
+      border-left: 5px solid #2563eb;
+      padding: 12px 16px;
+      border-radius: 10px;
+      margin-top: 8px;
+    }
+
+    .tip {
+      background: #ecfdf5;
+      border-left: 5px solid #10b981;
+      padding: 12px 16px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .risk {
+      background: #fff7ed;
+      border-left: 5px solid #f97316;
+      padding: 12px 16px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .remember {
+      background: #fefce8;
+      border-left: 5px solid #eab308;
+      padding: 12px 16px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 14px;
+      border-radius: 10px;
+      overflow-x: auto;
+    }
+
+    code {
+      font-family: Consolas, Monaco, monospace;
+    }
+
+    ul, ol {
+      padding-left: 24px;
+    }
+
+    .toc a {
+      display: inline-block;
+      margin: 4px 8px 4px 0;
+      padding: 6px 10px;
+      background: #eef2ff;
+      color: #1d4ed8;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      color: #64748b;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Final Client Interview Questions and Answers</h1>
+  <p>.NET, JavaScript, Microservices, RabbitMQ, EF, Auth, Angular, Azure and Coding Questions</p>
+</header>
+
+<main>
+
+<section class="toc">
+  <h2>Quick Navigation</h2>
+  <a href="#strategy">Strategy</a>
+  <a href="#oop">OOP</a>
+  <a href="#memory">Memory</a>
+  <a href="#js">JavaScript</a>
+  <a href="#async">Async</a>
+  <a href="#acid">ACID</a>
+  <a href="#gc">GC</a>
+  <a href="#rest">REST</a>
+  <a href="#ef">EF</a>
+  <a href="#microservices">Microservices</a>
+  <a href="#rabbitmq">RabbitMQ</a>
+  <a href="#auth">Auth</a>
+  <a href="#angular">Angular</a>
+  <a href="#azure">Azure</a>
+  <a href="#coding">Coding</a>
+</section>
+
+<section id="strategy">
+  <h2>1. Client Interview Strategy</h2>
+
+  <div class="answer">
+    <p><strong>Client expectation:</strong> Client wants fundamentals with execution flow, not only buzzwords. Har answer me definition, reason, real-world example, trade-off aur failure handling explain karna hai.</p>
+  </div>
+
+  <h3>Best Answer Format</h3>
+  <ol>
+    <li>Definition</li>
+    <li>Why it is needed</li>
+    <li>Real-world example</li>
+    <li>Trade-off / limitation</li>
+    <li>Failure handling if applicable</li>
+  </ol>
+
+  <div class="risk">
+    <strong>Risk signals:</strong> JS output guess karna, async shallow knowledge, GC unclear, REST misuse, AuthN/AuthZ confusion, RabbitMQ buzzword-only answer, Angular lifecycle weak.
+  </div>
+</section>
+
+<section id="oop">
+  <h2>2. OOP Principles</h2>
+
+  <p class="question">Q1. Explain OOP principles.</p>
+  <div class="answer">
+    <p>OOP is a programming approach where software is designed using objects that contain data and behavior. Main principles are encapsulation, abstraction, inheritance and polymorphism.</p>
+  </div>
+
+  <ul>
+    <li><strong>Encapsulation:</strong> Hide internal state and expose controlled methods. Example: Order status should change through <code>ConfirmOrder()</code>, not direct field update.</li>
+    <li><strong>Abstraction:</strong> Hide implementation details. Example: <code>IPaymentGateway.Pay()</code> hides provider-specific logic.</li>
+    <li><strong>Inheritance:</strong> Reuse common behavior from parent class, but avoid overuse.</li>
+    <li><strong>Polymorphism:</strong> Same interface, different implementation. Example: Email and SMS both implement <code>INotification.Send()</code>.</li>
+  </ul>
+
+  <p class="question">Q2. Interface vs Abstract Class?</p>
+  <div class="answer">
+    <p>Interface defines a contract and is best for loose coupling and dependency injection. Abstract class can provide common implementation and shared state. Use interface for capability and abstract class for shared base behavior.</p>
+  </div>
+</section>
+
+<section id="memory">
+  <h2>3. Memory, References and Immutability</h2>
+
+  <p class="question">Q1. Value type vs Reference type?</p>
+  <div class="answer">
+    <p>Value type stores actual value, like <code>int</code>, <code>bool</code>, <code>struct</code>. Reference type stores address/reference of object, like class, array and object. Assigning reference type copies reference, not actual object.</p>
+  </div>
+
+  <p class="question">Q2. What is immutability?</p>
+  <div class="answer">
+    <p>Immutable object cannot be changed after creation. In C#, <code>string</code> is immutable. Any modification creates a new string object.</p>
+  </div>
+
+  <p class="question">Q3. Shallow copy vs Deep copy?</p>
+  <ul>
+    <li><strong>Shallow copy:</strong> Copies top-level object only. Nested objects may still be shared.</li>
+    <li><strong>Deep copy:</strong> Copies complete object graph including nested objects.</li>
+  </ul>
+
+  <div class="remember">
+    <strong>Interview line:</strong> Immutability reduces side effects and makes code safer in concurrent scenarios.
+  </div>
+</section>
+
+<section id="js">
+  <h2>4. JavaScript Execution and References</h2>
+
+  <p class="question">Q1. Output and reason?</p>
+
+  <pre><code>const a = { x: 3 };
+const b = a;
+
+b.x = 5;
+
+console.log(a.x);</code></pre>
+
+  <div class="answer">
+    <p><strong>Output:</strong> <code>5</code></p>
+    <p><strong>Reason:</strong> Objects are assigned by reference. <code>a</code> and <code>b</code> point to the same object. So changing <code>b.x</code> also affects <code>a.x</code>.</p>
+  </div>
+
+  <p class="question">Q2. How to avoid impact between objects?</p>
+
+  <pre><code>const b = { ...a }; // shallow copy
+
+const b = structuredClone(a); // deep copy for supported values</code></pre>
+
+  <p>Functions are not cloned by <code>structuredClone()</code>. JSON deep copy removes functions.</p>
+
+  <p class="question">Q3. const array output?</p>
+
+  <pre><code>const a = [];
+a.push(10);
+console.log(a);</code></pre>
+
+  <div class="answer">
+    <p><strong>Output:</strong> <code>[10]</code></p>
+    <p><code>const</code> prevents reassignment, not mutation.</p>
+  </div>
+
+  <p class="question">Q4. const object output?</p>
+
+  <pre><code>const a = {};
+a['x'] = 1;
+a.y = 2;
+console.log(a);</code></pre>
+
+  <div class="answer">
+    <p><strong>Output:</strong> <code>{ x: 1, y: 2 }</code></p>
+    <p>Object properties can be added because object reference is same.</p>
+  </div>
+
+  <p class="question">Q5. Event loop output?</p>
+
+  <pre><code>console.log('A');
+
+setTimeout(() => console.log('B'), 0);
+
+Promise.resolve().then(() => console.log('C'));
+
+console.log('D');
+
+// Output: A D C B</code></pre>
+
+  <div class="answer">
+    <p>Sync code runs first. Promise callback goes to microtask queue, and setTimeout goes to macrotask queue. Microtask runs before macrotask.</p>
+  </div>
+</section>
+
+<section id="async">
+  <h2>5. Async Flow</h2>
+
+  <p class="question">Q1. What is async/await?</p>
+  <div class="answer">
+    <p><code>async/await</code> allows non-blocking asynchronous execution. In .NET, async methods usually return <code>Task</code> or <code>Task&lt;T&gt;</code>. It does not always create a new thread.</p>
+  </div>
+
+  <p class="question">Q2. Task vs Thread?</p>
+  <div class="answer">
+    <p>Thread is an actual execution resource. Task represents asynchronous work. For I/O operations, async can release the thread while waiting.</p>
+  </div>
+
+  <p class="question">Q3. Exception flow in async?</p>
+
+  <pre><code>try
+{
+    await SomeAsyncMethod();
+}
+catch(Exception ex)
+{
+    // exception is caught here when awaited
+}</code></pre>
+
+  <p>Exception inside async method is captured in Task and re-thrown when awaited.</p>
+
+  <div class="risk">
+    <strong>Risk signal:</strong> Saying async always creates a new thread is incorrect.
+  </div>
+</section>
+
+<section id="acid">
+  <h2>6. ACID and Transactions</h2>
+
+  <p class="question">Q1. Explain ACID.</p>
+  <ul>
+    <li><strong>Atomicity:</strong> All operations succeed or all fail.</li>
+    <li><strong>Consistency:</strong> Database remains in valid state.</li>
+    <li><strong>Isolation:</strong> Parallel transactions do not corrupt each other.</li>
+    <li><strong>Durability:</strong> Committed data remains saved.</li>
+  </ul>
+
+  <p class="question">Q2. Implement ACID in C#.</p>
+
+  <pre><code>await using var transaction = await db.Database.BeginTransactionAsync();
+
+try
+{
+    db.Orders.Add(order);
+    await db.SaveChangesAsync();
+
+    db.Payments.Add(payment);
+    await db.SaveChangesAsync();
+
+    await transaction.CommitAsync();
+}
+catch
+{
+    await transaction.RollbackAsync();
+    throw;
+}</code></pre>
+
+  <div class="remember">
+    <strong>Microservices note:</strong> Across multiple databases, strict ACID is difficult. Use eventual consistency, outbox pattern, idempotency and retries.
+  </div>
+</section>
+
+<section id="gc">
+  <h2>7. Garbage Collection</h2>
+
+  <p class="question">Q1. Explain GC generations.</p>
+  <div class="answer">
+    <p>.NET GC manages managed memory. New objects start in Gen 0. Surviving objects move to Gen 1 and Gen 2. Long-lived objects are collected less frequently. Large objects go to LOH.</p>
+  </div>
+
+  <p class="question">Q2. IDisposable vs GC?</p>
+  <div class="answer">
+    <p>GC cleans managed memory. <code>IDisposable</code> releases unmanaged resources like DB connections, streams, file handles and sockets.</p>
+  </div>
+
+  <pre><code>using var connection = new SqlConnection(connectionString);
+connection.Open();</code></pre>
+</section>
+
+<section id="rest">
+  <h2>8. REST Semantics</h2>
+
+  <p class="question">Q1. Explain HTTP verbs.</p>
+  <ul>
+    <li><strong>GET:</strong> Read data, should not modify state.</li>
+    <li><strong>POST:</strong> Create resource or trigger action.</li>
+    <li><strong>PUT:</strong> Full update/replace.</li>
+    <li><strong>PATCH:</strong> Partial update.</li>
+    <li><strong>DELETE:</strong> Delete resource.</li>
+  </ul>
+
+  <p class="question">Q2. Important status codes?</p>
+  <ul>
+    <li><code>200 OK</code></li>
+    <li><code>201 Created</code></li>
+    <li><code>204 No Content</code></li>
+    <li><code>400 Bad Request</code></li>
+    <li><code>401 Unauthorized</code></li>
+    <li><code>403 Forbidden</code></li>
+    <li><code>404 Not Found</code></li>
+    <li><code>409 Conflict</code></li>
+    <li><code>500 Internal Server Error</code></li>
+  </ul>
+
+  <div class="risk">
+    <strong>Risk signal:</strong> GET method se update/delete karna REST misuse hai.
+  </div>
+</section>
+
+<section id="ef">
+  <h2>9. Entity Framework Performance and N+1</h2>
+
+  <p class="question">Q1. What is N+1 problem?</p>
+  <div class="answer">
+    <p>N+1 happens when one query loads parent records and then separate query runs for each related record, causing many database calls.</p>
+  </div>
+
+  <pre><code>// Risky with lazy loading
+var orders = context.Orders.ToList();
+
+foreach(var order in orders)
+{
+    Console.WriteLine(order.Customer.Name);
+}</code></pre>
+
+  <p class="question">Q2. How to fix?</p>
+
+  <pre><code>var orders = context.Orders
+    .Include(o => o.Customer)
+    .ToList();
+
+var result = context.Orders
+    .AsNoTracking()
+    .Select(o => new OrderDto
+    {
+        Id = o.Id,
+        CustomerName = o.Customer.Name
+    })
+    .ToList();</code></pre>
+
+  <h3>EF Performance Checklist</h3>
+  <ul>
+    <li>Use projection using <code>Select</code>.</li>
+    <li>Use <code>AsNoTracking()</code> for read-only queries.</li>
+    <li>Use pagination.</li>
+    <li>Avoid unnecessary <code>Include</code>.</li>
+    <li>Check generated SQL.</li>
+    <li>Add proper indexes.</li>
+    <li>Avoid early <code>ToList()</code>.</li>
+  </ul>
+</section>
+
+<section id="microservices">
+  <h2>10. Microservices</h2>
+
+  <p class="question">Q1. Sync vs Async communication?</p>
+  <div class="answer">
+    <p><strong>Sync:</strong> REST/gRPC call and wait for response. Use when immediate response is needed.</p>
+    <p><strong>Async:</strong> Publish message/event and process later. Use when eventual processing is acceptable.</p>
+  </div>
+
+  <h3>Trade-off</h3>
+  <ul>
+    <li>Sync is simple but creates runtime dependency and cascading failure risk.</li>
+    <li>Async improves resilience but adds eventual consistency and message handling complexity.</li>
+  </ul>
+
+  <p class="question">Q2. What is CQRS?</p>
+  <div class="answer">
+    <p>CQRS separates commands and queries. Commands change state, queries read data. Use when read and write models differ in complexity or performance needs.</p>
+  </div>
+
+  <p class="question">Q3. Failure handling in microservices?</p>
+  <ul>
+    <li>Retry with backoff</li>
+    <li>Timeout</li>
+    <li>Circuit breaker</li>
+    <li>Dead-letter queue</li>
+    <li>Idempotency</li>
+    <li>Outbox pattern</li>
+    <li>Correlation ID</li>
+    <li>Centralized logging and monitoring</li>
+  </ul>
+
+  <p class="question">Q4. Why delegate is not used between microservices?</p>
+  <div class="answer">
+    <p>Delegate works inside same process and memory. Microservices are separate processes. Between services we use REST, gRPC or message broker like RabbitMQ/Kafka/Azure Service Bus.</p>
+  </div>
+</section>
+
+<section id="rabbitmq">
+  <h2>11. RabbitMQ and Idempotency</h2>
+
+  <p class="question">Q1. Explain RabbitMQ flow.</p>
+  <div class="answer">
+    <p>Producer sends message to exchange. Exchange routes message to queue. Consumer reads from queue and sends acknowledgement after successful processing.</p>
+  </div>
+
+  <p class="question">Q2. Ack, Nack and DLQ?</p>
+  <ul>
+    <li><strong>Ack:</strong> successful processing confirmation.</li>
+    <li><strong>Nack:</strong> processing failed.</li>
+    <li><strong>DLQ:</strong> dead-letter queue stores failed messages after retry.</li>
+  </ul>
+
+  <p class="question">Q3. What is idempotency?</p>
+  <div class="answer">
+    <p>Idempotency means same request/message processed multiple times should not create duplicate side effects.</p>
+  </div>
+
+  <pre><code>if (AlreadyProcessed(message.Id))
+{
+    return;
+}
+
+Process(message);
+MarkProcessed(message.Id);</code></pre>
+</section>
+
+<section id="auth">
+  <h2>12. Authentication, Authorization, JWT and OAuth</h2>
+
+  <p class="question">Q1. Authentication vs Authorization?</p>
+  <div class="answer">
+    <p><strong>Authentication:</strong> Who are you?</p>
+    <p><strong>Authorization:</strong> What are you allowed to access?</p>
+  </div>
+
+  <p class="question">Q2. JWT lifecycle?</p>
+  <ol>
+    <li>User logs in.</li>
+    <li>Server validates credentials.</li>
+    <li>Server issues JWT with claims and expiry.</li>
+    <li>Client sends token in <code>Authorization: Bearer token</code>.</li>
+    <li>API validates signature, issuer, audience and expiry.</li>
+    <li>API checks claims, roles and policies.</li>
+  </ol>
+
+  <p class="question">Q3. OAuth flows?</p>
+  <ul>
+    <li><strong>Authorization Code + PKCE:</strong> user login for SPA/web app.</li>
+    <li><strong>Client Credentials:</strong> service-to-service authentication.</li>
+    <li><strong>Refresh Token:</strong> renew access token.</li>
+  </ul>
+
+  <p class="question">Q4. Secure API practices?</p>
+  <ul>
+    <li>Use HTTPS.</li>
+    <li>Validate JWT fully.</li>
+    <li>Use role/policy-based authorization.</li>
+    <li>Validate input.</li>
+    <li>Use rate limiting.</li>
+    <li>Do not log sensitive data.</li>
+    <li>Store secrets in Key Vault/secret manager.</li>
+  </ul>
+</section>
+
+<section id="angular">
+  <h2>13. Angular and SPA</h2>
+
+  <p class="question">Q1. What is SPA?</p>
+  <div class="answer">
+    <p>SPA loads a single page and updates UI dynamically without full page reload. Angular manages components, routing, templates and data binding.</p>
+  </div>
+
+  <p class="question">Q2. Lifecycle hooks?</p>
+  <ul>
+    <li><code>ngOnInit</code>: initialization.</li>
+    <li><code>ngOnChanges</code>: input changes.</li>
+    <li><code>ngAfterViewInit</code>: view initialized.</li>
+    <li><code>ngOnDestroy</code>: cleanup.</li>
+  </ul>
+
+  <p class="question">Q3. Angular bindings?</p>
+  <ul>
+    <li>Interpolation: <code>{{ value }}</code></li>
+    <li>Property binding: <code>[disabled]="isDisabled"</code></li>
+    <li>Event binding: <code>(click)="save()"</code></li>
+    <li>Two-way binding: <code>[(ngModel)]="name"</code></li>
+  </ul>
+
+  <p class="question">Q4. Observable vs Promise?</p>
+  <div class="answer">
+    <p>Promise returns a single future value. Observable can emit multiple values over time, is lazy, cancellable using unsubscribe and supports RxJS operators.</p>
+  </div>
+</section>
+
+<section id="azure">
+  <h2>14. DI Scope, Azure Services and Secrets</h2>
+
+  <p class="question">Q1. DI scopes?</p>
+  <ul>
+    <li><strong>Transient:</strong> new instance every time.</li>
+    <li><strong>Scoped:</strong> one instance per HTTP request. Good for DbContext.</li>
+    <li><strong>Singleton:</strong> one instance for application lifetime. Avoid request-specific state.</li>
+  </ul>
+
+  <p class="question">Q2. When to use which Azure service?</p>
+  <ul>
+    <li><strong>App Service:</strong> host APIs/web apps.</li>
+    <li><strong>Azure Functions:</strong> serverless/event-driven jobs.</li>
+    <li><strong>Service Bus:</strong> enterprise messaging queues/topics.</li>
+    <li><strong>Storage Account:</strong> blobs/files/queues.</li>
+    <li><strong>Key Vault:</strong> secrets, certificates and keys.</li>
+    <li><strong>Application Insights:</strong> telemetry and monitoring.</li>
+  </ul>
+
+  <p class="question">Q3. Secrets vs Config?</p>
+  <div class="answer">
+    <p>Config is non-sensitive, like API URL, timeout and feature flag. Secrets are sensitive, like password, API key, connection string and certificate. Secrets should be stored in Key Vault or secret manager.</p>
+  </div>
+</section>
+
+<section id="coding">
+  <h2>15. Coding Question: Move Zeros to End</h2>
+
+  <p class="question">Q. Move zeros to end, output should be 24500.</p>
+
+  <pre><code>int[] arr = { 0, 2, 0, 4, 5 };
+
+int index = 0;
+
+for (int i = 0; i < arr.Length; i++)
+{
+    if (arr[i] != 0)
+    {
+        arr[index++] = arr[i];
+    }
+}
+
+while (index < arr.Length)
+{
+    arr[index++] = 0;
+}
+
+Console.WriteLine(string.Join("", arr)); // 24500</code></pre>
+
+  <div class="answer">
+    <p><strong>Problem in wrong code:</strong> If you write <code>arr[index] = 0;</code> without <code>index++</code>, it will become an infinite loop.</p>
+  </div>
+</section>
+
+<section>
+  <h2>16. Final Client-Happy Cheat Sheet</h2>
+
+  <ul>
+    <li><strong>JS:</strong> I do not guess output; I explain reference and execution flow.</li>
+    <li><strong>Async:</strong> Async is non-blocking, not always a new thread.</li>
+    <li><strong>GC:</strong> GC handles managed memory; Dispose handles unmanaged resources.</li>
+    <li><strong>REST:</strong> GET must not change state.</li>
+    <li><strong>EF:</strong> Use projection, AsNoTracking, pagination and avoid N+1.</li>
+    <li><strong>Microservices:</strong> Use retry, timeout, circuit breaker, idempotency, DLQ and outbox.</li>
+    <li><strong>RabbitMQ:</strong> Ack after successful processing; consumers must be idempotent.</li>
+    <li><strong>Auth:</strong> Authentication is identity; authorization is permission.</li>
+    <li><strong>Angular:</strong> Know lifecycle hooks, bindings and Observable vs Promise.</li>
+    <li><strong>Azure:</strong> Secrets go to Key Vault; config goes to app settings/App Configuration.</li>
+  </ul>
+
+  <div class="tip">
+    <strong>Best interview behavior:</strong> Be clear, practical and honest. If you have not implemented something deeply, say you understand the flow and trade-offs instead of overclaiming.
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Prepared for final client screening - .NET Full Stack / Microservices
+</footer>
+
+</body>
+</html>
