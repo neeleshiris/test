@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projection in LINQ / Entity Framework</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f6f8fb;
+      color: #1f2937;
+      line-height: 1.65;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a, #1d4ed8);
+      color: white;
+      padding: 32px 44px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      color: #dbeafe;
+    }
+
+    main {
+      max-width: 1050px;
+      margin: 24px auto;
+      padding: 0 20px 50px;
+    }
+
+    section {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+    }
+
+    h2 {
+      color: #0f172a;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 8px;
+      margin-top: 0;
+    }
+
+    h3 {
+      color: #1d4ed8;
+      margin-top: 22px;
+    }
+
+    .answer {
+      background: #eff6ff;
+      border-left: 5px solid #2563eb;
+      padding: 12px 16px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .tip {
+      background: #ecfdf5;
+      border-left: 5px solid #10b981;
+      padding: 12px 16px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .risk {
+      background: #fff7ed;
+      border-left: 5px solid #f97316;
+      padding: 12px 16px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .remember {
+      background: #fefce8;
+      border-left: 5px solid #eab308;
+      padding: 12px 16px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 14px;
+      border-radius: 10px;
+      overflow-x: auto;
+    }
+
+    code {
+      font-family: Consolas, Monaco, monospace;
+    }
+
+    ul {
+      padding-left: 24px;
+    }
+
+    footer {
+      text-align: center;
+      color: #64748b;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Projection in LINQ / Entity Framework</h1>
+  <p>Interview-ready explanation with simple examples and practical usage</p>
+</header>
+
+<main>
+
+<section>
+  <h2>1. What is Projection?</h2>
+
+  <div class="answer">
+    <p>
+      <strong>Projection</strong> means selecting only the required fields from an entity
+      and converting them into a new shape such as a DTO or anonymous object.
+    </p>
+  </div>
+
+  <p>
+    In LINQ or Entity Framework, projection is usually done using the
+    <code>Select()</code> method.
+  </p>
+
+  <div class="remember">
+    <strong>One-line:</strong> Projection = select only required columns, not full entity.
+  </div>
+</section>
+
+<section>
+  <h2>2. Why Projection is Needed?</h2>
+
+  <ul>
+    <li>It avoids loading unnecessary columns from the database.</li>
+    <li>It improves query performance.</li>
+    <li>It reduces network payload.</li>
+    <li>It keeps API response clean.</li>
+    <li>It prevents exposing sensitive fields like password, salary, token, etc.</li>
+    <li>It helps avoid performance issues like unnecessary entity tracking.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>3. Entity Example</h2>
+
+  <p>Suppose we have an <code>Employee</code> entity:</p>
+
+  <pre><code>public class Employee
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Email { get; set; }
+    public decimal Salary { get; set; }
+    public string Address { get; set; }
+}</code></pre>
+
+  <p>
+    If API needs only <code>Id</code> and <code>Name</code>, then loading all columns is unnecessary.
+  </p>
+</section>
+
+<section>
+  <h2>4. Without Projection</h2>
+
+  <pre><code>var employees = context.Employees.ToList();</code></pre>
+
+  <div class="risk">
+    <p>
+      This may load all columns from the database:
+      <code>Id</code>, <code>Name</code>, <code>Email</code>, <code>Salary</code>,
+      <code>Address</code>.
+    </p>
+  </div>
+
+  <p>
+    But if the API only needs <code>Id</code> and <code>Name</code>, this is inefficient.
+  </p>
+</section>
+
+<section>
+  <h2>5. With Projection Using Anonymous Object</h2>
+
+  <pre><code>var employees = context.Employees
+    .Select(e => new
+    {
+        e.Id,
+        e.Name
+    })
+    .ToList();</code></pre>
+
+  <div class="tip">
+    <p>
+      Now Entity Framework will select only the required columns:
+      <code>Id</code> and <code>Name</code>.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>6. Projection Using DTO</h2>
+
+  <p>In real projects, DTO is preferred for API responses.</p>
+
+  <h3>Employee DTO</h3>
+
+  <pre><code>public class EmployeeDto
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+}</code></pre>
+
+  <h3>Query Using Projection</h3>
+
+  <pre><code>var employees = context.Employees
+    .Select(e => new EmployeeDto
+    {
+        Id = e.Id,
+        Name = e.Name
+    })
+    .ToList();</code></pre>
+
+  <div class="tip">
+    <p>
+      This returns only required data in a clean response model.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>7. Projection with Related Data</h2>
+
+  <p>
+    Projection can also be used to select related data without loading full entities.
+  </p>
+
+  <pre><code>var orders = context.Orders
+    .Select(o => new OrderDto
+    {
+        OrderId = o.Id,
+        OrderDate = o.OrderDate,
+        CustomerName = o.Customer.Name
+    })
+    .ToList();</code></pre>
+
+  <div class="answer">
+    <p>
+      Here we are selecting only required order fields and customer name.
+      We are not loading the complete <code>Order</code> and <code>Customer</code> entities.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>8. Projection and AsNoTracking</h2>
+
+  <p>
+    For read-only APIs, projection is commonly used with <code>AsNoTracking()</code>.
+  </p>
+
+  <pre><code>var employees = context.Employees
+    .AsNoTracking()
+    .Select(e => new EmployeeDto
+    {
+        Id = e.Id,
+        Name = e.Name
+    })
+    .ToList();</code></pre>
+
+  <div class="tip">
+    <p>
+      <code>AsNoTracking()</code> improves performance for read-only queries because
+      Entity Framework does not track the returned objects for changes.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>9. Benefits of Projection</h2>
+
+  <ul>
+    <li>
+      <strong>Better performance:</strong> Only required columns are selected.
+    </li>
+    <li>
+      <strong>Less memory usage:</strong> Full entity is not loaded.
+    </li>
+    <li>
+      <strong>Less network traffic:</strong> Smaller result set is transferred.
+    </li>
+    <li>
+      <strong>Security:</strong> Sensitive fields are not exposed.
+    </li>
+    <li>
+      <strong>Clean API response:</strong> DTO returns only required fields.
+    </li>
+    <li>
+      <strong>Helps avoid N+1 issues:</strong> Related data can be selected directly.
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2>10. Interview Answer</h2>
+
+  <div class="answer">
+    <p>
+      Projection in LINQ or Entity Framework means selecting only the required fields
+      from an entity and mapping them into a DTO or anonymous object. It is usually
+      done using the <code>Select()</code> method. Projection improves performance
+      because it avoids loading unnecessary columns, reduces memory usage, reduces
+      network payload, and prevents exposing sensitive data. In real projects, we
+      commonly use projection with DTOs and <code>AsNoTracking()</code> for read-only APIs.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>11. Short Hinglish Answer</h2>
+
+  <div class="answer">
+    <p>
+      Projection ka matlab hai database/entity se sirf required columns select karke
+      DTO ya anonymous object me return karna. Isse performance improve hoti hai,
+      unnecessary data load nahi hota, network payload kam hota hai aur sensitive
+      fields expose nahi hote.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>12. Quick Revision</h2>
+
+  <ul>
+    <li><strong>Projection:</strong> Select required fields only.</li>
+    <li><strong>Method:</strong> <code>Select()</code></li>
+    <li><strong>Best for:</strong> Read APIs.</li>
+    <li><strong>Use with:</strong> DTO and <code>AsNoTracking()</code></li>
+    <li><strong>Avoid:</strong> Loading full entity when only few columns are required.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  Projection in LINQ / Entity Framework - Interview Notes
+</footer>
+
+</body>
+</html>
