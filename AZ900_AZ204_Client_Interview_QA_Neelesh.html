@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AZ-900 + AZ-204 Client Interview Q&A - Neelesh</title>
+  <style>
+    :root{--bg:#f6f8fb;--card:#fff;--ink:#1f2937;--muted:#6b7280;--brand:#2563eb;--accent:#0f766e;--warn:#b45309;--border:#e5e7eb;}
+    *{box-sizing:border-box} body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+    header{background:linear-gradient(135deg,#1d4ed8,#0f766e);color:white;padding:32px 22px} header h1{margin:0 0 8px;font-size:30px} header p{margin:5px 0;opacity:.95}
+    main{max-width:1120px;margin:0 auto;padding:22px}.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;margin:16px 0;box-shadow:0 8px 22px rgba(15,23,42,.06)}
+    h2{color:#0f172a;border-left:5px solid var(--brand);padding-left:12px;margin-top:5px} h3{color:#111827;margin-top:20px}.tag{display:inline-block;background:#dbeafe;color:#1e40af;padding:3px 10px;border-radius:999px;font-size:12px;margin:3px}
+    .answer{background:#f8fafc;border-left:4px solid var(--accent);padding:12px 14px;border-radius:10px;margin:8px 0 16px}.quick{background:#fffbeb;border-left:4px solid var(--warn);padding:12px 14px;border-radius:10px}.toc a{display:inline-block;margin:4px 8px 4px 0;color:var(--brand);text-decoration:none;font-weight:600}.toc a:hover{text-decoration:underline}
+    code{background:#eef2ff;padding:2px 6px;border-radius:6px} pre{background:#0f172a;color:#e5e7eb;padding:14px;border-radius:12px;overflow:auto} ul{padding-left:22px}.small{color:var(--muted);font-size:13px}.qa{border-top:1px dashed var(--border);padding-top:12px;margin-top:12px}.q{font-weight:700;color:#0f172a}.good{color:#047857;font-weight:700}.bad{color:#b91c1c;font-weight:700}.footer{font-size:13px;color:var(--muted);text-align:center;padding:25px}
+    @media print{body{background:#fff}.card{box-shadow:none;page-break-inside:avoid}header{background:#1d4ed8!important}.toc{display:none}}
+  </style>
+</head>
+<body>
+<header>
+  <h1>AZ-900 + AZ-204 Client Interview Q&A</h1>
+  <p><b>Prepared for:</b> Neelesh Shrivastava | <b>Purpose:</b> RXO / Client Interview Preparation</p>
+  <p>Use this as quick revision + speaking answers. Answers are in simple professional English with Hinglish notes.</p>
+</header>
+<main>
+  <section class="card toc">
+    <h2>Index</h2>
+    <a href="#opening">Opening Answers</a><a href="#az900">AZ-900 Q&A</a><a href="#az204">AZ-204 Q&A</a><a href="#scenario">Scenario Answers</a><a href="#project">Project Pitch</a><a href="#lastday">Last-Day Revision</a>
+  </section>
+
+  <section class="card" id="opening">
+    <h2>1) Opening Answers</h2>
+    <h3>Tell me about yourself</h3>
+    <div class="answer">I am Neelesh Shrivastava, working as Lead - Technology. I have backend development experience with .NET, APIs, SQL and Azure. I have worked on enterprise applications where I handled API design, report assignment workflows, performance improvements and production support. I am also Microsoft certified in AZ-900 and AZ-204, which helps me understand Azure fundamentals as well as developer-focused services like App Service, Functions, Storage, Key Vault and Application Insights. I am comfortable working with teams, understanding requirements and delivering scalable solutions.</div>
+    <h3>Why are you suitable for this client role?</h3>
+    <div class="answer">I believe I am a good fit because I have hands-on backend development experience, Azure certification knowledge and practical project exposure. I can quickly understand existing systems, build APIs, troubleshoot issues and communicate clearly with business and technical teams.</div>
+    <div class="quick"><b>Tip:</b> Interview में certification को सिर्फ नाम मत बोलना — बोलना कि “I used this knowledge in App Service, monitoring, security and deployment discussions.”</div>
+  </section>
+
+  <section class="card" id="az900">
+    <h2>2) AZ-900: Azure Fundamentals Interview Q&A</h2>
+    <span class="tag">Cloud Concepts</span><span class="tag">Compute</span><span class="tag">Storage</span><span class="tag">Networking</span><span class="tag">Security</span><span class="tag">Governance</span>
+
+    <div class="qa"><div class="q">1. What is cloud computing?</div><div class="answer">Cloud computing means delivering compute, storage, networking, databases and software over the internet. Instead of buying physical servers, we consume resources on demand and pay based on usage.</div></div>
+    <div class="qa"><div class="q">2. What are the main benefits of cloud?</div><div class="answer">Major benefits are scalability, high availability, reliability, disaster recovery, global reach, security, governance and cost optimization through pay-as-you-go pricing.</div></div>
+    <div class="qa"><div class="q">3. Difference between IaaS, PaaS and SaaS?</div><div class="answer"><b>IaaS</b>: We manage OS/runtime/app; Azure manages hardware. Example: VM. <b>PaaS</b>: Azure manages platform; we deploy app. Example: App Service. <b>SaaS</b>: Complete software managed by provider. Example: Microsoft 365.</div></div>
+    <div class="qa"><div class="q">4. What is shared responsibility model?</div><div class="answer">Security responsibility is shared between cloud provider and customer. In IaaS customer manages more things like OS and app. In PaaS less. In SaaS provider manages most of the stack, while customer manages data, identity and access.</div></div>
+    <div class="qa"><div class="q">5. What is Azure Region?</div><div class="answer">An Azure region is a geographic area containing one or more datacenters. We deploy resources in a region based on latency, compliance and availability needs.</div></div>
+    <div class="qa"><div class="q">6. What is Availability Zone?</div><div class="answer">Availability Zones are physically separate datacenter locations within a region. They help protect applications from datacenter-level failures.</div></div>
+    <div class="qa"><div class="q">7. What is Resource Group?</div><div class="answer">A resource group is a logical container for Azure resources like App Service, Storage, SQL and Key Vault. It helps manage lifecycle, access and cost for related resources.</div></div>
+    <div class="qa"><div class="q">8. What is Azure App Service?</div><div class="answer">Azure App Service is a PaaS offering to host web apps, APIs and backend services without managing servers. It supports scaling, deployment slots, custom domains and SSL.</div></div>
+    <div class="qa"><div class="q">9. What is Azure Function?</div><div class="answer">Azure Functions is serverless compute. We write small pieces of code that run based on triggers like HTTP request, timer, queue message or blob upload. It is useful for event-driven processing.</div></div>
+    <div class="qa"><div class="q">10. App Service vs Azure Functions?</div><div class="answer">App Service is better for continuously running web apps/APIs. Azure Functions is better for short, event-driven tasks where we want serverless execution and consumption-based cost.</div></div>
+    <div class="qa"><div class="q">11. What is Azure Storage?</div><div class="answer">Azure Storage is a scalable cloud storage service. It includes Blob Storage for objects/files, File Storage for shared file system, Queue Storage for messages and Table Storage for NoSQL key-value data.</div></div>
+    <div class="qa"><div class="q">12. Blob Storage tiers?</div><div class="answer">Hot tier is for frequently accessed data, Cool tier for infrequently accessed data, Archive tier for rarely accessed long-term data. Selection depends on access pattern and cost.</div></div>
+    <div class="qa"><div class="q">13. What is VNet?</div><div class="answer">Azure Virtual Network is a private network in Azure. It allows Azure resources to communicate securely with each other, internet and on-premises networks.</div></div>
+    <div class="qa"><div class="q">14. VPN Gateway vs ExpressRoute?</div><div class="answer">VPN Gateway connects on-premises to Azure over encrypted internet tunnel. ExpressRoute provides private dedicated connectivity, better for enterprise workloads needing predictable latency and higher reliability.</div></div>
+    <div class="qa"><div class="q">15. What is Microsoft Entra ID?</div><div class="answer">Microsoft Entra ID, earlier known as Azure Active Directory, is Microsoft’s cloud identity and access management service used for authentication, authorization, MFA and conditional access.</div></div>
+    <div class="qa"><div class="q">16. What is MFA?</div><div class="answer">Multi-Factor Authentication adds extra verification like OTP, authenticator app or biometric along with password. It reduces risk if password is compromised.</div></div>
+    <div class="qa"><div class="q">17. What is RBAC?</div><div class="answer">Role-Based Access Control gives users/groups/service principals permissions based on roles like Reader, Contributor or Owner at subscription, resource group or resource level.</div></div>
+    <div class="qa"><div class="q">18. What is Azure Policy?</div><div class="answer">Azure Policy enforces organizational rules. Example: allow resources only in approved regions, require tags, or deny public IP creation.</div></div>
+    <div class="qa"><div class="q">19. What is Azure Monitor?</div><div class="answer">Azure Monitor collects metrics and logs from applications and infrastructure. It helps with alerting, troubleshooting and performance analysis.</div></div>
+    <div class="qa"><div class="q">20. What is Cost Management?</div><div class="answer">Azure Cost Management helps track usage, analyze spend, create budgets and set alerts to control cloud cost.</div></div>
+  </section>
+
+  <section class="card" id="az204">
+    <h2>3) AZ-204: Azure Developer Interview Q&A</h2>
+    <span class="tag">App Service</span><span class="tag">Functions</span><span class="tag">Storage</span><span class="tag">Cosmos DB</span><span class="tag">Key Vault</span><span class="tag">Service Bus</span><span class="tag">Monitoring</span>
+
+    <div class="qa"><div class="q">1. How do you deploy a .NET API to Azure?</div><div class="answer">Usually I deploy .NET API to Azure App Service using Azure DevOps/GitHub Actions pipeline. Steps: build, run tests, publish artifact, deploy to App Service, use app settings for configuration, and monitor through Application Insights.</div></div>
+    <div class="qa"><div class="q">2. What are deployment slots?</div><div class="answer">Deployment slots are separate environments in App Service, like staging and production. We deploy to staging, validate, and then swap with production. It reduces downtime and risk.</div></div>
+    <div class="qa"><div class="q">3. How do you manage configuration in App Service?</div><div class="answer">Use App Service Application Settings for environment-specific config. Sensitive values should be stored in Key Vault and accessed through managed identity instead of hardcoding.</div></div>
+    <div class="qa"><div class="q">4. What is Managed Identity?</div><div class="answer">Managed Identity gives an Azure resource an automatically managed identity in Entra ID. It allows secure access to Key Vault, Storage or SQL without storing credentials in code.</div></div>
+    <div class="qa"><div class="q">5. How do you access Key Vault from an application?</div><div class="answer">Enable managed identity for the app, grant required Key Vault permissions/RBAC, then use Azure SDK to read secrets/certificates/keys. This avoids storing secrets in config files.</div></div>
+    <div class="qa"><div class="q">6. What are Azure Function triggers?</div><div class="answer">Triggers define how a function starts. Common triggers are HTTP trigger, Timer trigger, Queue trigger, Blob trigger, Event Grid trigger and Service Bus trigger.</div></div>
+    <div class="qa"><div class="q">7. Azure Function input/output bindings?</div><div class="answer">Bindings simplify connecting to services. Input binding reads data, output binding writes data. Example: HTTP request triggers function and output binding writes message to Queue Storage.</div></div>
+    <div class="qa"><div class="q">8. Consumption Plan vs Premium Plan for Functions?</div><div class="answer">Consumption plan is serverless and cost-effective for variable workloads but can have cold starts. Premium plan supports pre-warmed instances, VNet integration and better performance for production workloads.</div></div>
+    <div class="qa"><div class="q">9. What is Blob Storage used for?</div><div class="answer">Blob Storage is used for unstructured data like documents, images, logs, backups and report files. In reporting applications, generated reports can be stored as blobs and shared securely using SAS.</div></div>
+    <div class="qa"><div class="q">10. What is SAS token?</div><div class="answer">Shared Access Signature provides limited, time-bound access to Azure Storage resources. We can control permissions like read/write and expiry time.</div></div>
+    <div class="qa"><div class="q">11. What is Cosmos DB?</div><div class="answer">Azure Cosmos DB is a globally distributed NoSQL database with low latency, multiple APIs and flexible consistency models. It is useful when high scalability and global distribution are required.</div></div>
+    <div class="qa"><div class="q">12. What is partition key in Cosmos DB?</div><div class="answer">Partition key decides how data is distributed across physical partitions. A good partition key has high cardinality and evenly distributes workload to avoid hot partitions.</div></div>
+    <div class="qa"><div class="q">13. What are RUs in Cosmos DB?</div><div class="answer">RU means Request Unit. It represents the cost of database operations like read, write and query. We optimize queries and partitioning to reduce RU consumption.</div></div>
+    <div class="qa"><div class="q">14. Service Bus Queue vs Topic?</div><div class="answer">Queue supports one-to-one asynchronous messaging. Topic supports publish-subscribe where multiple subscribers can receive the same message based on subscriptions and filters.</div></div>
+    <div class="qa"><div class="q">15. Storage Queue vs Service Bus?</div><div class="answer">Storage Queue is simple queueing for basic workloads. Service Bus is enterprise messaging with features like topics, sessions, dead-letter queue, duplicate detection and transactions.</div></div>
+    <div class="qa"><div class="q">16. What is Dead Letter Queue?</div><div class="answer">Dead Letter Queue stores messages that cannot be delivered or processed after retries. It helps investigate failed messages without losing them.</div></div>
+    <div class="qa"><div class="q">17. Event Grid vs Event Hub?</div><div class="answer">Event Grid is for event routing/reactive event handling. Event Hub is for high-throughput streaming/telemetry ingestion like logs, IoT or clickstream data.</div></div>
+    <div class="qa"><div class="q">18. How do you secure APIs in Azure?</div><div class="answer">Use HTTPS, Entra ID/OAuth2/JWT authentication, API Management policies, rate limiting, Key Vault for secrets, managed identity for resource access and proper RBAC.</div></div>
+    <div class="qa"><div class="q">19. What is API Management?</div><div class="answer">API Management provides a gateway to publish, secure, monitor and manage APIs. It supports policies like authentication, rate limiting, caching, header transformation and versioning.</div></div>
+    <div class="qa"><div class="q">20. How do you monitor Azure applications?</div><div class="answer">Use Application Insights for request tracking, exceptions, dependency calls and performance metrics. Use Azure Monitor logs and alerts for proactive issue detection.</div></div>
+    <div class="qa"><div class="q">21. What is Application Insights dependency tracking?</div><div class="answer">It tracks external calls like SQL, HTTP, storage or service calls made by the application. It helps identify slow dependencies and failures.</div></div>
+    <div class="qa"><div class="q">22. How do you troubleshoot slow API response?</div><div class="answer">I check Application Insights for request duration, exceptions and dependency calls. Then I analyze SQL query time, external API latency, CPU/memory, logs and recent deployments. Based on root cause, I optimize query, add caching, scale app or fix code bottleneck.</div></div>
+    <div class="qa"><div class="q">23. What is retry pattern?</div><div class="answer">Retry pattern handles transient failures by retrying failed operations after short delays. It is useful for cloud services where temporary network/service issues can occur.</div></div>
+    <div class="qa"><div class="q">24. What is circuit breaker pattern?</div><div class="answer">Circuit breaker prevents repeated calls to a failing service. After failures cross threshold, circuit opens for some time and returns fallback response. It protects system stability.</div></div>
+    <div class="qa"><div class="q">25. How do you handle secrets in CI/CD?</div><div class="answer">Do not store secrets in repo. Store them in pipeline secret variables or Key Vault. Prefer managed identity/service connection with least privilege access.</div></div>
+  </section>
+
+  <section class="card" id="scenario">
+    <h2>4) Scenario-Based Answers</h2>
+    <div class="qa"><div class="q">Scenario 1: Client says API is failing intermittently. What will you do?</div><div class="answer">I will first check monitoring dashboards and Application Insights for exception rate, failed dependency calls and response codes. Then I will check logs around the failure time, verify downstream services like SQL/Storage/API, and identify whether it is code issue, dependency issue or infrastructure issue. If needed, I will apply retry/circuit breaker and create alerts to catch it early next time.</div></div>
+    <div class="qa"><div class="q">Scenario 2: Report generation is slow. How will you improve?</div><div class="answer">I will analyze where time is spent: SQL query, API processing, file generation or storage. For SQL, I will check indexes, query plan and pagination. For application, I will use async processing/background jobs and caching where suitable. Large reports can be generated asynchronously and stored in Blob Storage with notification to user.</div></div>
+    <div class="qa"><div class="q">Scenario 3: How to design secure report download?</div><div class="answer">Store generated reports in private Blob Storage. User requests download through authenticated API. API validates user permission and generates short-lived read-only SAS URL or streams file. Secrets are kept in Key Vault and access is via managed identity.</div></div>
+    <div class="qa"><div class="q">Scenario 4: How to make API highly available?</div><div class="answer">Use App Service with multiple instances, autoscale rules, health checks, deployment slots, zone redundancy where applicable, database backup/replication, and monitoring alerts. For global users, use Front Door/Traffic Manager depending on requirement.</div></div>
+    <div class="qa"><div class="q">Scenario 5: How will you reduce Azure cost?</div><div class="answer">I will review utilization, right-size App Service plans/VMs, use autoscaling, choose correct storage tier, delete unused resources, set budgets/alerts, apply tags, and use reserved capacity for predictable workloads.</div></div>
+  </section>
+
+  <section class="card" id="project">
+    <h2>5) Your Project Pitch: Insurance Reporting Hub</h2>
+    <div class="answer">I worked on an Insurance Reporting Hub where reports were managed and assigned to users based on roles and permissions. My role involved backend development, API implementation, SQL data handling and ensuring that users could access the right reports securely. We focused on role-based access, performance optimization and reliable report processing. One challenge was handling large report data efficiently, so we optimized SQL queries/indexes and improved backend processing to reduce response time.</div>
+    <h3>Strong one-liner</h3>
+    <div class="quick">“My strength is backend API development with practical Azure understanding, especially secure deployment, monitoring and scalable processing.”</div>
+  </section>
+
+  <section class="card" id="lastday">
+    <h2>6) Last-Day Quick Revision</h2>
+    <ul>
+      <li><b>AZ-900:</b> Cloud benefits, IaaS/PaaS/SaaS, Region/Zone, App Service, Functions, Storage, VNet, Entra ID, RBAC, Policy, Monitor, Cost.</li>
+      <li><b>AZ-204:</b> App Service slots, Functions triggers/bindings, Blob/SAS, Cosmos partition/RU, Key Vault, Managed Identity, Service Bus, API Management, Application Insights.</li>
+      <li><b>Always answer with example:</b> “In reporting application, I would…”</li>
+      <li><b>Don’t overclaim:</b> If not hands-on, say “I understand the concept and have worked around it / I can quickly implement it.”</li>
+      <li><b>Client communication:</b> Speak short, clear and structured: Problem → Action → Result.</li>
+    </ul>
+    <div class="quick"><b>Final confidence line:</b> “I am comfortable in backend development and Azure-based application support/deployment. I can contribute quickly and learn any client-specific process fast.”</div>
+    <p class="small">Prepared on 08-May-2026. Based on Microsoft Learn AZ-900 and AZ-204 topic areas: cloud concepts, Azure architecture/services, governance, developer compute, storage, security, integration and monitoring.</p>
+  </section>
+</main>
+<div class="footer">Best of luck, Neelesh — revise this once before the interview and keep answers natural.</div>
+</body>
+</html>
