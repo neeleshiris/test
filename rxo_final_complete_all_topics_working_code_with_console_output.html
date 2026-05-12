@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RXO Final Complete Interview Preparation - All Topics + Working Code + Output</title>
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--text:#172033;--muted:#64748b;--blue:#2563eb;--green:#16a34a;--amber:#d97706;--red:#dc2626;--purple:#7c3aed;--border:#e5e7eb;--code:#0b1220;--codeText:#e5e7eb}*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}header{background:linear-gradient(135deg,#0f172a,#1d4ed8,#7c3aed);color:white;padding:44px 22px;text-align:center}header h1{margin:0 0 10px;font-size:34px}.container{max-width:1280px;margin:0 auto;padding:24px}.card,section{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:24px;margin:22px 0;box-shadow:0 8px 24px rgba(15,23,42,.06)}h2{margin-top:0;border-bottom:2px solid var(--border);padding-bottom:8px;color:#0f172a}h3{margin:20px 0 8px;color:#111827}.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:9px 18px}.q{border-left:4px solid var(--blue);background:#f8fafc;padding:16px 18px;border-radius:12px;margin:18px 0}.deep{border-left-color:var(--purple)}.scenario{border-left-color:var(--amber)}.codebox{border-left-color:var(--green)}.good{background:#f0fdf4;border-left:4px solid var(--green);padding:12px 14px;border-radius:10px;margin:10px 0}.tip{background:#fffbeb;border-left:4px solid var(--amber);padding:12px 14px;border-radius:10px;margin:10px 0}.bad{background:#fef2f2;border-left:4px solid var(--red);padding:12px 14px;border-radius:10px;margin:10px 0}pre{background:var(--code);color:var(--codeText);padding:16px;border-radius:12px;overflow-x:auto;font-size:14px;line-height:1.45}code{font-family:Consolas,Monaco,"Courier New",monospace}table{width:100%;border-collapse:collapse;margin:14px 0;background:#fff}th,td{border:1px solid var(--border);padding:10px;text-align:left;vertical-align:top}th{background:#f1f5f9;color:#0f172a}a{color:var(--blue);text-decoration:none}.diagram{background:#f8fafc;border:1px dashed #94a3b8;border-radius:12px;padding:14px;white-space:pre-wrap;font-family:Consolas,monospace;overflow-x:auto}.pill{display:inline-block;border:1px solid #c7d2fe;background:#eef2ff;color:#3730a3;border-radius:999px;padding:3px 9px;font-size:12px;margin:2px}.footer{text-align:center;color:var(--muted);padding:28px}.kbd{font-family:Consolas,monospace;background:#e2e8f0;border-radius:5px;padding:2px 5px}@media print{header{background:white;color:#000;border-bottom:1px solid #ccc}.card,section{box-shadow:none;break-inside:avoid}a{color:#000}}
+</style>
+</head>
+<body>
+<header>
+<h1>RXO Final Complete Interview Preparation</h1>
+<p>All previous instructions included: full topic details, machine-runnable toaster code, Push/Pull, Cancel/Eject, modes, console output, .NET GC/Heap, Promise vs Observable, Angular DI, Auth Guard, cross questions and short answers.</p>
+</header>
+<main class="container">
+<div class="card">
+<h2>What This Final File Contains</h2>
+<p>This is the consolidated final version. Nothing is intentionally removed.</p>
+<p><span class="pill">Multi-slicer toaster system design</span><span class="pill">Working C# console app</span><span class="pill">Expected console output</span><span class="pill">Push/Pull lever</span><span class="pill">Cancel button eject</span><span class="pill">Normal/Defrost/Reheat modes</span><span class="pill">.NET GC deep dive</span><span class="pill">Heap deep dive</span><span class="pill">Promise vs Observable</span><span class="pill">Angular DI</span><span class="pill">Auth Guard</span></p>
+<div class="good"><strong>Interview rule:</strong> For each topic, explain definition → design/flow → scenario → edge cases → best practice.</div>
+</div>
+<nav class="card">
+<h2>Contents</h2>
+<div class="toc-grid">
+<a href="#toaster-design">1. Multi-Slicer Toaster Design</a>
+<a href="#toaster-code">2. Working C# Toaster Code</a>
+<a href="#console-output">3. Expected Console Output</a>
+<a href="#toaster-explain">4. Toaster Explanation + Cross Questions</a>
+<a href="#gc">5. .NET Memory Management / GC</a>
+<a href="#heap">6. Heap Deep Dive</a>
+<a href="#resources">7. Resources / IDisposable / Memory Leaks</a>
+<a href="#observable">8. Promise vs Observable</a>
+<a href="#rxjs">9. RxJS Scenario Questions</a>
+<a href="#di">10. Angular Dependency Injection</a>
+<a href="#di-cross">11. DI Cross Questions</a>
+<a href="#guard">12. Angular Auth Guard</a>
+<a href="#guard-cross">13. Auth Guard Cross Questions</a>
+<a href="#rapid">14. Final Short Answers</a>
+</div>
+</nav>
+
+<section id="toaster-design">
+<h2>1. Multi-Slicer Bread Toaster: End-to-End Design</h2>
+<div class="q scenario">
+<h3>Question</h3>
+<p>Design a system for a multi-slicer bread toaster. Number of slicers is not fixed. Include real toaster controls: push/pull lever, cancel button, modes like defrost and reheat, and behavior when toast comes out.</p>
+<h3>How to start in interview</h3>
+<div class="good">“Since slicer count is not fixed, I will not hardcode slots. I will model each slicer as an independent object with state, position, heater, sensor and push/pull mechanism. Toaster will manage a dynamic list of slicers. PushDown moves bread inside. Cancel stops heating and ejects bread. Completion/error also turns off heater and ejects bread. Modes like Normal, Defrost and Reheat are handled using profile strategy.”</div>
+<h3>Functional requirements</h3>
+<ul>
+<li>Support N slicers dynamically.</li>
+<li>Each slicer can independently move down/inside and up/ejected.</li>
+<li>Push/Pull lever moves bread down/inside before heating starts.</li>
+<li>Cancel button stops heating and ejects bread immediately.</li>
+<li>On successful completion, bread ejects automatically.</li>
+<li>On jam/overheat/error, heater turns off and bread ejects.</li>
+<li>Modes: Normal, Defrost, Reheat.</li>
+<li>Support concurrent toasting for multiple slicers.</li>
+<li>Code should be testable by mocking heater, mechanism and sensor.</li>
+</ul>
+<h3>Non-functional requirements</h3>
+<ul>
+<li><strong>Extensible:</strong> add more slicers or modes without changing core slicer logic.</li>
+<li><strong>Safe:</strong> heater must always turn off in finally block.</li>
+<li><strong>Maintainable:</strong> separate mechanical movement, heating, sensing and profile logic.</li>
+<li><strong>Testable:</strong> use interfaces.</li>
+</ul>
+<h3>Architecture</h3>
+<div class="diagram">User Control Panel
+  |-- Select Mode: Normal / Defrost / Reheat
+  |-- Select Browning Level
+  |-- PushDown(slot/all)
+  |-- Cancel(slot/all)
+
+Toaster
+  |-- List&lt;Slicer&gt; dynamic
+  |-- ToastProfileStrategy
+  |-- ToastAllAsync()
+  |-- CancelSlicer(id)
+
+Slicer
+  |-- State: Empty, BreadInserted, PushedDown, Toasting, Completed, Cancelled, Jammed, Overheated, Error
+  |-- Position: UpEjected / DownInside
+  |-- Heater: TurnOn / TurnOff
+  |-- Mechanism: PushDown / Eject
+  |-- Sensor: BreadInserted / Jammed / Temperature
+
+Important flow:
+PushDown -> Position DownInside -> Heater ON -> Toasting loop
+Cancel/Complete/Error -> Heater OFF -> Eject -> Position UpEjected</div>
+<h3>Patterns used</h3>
+<ul>
+<li><strong>Factory Pattern:</strong> create N slicers dynamically.</li>
+<li><strong>Strategy Pattern:</strong> Normal/Defrost/Reheat profile calculation.</li>
+<li><strong>State Pattern / State enum:</strong> slicer state transitions.</li>
+<li><strong>Dependency Injection:</strong> inject heater, sensor and mechanism.</li>
+<li><strong>Command-like operations:</strong> PushDown, Cancel, Eject.</li>
+</ul>
+</div>
+</section>
+
+<section id="toaster-code">
+<h2>2. Machine-Runnable C# Toaster Code</h2>
+<div class="q codebox">
+<h3>How to run on your machine</h3>
+<pre><code>dotnet new console -n MultiSlicerToasterV2
+cd MultiSlicerToasterV2
+# Open Program.cs and replace all content with the code below
+dotnet run</code></pre>
+<div class="tip"><strong>Works as one Program.cs file.</strong> No NuGet package required. Recommended: .NET 6/7/8.</div>
+</div>
+<div class="q codebox">
+<h3>Program.cs</h3>
+<pre><code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace MultiSlicerToasterV2;
+
+public enum SlicerState
+{
+    Empty,
+    BreadInserted,
+    PushedDown,
+    Toasting,
+    Completed,
+    Cancelled,
+    Jammed,
+    Overheated,
+    Error
+}
+
+public enum SlicerPosition
+{
+    UpEjected,
+    DownInside
+}
+
+public enum ToastMode
+{
+    Normal,
+    Defrost,
+    Reheat
+}
+
+public sealed class ToastProfile
+{
+    public ToastMode Mode { get; init; }
+    public int BrowningLevel { get; init; }
+    public int DurationInSeconds { get; init; }
+    public int Temperature { get; init; }
+}
+
+public interface IHeater
+{
+    void TurnOn(int slicerId, int temperature);
+    void TurnOff(int slicerId);
+}
+
+public sealed class ConsoleHeater : IHeater
+{
+    public void TurnOn(int slicerId, int temperature)
+        =&gt; Console.WriteLine($"[Slicer {slicerId}] Heater ON at {temperature}°C");
+
+    public void TurnOff(int slicerId)
+        =&gt; Console.WriteLine($"[Slicer {slicerId}] Heater OFF");
+}
+
+public interface ISlicerMechanism
+{
+    void PushDown(int slicerId);
+    void Eject(int slicerId);
+}
+
+public sealed class PushPullMechanism : ISlicerMechanism
+{
+    public void PushDown(int slicerId)
+        =&gt; Console.WriteLine($"[Slicer {slicerId}] Push/Pull lever pressed: bread moved DOWN/INSIDE.");
+
+    public void Eject(int slicerId)
+        =&gt; Console.WriteLine($"[Slicer {slicerId}] Bread moved UP/EJECTED.");
+}
+
+public interface ISlicerSensor
+{
+    bool IsBreadInserted(int slicerId);
+    bool IsJammed(int slicerId);
+    int GetTemperature(int slicerId);
+}
+
+public sealed class DemoSlicerSensor : ISlicerSensor
+{
+    private readonly Random _random = new();
+    private readonly HashSet&lt;int&gt; _jammedSlicers;
+
+    public DemoSlicerSensor(IEnumerable&lt;int&gt;? jammedSlicers = null)
+    {
+        _jammedSlicers = jammedSlicers?.ToHashSet() ?? new HashSet&lt;int&gt;();
+    }
+
+    public bool IsBreadInserted(int slicerId) =&gt; true;
+    public bool IsJammed(int slicerId) =&gt; _jammedSlicers.Contains(slicerId);
+    public int GetTemperature(int slicerId) =&gt; _random.Next(120, 220);
+}
+
+public interface IToastProfileStrategy
+{
+    ToastProfile CreateProfile(ToastMode mode, int browningLevel);
+}
+
+public sealed class ToastProfileStrategy : IToastProfileStrategy
+{
+    public ToastProfile CreateProfile(ToastMode mode, int browningLevel)
+    {
+        browningLevel = Math.Clamp(browningLevel, 1, 5);
+
+        return mode switch
+        {
+            ToastMode.Normal =&gt; new ToastProfile
+            {
+                Mode = ToastMode.Normal,
+                BrowningLevel = browningLevel,
+                DurationInSeconds = browningLevel + 2,
+                Temperature = 140 + browningLevel * 15
+            },
+            ToastMode.Defrost =&gt; new ToastProfile
+            {
+                Mode = ToastMode.Defrost,
+                BrowningLevel = browningLevel,
+                DurationInSeconds = browningLevel + 4,
+                Temperature = 130 + browningLevel * 10
+            },
+            ToastMode.Reheat =&gt; new ToastProfile
+            {
+                Mode = ToastMode.Reheat,
+                BrowningLevel = browningLevel,
+                DurationInSeconds = 2,
+                Temperature = 120
+            },
+            _ =&gt; throw new NotSupportedException($"Unsupported mode: {mode}")
+        };
+    }
+}
+
+public sealed class Slicer
+{
+    private readonly IHeater _heater;
+    private readonly ISlicerMechanism _mechanism;
+    private readonly ISlicerSensor _sensor;
+    private CancellationTokenSource? _currentToastingCts;
+
+    public int Id { get; }
+    public SlicerState State { get; private set; } = SlicerState.Empty;
+    public SlicerPosition Position { get; private set; } = SlicerPosition.UpEjected;
+
+    public Slicer(int id, IHeater heater, ISlicerMechanism mechanism, ISlicerSensor sensor)
+    {
+        Id = id;
+        _heater = heater;
+        _mechanism = mechanism;
+        _sensor = sensor;
+    }
+
+    public async Task PushDownAndToastAsync(ToastProfile profile, CancellationToken externalToken)
+    {
+        _currentToastingCts = CancellationTokenSource.CreateLinkedTokenSource(externalToken);
+        CancellationToken token = _currentToastingCts.Token;
+
+        try
+        {
+            Console.WriteLine($"\n[Slicer {Id}] Requested Mode={profile.Mode}, Level={profile.BrowningLevel}");
+
+            if (!_sensor.IsBreadInserted(Id))
+            {
+                State = SlicerState.Empty;
+                Position = SlicerPosition.UpEjected;
+                Console.WriteLine($"[Slicer {Id}] Bread not inserted. Cannot start.");
+                return;
+            }
+
+            State = SlicerState.BreadInserted;
+            PushDown();
+
+            State = SlicerState.Toasting;
+            _heater.TurnOn(Id, profile.Temperature);
+
+            for (int second = 1; second &lt;= profile.DurationInSeconds; second++)
+            {
+                token.ThrowIfCancellationRequested();
+
+                if (_sensor.IsJammed(Id))
+                {
+                    State = SlicerState.Jammed;
+                    throw new InvalidOperationException($"Bread jam detected in slicer {Id}.");
+                }
+
+                int currentTemperature = _sensor.GetTemperature(Id);
+                if (currentTemperature &gt; 240)
+                {
+                    State = SlicerState.Overheated;
+                    throw new InvalidOperationException($"Overheat detected in slicer {Id}.");
+                }
+
+                Console.WriteLine($"[Slicer {Id}] Toasting {second}/{profile.DurationInSeconds}, Temp={currentTemperature}°C");
+                await Task.Delay(700, token);
+            }
+
+            State = SlicerState.Completed;
+            Console.WriteLine($"[Slicer {Id}] Toast completed.");
+        }
+        catch (OperationCanceledException)
+        {
+            State = SlicerState.Cancelled;
+            Console.WriteLine($"[Slicer {Id}] Cancel button pressed. Toasting cancelled.");
+        }
+        catch (Exception ex)
+        {
+            if (State != SlicerState.Jammed &amp;&amp; State != SlicerState.Overheated)
+                State = SlicerState.Error;
+
+            Console.WriteLine($"[Slicer {Id}] ERROR: {ex.Message}");
+        }
+        finally
+        {
+            // Safety guarantee: heater must be OFF in success, cancel, jam, overheat or error.
+            _heater.TurnOff(Id);
+
+            // If bread is inside, eject it outside.
+            if (Position == SlicerPosition.DownInside)
+                Eject();
+
+            _currentToastingCts?.Dispose();
+            _currentToastingCts = null;
+        }
+    }
+
+    public void Cancel()
+    {
+        if (State == SlicerState.Toasting || Position == SlicerPosition.DownInside)
+            _currentToastingCts?.Cancel();
+        else
+            Console.WriteLine($"[Slicer {Id}] Cancel ignored because slicer is not active.");
+    }
+
+    private void PushDown()
+    {
+        Position = SlicerPosition.DownInside;
+        State = SlicerState.PushedDown;
+        _mechanism.PushDown(Id);
+    }
+
+    private void Eject()
+    {
+        Position = SlicerPosition.UpEjected;
+        _mechanism.Eject(Id);
+    }
+}
+
+public sealed class Toaster
+{
+    private readonly List&lt;Slicer&gt; _slicers;
+    private readonly IToastProfileStrategy _profileStrategy;
+
+    public Toaster(IEnumerable&lt;Slicer&gt; slicers, IToastProfileStrategy profileStrategy)
+    {
+        _slicers = slicers.ToList();
+        _profileStrategy = profileStrategy;
+    }
+
+    public async Task ToastAllAsync(ToastMode mode, int browningLevel, CancellationToken token)
+    {
+        ToastProfile profile = _profileStrategy.CreateProfile(mode, browningLevel);
+        Console.WriteLine($"\nToaster started with {_slicers.Count} slicers. Mode={mode}\n");
+
+        var tasks = _slicers.Select(s =&gt; s.PushDownAndToastAsync(profile, token)).ToList();
+
+        // Demo cancellation: cancel slicer 1 after 2 seconds to prove cancel ejects bread.
+        _ = Task.Run(async () =&gt;
+        {
+            await Task.Delay(2000);
+            if (_slicers.Count &gt;= 1)
+                CancelSlicer(1);
+        });
+
+        await Task.WhenAll(tasks);
+        PrintSummary();
+    }
+
+    public void CancelSlicer(int slicerId)
+    {
+        var slicer = _slicers.FirstOrDefault(s =&gt; s.Id == slicerId);
+        if (slicer == null)
+        {
+            Console.WriteLine($"Slicer {slicerId} not found.");
+            return;
+        }
+
+        Console.WriteLine($"\n[Toaster] Cancel requested for slicer {slicerId}.");
+        slicer.Cancel();
+    }
+
+    private void PrintSummary()
+    {
+        Console.WriteLine("\nFinal Status:");
+        foreach (var slicer in _slicers)
+            Console.WriteLine($"Slicer {slicer.Id}: State={slicer.State}, Position={slicer.Position}");
+    }
+}
+
+public static class ToasterFactory
+{
+    public static Toaster Create(int slicerCount, IEnumerable&lt;int&gt;? jammedSlicers = null)
+    {
+        if (slicerCount &lt;= 0)
+            throw new ArgumentException("Slicer count must be greater than zero.");
+
+        IHeater heater = new ConsoleHeater();
+        ISlicerMechanism mechanism = new PushPullMechanism();
+        ISlicerSensor sensor = new DemoSlicerSensor(jammedSlicers);
+        IToastProfileStrategy strategy = new ToastProfileStrategy();
+
+        var slicers = Enumerable.Range(1, slicerCount)
+            .Select(id =&gt; new Slicer(id, heater, mechanism, sensor));
+
+        return new Toaster(slicers, strategy);
+    }
+}
+
+public class Program
+{
+    public static async Task Main()
+    {
+        Console.WriteLine("Multi-Slicer Toaster V2: Push/Pull + Cancel/Eject + Modes");
+        Console.WriteLine("---------------------------------------------------------");
+
+        Console.Write("Enter number of slicers: ");
+        int slicerCount = int.TryParse(Console.ReadLine(), out int count) ? count : 4;
+
+        Console.Write("Enter browning level 1-5: ");
+        int browningLevel = int.TryParse(Console.ReadLine(), out int level) ? level : 3;
+
+        Console.WriteLine("Select mode: 1=Normal, 2=Defrost, 3=Reheat");
+        Console.Write("Enter mode: ");
+        int modeInput = int.TryParse(Console.ReadLine(), out int modeValue) ? modeValue : 1;
+
+        ToastMode mode = modeInput switch
+        {
+            2 =&gt; ToastMode.Defrost,
+            3 =&gt; ToastMode.Reheat,
+            _ =&gt; ToastMode.Normal
+        };
+
+        // Demo: slicer 2 is jammed if available, to show error + eject behavior.
+        var jammed = slicerCount &gt;= 2 ? new[] { 2 } : Array.Empty&lt;int&gt;();
+        Toaster toaster = ToasterFactory.Create(slicerCount, jammedSlicers: jammed);
+
+        using var cts = new CancellationTokenSource();
+        await toaster.ToastAllAsync(mode, browningLevel, cts.Token);
+
+        Console.WriteLine("\nDone. Press any key to exit.");
+        Console.ReadKey();
+    }
+}</code></pre>
+</div>
+</section>
+
+<section id="console-output">
+<h2>3. Expected Console Output</h2>
+<div class="q codebox">
+<h3>Sample input</h3>
+<pre><code>Enter number of slicers: 3
+Enter browning level 1-5: 3
+Select mode: 1=Normal, 2=Defrost, 3=Reheat
+Enter mode: 2</code></pre>
+<h3>Sample output</h3>
+<pre><code>Multi-Slicer Toaster V2: Push/Pull + Cancel/Eject + Modes
+---------------------------------------------------------
+Enter number of slicers: 3
+Enter browning level 1-5: 3
+Select mode: 1=Normal, 2=Defrost, 3=Reheat
+Enter mode: 2
+
+Toaster started with 3 slicers. Mode=Defrost
+
+[Slicer 1] Requested Mode=Defrost, Level=3
+[Slicer 1] Push/Pull lever pressed: bread moved DOWN/INSIDE.
+[Slicer 1] Heater ON at 160°C
+[Slicer 1] Toasting 1/7, Temp=184°C
+
+[Slicer 2] Requested Mode=Defrost, Level=3
+[Slicer 2] Push/Pull lever pressed: bread moved DOWN/INSIDE.
+[Slicer 2] Heater ON at 160°C
+[Slicer 2] ERROR: Bread jam detected in slicer 2.
+[Slicer 2] Heater OFF
+[Slicer 2] Bread moved UP/EJECTED.
+
+[Slicer 3] Requested Mode=Defrost, Level=3
+[Slicer 3] Push/Pull lever pressed: bread moved DOWN/INSIDE.
+[Slicer 3] Heater ON at 160°C
+[Slicer 3] Toasting 1/7, Temp=169°C
+[Slicer 1] Toasting 2/7, Temp=191°C
+[Slicer 3] Toasting 2/7, Temp=177°C
+[Slicer 1] Toasting 3/7, Temp=163°C
+[Slicer 3] Toasting 3/7, Temp=182°C
+
+[Toaster] Cancel requested for slicer 1.
+[Slicer 1] Cancel button pressed. Toasting cancelled.
+[Slicer 1] Heater OFF
+[Slicer 1] Bread moved UP/EJECTED.
+
+[Slicer 3] Toasting 4/7, Temp=201°C
+[Slicer 3] Toasting 5/7, Temp=172°C
+[Slicer 3] Toasting 6/7, Temp=155°C
+[Slicer 3] Toasting 7/7, Temp=188°C
+[Slicer 3] Toast completed.
+[Slicer 3] Heater OFF
+[Slicer 3] Bread moved UP/EJECTED.
+
+Final Status:
+Slicer 1: State=Cancelled, Position=UpEjected
+Slicer 2: State=Jammed, Position=UpEjected
+Slicer 3: State=Completed, Position=UpEjected
+
+Done. Press any key to exit.</code></pre>
+<div class="tip"><strong>Note:</strong> Temperature values are random between 120 and 220, so exact numbers may differ on your machine. But flow will be same: slicer 2 jam, slicer 1 cancel/eject, slicer 3 complete/eject.</div>
+</div>
+</section>
+
+<section id="toaster-explain">
+<h2>4. Toaster Explanation + Cross Questions</h2>
+<div class="q"><h3>Cancel button behavior</h3><p>Cancel calls CancellationTokenSource.Cancel. The running toasting loop receives cancellation, OperationCanceledException is caught, State becomes Cancelled, heater turns off in finally, and Eject moves bread outside.</p></div>
+<div class="q"><h3>Why finally block?</h3><p>Because heater and mechanical ejection are safety-critical. Whether toast completes, fails, jams, overheats, or cancels, heater must turn off and bread should come out.</p></div>
+<div class="q"><h3>Why mechanism interface?</h3><p>Push/Pull is mechanical behavior. Heating is different responsibility. Keeping ISlicerMechanism separate follows SRP and helps testing.</p></div>
+<div class="q"><h3>What if one slicer jams?</h3><p>Current design isolates failure to that slicer. Jammed slicer stops and ejects. Other slicers continue. For critical safety issue, add SafetyController to cancel all slicers.</p></div>
+<div class="q"><h3>What if new mode Bagel is added?</h3><p>Add new enum value and profile logic or create separate strategy class. Slicer logic does not change.</p></div>
+</section>
+
+<section id="gc">
+<h2>5. .NET Memory Management / GC</h2>
+<div class="q deep"><h3>Explain memory management</h3><p>.NET memory management is handled by CLR. Reference type objects are allocated on managed heap. Garbage Collector identifies unreachable objects and reclaims memory. However unmanaged resources such as file handles, database connections, sockets and native handles need deterministic cleanup using IDisposable/using.</p></div>
+<div class="q deep"><h3>Stack vs Heap</h3><table><tr><th>Stack</th><th>Heap</th></tr><tr><td>Method call frames, local variables, references.</td><td>Reference type objects.</td></tr><tr><td>Thread-specific and fast.</td><td>Managed by GC.</td></tr><tr><td>Cleaned when method returns.</td><td>Cleaned when object becomes unreachable.</td></tr></table><pre><code>int x = 10;       // local value context
+Person p = new(); // p reference in stack frame, Person object on heap</code></pre><div class="tip">Do not say all value types are always on stack. Value types can be on heap when boxed, in arrays, as fields of reference types, or captured in closures.</div></div>
+<div class="q deep"><h3>Generations</h3><ul><li><strong>Gen 0:</strong> new short-lived objects.</li><li><strong>Gen 1:</strong> objects that survived Gen 0.</li><li><strong>Gen 2:</strong> long-lived objects; collection is expensive.</li></ul><p>GC uses generations because most objects die young. This improves performance by collecting young objects frequently and old objects less frequently.</p></div>
+<div class="q deep"><h3>GC phases</h3><ol><li><strong>Mark:</strong> find reachable objects from GC roots.</li><li><strong>Sweep:</strong> unreachable objects are garbage.</li><li><strong>Compact:</strong> move live objects together to reduce fragmentation.</li><li><strong>Update references:</strong> fix references after movement.</li></ol></div>
+</section>
+
+<section id="heap">
+<h2>6. Heap Deep Dive</h2>
+<div class="q deep"><h3>Managed heap</h3><p>Managed heap stores objects allocated by CLR. Allocation is usually fast using allocation pointer. When memory pressure increases, GC runs and cleans unreachable objects.</p></div>
+<div class="q deep"><h3>SOH / LOH / POH</h3><table><tr><th>Heap</th><th>Meaning</th></tr><tr><td>SOH</td><td>Small Object Heap for normal small objects.</td></tr><tr><td>LOH</td><td>Large Object Heap for objects around 85 KB or more, collected with Gen 2.</td></tr><tr><td>POH</td><td>Pinned Object Heap for pinned objects in modern .NET.</td></tr></table><pre><code>byte[] small = new byte[10_000];
+byte[] large = new byte[100_000]; // likely LOH</code></pre></div>
+<div class="q deep"><h3>GC roots</h3><p>GC roots are starting references used to determine object reachability: stack locals, static fields, CPU registers, GC handles, finalizer queue references.</p></div>
+<div class="q deep"><h3>Fragmentation</h3><p>Fragmentation means free memory exists but scattered. Compaction moves live objects together. Pinned objects can increase fragmentation because GC cannot move them.</p></div>
+</section>
+
+<section id="resources">
+<h2>7. Resources / IDisposable / Memory Leaks</h2>
+<div class="q deep"><h3>Managed vs unmanaged resources</h3><ul><li><strong>Managed:</strong> normal .NET objects.</li><li><strong>Unmanaged:</strong> file handles, sockets, DB connections, native memory, OS handles.</li></ul></div>
+<div class="q deep"><h3>IDisposable</h3><p>Use IDisposable and using for deterministic cleanup.</p><pre><code>using var stream = new FileStream("data.txt", FileMode.OpenOrCreate);
+// Dispose automatically called at end of scope</code></pre></div>
+<div class="q deep"><h3>Finalizer</h3><p>Finalizer is a non-deterministic safety net. Prefer IDisposable and SafeHandle. Finalizer can delay cleanup because the object may survive one extra GC cycle.</p></div>
+<div class="q deep"><h3>Memory leaks in .NET</h3><p>Leak happens when object is no longer needed but still reachable, so GC cannot collect it.</p><ul><li>Static lists/dictionaries growing forever.</li><li>Event handlers not unsubscribed.</li><li>Timers keeping references alive.</li><li>Unbounded cache.</li><li>Not disposing streams/connections.</li></ul><pre><code>public static List&lt;byte[]&gt; Cache = new();
+// If continuously added and never removed, objects stay reachable.</code></pre></div>
+</section>
+
+<section id="observable">
+<h2>8. Promise vs Observable</h2>
+<div class="q deep"><h3>Core difference</h3><table><tr><th>Promise</th><th>Observable</th></tr><tr><td>Single value/error.</td><td>Zero, one or multiple values over time.</td></tr><tr><td>Eager: starts immediately.</td><td>Lazy: starts when subscribed.</td></tr><tr><td>Not directly cancellable.</td><td>Cancellable using unsubscribe.</td></tr><tr><td>Limited operators.</td><td>RxJS operators like map, filter, switchMap, retry.</td></tr></table></div>
+<div class="q scenario"><h3>Multiple emit meaning</h3><p>Observable is stream-based. It can emit many values over time. Examples: search input, route params, WebSocket, form valueChanges.</p><pre><code>interval(1000).subscribe(value =&gt; console.log(value));
+// 0, 1, 2, 3... every second</code></pre></div>
+<div class="q scenario"><h3>Promise eager vs Observable lazy</h3><pre><code>const p = new Promise(resolve =&gt; {
+  console.log('Promise starts immediately');
+  resolve(1);
+});
+
+const o$ = new Observable(sub =&gt; {
+  console.log('Observable starts on subscribe');
+  sub.next(1);
+  sub.complete();
+});
+
+o$.subscribe();</code></pre></div>
+</section>
+
+<section id="rxjs">
+<h2>9. RxJS Scenario Questions</h2>
+<div class="q scenario"><h3>Search box API call</h3><p>Observable is better because search input emits multiple values. Use debounceTime to wait, distinctUntilChanged to avoid duplicate terms, and switchMap to cancel previous API call.</p><pre><code>this.searchControl.valueChanges.pipe(
+  debounceTime(300),
+  distinctUntilChanged(),
+  switchMap(term =&gt; this.productService.search(term))
+).subscribe(products =&gt; this.products = products);</code></pre></div>
+<div class="q scenario"><h3>Why Angular HTTP returns Observable though HTTP emits once?</h3><p>Because Observable supports cancellation, retry, error handling, transformation and composition.</p><pre><code>this.http.get&lt;Product[]&gt;('/api/products').pipe(
+  retry(2),
+  catchError(err =&gt; of([]))
+).subscribe(data =&gt; this.products = data);</code></pre></div>
+<div class="q scenario"><h3>switchMap / mergeMap / concatMap</h3><ul><li><strong>switchMap:</strong> latest only; best for search.</li><li><strong>mergeMap:</strong> parallel inner calls.</li><li><strong>concatMap:</strong> ordered one-by-one calls.</li></ul></div>
+<div class="q scenario"><h3>Subject vs BehaviorSubject</h3><p>Subject has no initial value. BehaviorSubject stores latest value and emits it to new subscribers.</p><pre><code>private userSubject = new BehaviorSubject&lt;User | null&gt;(null);
+user$ = this.userSubject.asObservable();
+
+setUser(user: User) {
+  this.userSubject.next(user);
+}</code></pre></div>
+</section>
+
+<section id="di">
+<h2>10. Angular Dependency Injection</h2>
+<div class="q deep"><h3>Explain DI</h3><p>Dependency Injection means Angular creates and provides dependencies to classes. Components do not manually create services. This improves loose coupling, reusability and testability.</p><pre><code>@Injectable({ providedIn: 'root' })
+export class AuthService {
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
+  }
+}
+
+@Component({ selector: 'app-header', template: '' })
+export class HeaderComponent {
+  constructor(private authService: AuthService) {}
+}</code></pre></div>
+<div class="q deep"><h3>Hierarchical injector</h3><p>Angular first checks current component injector, then parent injector, then route/module/environment/root injector. Closest provider wins.</p><div class="diagram">Component Injector
+  ↓
+Parent Injector
+  ↓
+Route / Module / Environment Injector
+  ↓
+Root Injector</div></div>
+<div class="q deep"><h3>providedIn root</h3><p>Creates one singleton app-level instance unless a child/component injector overrides it.</p></div>
+</section>
+
+<section id="di-cross">
+<h2>11. DI Cross Questions</h2>
+<div class="q scenario"><h3>Same service in root and component level</h3><p>If service is provided in root and also in component providers, Angular creates a new instance for that component subtree. Parent and children use component-level instance; other components use root instance.</p><pre><code>@Injectable({ providedIn: 'root' })
+export class CounterService { count = 0; }
+
+@Component({
+  selector: 'app-parent',
+  template: '&lt;app-child&gt;&lt;/app-child&gt;',
+  providers: [CounterService]
+})
+export class ParentComponent {
+  constructor(public counter: CounterService) {
+    counter.count++;
+  }
+}
+
+@Component({ selector: 'app-child', template: '' })
+export class ChildComponent {
+  constructor(public counter: CounterService) {}
+}</code></pre></div>
+<div class="q scenario"><h3>When to use component-level provider?</h3><ul><li>Need isolated state per component instance.</li><li>Wizard/form state should reset on component destroy.</li><li>Multiple tabs/cards should not share state.</li></ul></div>
+<div class="q scenario"><h3>@Self, @SkipSelf, @Optional</h3><ul><li><strong>@Self:</strong> current injector only.</li><li><strong>@SkipSelf:</strong> skip current injector and search parent.</li><li><strong>@Optional:</strong> return null instead of throwing if not found.</li></ul></div>
+</section>
+
+<section id="guard">
+<h2>12. Angular Auth Guard</h2>
+<div class="q deep"><h3>Explain Auth Guard</h3><p>Auth Guard protects routes before navigation. It can allow, block, or redirect. It can return boolean, UrlTree, Promise or Observable.</p><pre><code>export const authGuard: CanActivateFn = (route, state) =&gt; {
+  const auth = inject(AuthService);
+  const router = inject(Router);
+
+  if (auth.isLoggedIn()) return true;
+
+  return router.createUrlTree(['/login'], {
+    queryParams: { returnUrl: state.url }
+  });
+};</code></pre></div>
+<div class="q deep"><h3>Observable-based guard</h3><pre><code>export const authGuard: CanActivateFn = () =&gt; {
+  const auth = inject(AuthService);
+  const router = inject(Router);
+
+  return auth.currentUser$.pipe(
+    take(1),
+    map(user =&gt; user ? true : router.createUrlTree(['/login']))
+  );
+};</code></pre><div class="tip">Use take(1), otherwise navigation can hang if the stream never completes.</div></div>
+<div class="q deep"><h3>Role guard</h3><pre><code>export const roleGuard: CanActivateFn = (route) =&gt; {
+  const auth = inject(AuthService);
+  const router = inject(Router);
+  const requiredRole = route.data['role'];
+
+  return auth.currentUser$.pipe(
+    take(1),
+    map(user =&gt; user?.roles?.includes(requiredRole)
+      ? true
+      : router.createUrlTree(['/unauthorized']))
+  );
+};</code></pre></div>
+</section>
+
+<section id="guard-cross">
+<h2>13. Auth Guard Cross Questions</h2>
+<div class="q scenario"><h3>Guard vs Interceptor</h3><table><tr><th>Guard</th><th>Interceptor</th></tr><tr><td>Controls route/page access.</td><td>Controls HTTP request/response.</td></tr><tr><td>Runs before component activation.</td><td>Runs when HTTP call happens.</td></tr><tr><td>Redirects unauthenticated users.</td><td>Adds token, handles 401, refresh token.</td></tr></table></div>
+<div class="q scenario"><h3>Token expired: guard or interceptor?</h3><p>Guard can pre-check token before route load. Interceptor should handle API 401 globally, refresh token if supported, retry or logout.</p></div>
+<div class="q scenario"><h3>Is guard enough for security?</h3><p>No. Guard is client-side only. Backend must validate JWT signature, issuer, audience, expiry and roles/claims.</p></div>
+<div class="q scenario"><h3>canActivate vs canMatch vs canDeactivate</h3><ul><li><strong>canActivate:</strong> route activation.</li><li><strong>canMatch:</strong> route matching/lazy route access.</li><li><strong>canActivateChild:</strong> child route protection.</li><li><strong>canDeactivate:</strong> prevent leaving page, e.g., unsaved changes.</li></ul></div>
+</section>
+
+<section id="rapid">
+<h2>14. Final Short Answers</h2>
+<div class="q"><h3>Toaster</h3><p>“I model toaster as a controller of dynamic slicer collection. Each slicer has state, position, heater, sensor and mechanism. PushDown moves bread inside, Cancel stops heating and ejects bread. Mode strategy handles Normal/Defrost/Reheat. Finally block guarantees heater off and eject on completion/cancel/error.”</p></div>
+<div class="q"><h3>GC</h3><p>“.NET GC manages managed heap objects using generations. It tracks reachable objects from GC roots. Unreachable objects are collected and heap may compact. GC does not deterministically release unmanaged resources, so IDisposable is required.”</p></div>
+<div class="q"><h3>Observable</h3><p>“Promise emits one value and starts immediately. Observable is lazy, cancellable, and can emit multiple values over time. Best examples are search box, WebSocket, route params, and form valueChanges.”</p></div>
+<div class="q"><h3>DI</h3><p>“providedIn root gives singleton app-wide instance. Component providers create separate instance for that component subtree and override root instance there.”</p></div>
+<div class="q"><h3>Auth Guard</h3><p>“Guard protects routes and can return boolean/UrlTree/Observable/Promise. It improves UX but backend must enforce real security. Interceptor handles token on HTTP calls.”</p></div>
+</section>
+</main>
+<div class="footer">Final RXO interview file — all topics + working code + console output.</div>
+</body>
+</html>
