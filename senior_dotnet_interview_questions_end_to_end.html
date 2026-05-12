@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Senior .NET Interview Questions - End to End</title>
+  <style>
+    :root {
+      --primary: #0f172a;
+      --secondary: #2563eb;
+      --accent: #14b8a6;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --danger: #dc2626;
+      --success: #16a34a;
+      --warning: #d97706;
+      --code-bg: #0b1220;
+      --code-text: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a, #1d4ed8);
+      color: #fff;
+      padding: 42px 24px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 34px;
+      letter-spacing: -0.5px;
+    }
+
+    header p {
+      margin: 0 auto;
+      max-width: 900px;
+      color: #dbeafe;
+      font-size: 17px;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .top-note {
+      background: #ecfeff;
+      border: 1px solid #a5f3fc;
+      border-left: 5px solid var(--accent);
+      padding: 18px;
+      border-radius: 14px;
+      margin-bottom: 22px;
+    }
+
+    .toc {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 26px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .toc h2 { margin-top: 0; }
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 10px 18px;
+    }
+
+    a { color: var(--secondary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      margin: 24px 0;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    section h2 {
+      margin-top: 0;
+      color: var(--primary);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    .q {
+      border-left: 4px solid var(--secondary);
+      background: #f8fafc;
+      padding: 16px 18px;
+      border-radius: 12px;
+      margin: 18px 0;
+    }
+
+    .q h3 {
+      margin: 0 0 8px;
+      color: #111827;
+      font-size: 19px;
+    }
+
+    .answer-label {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .pro-tip {
+      background: #fefce8;
+      border-left: 4px solid var(--warning);
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin: 10px 0;
+    }
+
+    .red-flag {
+      background: #fef2f2;
+      border-left: 4px solid var(--danger);
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin: 10px 0;
+    }
+
+    .good {
+      background: #f0fdf4;
+      border-left: 4px solid var(--success);
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin: 10px 0;
+    }
+
+    code, pre {
+      font-family: Consolas, Monaco, "Courier New", monospace;
+    }
+
+    pre {
+      background: var(--code-bg);
+      color: var(--code-text);
+      padding: 16px;
+      border-radius: 12px;
+      overflow-x: auto;
+      font-size: 14px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #eef2ff;
+      color: #3730a3;
+      border: 1px solid #c7d2fe;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 12px;
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+
+    .checklist li { margin-bottom: 8px; }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 24px;
+      font-size: 14px;
+    }
+
+    @media print {
+      header { background: #fff; color: #000; border-bottom: 1px solid #ddd; }
+      header p { color: #333; }
+      section, .toc, .top-note { box-shadow: none; break-inside: avoid; }
+      a { color: #000; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Senior .NET Interview Questions — End-to-End Preparation</h1>
+    <p>For Lead/Senior .NET Web API roles: debugging, Azure, microservices, architecture, performance, security, deployment, SQL, testing, and scenario-based answers.</p>
+  </header>
+
+  <main class="container">
+    <div class="top-note">
+      <strong>How to use this file:</strong> Read each answer aloud like an interview response. Focus on structure: <strong>what I check first → how I isolate → how I fix → how I prevent recurrence</strong>.
+    </div>
+
+    <nav class="toc">
+      <h2>Contents</h2>
+      <div class="toc-grid">
+        <a href="#debugging">1. Production Debugging & Error Finding</a>
+        <a href="#webapi">2. ASP.NET Core Web API</a>
+        <a href="#azure">3. Azure App Service & Cloud</a>
+        <a href="#appinsights">4. Application Insights & Logging</a>
+        <a href="#keyvault">5. Azure Key Vault</a>
+        <a href="#microservices">6. Microservices</a>
+        <a href="#servicebus">7. Azure Service Bus / Messaging</a>
+        <a href="#security">8. Security & Authentication</a>
+        <a href="#performance">9. Performance & Scalability</a>
+        <a href="#sql">10. SQL / EF Core</a>
+        <a href="#deployment">11. CI/CD & Deployment</a>
+        <a href="#testing">12. Testing</a>
+        <a href="#designpatterns">13. Design Patterns & SOLID</a>
+        <a href="#systemdesign">14. System Design Scenarios</a>
+        <a href="#behavioral">15. Senior/Lead Behavioral Questions</a>
+        <a href="#quickanswers">16. Quick One-Liner Answers</a>
+      </div>
+    </nav>
+
+    <section id="debugging">
+      <h2>1. Production Debugging & Error Finding</h2>
+
+      <div class="q">
+        <h3>Q1. If something breaks in production Web API on Azure, how will you find where the error is?</h3>
+        <span class="answer-label">Senior Answer</span>
+        <p>I follow a structured approach. First, I check <strong>Application Insights</strong> for failed requests, exceptions, response codes, dependency failures, and correlation ID. Then I verify the same API from <strong>Postman</strong> or browser network tab to check status code, payload, headers, and response body. After that, I check App Service logs, Log Stream, and deployment logs if the issue is related to startup or deployment. If the issue is still unclear, I reproduce locally with the same configuration or use remote debugging carefully in non-production/staging. Finally, I identify root cause, fix it, add logs/alerts, and document prevention steps.</p>
+        <div class="good"><strong>Interview line:</strong> “I don’t directly jump to code. I first isolate whether it is client-side, API-side, dependency-side, configuration-side, or deployment-side.”</div>
+      </div>
+
+      <div class="q">
+        <h3>Q2. What do you check first for HTTP 500 error?</h3>
+        <p>For HTTP 500, I first check Application Insights exceptions and failed requests. I look for stack trace, request URL, operation ID/correlation ID, and dependency failures like SQL timeout or external API failure. Then I check recent deployment/config changes, environment variables, connection strings, and App Service Log Stream.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q3. API is working locally but failing on Azure. What can be the reason?</h3>
+        <ul>
+          <li>Wrong app settings or connection string in Azure Configuration.</li>
+          <li>Missing Key Vault permission or Managed Identity issue.</li>
+          <li>Different environment variable or ASPNETCORE_ENVIRONMENT value.</li>
+          <li>Firewall/network restriction for database or external service.</li>
+          <li>Deployment package mismatch or missing files.</li>
+          <li>CORS issue if frontend calls API.</li>
+        </ul>
+      </div>
+
+      <div class="q">
+        <h3>Q4. API is slow in production. How will you troubleshoot?</h3>
+        <p>I check Application Insights performance blade to find slow endpoints. Then I inspect dependencies to see whether latency is from database, external API, cache, or application code. I check SQL query duration, N+1 queries, missing indexes, thread pool starvation, excessive logging, large payloads, and synchronous blocking calls. If needed, I add custom telemetry around critical code paths.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q5. Browser shows CORS error. How do you debug?</h3>
+        <p>I check browser console and network tab for preflight OPTIONS request. Then I verify API CORS policy: allowed origins, methods, headers, credentials, and middleware order. In ASP.NET Core, <code>UseCors</code> should be configured correctly before authorization endpoints where required.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q6. How do you use correlation ID?</h3>
+        <p>A correlation ID uniquely tracks a request across services. We generate or accept a correlation ID from headers and log it in every service, database operation, and external dependency call. In microservices, it helps trace the complete request flow from API Gateway to downstream services.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q7. What is remote debugging and when do you use it?</h3>
+        <p>Remote debugging means attaching Visual Studio debugger to an Azure App Service process to debug deployed code. I use it only when logs and telemetry are not enough, preferably in dev/staging because it can impact performance. I ensure the deployed code and symbols match the local code.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q8. How do you handle an intermittent issue?</h3>
+        <p>I add more diagnostic logs with correlation ID, capture request parameters safely, check dependency failures and retry patterns, monitor time-based trends, and compare with deployment/configuration changes. For intermittent failures, I also check transient network errors, SQL deadlocks, throttling, and race conditions.</p>
+      </div>
+    </section>
+
+    <section id="webapi">
+      <h2>2. ASP.NET Core Web API</h2>
+
+      <div class="q">
+        <h3>Q9. Explain request pipeline in ASP.NET Core.</h3>
+        <p>ASP.NET Core request pipeline is a sequence of middleware components. Each middleware can process the request, call the next middleware, and process the response. Common middleware includes exception handling, HTTPS redirection, routing, CORS, authentication, authorization, and endpoint mapping.</p>
+        <pre><code>app.UseExceptionHandler("/error");
+app.UseHttpsRedirection();
+app.UseRouting();
+app.UseCors("DefaultPolicy");
+app.UseAuthentication();
+app.UseAuthorization();
+app.MapControllers();</code></pre>
+      </div>
+
+      <div class="q">
+        <h3>Q10. Difference between middleware and filters?</h3>
+        <p>Middleware works at the application pipeline level for all requests. Filters are MVC-specific and run around controller/action execution. Middleware is good for global cross-cutting concerns like logging, exception handling, authentication. Filters are good for action-level validation, authorization, and result transformation.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q11. How do you handle exceptions globally?</h3>
+        <p>I use global exception handling middleware or <code>UseExceptionHandler</code>. The middleware logs the exception and returns a consistent error response without exposing internal stack trace to clients.</p>
+        <pre><code>app.UseExceptionHandler(errorApp =&gt;
+{
+    errorApp.Run(async context =&gt;
+    {
+        context.Response.StatusCode = 500;
+        context.Response.ContentType = "application/json";
+        await context.Response.WriteAsJsonAsync(new
+        {
+            message = "An unexpected error occurred.",
+            traceId = context.TraceIdentifier
+        });
+    });
+});</code></pre>
+      </div>
+
+      <div class="q">
+        <h3>Q12. How do you version Web APIs?</h3>
+        <p>Common approaches are URL versioning like <code>/api/v1/reports</code>, header versioning, query string versioning, or media type versioning. For public APIs, URL or header versioning is commonly used. I also maintain backward compatibility and deprecate old versions gradually.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q13. What are idempotent APIs?</h3>
+        <p>An idempotent operation gives the same result even if called multiple times. GET, PUT, DELETE are generally idempotent. POST is usually not idempotent unless we implement idempotency keys. This is important for retry handling and distributed systems.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q14. How do you secure Web API?</h3>
+        <ul>
+          <li>Use HTTPS.</li>
+          <li>Use JWT/OAuth2/OpenID Connect for authentication.</li>
+          <li>Use role/claim-based authorization.</li>
+          <li>Validate input and avoid over-posting.</li>
+          <li>Store secrets in Key Vault.</li>
+          <li>Use rate limiting and logging.</li>
+        </ul>
+      </div>
+
+      <div class="q">
+        <h3>Q15. Difference between AddScoped, AddTransient, and AddSingleton?</h3>
+        <p><strong>Transient</strong> creates a new instance every time. <strong>Scoped</strong> creates one instance per request. <strong>Singleton</strong> creates one instance for the application lifetime. For EF Core DbContext, Scoped is typically used.</p>
+      </div>
+    </section>
+
+    <section id="azure">
+      <h2>3. Azure App Service & Cloud</h2>
+
+      <div class="q">
+        <h3>Q16. What Azure hands-on do you have?</h3>
+        <p>If your actual experience is deployment only, answer honestly but strongly:</p>
+        <div class="good">“I have hands-on experience deploying .NET Web APIs to Azure App Service and managing application configuration. I have used/understood Application Insights for monitoring. I am currently strengthening practical knowledge on Key Vault, Service Bus, and microservices communication.”</div>
+      </div>
+
+      <div class="q">
+        <h3>Q17. How do you deploy Web API to Azure App Service?</h3>
+        <p>I create an App Service, configure runtime stack, set app settings/connection strings, deploy via Visual Studio/Azure DevOps/GitHub Actions, enable Application Insights, verify health endpoint, and monitor logs after deployment.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q18. What are deployment slots?</h3>
+        <p>Deployment slots allow us to deploy new versions to a staging slot and then swap with production. It reduces downtime and risk. Slot-specific settings can be used for environment-specific configuration.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q19. What is Managed Identity?</h3>
+        <p>Managed Identity provides an Azure-managed identity for an application so it can access Azure resources like Key Vault without storing credentials in code or configuration.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q20. How do you manage configuration in Azure?</h3>
+        <p>I use App Service Configuration for non-secret settings, Key Vault for secrets, environment-specific settings for dev/test/prod, and avoid storing secrets in appsettings.json.</p>
+      </div>
+    </section>
+
+    <section id="appinsights">
+      <h2>4. Application Insights & Logging</h2>
+
+      <div class="q">
+        <h3>Q21. What do you check in Application Insights?</h3>
+        <ul>
+          <li>Failures: exceptions and failed requests.</li>
+          <li>Performance: slow endpoints.</li>
+          <li>Dependencies: SQL, HTTP, storage calls.</li>
+          <li>Live Metrics: real-time traffic and failures.</li>
+          <li>Transaction Search: request trace using operation ID.</li>
+        </ul>
+      </div>
+
+      <div class="q">
+        <h3>Q22. Are all logs available only in Application Insights?</h3>
+        <p>No. Application Insights is primary and centralized, but we can also check App Service Log Stream, file system logs, Kudu, deployment logs, browser console/network tab, and custom logs depending on issue type.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q23. How do you write logs in .NET?</h3>
+        <pre><code>private readonly ILogger&lt;ReportController&gt; _logger;
+
+public ReportController(ILogger&lt;ReportController&gt; logger)
+{
+    _logger = logger;
+}
+
+_logger.LogInformation("Report request started for UserId: {UserId}", userId);
+_logger.LogError(ex, "Error while generating report for UserId: {UserId}", userId);</code></pre>
+        <div class="pro-tip">Never log sensitive data like passwords, tokens, full connection strings, or personal data.</div>
+      </div>
+    </section>
+
+    <section id="keyvault">
+      <h2>5. Azure Key Vault</h2>
+
+      <div class="q">
+        <h3>Q24. What is Azure Key Vault?</h3>
+        <p>Azure Key Vault is used to securely store and manage secrets, keys, and certificates. Example: database connection strings, API keys, certificates, encryption keys.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q25. How do you read/write secrets from Key Vault?</h3>
+        <p>First create Key Vault and store secrets. Then enable Managed Identity for the app and grant required permissions like Get/List/Set. In code, use Azure SDK SecretClient with DefaultAzureCredential.</p>
+        <pre><code>var client = new SecretClient(
+    new Uri("https://your-vault.vault.azure.net/"),
+    new DefaultAzureCredential());
+
+KeyVaultSecret secret = await client.GetSecretAsync("DbConnection");
+string connectionString = secret.Value;
+
+await client.SetSecretAsync("ApiKey", "secret-value");</code></pre>
+      </div>
+
+      <div class="q">
+        <h3>Q26. If you have not worked on Key Vault, how to answer honestly?</h3>
+        <div class="good">“I have not implemented Key Vault directly in production, but I understand its purpose. It stores secrets securely, and applications access it using Managed Identity and Azure SDK after proper RBAC/access policy permission.”</div>
+      </div>
+    </section>
+
+    <section id="microservices">
+      <h2>6. Microservices</h2>
+
+      <div class="q">
+        <h3>Q27. What are microservices?</h3>
+        <p>Microservices architecture divides an application into small, independently deployable services. Each service owns its business capability and can communicate with other services using REST/gRPC or asynchronous messaging.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q28. Monolith vs Microservices?</h3>
+        <p>In monolith, all modules are deployed as one application. In microservices, services are independently deployable and scalable. Microservices improve scalability and team autonomy but add complexity in communication, monitoring, deployment, and data consistency.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q29. How will you convert Insurance Reporting Hub into microservices?</h3>
+        <p>I would identify business capabilities and split them into services like User Service, Report Service, Assignment Service, Notification Service, and Audit Service. Report Service handles report metadata and generation. Assignment Service handles user-report mapping. Notification Service sends email/messages asynchronously. API Gateway exposes a single entry point. Application Insights provides distributed tracing.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q30. How do services communicate?</h3>
+        <ul>
+          <li><strong>Synchronous:</strong> REST/gRPC when immediate response is required.</li>
+          <li><strong>Asynchronous:</strong> Queue/Topic using Service Bus/Kafka when decoupling and reliability are required.</li>
+        </ul>
+      </div>
+
+      <div class="q">
+        <h3>Q31. What is API Gateway?</h3>
+        <p>API Gateway is a single entry point for clients. It handles routing, authentication, rate limiting, request transformation, and sometimes aggregation. In Azure, API Management can act as API Gateway.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q32. What are common microservices challenges?</h3>
+        <ul>
+          <li>Distributed tracing and monitoring.</li>
+          <li>Data consistency across services.</li>
+          <li>Network failures and retries.</li>
+          <li>Service discovery/configuration.</li>
+          <li>Deployment and versioning complexity.</li>
+        </ul>
+      </div>
+
+      <div class="q">
+        <h3>Q33. What is circuit breaker?</h3>
+        <p>Circuit breaker prevents repeated calls to a failing dependency. If failures cross a threshold, the circuit opens and calls fail fast for some time. This protects system resources and improves resilience.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q34. How do you handle data consistency in microservices?</h3>
+        <p>For distributed systems, we avoid distributed transactions where possible. We use eventual consistency, Saga pattern, outbox pattern, and idempotent consumers to make message processing reliable.</p>
+      </div>
+    </section>
+
+    <section id="servicebus">
+      <h2>7. Azure Service Bus / Messaging</h2>
+
+      <div class="q">
+        <h3>Q35. What is Azure Service Bus?</h3>
+        <p>Azure Service Bus is a managed messaging service used for asynchronous communication between applications or microservices. It supports queues and topics/subscriptions.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q36. Queue vs Topic?</h3>
+        <p>Queue is point-to-point messaging where one consumer processes a message. Topic is publish-subscribe where multiple subscribers can receive the same message based on subscriptions/filters.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q37. Why use messaging instead of direct API call?</h3>
+        <p>Messaging decouples services, improves reliability, handles traffic spikes, and allows retry/dead-letter handling. It is useful when immediate response is not required.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q38. What is dead-letter queue?</h3>
+        <p>Dead-letter queue stores messages that cannot be processed successfully after retries or due to validation/processing errors. We monitor DLQ and reprocess/fix messages after root cause analysis.</p>
+      </div>
+    </section>
+
+    <section id="security">
+      <h2>8. Security & Authentication</h2>
+
+      <div class="q">
+        <h3>Q39. JWT authentication flow?</h3>
+        <p>User authenticates with identity provider. The provider issues a JWT token. Client sends token in Authorization header. API validates issuer, audience, signature, expiry, and claims. Then authorization is applied based on role/claims.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q40. Authentication vs Authorization?</h3>
+        <p>Authentication verifies who the user is. Authorization verifies what the user is allowed to do.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q41. How do you protect sensitive data?</h3>
+        <ul>
+          <li>Use HTTPS.</li>
+          <li>Store secrets in Key Vault.</li>
+          <li>Use encryption at rest and in transit.</li>
+          <li>Mask sensitive logs.</li>
+          <li>Apply least privilege access.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="performance">
+      <h2>9. Performance & Scalability</h2>
+
+      <div class="q">
+        <h3>Q42. How do you improve Web API performance?</h3>
+        <ul>
+          <li>Use async/await for I/O operations.</li>
+          <li>Optimize SQL queries and indexes.</li>
+          <li>Use caching for frequently accessed data.</li>
+          <li>Reduce payload size and use pagination.</li>
+          <li>Avoid N+1 queries.</li>
+          <li>Use Application Insights to identify bottlenecks.</li>
+        </ul>
+      </div>
+
+      <div class="q">
+        <h3>Q43. What is caching and where do you use it?</h3>
+        <p>Caching stores frequently used data to reduce database/API calls. We can use in-memory cache for single instance, distributed cache like Redis for multiple instances, and response caching for cacheable API responses.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q44. How do you scale Azure App Service?</h3>
+        <p>Scale up means increasing CPU/RAM of the instance. Scale out means increasing number of instances. For high traffic, scale out with autoscale rules based on CPU, memory, request count, or custom metrics.</p>
+      </div>
+    </section>
+
+    <section id="sql">
+      <h2>10. SQL / EF Core</h2>
+
+      <div class="q">
+        <h3>Q45. How do you troubleshoot slow SQL query?</h3>
+        <p>I check execution plan, missing indexes, table scans, joins, parameter sniffing, blocking/deadlocks, and query duration. From application side, I check EF generated SQL, N+1 queries, and unnecessary data loading.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q46. What is optimistic concurrency?</h3>
+        <p>Optimistic concurrency assumes conflicts are rare. We use row version/timestamp to detect whether data changed before update. If conflict occurs, we handle it gracefully.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q47. Repository pattern: good or bad?</h3>
+        <p>Repository pattern abstracts data access logic and improves testability. But with EF Core, DbContext already acts like repository/unit of work, so extra repository should be used only when it adds real value, not blindly.</p>
+      </div>
+    </section>
+
+    <section id="deployment">
+      <h2>11. CI/CD & Deployment</h2>
+
+      <div class="q">
+        <h3>Q48. Explain CI/CD pipeline for .NET API.</h3>
+        <p>CI builds the code, restores packages, runs tests, performs static checks, and publishes artifacts. CD deploys the artifact to target environment using approvals and environment-specific configuration. After deployment, smoke tests and monitoring validation are performed.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q49. What is rollback strategy?</h3>
+        <p>Rollback strategy means quickly reverting to a stable version if deployment fails. We can use deployment slots, previous artifacts, database backward compatibility, feature flags, and automated health checks.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q50. What is blue-green deployment?</h3>
+        <p>Blue-green deployment uses two environments: current live and new version. After validating the new version, traffic is switched. It reduces downtime and allows quick rollback.</p>
+      </div>
+    </section>
+
+    <section id="testing">
+      <h2>12. Testing</h2>
+
+      <div class="q">
+        <h3>Q51. Unit test vs integration test?</h3>
+        <p>Unit test validates a small piece of code in isolation using mocks. Integration test validates multiple components together such as API + database or API + external service.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q52. How do you test Web API?</h3>
+        <ul>
+          <li>Unit test services/business logic.</li>
+          <li>Integration test controllers and DB interactions.</li>
+          <li>Use Postman/Newman for API test collections.</li>
+          <li>Validate authentication/authorization scenarios.</li>
+          <li>Run smoke tests after deployment.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="designpatterns">
+      <h2>13. Design Patterns & SOLID</h2>
+
+      <div class="q">
+        <h3>Q53. Explain SOLID principles.</h3>
+        <ul>
+          <li><strong>S:</strong> Single Responsibility — one class should have one reason to change.</li>
+          <li><strong>O:</strong> Open/Closed — open for extension, closed for modification.</li>
+          <li><strong>L:</strong> Liskov Substitution — derived classes should replace base classes safely.</li>
+          <li><strong>I:</strong> Interface Segregation — avoid forcing clients to depend on unused methods.</li>
+          <li><strong>D:</strong> Dependency Inversion — depend on abstractions, not concrete classes.</li>
+        </ul>
+      </div>
+
+      <div class="q">
+        <h3>Q54. Which patterns have you used?</h3>
+        <p>Common patterns in .NET projects are Dependency Injection, Repository, Factory, Strategy, Adapter, Mediator/CQRS, and Unit of Work. Explain patterns with your actual project example.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q55. What is dependency injection?</h3>
+        <p>Dependency Injection provides required dependencies from outside instead of creating them inside the class. It improves loose coupling, testability, and maintainability.</p>
+      </div>
+    </section>
+
+    <section id="systemdesign">
+      <h2>14. System Design Scenarios</h2>
+
+      <div class="q">
+        <h3>Q56. Design a reporting system like Insurance Reporting Hub.</h3>
+        <p>I would design modules/services for user management, report metadata, report assignment, report generation, notification, and audit. APIs would be secured using JWT. Report generation can run asynchronously using queue/background worker for large reports. Metadata and assignments go to SQL. Generated files can be stored in Blob Storage. Application Insights tracks failures/performance. Key Vault stores secrets.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q57. Design notification system.</h3>
+        <p>API publishes notification request to queue/topic. Notification worker consumes message and sends email/SMS. Failed messages are retried and moved to dead-letter queue if repeatedly failing. Templates are stored separately. Logs and correlation IDs are used for tracing.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q58. How will you design audit logging?</h3>
+        <p>Audit log should capture who did what, when, from where, and what changed. It should be append-only. Sensitive fields should be masked. For high-scale systems, audit events can be sent asynchronously to a queue and stored separately.</p>
+      </div>
+    </section>
+
+    <section id="behavioral">
+      <h2>15. Senior/Lead Behavioral Questions</h2>
+
+      <div class="q">
+        <h3>Q59. How do you handle production incident?</h3>
+        <p>I first assess impact and severity, communicate status to stakeholders, check telemetry/logs, identify mitigation, apply hotfix/rollback if required, monitor recovery, and then do RCA with preventive actions.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q60. How do you guide junior developers?</h3>
+        <p>I help with code reviews, design discussions, debugging approach, documentation, and pair programming. I focus on explaining why something is done, not just what to change.</p>
+      </div>
+
+      <div class="q">
+        <h3>Q61. What if you do not know a technology asked in interview?</h3>
+        <p>Answer honestly but show understanding and learning ability. Example: “I have not implemented it directly, but I understand the concept and how it fits in architecture. I can quickly pick it up because I have worked on similar integration patterns.”</p>
+      </div>
+    </section>
+
+    <section id="quickanswers">
+      <h2>16. Quick One-Liner Answers</h2>
+      <ul class="checklist">
+        <li><strong>App Insights:</strong> Used for monitoring, logs, exceptions, performance, and dependency tracking.</li>
+        <li><strong>Key Vault:</strong> Secure storage for secrets, keys, and certificates.</li>
+        <li><strong>Managed Identity:</strong> Passwordless identity for Azure resources.</li>
+        <li><strong>Service Bus:</strong> Async messaging between services.</li>
+        <li><strong>API Gateway:</strong> Single entry point for routing, auth, throttling, and policy enforcement.</li>
+        <li><strong>Microservices:</strong> Small independently deployable services around business capabilities.</li>
+        <li><strong>Correlation ID:</strong> Used to trace request across systems.</li>
+        <li><strong>Circuit breaker:</strong> Stops repeated calls to failing dependency.</li>
+        <li><strong>Retry policy:</strong> Handles transient failures with controlled retries.</li>
+        <li><strong>Dead-letter queue:</strong> Stores unprocessed failed messages.</li>
+        <li><strong>Scale up:</strong> Increase server capacity.</li>
+        <li><strong>Scale out:</strong> Increase number of instances.</li>
+        <li><strong>Deployment slot:</strong> Staging environment for safe deployment/swap.</li>
+        <li><strong>Idempotency:</strong> Same operation repeated gives same result.</li>
+        <li><strong>JWT:</strong> Token-based authentication mechanism.</li>
+      </ul>
+
+      <div class="pro-tip">
+        <strong>Final Interview Formula:</strong> For every answer, use this pattern — <strong>Definition → Real use → Your project example → Risk/Best practice</strong>.
+      </div>
+    </section>
+
+    <section>
+      <h2>Bonus: Strong Self-Introduction for Your Current Situation</h2>
+      <p>Use this if you have Azure deployment experience but limited hands-on on other Azure services:</p>
+      <div class="good">
+        “I have strong experience in .NET Web API development and have deployed applications on Azure App Service. I have worked with production debugging using logs, monitoring, Postman, and browser network tools. My current focus is strengthening microservices hands-on, especially service-to-service communication, Azure Service Bus, Key Vault, and Application Insights-based monitoring.”
+      </div>
+    </section>
+  </main>
+
+  <div class="footer">
+    Created for senior .NET / Azure interview preparation. Save this file and open it in any browser.
+  </div>
+</body>
+</html>

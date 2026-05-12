@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Senior .NET Interview Questions - Debugging, Logical, Azure, Microservices</title>
+  <style>
+    :root{
+      --bg:#f5f7fb;--card:#ffffff;--text:#1f2937;--muted:#64748b;--primary:#0f172a;--blue:#2563eb;--green:#16a34a;--amber:#d97706;--red:#dc2626;--border:#e5e7eb;--code:#101827;--codeText:#e5e7eb;
+    }
+    *{box-sizing:border-box} body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+    header{background:linear-gradient(135deg,#0f172a,#1d4ed8);color:white;padding:42px 22px;text-align:center}
+    header h1{margin:0 0 10px;font-size:34px} header p{max-width:1050px;margin:0 auto;color:#dbeafe;font-size:17px}
+    .container{max-width:1220px;margin:0 auto;padding:24px}.card,section{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:24px;margin:22px 0;box-shadow:0 8px 24px rgba(15,23,42,.06)}
+    h2{margin-top:0;color:#0f172a;border-bottom:2px solid var(--border);padding-bottom:8px}h3{margin:0 0 8px;color:#111827;font-size:19px}
+    a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:9px 18px}
+    .q{border-left:4px solid var(--blue);background:#f8fafc;padding:16px 18px;border-radius:12px;margin:18px 0}.scenario{border-left-color:var(--amber)}.logical{border-left-color:var(--green)}
+    .label{display:inline-block;background:#dbeafe;color:#1e40af;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700;margin:3px 4px 8px 0}.label.green{background:#dcfce7;color:#166534}.label.amber{background:#fef3c7;color:#92400e}.label.red{background:#fee2e2;color:#991b1b}
+    .good{background:#f0fdf4;border-left:4px solid var(--green);padding:12px 14px;border-radius:10px;margin:10px 0}.tip{background:#fffbeb;border-left:4px solid var(--amber);padding:12px 14px;border-radius:10px;margin:10px 0}.bad{background:#fef2f2;border-left:4px solid var(--red);padding:12px 14px;border-radius:10px;margin:10px 0}
+    code,pre{font-family:Consolas,Monaco,"Courier New",monospace}pre{background:var(--code);color:var(--codeText);padding:16px;border-radius:12px;overflow-x:auto;font-size:14px}.small{color:var(--muted);font-size:14px}.pill{display:inline-block;border:1px solid #c7d2fe;background:#eef2ff;color:#3730a3;border-radius:999px;padding:3px 9px;font-size:12px;margin:2px}
+    table{width:100%;border-collapse:collapse;margin:14px 0;background:white}th,td{border:1px solid var(--border);padding:10px;text-align:left;vertical-align:top}th{background:#f1f5f9;color:#0f172a}.footer{text-align:center;color:var(--muted);padding:26px}
+    @media print{header{background:#fff;color:#000;border-bottom:1px solid #ccc}header p{color:#333}.card,section{box-shadow:none;break-inside:avoid}a{color:#000}}
+  </style>
+</head>
+<body>
+<header>
+  <h1>Senior .NET Interview Questions — Complete Debugging + Logical + Azure + Microservices</h1>
+  <p>Interview-ready answers for Senior/Lead .NET roles. Focus: “API issue आया तो कैसे पता करोगे?”, remote debugging, production troubleshooting, logical/coding rounds, Azure, microservices, SQL, performance, CI/CD and leadership scenarios.</p>
+</header>
+<main class="container">
+  <div class="card">
+    <h2>How to Use This File</h2>
+    <p><strong>Best formula for interview:</strong> <span class="pill">Observe</span> → <span class="pill">Isolate</span> → <span class="pill">Reproduce</span> → <span class="pill">Debug</span> → <span class="pill">Fix</span> → <span class="pill">Prevent</span></p>
+    <div class="good"><strong>Golden line:</strong> “I first identify whether the problem is client-side, API-side, dependency-side, configuration-side, infra-side, or deployment-side. Then I use logs, telemetry, Postman/network tab, and debugging accordingly.”</div>
+  </div>
+
+  <nav class="card">
+    <h2>Contents</h2>
+    <div class="toc-grid">
+      <a href="#prod-debug">1. Production API Debugging Scenarios</a>
+      <a href="#remote-debug">2. Remote Debugging in Azure</a>
+      <a href="#appinsights">3. App Insights / Logs / KQL</a>
+      <a href="#browser-postman">4. Browser Network Tab & Postman Debugging</a>
+      <a href="#azure-config">5. Azure Config, Deployment, App Service</a>
+      <a href="#webapi-core">6. ASP.NET Core Web API Deep Questions</a>
+      <a href="#logical">7. Logical / Coding Questions</a>
+      <a href="#linq">8. LINQ / C# Practical Questions</a>
+      <a href="#async">9. Async, Threading, Memory, Exceptions</a>
+      <a href="#sql">10. SQL / EF Core Troubleshooting</a>
+      <a href="#microservices">11. Microservices Scenario Questions</a>
+      <a href="#servicebus">12. Service Bus / Queue Questions</a>
+      <a href="#security">13. Security / JWT / Key Vault</a>
+      <a href="#performance">14. Performance & Scalability</a>
+      <a href="#leadership">15. Lead/Senior Behavioral</a>
+      <a href="#rapid">16. Rapid Fire Cheat Sheet</a>
+    </div>
+  </nav>
+
+  <section id="prod-debug">
+    <h2>1. Production API Debugging Scenarios</h2>
+
+    <div class="q scenario">
+      <h3>Q1. API issue आया है, कैसे पता करोगे problem कहां है?</h3>
+      <span class="label amber">Scenario</span><span class="label">Must Know</span>
+      <p>I will not directly assume code issue. I will follow a layered approach:</p>
+      <ol>
+        <li><strong>Confirm issue:</strong> endpoint, user impact, environment, exact time, status code.</li>
+        <li><strong>Client side:</strong> browser network tab / Postman request, payload, headers, token, response.</li>
+        <li><strong>API side:</strong> Application Insights failed requests, exceptions, traces, operation ID.</li>
+        <li><strong>Dependencies:</strong> SQL, external API, storage, service bus dependency failures.</li>
+        <li><strong>Configuration:</strong> app settings, connection strings, Key Vault references, environment variable.</li>
+        <li><strong>Deployment:</strong> recent release, slot swap, package mismatch, startup logs.</li>
+        <li><strong>Reproduce/debug:</strong> reproduce locally/staging; if still unclear use remote debugging carefully.</li>
+      </ol>
+      <div class="good"><strong>Interview answer:</strong> “I isolate the layer first. If request is not reaching API, I check network/CORS/auth. If reaching API and failing, I check App Insights exceptions and dependencies. If only Azure failing, I check configuration, Key Vault, deployment and App Service logs.”</div>
+    </div>
+
+    <div class="q scenario"><h3>Q2. API returns 500 Internal Server Error. What will you check?</h3>
+      <ul><li>Application Insights → Failures → Exceptions → stack trace.</li><li>Operation ID/correlation ID to trace complete request.</li><li>Dependency tab: SQL timeout, external API failure, storage failure.</li><li>Recent deployment/configuration changes.</li><li>App Service Log Stream for startup/runtime errors.</li></ul>
+      <p><strong>Root cause examples:</strong> null reference, bad config, SQL timeout, missing permission, Key Vault access denied.</p>
+    </div>
+
+    <div class="q scenario"><h3>Q3. API returns 401/403. How will you debug?</h3>
+      <p><strong>401</strong> means authentication failed; <strong>403</strong> means authenticated but not authorized.</p>
+      <ul><li>Check Authorization header and token expiry.</li><li>Validate issuer, audience, signing key, scopes/roles/claims.</li><li>Check API auth middleware order: Authentication before Authorization.</li><li>Check user role/claim mapping and policy configuration.</li></ul>
+    </div>
+
+    <div class="q scenario"><h3>Q4. API returns 404 but code exists. What can be wrong?</h3>
+      <ul><li>Wrong route/controller/action attribute.</li><li>Wrong base URL or API version.</li><li>API Gateway/APIM routing issue.</li><li>Deployment did not include latest code.</li><li>App Service virtual directory/path issue.</li></ul>
+    </div>
+
+    <div class="q scenario"><h3>Q5. API is working in Postman but not from browser/frontend.</h3>
+      <ul><li>Likely CORS issue, token issue, cookie/credential issue, or wrong frontend environment URL.</li><li>Check browser console and Network tab, especially preflight OPTIONS request.</li><li>Validate allowed origins, methods, headers, credentials and middleware order.</li></ul>
+    </div>
+
+    <div class="q scenario"><h3>Q6. API is working locally but failing on Azure.</h3>
+      <ul><li>Azure App Settings missing/wrong.</li><li>Connection string points to wrong DB.</li><li>Key Vault permission/Managed Identity missing.</li><li>Firewall/private endpoint/VNet issue.</li><li>Different .NET runtime or environment variable.</li><li>Missing files after deployment.</li></ul>
+      <div class="tip"><strong>Strong line:</strong> “If it fails only in Azure, I first suspect environment/configuration/permission/network before code.”</div>
+    </div>
+
+    <div class="q scenario"><h3>Q7. API is intermittently failing. How do you investigate?</h3>
+      <p>Intermittent issues are often transient dependency failures, timeouts, deadlocks, throttling, race conditions, or instance-specific issues.</p>
+      <ul><li>Check failure time pattern in App Insights.</li><li>Check if failures happen on one App Service instance only.</li><li>Check SQL deadlock/timeout, external API throttling.</li><li>Add correlation ID and structured logs.</li><li>Use retries with exponential backoff where safe.</li></ul>
+    </div>
+
+    <div class="q scenario"><h3>Q8. API response is slow. How will you find bottleneck?</h3>
+      <ul><li>Application Insights Performance → slow endpoint.</li><li>Dependency duration → SQL/external API/storage.</li><li>Check N+1 queries, missing indexes, large payload, sync-over-async, thread pool starvation.</li><li>Check CPU/memory in App Service metrics.</li></ul>
+    </div>
+
+    <div class="q scenario"><h3>Q9. API deployment successful but app not starting.</h3>
+      <ul><li>Check App Service Log Stream.</li><li>Check startup exception in Application Insights.</li><li>Check runtime stack and .NET version.</li><li>Check required app settings and connection strings.</li><li>Check web.config / process path for hosted app.</li></ul>
+    </div>
+
+    <div class="q scenario"><h3>Q10. One user gets error but others do not. What will you check?</h3>
+      <ul><li>User-specific role/permission/claim.</li><li>User data causing edge case or null data.</li><li>Tenant/client-specific configuration.</li><li>Browser cache/token expiry.</li><li>Data volume for that user causing timeout.</li></ul>
+    </div>
+  </section>
+
+  <section id="remote-debug">
+    <h2>2. Remote Debugging in Azure</h2>
+
+    <div class="q scenario"><h3>Q11. What is remote debugging?</h3>
+      <p>Remote debugging means attaching Visual Studio debugger to the process running on Azure App Service so we can hit breakpoints in deployed code. It is useful when issue cannot be reproduced locally and logs are not enough.</p>
+      <div class="bad"><strong>Caution:</strong> Avoid in production unless absolutely required. Prefer staging slot because remote debugging can slow down requests and expose runtime state.</div>
+    </div>
+
+    <div class="q scenario"><h3>Q12. How to do remote debugging for Azure App Service?</h3>
+      <ol>
+        <li>Deploy same code/build symbols which you have locally.</li>
+        <li>Azure Portal → App Service → Configuration → General Settings → enable Remote Debugging.</li>
+        <li>Select correct Visual Studio version.</li>
+        <li>Open same solution in Visual Studio.</li>
+        <li>Debug → Attach to Process.</li>
+        <li>Connection type: Microsoft Azure App Services.</li>
+        <li>Select App Service and attach to <code>w3wp.exe</code> / <code>dotnet.exe</code>.</li>
+        <li>Put breakpoint and hit API via Postman/browser.</li>
+      </ol>
+    </div>
+
+    <div class="q scenario"><h3>Q13. Breakpoint is not hitting during remote debugging. Why?</h3>
+      <ul><li>Local code does not match deployed code.</li><li>Symbols/PDB not loaded.</li><li>Wrong process attached.</li><li>Endpoint not actually executing that code path.</li><li>Release optimization or old deployment running.</li><li>Multiple instances and request going to different instance.</li></ul>
+    </div>
+
+    <div class="q scenario"><h3>Q14. Remote debugging vs logs: which one first?</h3>
+      <p>First logs/telemetry. Remote debugging is last option when logs, App Insights, and reproducible test cases are not enough. For production, use App Insights, Snapshot Debugger, custom telemetry, or staging slot debugging where possible.</p>
+    </div>
+  </section>
+
+  <section id="appinsights">
+    <h2>3. Application Insights / Logs / KQL</h2>
+
+    <div class="q"><h3>Q15. What exactly do you check in Application Insights?</h3>
+      <ul><li><strong>Failures:</strong> failed requests/exceptions.</li><li><strong>Performance:</strong> slow APIs and percentile latency.</li><li><strong>Dependencies:</strong> SQL, HTTP, storage, Service Bus failures.</li><li><strong>Transaction Search:</strong> trace complete request with operation ID.</li><li><strong>Live Metrics:</strong> real-time requests/failures.</li></ul>
+    </div>
+
+    <div class="q"><h3>Q16. Give useful KQL queries for debugging.</h3>
+      <pre><code>// Failed requests in last 24 hours
+requests
+| where timestamp > ago(24h)
+| where success == false
+| project timestamp, name, url, resultCode, duration, operation_Id
+| order by timestamp desc
+
+// Exceptions with stack trace
+exceptions
+| where timestamp > ago(24h)
+| project timestamp, type, message, operation_Id, outerMessage
+| order by timestamp desc
+
+// Slow dependencies
+ dependencies
+| where timestamp > ago(24h)
+| order by duration desc
+| project timestamp, type, target, name, duration, success, operation_Id
+
+// Trace using correlation/operation id
+union requests, traces, exceptions, dependencies
+| where operation_Id == "PUT_OPERATION_ID_HERE"
+| order by timestamp asc</code></pre>
+    </div>
+
+    <div class="q"><h3>Q17. Are all logs available in App Insights only?</h3>
+      <p>No. App Insights is primary, but we also check App Service Log Stream, file system logs, Kudu, deployment logs, browser console/network tab, API gateway logs, and database logs depending on issue.</p>
+    </div>
+  </section>
+
+  <section id="browser-postman">
+    <h2>4. Browser Network Tab & Postman Debugging</h2>
+    <div class="q scenario"><h3>Q18. What do you check in browser Network tab?</h3>
+      <ul><li>Request URL and method.</li><li>Status code: 400/401/403/404/500.</li><li>Request payload and query params.</li><li>Authorization header present or not.</li><li>Response body/error message.</li><li>CORS preflight OPTIONS call.</li><li>Timing waterfall: DNS, TLS, waiting, download.</li></ul>
+    </div>
+    <div class="q scenario"><h3>Q19. How do you use Postman for debugging?</h3>
+      <ul><li>Reproduce request independent of frontend.</li><li>Set headers, token, payload manually.</li><li>Compare dev/test/prod responses.</li><li>Validate status code and response schema.</li><li>Use environment variables and collection tests.</li></ul>
+    </div>
+    <div class="q scenario"><h3>Q20. 400 Bad Request कैसे debug करोगे?</h3>
+      <p>Check model validation errors, required fields, enum value mismatch, wrong content-type, malformed JSON, date format issue, max request size, and API contract mismatch.</p>
+    </div>
+  </section>
+
+  <section id="azure-config">
+    <h2>5. Azure Config, Deployment, App Service</h2>
+    <div class="q"><h3>Q21. Azure App Service में configuration कैसे manage करते हो?</h3><p>Non-secret settings go in App Service Configuration. Secrets should go to Key Vault. Environment-specific settings should be separate for dev/test/prod. Avoid storing production secrets in appsettings.json.</p></div>
+    <div class="q"><h3>Q22. Deployment slot क्यों use करते हैं?</h3><p>For zero/low downtime deployment. Deploy to staging slot, verify health checks, warm up app, then swap to production. Rollback is faster by swapping back.</p></div>
+    <div class="q"><h3>Q23. Recent deployment के बाद issue आया. What will you do?</h3><ul><li>Check release notes/changed files.</li><li>Check deployment logs and startup logs.</li><li>Compare app settings before/after.</li><li>Run smoke tests.</li><li>If high impact, rollback/swap slot first, then RCA.</li></ul></div>
+  </section>
+
+  <section id="webapi-core">
+    <h2>6. ASP.NET Core Web API Deep Questions</h2>
+    <div class="q"><h3>Q24. Explain middleware pipeline order.</h3><p>Exception handling should be early. Then HTTPS/static/routing/CORS/authentication/authorization/endpoints. Wrong order can cause CORS/auth failures.</p><pre><code>app.UseExceptionHandler("/error");
+app.UseHttpsRedirection();
+app.UseRouting();
+app.UseCors("Default");
+app.UseAuthentication();
+app.UseAuthorization();
+app.MapControllers();</code></pre></div>
+    <div class="q"><h3>Q25. Scoped vs Transient vs Singleton?</h3><p>Transient creates new instance every resolve. Scoped creates one per request. Singleton creates one for application lifetime. DbContext should generally be scoped. Do not inject scoped service directly into singleton.</p></div>
+    <div class="q"><h3>Q26. How do you handle global exception?</h3><p>Use exception middleware to log error and return consistent response with trace ID. Do not expose stack trace to client in production.</p></div>
+    <div class="q"><h3>Q27. What is idempotency and why important?</h3><p>Same request repeated should not create duplicate side effects. Important for retries, payment/order/report-generation APIs. Use idempotency key for POST operations where needed.</p></div>
+  </section>
+
+  <section id="logical">
+    <h2>7. Logical / Coding Questions</h2>
+    <div class="q logical"><h3>Q28. Find first non-repeating character in a string.</h3><pre><code>public static char? FirstNonRepeating(string input)
+{
+    var dict = new Dictionary&lt;char, int&gt;();
+    foreach (var ch in input)
+        dict[ch] = dict.ContainsKey(ch) ? dict[ch] + 1 : 1;
+
+    foreach (var ch in input)
+        if (dict[ch] == 1) return ch;
+
+    return null;
+}</code></pre><p><strong>Complexity:</strong> O(n) time, O(k) space.</p></div>
+
+    <div class="q logical"><h3>Q29. Reverse words in a sentence.</h3><pre><code>public static string ReverseWords(string sentence)
+{
+    return string.Join(" ", sentence.Split(' ', StringSplitOptions.RemoveEmptyEntries).Reverse());
+}</code></pre></div>
+
+    <div class="q logical"><h3>Q30. Check if two strings are anagrams.</h3><pre><code>public static bool AreAnagrams(string a, string b)
+{
+    if (a.Length != b.Length) return false;
+    return a.OrderBy(x =&gt; x).SequenceEqual(b.OrderBy(x =&gt; x));
+}</code></pre><div class="tip">For better performance, use frequency dictionary instead of sorting.</div></div>
+
+    <div class="q logical"><h3>Q31. Find duplicate numbers in array.</h3><pre><code>public static IEnumerable&lt;int&gt; FindDuplicates(int[] nums)
+{
+    return nums.GroupBy(x =&gt; x)
+               .Where(g =&gt; g.Count() &gt; 1)
+               .Select(g =&gt; g.Key);
+}</code></pre></div>
+
+    <div class="q logical"><h3>Q32. Find missing number from 1 to n.</h3><pre><code>public static int MissingNumber(int[] nums, int n)
+{
+    int expected = n * (n + 1) / 2;
+    int actual = nums.Sum();
+    return expected - actual;
+}</code></pre></div>
+
+    <div class="q logical"><h3>Q33. Check palindrome.</h3><pre><code>public static bool IsPalindrome(string input)
+{
+    int i = 0, j = input.Length - 1;
+    while (i &lt; j)
+    {
+        if (input[i] != input[j]) return false;
+        i++; j--;
+    }
+    return true;
+}</code></pre></div>
+
+    <div class="q logical"><h3>Q34. FizzBuzz.</h3><pre><code>for (int i = 1; i &lt;= 100; i++)
+{
+    if (i % 15 == 0) Console.WriteLine("FizzBuzz");
+    else if (i % 3 == 0) Console.WriteLine("Fizz");
+    else if (i % 5 == 0) Console.WriteLine("Buzz");
+    else Console.WriteLine(i);
+}</code></pre></div>
+
+    <div class="q logical"><h3>Q35. Find second highest number.</h3><pre><code>public static int SecondHighest(int[] nums)
+{
+    return nums.Distinct().OrderByDescending(x =&gt; x).Skip(1).First();
+}</code></pre><div class="tip">Senior follow-up: handle empty/single-element array and avoid sorting for O(n).</div></div>
+
+    <div class="q logical"><h3>Q36. Count occurrence of each word.</h3><pre><code>var result = sentence.Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                     .GroupBy(w =&gt; w.ToLower())
+                     .ToDictionary(g =&gt; g.Key, g =&gt; g.Count());</code></pre></div>
+  </section>
+
+  <section id="linq">
+    <h2>8. LINQ / C# Practical Questions</h2>
+    <div class="q"><h3>Q37. Find employees with second highest salary.</h3><pre><code>var secondSalary = employees.Select(e =&gt; e.Salary)
+                            .Distinct()
+                            .OrderByDescending(s =&gt; s)
+                            .Skip(1)
+                            .FirstOrDefault();
+
+var result = employees.Where(e =&gt; e.Salary == secondSalary);</code></pre></div>
+    <div class="q"><h3>Q38. Group employees by department.</h3><pre><code>var groups = employees.GroupBy(e =&gt; e.Department)
+                      .Select(g =&gt; new { Department = g.Key, Count = g.Count() });</code></pre></div>
+    <div class="q"><h3>Q39. Difference between IEnumerable and IQueryable?</h3><p><strong>IEnumerable</strong> executes in memory. <strong>IQueryable</strong> builds expression tree and executes at data source like SQL. For database filtering, IQueryable is better because filtering happens in DB.</p></div>
+    <div class="q"><h3>Q40. FirstOrDefault vs SingleOrDefault?</h3><p>FirstOrDefault returns first matching record or default. SingleOrDefault expects zero or one record and throws exception if multiple records exist.</p></div>
+  </section>
+
+  <section id="async">
+    <h2>9. Async, Threading, Memory, Exceptions</h2>
+    <div class="q"><h3>Q41. Why use async/await in Web API?</h3><p>For I/O-bound operations like DB/API calls, async releases thread while waiting, improves scalability, and allows server to handle more concurrent requests.</p></div>
+    <div class="q"><h3>Q42. What is deadlock in async code?</h3><p>Blocking async code using <code>.Result</code> or <code>.Wait()</code> can cause deadlock or thread starvation. Prefer await all the way.</p></div>
+    <div class="q"><h3>Q43. Task vs Thread?</h3><p>Thread is low-level execution unit. Task is higher-level abstraction representing asynchronous operation and may use thread pool.</p></div>
+    <div class="q"><h3>Q44. How do you handle memory leak/high memory?</h3><ul><li>Check App Service memory metrics.</li><li>Look for static collections, unbounded cache, undisposed streams, large object allocations.</li><li>Use profiling/dumps in staging.</li><li>Dispose IDisposable and use streaming for large files.</li></ul></div>
+  </section>
+
+  <section id="sql">
+    <h2>10. SQL / EF Core Troubleshooting</h2>
+    <div class="q"><h3>Q45. SQL timeout in API. How will you debug?</h3><ul><li>Check App Insights dependency duration.</li><li>Check query execution plan and missing indexes.</li><li>Check blocking/deadlocks.</li><li>Check connection pool exhaustion.</li><li>Check if API is loading too much data without pagination.</li></ul></div>
+    <div class="q"><h3>Q46. What is N+1 query problem?</h3><p>When one query loads parent records and then separate query runs for each child record. Fix using Include, projection, joins, or optimized query.</p></div>
+    <div class="q"><h3>Q47. EF Core tracking vs AsNoTracking?</h3><p>Tracking is useful when updating entities. AsNoTracking improves performance for read-only queries because EF does not track changes.</p></div>
+  </section>
+
+  <section id="microservices">
+    <h2>11. Microservices Scenario Questions</h2>
+    <div class="q"><h3>Q48. What is microservices?</h3><p>Application is split into small independent services around business capabilities. Each service can be developed, deployed, scaled independently and communicates via REST/gRPC or messaging.</p></div>
+    <div class="q"><h3>Q49. How to design Insurance Reporting Hub as microservices?</h3><ul><li>User Service</li><li>Report Service</li><li>Assignment Service</li><li>Notification Service</li><li>Audit Service</li></ul><p>Use API Gateway/APIM, Service Bus for async notifications, SQL per service where possible, Application Insights for tracing, Key Vault for secrets.</p></div>
+    <div class="q"><h3>Q50. Sync vs async communication?</h3><p>Use REST/gRPC when immediate response is required. Use queue/topic when process can happen later and decoupling/reliability is more important.</p></div>
+    <div class="q"><h3>Q51. How do you handle failures between microservices?</h3><ul><li>Timeouts</li><li>Retry with exponential backoff</li><li>Circuit breaker</li><li>Fallback response</li><li>Dead-letter queue for async messages</li><li>Correlation ID for tracing</li></ul></div>
+    <div class="q"><h3>Q52. What is Saga pattern?</h3><p>Saga manages distributed transactions using sequence of local transactions and compensating actions. Used when multiple services update their own databases.</p></div>
+  </section>
+
+  <section id="servicebus">
+    <h2>12. Service Bus / Queue Questions</h2>
+    <div class="q"><h3>Q53. Queue vs Topic?</h3><p>Queue is one-to-one message processing. Topic is publish-subscribe where multiple subscribers can receive same event.</p></div>
+    <div class="q"><h3>Q54. What is dead-letter queue?</h3><p>Messages that cannot be processed after retries or validation failures move to dead-letter queue for investigation and reprocessing.</p></div>
+    <div class="q"><h3>Q55. How do you avoid duplicate message processing?</h3><p>Use idempotent consumers, message IDs, deduplication, and store processed message IDs when needed.</p></div>
+  </section>
+
+  <section id="security">
+    <h2>13. Security / JWT / Key Vault</h2>
+    <div class="q"><h3>Q56. Key Vault read/write कैसे करते हैं?</h3><p>Create Key Vault, store secret, enable Managed Identity for app, grant permission/RBAC, use SecretClient with DefaultAzureCredential.</p><pre><code>var client = new SecretClient(
+    new Uri("https://your-vault.vault.azure.net/"),
+    new DefaultAzureCredential());
+
+var secret = await client.GetSecretAsync("DbConnection");
+await client.SetSecretAsync("ApiKey", "value");</code></pre></div>
+    <div class="q"><h3>Q57. JWT token invalid issue कैसे debug करेंगे?</h3><ul><li>Check expiry.</li><li>Check issuer/audience.</li><li>Check signing key/certificate.</li><li>Check token sent in Authorization header.</li><li>Check scopes/roles/claims.</li></ul></div>
+    <div class="q"><h3>Q58. What if you have not worked on Key Vault?</h3><div class="good">“I have not implemented it directly in production, but I understand it is used for secret management. The app normally accesses secrets using Managed Identity and Azure SDK after proper permission.”</div></div>
+  </section>
+
+  <section id="performance">
+    <h2>14. Performance & Scalability</h2>
+    <div class="q"><h3>Q59. How to improve API performance?</h3><ul><li>Async I/O</li><li>SQL optimization and indexes</li><li>Caching</li><li>Pagination</li><li>Compression</li><li>Reduce payload</li><li>Use App Insights to find bottleneck</li></ul></div>
+    <div class="q"><h3>Q60. Scale up vs scale out?</h3><p>Scale up increases CPU/RAM of one instance. Scale out increases number of instances. For high traffic, scale out with autoscale is preferred.</p></div>
+    <div class="q"><h3>Q61. How do you handle high traffic?</h3><p>Use autoscale, caching, database optimization, queue-based background processing, CDN for static content, rate limiting, and proper monitoring.</p></div>
+  </section>
+
+  <section id="leadership">
+    <h2>15. Lead/Senior Behavioral</h2>
+    <div class="q"><h3>Q62. Production incident आया तो lead के तौर पर क्या करोगे?</h3><p>Assess severity, communicate impact, assign owners, identify mitigation, rollback/hotfix if required, monitor recovery, then prepare RCA with preventive action.</p></div>
+    <div class="q"><h3>Q63. If junior developer made production bug?</h3><p>I will fix the incident first, then review the process. I focus on blameless RCA, test gaps, code review gaps, and mentoring.</p></div>
+    <div class="q"><h3>Q64. If you don't know an answer?</h3><div class="good">“I have not worked directly on that in production, but I understand the concept. I would approach it by checking documentation, implementing a small POC, and validating with team standards.”</div></div>
+  </section>
+
+  <section id="rapid">
+    <h2>16. Rapid Fire Cheat Sheet</h2>
+    <table>
+      <tr><th>Question</th><th>Short Answer</th></tr>
+      <tr><td>500 error</td><td>Check App Insights exception, stack trace, dependencies, config, deployment.</td></tr>
+      <tr><td>401</td><td>Token/authentication issue.</td></tr>
+      <tr><td>403</td><td>Authorization/role/claim issue.</td></tr>
+      <tr><td>API slow</td><td>Check App Insights performance and dependencies.</td></tr>
+      <tr><td>Local works Azure fails</td><td>Config, permission, network, runtime, deployment issue.</td></tr>
+      <tr><td>Remote debugging</td><td>Attach Visual Studio to Azure App Service process, preferably staging.</td></tr>
+      <tr><td>Key Vault</td><td>Secure secrets accessed using Managed Identity.</td></tr>
+      <tr><td>Service Bus</td><td>Async communication between services.</td></tr>
+      <tr><td>Correlation ID</td><td>Trace same request across services/logs.</td></tr>
+      <tr><td>Circuit breaker</td><td>Stops repeated calls to failing dependency.</td></tr>
+    </table>
+    <div class="tip"><strong>Last-minute answer format:</strong> “First I check logs/telemetry, then reproduce using Postman/network tab, then isolate dependency/config/deployment, then debug locally or remotely if needed.”</div>
+  </section>
+
+</main>
+<div class="footer">Created for Senior .NET / Azure interviews — enhanced with debugging scenarios, remote debugging and logical coding questions.</div>
+</body>
+</html>
